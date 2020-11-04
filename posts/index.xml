@@ -757,8 +757,11 @@ Once ended with this, I came back to the game trying the root on the remaining 2
 <p>I took a nap of around 1 hour, and I had some lunch, from this I started to work on my report, when I realized I had it finished at 4 am, I reviewed it around 4 or 5 times, and went to sleep. Next day I did some more reviews and finally submitted it around 10 am, so between the 18 and 20, I only slept around 5/6 hs with luck.</p>
 <p>Through all the exam, I took a lot of short rests of sometimes 10 minutes, sometimes 30 minutes, at some moments every 2 hours at others every 3 hours, you will notice when you need to take a break, just make sure you take them, don&rsquo;t let your self fall into the tempting of not doing it, thinking it will save you time, a break is important as keep pushing.</p>
 <p>Talking a bit on the official chat of HTB, I was told that all the community thinks that when you get half-user, that&rsquo;s half the points, so I ended with the thought I got 90 pts (instead the 80 I thought at first), as the remaining 20 pts, I got the user, but not the root (even if I wasn&rsquo;t able to do PE, in my report I included all my findings and personal thoughts about it).</p>
-<pre><code class="language-console" data-lang="console">ONCE certificate arrives, photo will be here
-</code></pre><h2 id="101-cheatsheet">101: Cheatsheet</h2>
+
+    <img src="/images/blog/oscp/certificate.jpg"  class="center"  style="border-radius: 8px;"  />
+
+
+<h2 id="101-cheatsheet">101: Cheatsheet</h2>
 <p>Something that I found really helpful during the exam, is the <a href="https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/">cheatsheet</a> I made along the course as also all the different resources I normally tend to go looking for some references stuff (for example PayloadAllTheThings), you can find a direct link to my Cheatsheet always in the upper right corner of the blog.</p>
 <p>Take cheatsheets from other people, start figuring out what stuff is the one you use the more, what&rsquo;s helpfull, what is granted you will not remember, try to develop your own as you progress to the labs, it is really helpfull and also helps to &ldquo;solidify&rdquo; more the stuff in your mind.</p>
 <h2 id="110-a-look-into-the-future">110: A look into the future</h2>
