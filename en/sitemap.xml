@@ -3,8 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ceso.github.io/tags/articles/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/blog/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/books/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/bugbounty/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ceso.github.io/</loc>
-    <lastmod>2020-05-14T00:00:00+00:00</lastmod>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -15,6 +35,96 @@
                 hreflang="en"
                 href="https://ceso.github.io/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/exfiltration/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/hacking/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/posts/2020/12/hacking-resources/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/learning/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/linux/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/tags/linux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/tags/linux/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/posts/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/privilegeescalation/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/resources/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/techniques/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/vectors/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/tags/windows/</loc>
+    <lastmod>2020-12-04T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -49,36 +159,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://ceso.github.io/tags/htb-medium/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://ceso.github.io/tags/linux/</loc>
-    <lastmod>2020-05-14T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://ceso.github.io/es/tags/linux/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ceso.github.io/tags/linux/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://ceso.github.io/posts/</loc>
-    <lastmod>2020-05-14T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://ceso.github.io/es/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ceso.github.io/posts/"
                 />
   </url>
   
@@ -128,21 +208,6 @@
   </url>
   
   <url>
-    <loc>https://ceso.github.io/tags/</loc>
-    <lastmod>2020-05-14T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://ceso.github.io/es/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ceso.github.io/tags/"
-                />
-  </url>
-  
-  <url>
     <loc>https://ceso.github.io/tags/web/</loc>
     <lastmod>2020-05-14T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -163,16 +228,6 @@
   </url>
   
   <url>
-    <loc>https://ceso.github.io/tags/blog/</loc>
-    <lastmod>2020-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ceso.github.io/tags/hacking/</loc>
-    <lastmod>2020-04-27T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ceso.github.io/tags/oscp/</loc>
     <lastmod>2020-04-27T00:00:00+00:00</lastmod>
   </url>
@@ -183,67 +238,12 @@
   </url>
   
   <url>
-    <loc>https://ceso.github.io/tags/articles/</loc>
-    <lastmod>2020-04-07T02:30:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ceso.github.io/tags/books/</loc>
-    <lastmod>2020-04-07T02:30:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ceso.github.io/tags/bugbounty/</loc>
-    <lastmod>2020-04-07T02:30:30+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ceso.github.io/tags/cheatsheet/</loc>
     <lastmod>2020-04-07T02:30:30+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ceso.github.io/tags/exfiltration/</loc>
-    <lastmod>2020-04-07T02:30:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ceso.github.io/posts/2020/04/hacking-resources/</loc>
-    <lastmod>2020-04-07T02:30:30+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/</loc>
-    <lastmod>2020-04-07T02:30:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ceso.github.io/tags/learning/</loc>
-    <lastmod>2020-04-07T02:30:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ceso.github.io/tags/privilegeescalation/</loc>
-    <lastmod>2020-04-07T02:30:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ceso.github.io/tags/resources/</loc>
-    <lastmod>2020-04-07T02:30:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ceso.github.io/tags/techniques/</loc>
-    <lastmod>2020-04-07T02:30:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ceso.github.io/tags/vectors/</loc>
-    <lastmod>2020-04-07T02:30:30+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ceso.github.io/tags/windows/</loc>
     <lastmod>2020-04-07T02:30:30+00:00</lastmod>
   </url>
   

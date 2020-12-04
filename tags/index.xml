@@ -5,98 +5,98 @@
     <link>https://ceso.github.io/tags/</link>
     <description>Recent content in Tags on Ceso Adventures</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 14 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ceso.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>code-analysis</title>
-      <link>https://ceso.github.io/tags/code-analysis/</link>
-      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
+      <title>articles</title>
+      <link>https://ceso.github.io/tags/articles/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ceso.github.io/tags/code-analysis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>htb-medium</title>
-      <link>https://ceso.github.io/tags/htb-medium/</link>
-      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ceso.github.io/tags/htb-medium/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://ceso.github.io/tags/linux/</link>
-      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ceso.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>https://ceso.github.io/tags/python/</link>
-      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ceso.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rce</title>
-      <link>https://ceso.github.io/tags/rce/</link>
-      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ceso.github.io/tags/rce/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ssh</title>
-      <link>https://ceso.github.io/tags/ssh/</link>
-      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ceso.github.io/tags/ssh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>web</title>
-      <link>https://ceso.github.io/tags/web/</link>
-      <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ceso.github.io/tags/web/</guid>
+      <guid>https://ceso.github.io/tags/articles/</guid>
       <description></description>
     </item>
     
     <item>
       <title>blog</title>
       <link>https://ceso.github.io/tags/blog/</link>
-      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ceso.github.io/tags/blog/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>books</title>
+      <link>https://ceso.github.io/tags/books/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/tags/books/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bugbounty</title>
+      <link>https://ceso.github.io/tags/bugbounty/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/tags/bugbounty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>exfiltration</title>
+      <link>https://ceso.github.io/tags/exfiltration/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/tags/exfiltration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>hacking</title>
       <link>https://ceso.github.io/tags/hacking/</link>
-      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ceso.github.io/tags/hacking/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>oscp</title>
-      <link>https://ceso.github.io/tags/oscp/</link>
-      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
+      <title>learning</title>
+      <link>https://ceso.github.io/tags/learning/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ceso.github.io/tags/oscp/</guid>
+      <guid>https://ceso.github.io/tags/learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://ceso.github.io/tags/linux/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>privilegeescalation</title>
+      <link>https://ceso.github.io/tags/privilegeescalation/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/tags/privilegeescalation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>resources</title>
+      <link>https://ceso.github.io/tags/resources/</link>
+      <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/tags/resources/</guid>
       <description></description>
     </item>
     
