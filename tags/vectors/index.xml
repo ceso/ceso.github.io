@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vectors on Ceso Adventures</title>
+    <link>https://ceso.github.io/tags/vectors/</link>
+    <description>Recent content in vectors on Ceso Adventures</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 07 Apr 2020 02:30:30 +0000</lastBuildDate>
+    
+	<atom:link href="https://ceso.github.io/tags/vectors/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hacking Resources</title>
+      <link>https://ceso.github.io/posts/2020/04/hacking-resources/</link>
+      <pubDate>Tue, 07 Apr 2020 02:30:30 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/posts/2020/04/hacking-resources/</guid>
+      <description>Usefull Web Browser plugins  https://www.wappalyzer.com/download/ https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/ &amp;lt;&amp;mdash;&amp;mdash; For Firefox https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp &amp;lt;&amp;mdash;&amp;mdash; For Chrome https://cookie-editor.cgagnier.ca/#download https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/  Cool Tools/Labs  https://www.blacklanternsecurity.com/2020-12-02-WriteHat/ https://github.com/madhuakula/kubernetes-goat https://github.com/m8r0wn/ActiveReign https://github.com/sundowndev/PhoneInfoga https://github.com/GoSecure/dtd-finder https://www.shodan.io/ https://crt.sh https://dnsdumpster.com/ https://mxtoolbox.com/  Linux Privilege Escalation  https://gtfobins.github.io/ https://book.hacktricks.xyz/linux-unix/privilege-escalation https://guif.re/linuxeop https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/ https://www.win.tue.nl/~aeb/linux/hh/hh-8.html http://www.dankalia.com/tutor/01005/0100501004.htm  Windows Privilege Escalation  https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/ http://www.fuzzysecurity.com/tutorials/16.html https://github.com/J3rryBl4nks/LPEWalkthrough/blob/master/Walkthrough.md https://github.com/worawit/MS17-010 &amp;lt;&amp;mdash;&amp;mdash; Eternal blue without MSF https://github.com/ankh2054/windows-pentest https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_windows.html https://hackingandsecurity.blogspot.com/2017/09/oscp-windows-priviledge-escalation.html https://github.com/frizb/Windows-Privilege-Escalation  Windows stuff  http://www.cheat-sheets.org/saved-copy/Windows_folders_quickref.pdf https://www.lemoda.net/windows/windows2unix/windows2unix.html https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/ https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html https://malicious.link/post/2016/kerberoast-pt1/  Linux stuff  http://www.</description>
+    </item>
+    
+  </channel>
+</rss>

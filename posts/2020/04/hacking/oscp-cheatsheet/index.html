@@ -50,7 +50,7 @@ Enumeration Network discoverie Nmap I tend to run 3 nmaps, an initial one, a ful
 <meta itemprop="description" content="My humble cheatsheet of most used tools, webs, etc">
 <meta itemprop="datePublished" content="2020-04-07T02:30:30&#43;00:00" />
 <meta itemprop="dateModified" content="2020-04-07T02:30:30&#43;00:00" />
-<meta itemprop="wordCount" content="2214">
+<meta itemprop="wordCount" content="2125">
 <meta itemprop="image" content="https://ceso.github.io/images/cheatsheet/banner.jpg">
 
 
@@ -101,7 +101,7 @@ Enumeration Network discoverie Nmap I tend to run 3 nmaps, an initial one, a ful
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://ceso.github.io/about/">About</a></li><li><a href="https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/">Cheatsheet</a></li><li><a href="https://ceso.github.io/posts/">Posts</a></li><li><a href="https://ceso.github.io/tags/">Tags</a></li>
+    <ul class="menu__inner"><li><a href="https://ceso.github.io/about/">About</a></li><li><a href="https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/">Cheatsheet</a></li><li><a href="https://ceso.github.io/posts/">Posts</a></li><li><a href="https://ceso.github.io/posts/2020/12/hacking/resources/">Resources</a></li><li><a href="https://ceso.github.io/tags/">Tags</a></li>
     </ul>
 </nav>
 
@@ -132,7 +132,7 @@ Enumeration Network discoverie Nmap I tend to run 3 nmaps, an initial one, a ful
   <div class="post">
 
     <div class="post-info">
-      <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>11 minutes
+      <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>10 minutes
 
         
 
@@ -553,79 +553,6 @@ Enumeration Network discoverie Nmap I tend to run 3 nmaps, an initial one, a ful
     
     </li></ul></li><li>
           <a href="#shellcode-poc-calcexe">Shellcode POC: calc.exe</a>
-    
-
-    
-    </li></ul></li><li>
-          <a href="#usefull-links">Usefull links</a>
-    
-
-    
-    <ul>
-            <li>
-          <a href="#privilege-escalation-1">Privilege escalation</a>
-    
-
-    
-    <ul>
-            <li>
-          <a href="#linux-2">Linux</a>
-    
-
-    
-    </li><li>
-          <a href="#windows-2">Windows</a>
-    
-
-    
-    </li></ul></li><li>
-          <a href="#misc">Misc</a>
-    
-
-    
-    <ul>
-            <li>
-          <a href="#windows-3">Windows</a>
-    
-
-    
-    </li><li>
-          <a href="#linux-3">Linux</a>
-    
-
-    
-    </li></ul></li><li>
-          <a href="#pivoting-1">Pivoting</a>
-    
-
-    
-    </li><li>
-          <a href="#brute-forcecracking">Brute force/Cracking</a>
-    
-
-    
-    </li><li>
-          <a href="#compiling-exploits">Compiling exploits</a>
-    
-
-    
-    </li><li>
-          <a href="#obfuscators">Obfuscators</a>
-    
-
-    
-    </li><li>
-          <a href="#deobfuscators">Deobfuscators</a>
-    
-
-    
-    </li><li>
-          <a href="#buffer-overflows">Buffer Overflows</a>
-    
-
-    
-    </li><li>
-          <a href="#another-oscphacking-cheatsheets">Another OSCP/Hacking Cheatsheets</a>
   </li></ul></li></ul></li></ul>
 </div><h1 id="hackingoscp-cheatsheet">Hacking/OSCP Cheatsheet</h1>
 <p>Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff.
@@ -951,98 +878,7 @@ EOF
 /usr/bin/msfvenom
 </code></pre><h3 id="shellcode-poc-calcexe">Shellcode POC: calc.exe</h3>
 <pre><code class="language-console" data-lang="console">msfvenom -p windows/exec -b '\x00\x0A' -f python --var-name buffer CMD=calc.exe EXITFUNC=thread
-</code></pre><h2 id="usefull-links">Usefull links</h2>
-<h3 id="privilege-escalation-1">Privilege escalation</h3>
-<h4 id="linux-2">Linux</h4>
-<ul>
-<li><a href="https://gtfobins.github.io/">https://gtfobins.github.io/</a></li>
-<li><a href="https://book.hacktricks.xyz/linux-unix/privilege-escalation">https://book.hacktricks.xyz/linux-unix/privilege-escalation</a></li>
-<li><a href="https://guif.re/linuxeop">https://guif.re/linuxeop</a></li>
-<li><a href="https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/">https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/</a></li>
-<li><a href="https://www.win.tue.nl/~aeb/linux/hh/hh-8.html">https://www.win.tue.nl/~aeb/linux/hh/hh-8.html</a></li>
-<li><a href="http://www.dankalia.com/tutor/01005/0100501004.htm">http://www.dankalia.com/tutor/01005/0100501004.htm</a></li>
-</ul>
-<h4 id="windows-2">Windows</h4>
-<ul>
-<li><a href="https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/">https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/</a></li>
-<li><a href="http://www.fuzzysecurity.com/tutorials/16.html">http://www.fuzzysecurity.com/tutorials/16.html</a></li>
-<li><a href="https://github.com/J3rryBl4nks/LPEWalkthrough/blob/master/Walkthrough.md">https://github.com/J3rryBl4nks/LPEWalkthrough/blob/master/Walkthrough.md</a></li>
-<li><a href="https://github.com/worawit/MS17-010">https://github.com/worawit/MS17-010</a> <strong>&lt;&mdash;&mdash; Eternal blue without MSF</strong></li>
-<li><a href="https://github.com/ankh2054/windows-pentest">https://github.com/ankh2054/windows-pentest</a></li>
-<li><a href="https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_windows.html">https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_windows.html</a></li>
-<li><a href="https://hackingandsecurity.blogspot.com/2017/09/oscp-windows-priviledge-escalation.html">https://hackingandsecurity.blogspot.com/2017/09/oscp-windows-priviledge-escalation.html</a></li>
-<li><a href="https://github.com/frizb/Windows-Privilege-Escalation">https://github.com/frizb/Windows-Privilege-Escalation</a></li>
-</ul>
-<h3 id="misc">Misc</h3>
-<h4 id="windows-3">Windows</h4>
-<ul>
-<li><a href="http://www.cheat-sheets.org/saved-copy/Windows_folders_quickref.pdf">http://www.cheat-sheets.org/saved-copy/Windows_folders_quickref.pdf</a></li>
-<li><a href="https://www.lemoda.net/windows/windows2unix/windows2unix.html">https://www.lemoda.net/windows/windows2unix/windows2unix.html</a></li>
-<li><a href="https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html">https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html</a></li>
-<li><a href="https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/">https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/</a></li>
-<li><a href="https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html">https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html</a></li>
-<li><a href="https://malicious.link/post/2016/kerberoast-pt1/">https://malicious.link/post/2016/kerberoast-pt1/</a></li>
-</ul>
-<h4 id="linux-3">Linux</h4>
-<ul>
-<li><a href="http://www.pathname.com/fhs/pub/fhs-2.3.html">http://www.pathname.com/fhs/pub/fhs-2.3.html</a></li>
-<li><a href="https://github.com/rapid7/ssh-badkeys">https://github.com/rapid7/ssh-badkeys</a></li>
-<li><a href="http://www.linusakesson.net/programming/tty/">http://www.linusakesson.net/programming/tty/</a></li>
-<li><a href="http://pentestmonkey.net/blog/post-exploitation-without-a-tty">http://pentestmonkey.net/blog/post-exploitation-without-a-tty</a></li>
-</ul>
-<h3 id="pivoting-1">Pivoting</h3>
-<ul>
-<li><a href="https://artkond.com/2017/03/23/pivoting-guide/">https://artkond.com/2017/03/23/pivoting-guide/</a></li>
-<li><a href="https://nullsweep.com/pivot-cheatsheet-for-pentesters/">https://nullsweep.com/pivot-cheatsheet-for-pentesters/</a></li>
-<li><a href="https://0xdf.gitlab.io/2019/01/28/pwk-notes-tunneling-update1.html">https://0xdf.gitlab.io/2019/01/28/pwk-notes-tunneling-update1.html</a></li>
-</ul>
-<h3 id="brute-forcecracking">Brute force/Cracking</h3>
-<ul>
-<li><a href="https://github.com/Coalfire-Research/npk">https://github.com/Coalfire-Research/npk</a> <strong>&lt;&mdash;&mdash; Distributed hash-cracking platform on serverless AWS componentes</strong></li>
-<li><a href="https://hashcat.net/wiki/doku.php?id=example_hashes">https://hashcat.net/wiki/doku.php?id=example_hashes</a></li>
-<li><a href="https://github.com/danielmiessler/SecLists">https://github.com/danielmiessler/SecLists</a></li>
-<li><a href="https://github.com/rapid7/ssh-badkeys">https://github.com/rapid7/ssh-badkeys</a></li>
-<li><a href="https://crackstation.net/">https://crackstation.net/</a></li>
-</ul>
-<h3 id="compiling-exploits">Compiling exploits</h3>
-<ul>
-<li><a href="https://stackoverflow.com/questions/4032373/linking-against-an-old-version-of-libc-to-provide-greater-application-coverage">https://stackoverflow.com/questions/4032373/linking-against-an-old-version-of-libc-to-provide-greater-application-coverage</a></li>
-<li><a href="https://www.lordaro.co.uk/posts/2018-08-26-compiling-glibc.html">https://www.lordaro.co.uk/posts/2018-08-26-compiling-glibc.html</a></li>
-<li><a href="https://www.offensive-security.com/metasploit-unleashed/alphanumeric-shellcode/">https://www.offensive-security.com/metasploit-unleashed/alphanumeric-shellcode/</a></li>
-</ul>
-<h3 id="obfuscators">Obfuscators</h3>
-<ul>
-<li><a href="https://github.com/danielbohannon/Invoke-Obfuscation">https://github.com/danielbohannon/Invoke-Obfuscation</a></li>
-<li><a href="https://github.com/Bashfuscator/Bashfuscator">https://github.com/Bashfuscator/Bashfuscator</a></li>
-</ul>
-<h3 id="deobfuscators">Deobfuscators</h3>
-<ul>
-<li><a href="https://www.unphp.net/">https://www.unphp.net/</a></li>
-<li><a href="https://lelinhtinh.github.io/de4js/">https://lelinhtinh.github.io/de4js/</a></li>
-<li><a href="http://jsnice.org/">http://jsnice.org/</a></li>
-<li><a href="https://github.com/java-deobfuscator/deobfuscator">https://github.com/java-deobfuscator/deobfuscator</a></li>
-</ul>
-<h3 id="buffer-overflows">Buffer Overflows</h3>
-<ul>
-<li><a href="https://github.com/justinsteven/dostackbufferoverflowgood">https://github.com/justinsteven/dostackbufferoverflowgood</a></li>
-<li><a href="https://github.com/stephenbradshaw/vulnserver">https://github.com/stephenbradshaw/vulnserver</a></li>
-<li><a href="https://www.vulnhub.com/entry/brainpan-1,51/">https://www.vulnhub.com/entry/brainpan-1,51/</a></li>
-<li><a href="https://exploit.education/phoenix/">https://exploit.education/phoenix/</a></li>
-<li><a href="https://www.youtube.com/watch?v=1S0aBV-Waeo">https://www.youtube.com/watch?v=1S0aBV-Waeo</a></li>
-</ul>
-<h3 id="another-oscphacking-cheatsheets">Another OSCP/Hacking Cheatsheets</h3>
-<ul>
-<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/">https://github.com/swisskyrepo/PayloadsAllTheThings/</a></li>
-<li><a href="https://github.com/tagnullde/OSCP/blob/master/oscp-cheatsheet.md">https://github.com/tagnullde/OSCP/blob/master/oscp-cheatsheet.md</a></li>
-<li><a href="https://github.com/Optixal/OSCP-PWK-Notes-Public">https://github.com/Optixal/OSCP-PWK-Notes-Public</a></li>
-<li><a href="https://github.com/OlivierLaflamme/Cheatsheet-God">https://github.com/OlivierLaflamme/Cheatsheet-God</a></li>
-<li><a href="https://github.com/0x4D31/awesome-oscp">https://github.com/0x4D31/awesome-oscp</a></li>
-<li><a href="https://github.com/xapax/security">https://github.com/xapax/security</a></li>
-<li><a href="https://book.hacktricks.xyz/">https://book.hacktricks.xyz/</a></li>
-<li><a href="https://0xdf.gitlab.io/2018/12/02/pwk-notes-smb-enumeration-checklist-update1.html">https://0xdf.gitlab.io/2018/12/02/pwk-notes-smb-enumeration-checklist-update1.html</a></li>
-<li><a href="https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html">https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html</a></li>
-</ul>
-
+</code></pre>
     </div>
     
       
@@ -1054,9 +890,9 @@ EOF
           <div class="pagination__buttons">
             
               <span class="button previous">
-                <a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/">
+                <a href="https://ceso.github.io/posts/2020/04/hacking-resources/">
                   <span class="button__icon">←</span>
-                  <span class="button__text">A Journey in the Dark - An adventure&#39;s tale towards OSCP</span>
+                  <span class="button__text">Hacking Resources</span>
                 </a>
               </span>
             

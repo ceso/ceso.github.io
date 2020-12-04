@@ -123,6 +123,156 @@
   </url>
   
   <url>
+    <loc>https://ceso.github.io/es/tags/git/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/tags/git/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/tags/git/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/es/posts/2020/01/hack-the-box-bitlab/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/posts/2020/01/hack-the-box-bitlab/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/es/tags/php/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/tags/php/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/tags/php/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/es/tags/rce/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/tags/rce/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/tags/rce/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/es/tags/ssh/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/tags/ssh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/tags/ssh/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/es/tags/sudo/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/tags/sudo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/tags/sudo/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/es/tags/web/</loc>
+    <lastmod>2020-01-11T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/tags/web/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/tags/web/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/es/tags/code-analysis/</loc>
+    <lastmod>2020-01-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/tags/code-analysis/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/tags/code-analysis/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/</loc>
+    <lastmod>2020-01-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/posts/2020/01/hack-the-box-craft/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ceso.github.io/es/tags/python/</loc>
+    <lastmod>2020-01-04T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ceso.github.io/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://ceso.github.io/es/tags/python/"
+                />
+  </url>
+  
+  <url>
     <loc>https://ceso.github.io/es/about/</loc>
     <xhtml:link
                 rel="alternate"

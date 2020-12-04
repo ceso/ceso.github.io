@@ -46,5 +46,59 @@
       <description></description>
     </item>
     
+    <item>
+      <title>git</title>
+      <link>https://ceso.github.io/es/tags/git/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/es/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>php</title>
+      <link>https://ceso.github.io/es/tags/php/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/es/tags/php/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rce</title>
+      <link>https://ceso.github.io/es/tags/rce/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/es/tags/rce/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>https://ceso.github.io/es/tags/ssh/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/es/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sudo</title>
+      <link>https://ceso.github.io/es/tags/sudo/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/es/tags/sudo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>web</title>
+      <link>https://ceso.github.io/es/tags/web/</link>
+      <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ceso.github.io/es/tags/web/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
