@@ -1,4 +1,29 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Ceso Adventures</title><link>https://ceso.github.io/posts/</link><description>Recent content in Posts on Ceso Adventures</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 14 Feb 2021 16:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Q3liZXJzZWMgbXkgd2F 5IC0gUGFydCAxCg==</title><link>https://ceso.github.io/posts/2021/02/q3lizxjzzwmgbxkgd2f-5ic0gugfydcaxcg/</link><pubDate>Sun, 14 Feb 2021 16:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2021/02/q3lizxjzzwmgbxkgd2f-5ic0gugfydcaxcg/</guid><description>Preface Lot of things have happend since the last time I posted something here, such as moving back to my country at the middle of last year to also stopping studying for some months due prioritizing my mental health (2020 was a bitch to all of us).
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Ceso Adventures</title><link>https://ceso.github.io/posts/</link><description>Recent content in Posts on Ceso Adventures</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 07 Mar 2021 02:30:30 +0000</lastBuildDate><atom:link href="https://ceso.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Presentations and Streamings</title><link>https://ceso.github.io/posts/2021/03/presentations-and-streamings/</link><pubDate>Sun, 07 Mar 2021 02:30:30 +0000</pubDate><guid>https://ceso.github.io/posts/2021/03/presentations-and-streamings/</guid><description>Presentations/Streamings A compilation of videos from Presentations/Live Streamings given my me.
+Simulation of OSCP with Hack The Box and VulnHub machines Live streaming I did of a simulation of the OSCP Exam with HTB Machines + a Vulnhub machine (BOF), this is video is complemented with my post A Journey in the Dark - An adventure&amp;rsquo;s tale towards OSCP
+HTB NL Meetup 03 - And we start our journey Presentation I gave at the Dutch Hack The Box meetup after passing my OSCP.</description><content type="html"><![CDATA[<h1 id="presentationsstreamings">Presentations/Streamings</h1>
+<p>A compilation of videos from Presentations/Live Streamings given my me.</p>
+<h2 id="simulation-of-oscp-with-hack-the-box-and-vulnhub-machines">Simulation of OSCP with Hack The Box and VulnHub machines</h2>
+<p>Live streaming I did of a simulation of the OSCP Exam with HTB Machines + a Vulnhub machine (BOF), this is video is complemented with my post <a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/">A Journey in the Dark - An adventure&rsquo;s tale towards OSCP</a></p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/FwZc6JigIcE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="htb-nl-meetup-03---and-we-start-our-journey">HTB NL Meetup 03 - And we start our journey</h2>
+<p>Presentation I gave at the <a href="https://hackdewereld.nl/posts/0x03-we-start-our-journey/">Dutch Hack The Box meetup</a> after passing my OSCP. Talking a bit about my background, and what I do consider is some of the knowledge pre-needed, and how to approach the studying of the exam, etc.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/u9ENKjDNQBA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<h2 id="learning-aws-security-with-flawscloud">Learning AWS Security with flaws.cloud</h2>
+<p>Live streaming I gave at twitch going through the challenges at flaws.cloud as a way to learn a little bit about security on AWS.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/8wy0WqfRIjc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+]]></content></item><item><title>Q3liZXJzZWMgbXkgd2F 5IC0gUGFydCAxCg==</title><link>https://ceso.github.io/posts/2021/02/q3lizxjzzwmgbxkgd2f-5ic0gugfydcaxcg/</link><pubDate>Sun, 14 Feb 2021 16:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2021/02/q3lizxjzzwmgbxkgd2f-5ic0gugfydcaxcg/</guid><description>Preface Lot of things have happend since the last time I posted something here, such as moving back to my country at the middle of last year to also stopping studying for some months due prioritizing my mental health (2020 was a bitch to all of us).
 I already talked a bit about my background and how I started to study Cybersec in my prior post related to my experience with OSCP, you can go there and read about it if you want, but I will repeat some stuff here.</description><content type="html"><![CDATA[<h2 id="preface">Preface</h2>
 <p>Lot of things have happend since the last time I posted something here, such as moving back to my country at the middle of last year to also stopping studying for some months due prioritizing my mental health (2020 was a bitch to all of us).</p>
 <p><em><strong>I already talked a bit about my background and how I started to study Cybersec in my prior post related to <a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/">my experience with OSCP</a>, you can go there and read about it if you want, but I will repeat some stuff here.</strong></em></p>
@@ -120,7 +145,7 @@ Once is published, I&rsquo;m thinking on getting <a href="https://www.bookdeposi
 Due my daily work isn&rsquo;t anything related to Pentest/Offensive Attacks (again, I&rsquo;m working as a Sysadmin/DevOps), the labs I mentioned and Bug Bounties (production environments) are my way at this moment to get some hands-on experience, and I will keep with them but with the aim to moving to a Cybersec position in the future.</p>
 <p>All of that said, thanks if you read until this point, I will be doing a live stream talking about this as well and will update the post with the link, cya!!!</p>
 ]]></content></item><item><title>Hacking Resources</title><link>https://ceso.github.io/posts/2020/12/hacking-resources/</link><pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/12/hacking-resources/</guid><description>Hacking Resources This isn&amp;rsquo;t more than another hacking resources list. I basically throw here every resource I get interested on taking a look/playing with it, or stuff that I use as a reference while trying to break something.
-Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/ &amp;lt;&amp;mdash;&amp;mdash; For Firefox https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp &amp;lt;&amp;mdash;&amp;mdash; For Chrome https://cookie-editor.cgagnier.ca/#download https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/ Cool Tools/Labs https://www.blacklanternsecurity.com/2020-12-02-WriteHat/ https://github.com/madhuakula/kubernetes-goat https://github.com/m8r0wn/ActiveReign https://github.com/sundowndev/PhoneInfoga https://github.com/GoSecure/dtd-finder https://www.shodan.io/ https://crt.sh https://dnsdumpster.com/ https://mxtoolbox.com/ https://github.com/OWASP/owasp-mstg/tree/master/Crackmes https://github.com/oversecured/ovaa https://github.com/OWASP/NodeGoat https://owasp.</description><content type="html"><![CDATA[<h1 id="hacking-resources">Hacking Resources</h1>
+Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/ &amp;lt;&amp;mdash;&amp;mdash; For Firefox https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp &amp;lt;&amp;mdash;&amp;mdash; For Chrome https://cookie-editor.cgagnier.ca/#download https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/ Cool Tools/Labs https://hackthebox.eu/ https://www.vulnhub.com/ https://www.blacklanternsecurity.com/2020-12-02-WriteHat/ https://github.com/madhuakula/kubernetes-goat https://github.com/m8r0wn/ActiveReign https://github.com/sundowndev/PhoneInfoga https://github.com/GoSecure/dtd-finder https://www.shodan.io/ https://crt.sh/ https://censys.io/ https://dnsdumpster.com/ https://mxtoolbox.com/ https://github.</description><content type="html"><![CDATA[<h1 id="hacking-resources">Hacking Resources</h1>
 <p>This isn&rsquo;t more than another hacking resources list. I basically throw here every resource I get interested on taking a look/playing with it, or stuff that I use as a reference while trying to break something.</p>
 <h4 id="usefull-web-browser-plugins">Usefull Web Browser plugins</h4>
 <ul>
@@ -132,13 +157,16 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 </ul>
 <h4 id="cool-toolslabs">Cool Tools/Labs</h4>
 <ul>
+<li><a href="https://hackthebox.eu/">https://hackthebox.eu/</a></li>
+<li><a href="https://www.vulnhub.com/">https://www.vulnhub.com/</a></li>
 <li><a href="https://www.blacklanternsecurity.com/2020-12-02-WriteHat/">https://www.blacklanternsecurity.com/2020-12-02-WriteHat/</a></li>
 <li><a href="https://github.com/madhuakula/kubernetes-goat">https://github.com/madhuakula/kubernetes-goat</a></li>
 <li><a href="https://github.com/m8r0wn/ActiveReign">https://github.com/m8r0wn/ActiveReign</a></li>
 <li><a href="https://github.com/sundowndev/PhoneInfoga">https://github.com/sundowndev/PhoneInfoga</a></li>
 <li><a href="https://github.com/GoSecure/dtd-finder">https://github.com/GoSecure/dtd-finder</a></li>
 <li><a href="https://www.shodan.io/">https://www.shodan.io/</a></li>
-<li><a href="https://crt.sh">https://crt.sh</a></li>
+<li><a href="https://crt.sh/">https://crt.sh/</a></li>
+<li><a href="https://censys.io/">https://censys.io/</a></li>
 <li><a href="https://dnsdumpster.com/">https://dnsdumpster.com/</a></li>
 <li><a href="https://mxtoolbox.com/">https://mxtoolbox.com/</a></li>
 <li><a href="https://github.com/OWASP/owasp-mstg/tree/master/Crackmes">https://github.com/OWASP/owasp-mstg/tree/master/Crackmes</a></li>
@@ -181,11 +209,6 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html">https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html</a></li>
 <li><a href="https://n4r1b.netlify.app/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/">https://n4r1b.netlify.app/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/</a></li>
 <li><a href="https://www.forrest-orr.net/post/malicious-memory-artifacts-part-i-dll-hollowing">https://www.forrest-orr.net/post/malicious-memory-artifacts-part-i-dll-hollowing</a></li>
-</ul>
-<h4 id="active-directory">Active Directory</h4>
-<ul>
-<li><a href="https://malicious.link/post/2016/kerberoast-pt1/">https://malicious.link/post/2016/kerberoast-pt1/</a> <strong>&lt;&mdash;&mdash; Serie about Kerberoasting (5 pts)</strong></li>
-<li><a href="https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet">https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet</a></li>
 </ul>
 <h4 id="linux-stuff">Linux stuff</h4>
 <ul>
@@ -249,6 +272,7 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://jhalon.github.io/becoming-a-pentester/">https://jhalon.github.io/becoming-a-pentester/</a></li>
 <li><a href="https://www.inteltechniques.com/podcast.html">https://www.inteltechniques.com/podcast.html</a></li>
 <li><a href="https://darknetdiaries.com/">https://darknetdiaries.com/</a></li>
+<li><a href="https://lobuhisec.medium.com/kubernetes-pentest-recon-checklist-tools-and-resources-30d8e4b69463">https://lobuhisec.medium.com/kubernetes-pentest-recon-checklist-tools-and-resources-30d8e4b69463</a></li>
 </ul>
 <h4 id="cobalt-strike">Cobalt Strike</h4>
 <ul>
@@ -257,6 +281,8 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <h4 id="bug-bountyweb-security">Bug Bounty/Web Security</h4>
 <ul>
 <li><a href="https://owasp.org/www-project-top-ten/">https://owasp.org/www-project-top-ten/</a></li>
+<li><a href="https://www.hackerone.com/blog/Guide-Subdomain-Takeovers">https://www.hackerone.com/blog/Guide-Subdomain-Takeovers</a></li>
+<li><a href="https://0xpatrik.com/subdomain-takeover-ns/">https://0xpatrik.com/subdomain-takeover-ns/</a></li>
 <li><a href="https://github.com/OWASP/wstg">https://github.com/OWASP/wstg</a></li>
 <li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/">https://github.com/swisskyrepo/PayloadsAllTheThings/</a></li>
 <li><a href="https://tomnomnom.com/talks/bug-bounties-with-bash-virsec.pdf">https://tomnomnom.com/talks/bug-bounties-with-bash-virsec.pdf</a></li>
@@ -266,14 +292,19 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://github.com/jdonsec/AllThingsSSRF">https://github.com/jdonsec/AllThingsSSRF</a></li>
 <li><a href="https://github.com/jdonsec/AllThingsXXE">https://github.com/jdonsec/AllThingsXXE</a></li>
 <li><a href="https://xsleaks.com/">https://xsleaks.com/</a></li>
-<li><a href="https://blog.usejournal.com/bug-hunting-methodology-part-1-91295b2d2066/">https://blog.usejournal.com/bug-hunting-methodology-part-1-91295b2d2066/</a></li>
 <li><a href="https://www.reddit.com/r/bugbounty/comments/983odf/how_to_become_a_bug_bounty_hunter/">https://www.reddit.com/r/bugbounty/comments/983odf/how_to_become_a_bug_bounty_hunter/</a></li>
 <li><a href="https://mohemiv.com/all/exploiting-xxe-with-local-dtd-files/">https://mohemiv.com/all/exploiting-xxe-with-local-dtd-files/</a></li>
+<li><a href="https://blog.usejournal.com/bug-hunting-methodology-part-1-91295b2d2066">https://blog.usejournal.com/bug-hunting-methodology-part-1-91295b2d2066</a> **&lt;&mdash;&mdash; Serie of 3 post about Bug Hunting Methodology **</li>
+<li><a href="https://github.com/ngalongc/bug-bounty-reference">https://github.com/ngalongc/bug-bounty-reference</a></li>
+<li><a href="https://pentester.land/list-of-bug-bounty-writeups.html">https://pentester.land/list-of-bug-bounty-writeups.html</a></li>
 </ul>
 <h4 id="red-team-resources">Red Team Resources</h4>
 <ul>
 <li><a href="https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki">https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki</a></li>
-<li></li>
+<li><a href="https://www.ired.team/">https://www.ired.team/</a></li>
+<li><a href="https://www.harmj0y.net/blog/">https://www.harmj0y.net/blog/</a> **&lt;&mdash;&mdash; Awesome Active Directory Posts **</li>
+<li><a href="https://malicious.link/post/2016/kerberoast-pt1/">https://malicious.link/post/2016/kerberoast-pt1/</a> <strong>&lt;&mdash;&mdash; Serie about Kerberoasting (5 posts)</strong></li>
+<li><a href="https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet">https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet</a></li>
 </ul>
 <h4 id="cool-presentationsvideos">Cool presentations/videos</h4>
 <ul>
@@ -282,12 +313,41 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li>A $7.500 BUG BOUNTY Bug Explained, step by step. (Blind XXE OOB over DNS) - STOK <a href="https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;t=26s&amp;pbjreload=101">https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;t=26s&amp;pbjreload=101</a></li>
 <li>GitHub Recon and Sensitive Data Exposure <a href="https://youtu.be/l0YsEk_59fQ">https://youtu.be/l0YsEk_59fQ</a></li>
 <li>Cracking the Lens: Targeting HTTP&rsquo;s Hidden Attack-Surface <a href="https://www.youtube.com/watch?v=zP4b3pw94s0">https://www.youtube.com/watch?v=zP4b3pw94s0</a></li>
+<li>How to Crush Bug Bounties in the first 12 Months <a href="https://www.youtube.com/watch?v=AbebbJ3cRLI">https://www.youtube.com/watch?v=AbebbJ3cRLI</a></li>
+<li>The Bug Hunter&rsquo;s Methodology v4.0 - Recon Edition by @jhaddix​ at #NahamCon2020​ <a href="https://youtu.be/p4JgIu1mceI">https://youtu.be/p4JgIu1mceI</a></li>
+<li>How i became a HackerOne MVH without writing a single line of python (Motivational talk) by STOK <a href="https://youtu.be/4YjCta2fcbw">https://youtu.be/4YjCta2fcbw</a></li>
+<li>My Journey to Cybersecurity CIA Keynote - Heath Adams (aka The Cyber Mentor) <a href="https://www.youtube.com/watch?v=q4h8A5dQsZw">https://www.youtube.com/watch?v=q4h8A5dQsZw</a></li>
 </ul>
 <h4 id="cool-books">Cool Books</h4>
 <ul>
 <li><a href="https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470">https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470</a></li>
 <li><a href="https://www.amazon.com/Real-World-Bug-Hunting-Field-Hacking/dp/1593278616/">https://www.amazon.com/Real-World-Bug-Hunting-Field-Hacking/dp/1593278616/</a></li>
 <li><a href="https://www.amazon.com/How-Linux-Works-2nd-Superuser/dp/1593275676/">https://www.amazon.com/How-Linux-Works-2nd-Superuser/dp/1593275676/</a></li>
+</ul>
+<h4 id="hackers-to-follow-on-twitter-its-a-really-awesome-way-to-learn-as-well-will-keep-adding-them">Hackers to follow on twitter (it&rsquo;s a really awesome way to learn as well!. Will keep adding them)</h4>
+<ul>
+<li>securibee: <a href="https://twitter.com/securibee">https://twitter.com/securibee</a></li>
+<li>codingo_: <a href="https://twitter.com/codingo_">https://twitter.com/codingo_</a></li>
+<li>hakluke: <a href="https://twitter.com/hakluke">https://twitter.com/hakluke</a></li>
+<li>JackRhysider: <a href="https://twitter.com/JackRhysider">https://twitter.com/JackRhysider</a></li>
+<li>Orange Tsai: <a href="https://twitter.com/orange_8361">https://twitter.com/orange_8361</a></li>
+<li>MalwareTech: <a href="https://twitter.com/MalwareTechBlog">https://twitter.com/MalwareTechBlog</a></li>
+<li>TomTomNom: <a href="https://twitter.com/TomNomNom">https://twitter.com/TomNomNom</a></li>
+<li>Jason Haddix: <a href="https://twitter.com/Jhaddix">https://twitter.com/Jhaddix</a></li>
+<li>NahamSec: <a href="https://twitter.com/NahamSec">https://twitter.com/NahamSec</a></li>
+<li>STOK: <a href="https://twitter.com/stokfredrik">https://twitter.com/stokfredrik</a></li>
+<li>John Hammond: <a href="https://twitter.com/_johnhammond">https://twitter.com/_johnhammond</a></li>
+<li>Jake Williams: <a href="https://twitter.com/MalwareJake">https://twitter.com/MalwareJake</a></li>
+<li>Deviant Ollman: <a href="https://twitter.com/deviantollam">https://twitter.com/deviantollam</a></li>
+<li>J3rryBl4nks: <a href="https://twitter.com/JBl4nks">https://twitter.com/JBl4nks</a></li>
+<li>Tib3rius: <a href="https://twitter.com/0xTib3rius">https://twitter.com/0xTib3rius</a></li>
+<li>TheColonial: <a href="https://twitter.com/TheColonial">https://twitter.com/TheColonial</a></li>
+<li>Rob Fuller: <a href="https://twitter.com/mubix">https://twitter.com/mubix</a></li>
+<li>g0tmi1k: <a href="https://twitter.com/g0tmi1k">https://twitter.com/g0tmi1k</a></li>
+<li>TJ_Null: <a href="https://twitter.com/TJ_Null">https://twitter.com/TJ_Null</a></li>
+<li>Rasta Mouse: <a href="https://twitter.com/_RastaMouse">https://twitter.com/_RastaMouse</a></li>
+<li>ippsec: <a href="https://twitter.com/ippsec">https://twitter.com/ippsec</a></li>
+<li>Chema Alonso: <a href="https://twitter.com/chemaalonso">https://twitter.com/chemaalonso</a></li>
 </ul>
 ]]></content></item><item><title>Hack The Box - Obscurity</title><link>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</link><pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</guid><description>Quick Summary Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it you can click here to go to it
 I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe.</description><content type="html"><![CDATA[
