@@ -1,8 +1,10 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Ceso Adventures</title><link>https://ceso.github.io/posts/</link><description>Recent content in Posts on Ceso Adventures</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 07 Mar 2021 02:30:30 +0000</lastBuildDate><atom:link href="https://ceso.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>My Videos</title><link>https://ceso.github.io/posts/2021/03/my-videos/</link><pubDate>Sun, 07 Mar 2021 02:30:30 +0000</pubDate><guid>https://ceso.github.io/posts/2021/03/my-videos/</guid><description>My Videos A compilation of videos from Presentations/Live Streamings given my me.
-Simulation of OSCP with Hack The Box and VulnHub machines Live streaming I did of a simulation of the OSCP Exam with HTB Machines + a Vulnhub machine (BOF), this is video is complemented with my post A Journey in the Dark - An adventure&amp;rsquo;s tale towards OSCP
-HTB NL Meetup 03 - And we start our journey Presentation I gave at the Dutch Hack The Box meetup after passing my OSCP.</description><content type="html"><![CDATA[<h1 id="my-videos">My Videos</h1>
-<p>A compilation of videos from Presentations/Live Streamings given my me.</p>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Ceso Adventures</title><link>https://ceso.github.io/posts/</link><description>Recent content in Posts on Ceso Adventures</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 07 Mar 2021 02:30:30 +0000</lastBuildDate><atom:link href="https://ceso.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>My Videos</title><link>https://ceso.github.io/posts/2021/03/my-videos/</link><pubDate>Sun, 07 Mar 2021 02:30:30 +0000</pubDate><guid>https://ceso.github.io/posts/2021/03/my-videos/</guid><description>My Videos A compilation of videos from Presentations/Live Streamings given by me.
+Simulation of OSCP with Hack The Box and VulnHub machines Apr 11, 2020
+Live streaming I did of a simulation of the OSCP Exam with HTB Machines + a Vulnhub machine (BOF), this is video is complemented with my post A Journey in the Dark - An adventure&amp;rsquo;s tale towards OSCP
+HTB NL Meetup 03 - And we start our journey Jun 17, 2020</description><content type="html"><![CDATA[<h1 id="my-videos">My Videos</h1>
+<p>A compilation of videos from Presentations/Live Streamings given by me.</p>
 <h2 id="simulation-of-oscp-with-hack-the-box-and-vulnhub-machines">Simulation of OSCP with Hack The Box and VulnHub machines</h2>
+<p>Apr 11, 2020</p>
 <p>Live streaming I did of a simulation of the OSCP Exam with HTB Machines + a Vulnhub machine (BOF), this is video is complemented with my post <a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/">A Journey in the Dark - An adventure&rsquo;s tale towards OSCP</a></p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -10,13 +12,17 @@ HTB NL Meetup 03 - And we start our journey Presentation I gave at the Dutch Hac
 </div>
 
 <h2 id="htb-nl-meetup-03---and-we-start-our-journey">HTB NL Meetup 03 - And we start our journey</h2>
+<p>Jun 17, 2020</p>
 <p>Presentation I gave at the <a href="https://hackdewereld.nl/posts/0x03-we-start-our-journey/">Dutch Hack The Box meetup</a> after passing my OSCP. Talking a bit about my background, and what I do consider is some of the knowledge pre-needed, and how to approach the studying of the exam, etc.</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/u9ENKjDNQBA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
-<h2 id="learning-aws-security-with-flawscloud">Learning AWS Security with flaws.cloud</h2>
+<p>The code of the presentation can be found here:</p>
+<pre><code class="language-console" data-lang="console">https://github.com/ceso/presentations/tree/master/meetup_nl_20200617_starting
+</code></pre><h2 id="learning-aws-security-with-flawscloud">Learning AWS Security with flaws.cloud</h2>
+<p>Mar 7, 2021</p>
 <p>Live streaming I gave at twitch going through the challenges at flaws.cloud as a way to learn a little bit about security on AWS.</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -204,6 +210,10 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html">https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html</a></li>
 <li><a href="https://malicious.link/post/2016/kerberoast-pt1/">https://malicious.link/post/2016/kerberoast-pt1/</a></li>
 </ul>
+<h4 id="powershell">Powershell</h4>
+<ul>
+<li><a href="https://vipulvyas0813.medium.com/introduction-to-powershell-for-penetration-testing-733236bc9547">https://vipulvyas0813.medium.com/introduction-to-powershell-for-penetration-testing-733236bc9547</a> <strong>&lt;&mdash;&mdash; Serie about Poershell for Penetration Testing (5 posts)</strong></li>
+</ul>
 <h4 id="exploit-developmentreversing">Exploit Development/Reversing</h4>
 <ul>
 <li><a href="https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html">https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html</a></li>
@@ -213,7 +223,6 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <h4 id="linux-stuff">Linux stuff</h4>
 <ul>
 <li><a href="http://www.pathname.com/fhs/pub/fhs-2.3.html">http://www.pathname.com/fhs/pub/fhs-2.3.html</a></li>
-<li><a href="https://github.com/rapid7/ssh-badkeys">https://github.com/rapid7/ssh-badkeys</a></li>
 <li><a href="http://www.linusakesson.net/programming/tty/">http://www.linusakesson.net/programming/tty/</a></li>
 <li><a href="http://pentestmonkey.net/blog/post-exploitation-without-a-tty">http://pentestmonkey.net/blog/post-exploitation-without-a-tty</a></li>
 </ul>
@@ -297,8 +306,40 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://blog.usejournal.com/bug-hunting-methodology-part-1-91295b2d2066">https://blog.usejournal.com/bug-hunting-methodology-part-1-91295b2d2066</a> **&lt;&mdash;&mdash; Serie of 3 post about Bug Hunting Methodology **</li>
 <li><a href="https://github.com/ngalongc/bug-bounty-reference">https://github.com/ngalongc/bug-bounty-reference</a></li>
 <li><a href="https://pentester.land/list-of-bug-bounty-writeups.html">https://pentester.land/list-of-bug-bounty-writeups.html</a></li>
+<li><a href="https://twitter.com/FaniMalikHack/status/1355145481479999488">https://twitter.com/FaniMalikHack/status/1355145481479999488</a> **&lt;&mdash;&mdash; Tweet by @FaniMalikHack with an infographic about JWT  **</li>
 </ul>
-<h4 id="red-team-resources">Red Team Resources</h4>
+<h4 id="subdomain-finders">Subdomain finders</h4>
+<ul>
+<li><a href="https://github.com/projectdiscovery/subfinder">https://github.com/projectdiscovery/subfinder</a></li>
+<li><a href="https://github.com/guelfoweb/knock">https://github.com/guelfoweb/knock</a></li>
+<li><a href="https://crt.sh/">https://crt.sh/</a></li>
+<li><a href="https://shodan.io/">https://shodan.io/</a></li>
+<li><a href="https://censys.io/ipv4/">https://censys.io/ipv4/</a></li>
+<li><a href="https://securitytrails.com/">https://securitytrails.com/</a></li>
+<li><a href="https://github.com/OWASP/Amass">https://github.com/OWASP/Amass</a></li>
+<li><a href="https://www.crunchbase.com/search/acquisitions">https://www.crunchbase.com/search/acquisitions</a> **&lt;&mdash;&mdash; Discovering searching by acquisitions **</li>
+</ul>
+<h4 id="subdomain-takeover">Subdomain takeover</h4>
+<ul>
+<li><a href="https://github.com/EdOverflow/can-i-take-over-xyz">https://github.com/EdOverflow/can-i-take-over-xyz</a></li>
+<li><a href="https://github.com/projectdiscovery/nuclei">https://github.com/projectdiscovery/nuclei</a></li>
+</ul>
+<h4 id="discovering-of-target-by-using-asn-ip-blocks-and-reverse-whois">Discovering of Target by using ASN (IP Blocks) and reverse whois</h4>
+<ul>
+<li><a href="https://bgp.he.net/">https://bgp.he.net/</a></li>
+<li><a href="https://apps.db.ripe.net/db-web-ui/#/fulltextsearch">https://apps.db.ripe.net/db-web-ui/#/fulltextsearch</a></li>
+<li><a href="https://whois.arin.net/ui/query.do">https://whois.arin.net/ui/query.do</a></li>
+<li><a href="https://whoxy.com/">https://whoxy.com/</a></li>
+<li><a href="https://github.com/vysecurity/DomLink">https://github.com/vysecurity/DomLink</a></li>
+</ul>
+<h4 id="screenshotting">Screenshotting</h4>
+<ul>
+<li><a href="https://github.com/michenriksen/aquatone">https://github.com/michenriksen/aquatone</a></li>
+<li><a href="https://github.com/FortyNorthSecurity/EyeWitness">https://github.com/FortyNorthSecurity/EyeWitness</a></li>
+<li><a href="https://github.com/breenmachine/httpscreenshot">https://github.com/breenmachine/httpscreenshot</a></li>
+<li><a href="https://github.com/maaaaz/webscreenshot">https://github.com/maaaaz/webscreenshot</a></li>
+</ul>
+<h4 id="red-team">Red Team</h4>
 <ul>
 <li><a href="https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki">https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki</a></li>
 <li><a href="https://www.ired.team/">https://www.ired.team/</a></li>
