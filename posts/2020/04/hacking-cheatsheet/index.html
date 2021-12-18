@@ -27,7 +27,7 @@ Hacking Cheatsheet :: Ceso Adventures
 <meta itemprop=name content="Hacking Cheatsheet">
 <meta itemprop=description content="My humble cheatsheet of most used tools, webs, etc"><meta itemprop=datePublished content="2020-04-07T02:30:30+00:00">
 <meta itemprop=dateModified content="2020-04-07T02:30:30+00:00">
-<meta itemprop=wordCount content="4247"><meta itemprop=image content="https://ceso.github.io/images/cheatsheet/banner.jpg">
+<meta itemprop=wordCount content="4655"><meta itemprop=image content="https://ceso.github.io/images/cheatsheet/banner.jpg">
 <meta itemprop=keywords content="blog,cheatsheet,hacking,linux,windows,exfiltration,privilegeescalation,">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://ceso.github.io/images/cheatsheet/banner.jpg">
@@ -62,7 +62,7 @@ Hacking Cheatsheet :: Ceso Adventures
 <div class=content>
 <div class=post>
 <div class=post-info>
-<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>20 minutes
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>22 minutes
 </p>
 </div>
 <h2 class=post-title><a href=https://ceso.github.io/posts/2020/04/hacking-cheatsheet/>Hacking Cheatsheet</a></h2>
@@ -287,6 +287,17 @@ Hacking Cheatsheet :: Ceso Adventures
 <a href=#msfvenom>msfvenom</a>
 </li></ul></li><li>
 <a href=#shellcode-poc-calcexe>Shellcode POC: calc.exe</a>
+</li></ul></li><li>
+<a href=#antivirus-bypass>Antivirus Bypass</a>
+<ul>
+<li>
+<a href=#signature-bypass>Signature Bypass</a>
+</li><li>
+<a href=#heuristics-bypass>Heuristics Bypass</a>
+</li><li>
+<a href=#if-not-av-bypass-and-admin-disable-defender>If NOT AV Bypass and Admin, DISABLE Defender</a>
+</li><li>
+<a href=#amsi-bypass>AMSI Bypass</a>
 </li></ul></li><li>
 <a href=#active-directory>Active Directory</a>
 <ul>
@@ -825,7 +836,39 @@ EOF
 /usr/bin/msfvenom
 </code></pre></div><h3 id=shellcode-poc-calcexe>Shellcode POC: calc.exe</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>msfvenom -p windows/exec -b &#39;\x00\x0A&#39; -f python --var-name buffer CMD=calc.exe EXITFUNC=thread
-</code></pre></div><h2 id=active-directory>Active Directory</h2>
+</code></pre></div><h2 id=antivirus-bypass>Antivirus Bypass</h2>
+<p>Antivirus tend to flag malware by Signature/Heuristics detection, we could bypass these throughout certain techniques
+For more details, look up into the [Exploit Development/Reversing/AV|EDR Bypass](<a href=https://ceso.github.io/2020/12/hacking-resources/#exploit-developmentreversingAV>https://ceso.github.io/2020/12/hacking-resources/#exploit-developmentreversingAV</a>|EDR Bypass) Section on the resources part of my blog.</p>
+<h3 id=signature-bypass>Signature Bypass</h3>
+<p>For example, we can obfuscate the code ciphering and/or encoding (having a decipher/decoding routine in the code), as also leverage tools dedicated for this purpose.
+Another thing is to use NOT common name for functions, variable names, etc; lunfardos, slang, idioisms, weird words from the dictionary, etc.</p>
+<h3 id=heuristics-bypass>Heuristics Bypass</h3>
+<p>As for the heuristics for example AV&rsquo;s tend to execute the malware inside a sandbox, we could have code for detecting if running inside a sandbox and exit if this is true.
+I could use the following techniques:</p>
+<ul>
+<li>Sleep command and comparision of how real time has passed (AV&rsquo;s could NOT wait until the sleep and just fast-forward the time)</li>
+<li>A counter up to 1 billon (Same story than Sleep, could not wait until it finishes and just exits)</li>
+<li>Call Windows API&rsquo;s poor or not even documented (as AV&rsquo;s tend to emulate API&rsquo;s inside the sandboxes, but some of them will not, then at the malware trying to call it and not existing, it will be detected is running inside a Sandbox)</li>
+<li>Verifying the name of the malware (AV&rsquo;s could rename the file, if it has changed it might be running inside a sandbox)</li>
+<li>Veifying if I can allocate TOO MUCH memory</li>
+<li>Checking if a known user in the system exists, if it doesn&rsquo;t exit</li>
+</ul>
+<h3 id=if-not-av-bypass-and-admin-disable-defender>If NOT AV Bypass and Admin, DISABLE Defender</h3>
+<p>If we have admin creds, we could disable Win Defender, please note THIS IS NEVER a good idea in production environments as this can be monitored!!</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console># Query <span style=color:#66d9ef>if</span> there is already an excluded path
+  Get-MpPreference | select-object -ExpandProperty ExclusionPath
+# Disable real time monitoring
+  Set-MpPreference -DisableRealtimeMonitoring $true
+# Exclude temp dir from monitoring by defender
+  Add-MpPreference -ExclusionPath &#34;C:\windows\temp&#34;
+# Disable Defender ONLY <span style=color:#66d9ef>for</span> downloaded files
+  Set-MpPreference -DisableIOAVProtection $true
+# Or REMOVE ALL Signature<span style=color:#960050;background-color:#1e0010>&#39;</span>s but leave it enabled
+  &#34;C:\Program Files\Windows Defender\MpCmdRun.exe&#34; -RemoveDefinitions -All
+</code></pre></div><h3 id=amsi-bypass>AMSI Bypass</h3>
+<p>AMSI (Anti-Malware Scan Interface), in short sit&rsquo;s between Powershell and Defender, so even if our crafted malware/tools have an AV Bypass, it still can be flagged by AMSI (annoying!), AMSI can also be leveraged for example for EDR&rsquo;s. There are certain ways to bypass AMSI, for example forcing it to fail.</p>
+<p>IT&rsquo;S RECOMMENDED TO ALWAYS HAVE AN AMSI BYPASS BEFORE EXECUTING POWERSHELL PAYLOAD!</p>
+<h2 id=active-directory>Active Directory</h2>
 <h3 id=permissions-ace-access-control-enties-sddl-security-descriptor-definition-language---format>Permissions: ACE (Access Control Enties) SDDL (Security Descriptor Definition Language) - Format</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>ace_type;ace_flags;rights;object_guid;inherit_object_guid;account_sid
 <span style=color:#960050;background-color:#1e0010>
