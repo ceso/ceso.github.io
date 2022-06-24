@@ -53,61 +53,48 @@
 
 
 <p>So, we see that this malware what it does is to start deleting shadow copies, but what are shadow copies, well from wikipedia&hellip;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Shadow Copy (also known as Volume Snapshot Service, Volume Shadow Copy Service or VSS) is a technology included in Microsoft Windows that can create backup copies or snapshots of computer files or volumes, even when they are in use.```
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>So what it&#39;s doing is to delete volume snapshots (backups). Moving forward with the investigation we want to see if there&#39;s any activity on the logs, which isn&#39;t (the Network Connectivity also didn&#39;t have anything, but I don&#39;t feel like taking a screenshot again):
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>Shadow Copy (also known as Volume Snapshot Service, Volume Shadow Copy Service or VSS) is a technology included in Microsoft Windows that can create backup copies or snapshots of computer files or volumes, even when they are in use.
+</span></span></code></pre></div><p>So what it&rsquo;s doing is to delete volume snapshots (backups). Moving forward with the investigation we want to see if there&rsquo;s any activity on the logs, which isn&rsquo;t (the Network Connectivity also didn&rsquo;t have anything, but I don&rsquo;t feel like taking a screenshot again):</p>
+
     <img src="/images/letsdefend/soc145/9-investigation-log.png"  class="center"  style="border-radius: 8px;"  />
 
 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Then, we want to know if this malware has any network activity (for example, connecting to a C2), for this we will leverage Hybrid Analysis (as a complement as we didn&#39;t find nothing in the &#34;Network Activity&#34; feature of the EDR), to carry out this task we will download the malware (remember at the time we look at the event at the beggining, the .zip to download was there), we extract it and upload that content into Hybrid Analysis, we get it flaged as malicious as expected, and proceed to take a look on one of the sandboxes where it was executed (`ab.bin` the file inside the .zip):
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
+<p>Then, we want to know if this malware has any network activity (for example, connecting to a C2), for this we will leverage Hybrid Analysis (as a complement as we didn&rsquo;t find nothing in the &ldquo;Network Activity&rdquo; feature of the EDR), to carry out this task we will download the malware (remember at the time we look at the event at the beggining, the .zip to download was there), we extract it and upload that content into Hybrid Analysis, we get it flaged as malicious as expected, and proceed to take a look on one of the sandboxes where it was executed (<code>ab.bin</code> the file inside the .zip):</p>
+
     <img src="/images/letsdefend/soc145/10-investigation-hybrid-analysis.png"  class="center"  style="border-radius: 8px;"  />
 
 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>We scroll down until reaching the Network section and we find there wasn&#39;t registered any Network Activity:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
+<p>We scroll down until reaching the Network section and we find there wasn&rsquo;t registered any Network Activity:</p>
+
     <img src="/images/letsdefend/soc145/11-investigation-hybrid-analysis.png"  class="center"  style="border-radius: 8px;"  />
 
 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>## Closing the case
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>So, we were able to determine that the event on our SIEM was indeed a true positive alert, there was executed a binary called `ab.exe` which spanwed process for deleting shadow copies, and despite the machine being compromised, there wasn&#39;t connectivity against a C2.
-</span></span><span style="display:flex;"><span>Knwon this, we can proceed to close the case:
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
+<h2 id="closing-the-case">Closing the case</h2>
+<p>So, we were able to determine that the event on our SIEM was indeed a true positive alert, there was executed a binary called <code>ab.exe</code> which spanwed process for deleting shadow copies, and despite the machine being compromised, there wasn&rsquo;t connectivity against a C2.
+Knwon this, we can proceed to close the case:</p>
+
     <img src="/images/letsdefend/soc145/12-close-alert.png"  class="center"  style="border-radius: 8px;"  />
 
 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
+
     <img src="/images/letsdefend/soc145/13-closed-case.png"  class="center"  style="border-radius: 8px;"  />
 
 
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Didn&#39;t take screenshot of the process, but when closing the case, I used the following data:
-</span></span></code></pre></div><p>Threat indicator: other
-Quarantained: I put it as yes, because I didn&rsquo;t take a look before, this answer was wrong, it wasn&rsquo;t quarantained hehe
-Malicious
-C2 Not accessed</p>
-<p>Artifacts:
-MD5 hash: 0b486fe0503524cfe4726a4022fa6a68
-172.16.17.88: MarkPRD machine</p>
-<pre tabindex="0"><code>
-## Final
-
-Well, that was all about it, an easy challenge but a nice look into the basics of how a blue team might behave when there&#39;s an event, from how some tools are used to the chain of thoughts made by the person who&#39;s working on the incident at hand.
-Overall I liked the challenge and is something completly different to what I have been doing lately, and I sure learned something new even if it&#39;s quite basic is still nice.
-I&#39;m sure there might be still something to look for in the investigation, for example discovering how the compromise took place, I will keep reading a bit more about methodologies etc, play a bit more applying them and see if I can find the root cause, if I find it I will edit the post to show how I did it.
-
-Hope this helps you in some way, until the next post!
-</code></pre>]]></content></item><item><title>Hur jag är lär mig svenska</title><link>https://ceso.github.io/posts/2022/04/hur-jag-%C3%A4r-l%C3%A4r-mig-svenska/</link><pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2022/04/hur-jag-%C3%A4r-l%C3%A4r-mig-svenska/</guid><description>Förneka: Deta blogginlägget har mycket fel, jag vet det, men&amp;hellip;jag vill bara skriva lite om hur jag lär mig svenska, så det är en lite öva för mig, ingenting allvarlig!
+<p>Didn&rsquo;t take screenshot of the process, but when closing the case, I used the following data:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>Threat indicator: other
+</span></span><span style="display:flex;"><span>Quarantained: I put it as yes, because I didn&#39;t take a look before, this answer was wrong, it wasn&#39;t quarantained hehe
+</span></span><span style="display:flex;"><span>Malicious
+</span></span><span style="display:flex;"><span>C2 Not accessed
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>Artifacts:
+</span></span><span style="display:flex;"><span>    MD5 hash: 0b486fe0503524cfe4726a4022fa6a68
+</span></span><span style="display:flex;"><span>    172.16.17.88: MarkPRD machine
+</span></span></code></pre></div><h2 id="final">Final</h2>
+<p>Well, that was all about it, an easy challenge but a nice look into the basics of how a blue team might behave when there&rsquo;s an event, from how some tools are used to the chain of thoughts made by the person who&rsquo;s working on the incident at hand.
+Overall I liked the challenge and is something completly different to what I have been doing lately, and I sure learned something new even if it&rsquo;s quite basic is still nice.
+I&rsquo;m sure there might be still something to look for in the investigation, for example discovering how the compromise took place, I will keep reading a bit more about methodologies etc, play a bit more applying them and see if I can find the root cause, if I find it I will edit the post to show how I did it.</p>
+<p>Hope this helps you in some way, until the next post!</p>
+]]></content></item><item><title>Hur jag är lär mig svenska</title><link>https://ceso.github.io/posts/2022/04/hur-jag-%C3%A4r-l%C3%A4r-mig-svenska/</link><pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2022/04/hur-jag-%C3%A4r-l%C3%A4r-mig-svenska/</guid><description>Förneka: Deta blogginlägget har mycket fel, jag vet det, men&amp;hellip;jag vill bara skriva lite om hur jag lär mig svenska, så det är en lite öva för mig, ingenting allvarlig!
 Vad kan säga jag? Jag gillar hur germanska språk ljud, och jag också gillar många metal-band från sverige (och svenska kultur), för det anledning beslutade jag lär mig svenska (i framtiden jag skulle vilja också lär tyska och holländska).</description><content type="html"><![CDATA[
     <img src="/images/blog/general/larsvenska.png"  class="center"  style="border-radius: 8px;"  />
 
