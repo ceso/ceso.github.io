@@ -53,8 +53,10 @@
 
 
 <p>So, we see that this malware what it does is to start deleting shadow copies, but what are shadow copies, well from wikipedia&hellip;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>Shadow Copy (also known as Volume Snapshot Service, Volume Shadow Copy Service or VSS) is a technology included in Microsoft Windows that can create backup copies or snapshots of computer files or volumes, even when they are in use.
-</span></span></code></pre></div><p>So what it&rsquo;s doing is to delete volume snapshots (backups). Moving forward with the investigation we want to see if there&rsquo;s any activity on the logs, which isn&rsquo;t (the Network Connectivity also didn&rsquo;t have anything, but I don&rsquo;t feel like taking a screenshot again):</p>
+<blockquote>
+<p>Shadow Copy (also known as Volume Snapshot Service, Volume Shadow Copy Service or VSS) is a technology included in Microsoft Windows that can create backup copies or snapshots of computer files or volumes, even when they are in use.</p>
+</blockquote>
+<p>So what it&rsquo;s doing is to delete volume snapshots (backups). Moving forward with the investigation we want to see if there&rsquo;s any activity on the logs, which isn&rsquo;t (the Network Connectivity also didn&rsquo;t have anything, but I don&rsquo;t feel like taking a screenshot again):</p>
 
     <img src="/images/letsdefend/soc145/9-investigation-log.png"  class="center"  style="border-radius: 8px;"  />
 
