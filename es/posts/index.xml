@@ -1,5 +1,7 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Las Aventuras de Ceso</title><link>https://ceso.github.io/es/posts/</link><description>Recent content in Posts on Las Aventuras de Ceso</description><generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Thu, 14 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/es/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hack The Box - Obscurity</title><link>https://ceso.github.io/es/posts/2020/05/hack-the-box-obscurity/</link><pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/es/posts/2020/05/hack-the-box-obscurity/</guid><description>Quick Summary Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it you can click here to go to it
-I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe.</description><content type="html"><![CDATA[
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Las Aventuras de Ceso</title><link>https://ceso.github.io/es/posts/</link><description>Recent content in Posts on Las Aventuras de Ceso</description><generator>Hugo -- gohugo.io</generator><language>es</language><lastBuildDate>Thu, 14 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/es/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Hack The Box - Obscurity</title><link>https://ceso.github.io/es/posts/2020/05/hack-the-box-obscurity/</link><pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/es/posts/2020/05/hack-the-box-obscurity/</guid><description>&lt;img src="https://ceso.github.io/images/htb/obscurity/info-card.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="quick-summary">Quick Summary&lt;/h2>
+&lt;p>Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it &lt;a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/">you can click here to go to it&lt;/a>&lt;/p>
+&lt;p>I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe.&lt;/p></description><content type="html"><![CDATA[
     <img src="/images/htb/obscurity/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -216,7 +218,7 @@ I run gobuster against the server, but no luck, it didn&rsquo;t find any directo
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Response</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, <span style="color:#f92672">**</span>kwargs):
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>__dict__<span style="color:#f92672">.</span>update(kwargs)
 </span></span><span style="display:flex;"><span>        now <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>now()
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>dateSent <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>modified <span style="color:#f92672">=</span> now<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%a</span><span style="color:#e6db74">, </span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %b %Y %H:%M:%S&#34;</span>)
@@ -224,7 +226,7 @@ I run gobuster against the server, but no luck, it didn&rsquo;t find any directo
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> respTemplate<span style="color:#f92672">.</span>format(<span style="color:#f92672">**</span>self<span style="color:#f92672">.</span>__dict__)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Request</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, request):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, request):
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>good <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
 </span></span><span style="display:flex;"><span>            request <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>parseRequest(request)
@@ -250,7 +252,7 @@ I run gobuster against the server, but no luck, it didn&rsquo;t find any directo
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Server</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, host, port):    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, host, port):    
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>host <span style="color:#f92672">=</span> host
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>port <span style="color:#f92672">=</span> port
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>sock <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET, socket<span style="color:#f92672">.</span>SOCK_STREAM)
@@ -635,8 +637,11 @@ Then we proceed to execute the script with <code>out.txt</code> as input and <co
 </span></span><span style="display:flex;"><span>uid=0(root) gid=0(root) groups=0(root)
 </span></span></code></pre></div><p>Well, this was a really fun machine, and one that teach me a lot (specifically talking python stuff), so well I hope I can give something yousefull to you with this write up, and thanks a lot for read until the end :)</p>
 <p>I will try to be making some time to do write ups of some other machines, until next time!!</p>
-]]></content></item><item><title>Hack The Box - AI</title><link>https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/</link><pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/</guid><description>Resumen rápido Finalmente estoy posteando el walk-through de esta máquina, actualmente estoy preparando el OSCP, por lo que no tengo tanto tiempo para poder escribir en el momento. Al momento que rompí esta máquina, aún estaba documentando solamente vía screenshots, por lo que la fecha/hora entre algunas cosas puede diferir (le entré de nuevo para conseguir doc. más clara).
-Esta fue una máquina que para el punto de entrada, es necesario subir un .</description><content type="html"><![CDATA[
+]]></content></item><item><title>Hack The Box - AI</title><link>https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/</link><pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/es/posts/2020/02/hack-the-box-ai/</guid><description>&lt;img src="https://ceso.github.io/images/htb/ai/info-card.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="resumen-rápido">Resumen rápido&lt;/h2>
+&lt;p>Finalmente estoy posteando el walk-through de esta máquina, actualmente estoy preparando el OSCP, por lo que no tengo tanto tiempo para poder escribir en el momento.
+Al momento que rompí esta máquina, aún estaba documentando solamente vía screenshots, por lo que la fecha/hora entre algunas cosas puede diferir (le entré de nuevo para conseguir doc. más clara).&lt;/p>
+&lt;p>Esta fue una máquina que para el punto de entrada, es necesario subir un .wav con una inyección sql a modo de conseguir un reverso shell (el .wav es interpretado por la &amp;ldquo;AI&amp;rdquo;), y para el root el exploit &lt;a href="https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html">JWDP&lt;/a>, la idea de usar una AI a modo de conseguir el punto de entrada, es original, pero siento que no sél a la implementación le faltó algo, fueronnecesarios muchos intento-error para poder dar con la SQLi necesaria, y además con los diferentes &lt;a href="https://en.wikipedia.org/wiki/Speech_synthesis">TTS&lt;/a>, que se yo no es una máquina que sienta que realmente me haya enseñado algo nuevo del todo.&lt;/p></description><content type="html"><![CDATA[
     <img src="/images/htb/ai/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -855,7 +860,10 @@ passwd: H,Sq9t6}a&lt;)?q93_
 </span></span></code></pre></div><p>Y, ahí &rsquo;ta, acceso a root y la bandera root.txt :D.</p>
 <p>Hasta el momento, esta fue una de las únicas máquinas en HTB que no me ha gustado tanto, gracias más que nada a que el punto de entrada es medio esotérico y realmente no te deja mucha enseñanza al respecto.
 Bue, próximamente estoy pensando en empezar a blogear lo que es este viaje de estar preparando el OSCP, para saber, quedar al tanto, &rsquo;ta luego!</p>
-]]></content></item><item><title>Hack The Box - Bitlab</title><link>https://ceso.github.io/es/posts/2020/01/hack-the-box-bitlab/</link><pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/es/posts/2020/01/hack-the-box-bitlab/</guid><description>Resumen rápido Primero que nada, tengo que dejar claro que esta máquina tiene dos formas de hacer escalamiento de privilegios: una es haciendo ingenieria inversa y la otra es aprovecharse de una mala configuración de sudo y git. Voy a describir los pasos para sudo + git, como recién estoy empezando a dar mis primeros pasos en cosas de bajo nivel. A pesar de todo, en el futuro actualizaré este post para reflejar el camino vía ingeniera inversa.</description><content type="html"><![CDATA[
+]]></content></item><item><title>Hack The Box - Bitlab</title><link>https://ceso.github.io/es/posts/2020/01/hack-the-box-bitlab/</link><pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/es/posts/2020/01/hack-the-box-bitlab/</guid><description>&lt;img src="https://ceso.github.io/images/htb/bitlab/info-card.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="resumen-rápido">Resumen rápido&lt;/h2>
+&lt;p>Primero que nada, tengo que dejar claro que esta máquina tiene dos formas de hacer escalamiento de privilegios: una es haciendo ingenieria inversa y la otra es aprovecharse de una mala configuración de sudo y git. Voy a describir los pasos para &lt;code>sudo + git&lt;/code>, como recién estoy empezando a dar mis primeros pasos en cosas de bajo nivel.
+A pesar de todo, en el futuro actualizaré este post para reflejar el camino vía ingeniera inversa.&lt;/p></description><content type="html"><![CDATA[
     <img src="/images/htb/bitlab/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -1093,7 +1101,10 @@ Ok, as I said at the begining of the post, there are 2 paths to get this box:</p
 </span></span></code></pre></div><p>Obtenemos el shell del usuario, y después de listar archivos en su home, vemos un archivo interesante que se llama <code>RemoteConnection.exe</code>, desde ahí vamos a necesitar descargarlo y empezar a ensuciarnos un poco las manos con algun debugger y hacer ingenieria inversa para ver que esconde adentro, perooo como dije antes, lo voy a actualizar en el momento en que aprenda a hacerlo :P.</p>
 <p>Bueno, entonces sabemos que esta máquina tiene dos formas de conseguir root. Me encantó esta máquina, y estoy esperando a tirarme al agua con ella de nuevo cuando tenga un poquito más de idea de ing. inversa.</p>
 <p>Ta luego, hasta el próximo paso a paso!</p>
-]]></content></item><item><title>Hack The Box - Craft</title><link>https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/</link><pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/</guid><description>Quick Summary So!! Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot @Fugl!</description><content type="html"><![CDATA[
+]]></content></item><item><title>Hack The Box - Craft</title><link>https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/</link><pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/es/posts/2020/01/hack-the-box-craft/</guid><description>&lt;img src="https://ceso.github.io/images/htb/craft/info-card.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="quick-summary">Quick Summary&lt;/h2>
+&lt;p>So!!
+Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot &lt;a href="https://www.hackthebox.eu/profile/103596">@Fugl!&lt;/a>), root was easy by a little bit of enumeration and reading help command output.&lt;/p></description><content type="html"><![CDATA[
     <img src="/images/htb/craft/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 

