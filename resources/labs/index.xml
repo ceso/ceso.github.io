@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Labs on Ceso Adventures</title><link>https://ceso.github.io/resources/labs/</link><description>Recent content in Labs on Ceso Adventures</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/resources/labs/index.xml" rel="self" type="application/rss+xml"/><item><title>Cloud</title><link>https://ceso.github.io/resources/labs/cloud/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/labs/cloud/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/nccgroup/sadcloud"&gt;https://github.com/nccgroup/sadcloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ine-labs/AWSGoat"&gt;https://github.com/ine-labs/AWSGoat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ine-labs/AzureGoat"&gt;https://github.com/ine-labs/AzureGoat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ine-labs/GCPGoat"&gt;https://github.com/ine-labs/GCPGoat&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>General</title><link>https://ceso.github.io/resources/labs/general/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/labs/general/</guid><description>&lt;h1 id="general-hackingctf"&gt;General Hacking/CTF&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://hackthebox.eu/"&gt;https://hackthebox.eu/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.vulnhub.com/"&gt;https://www.vulnhub.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="kubernetes"&gt;Kubernetes&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/madhuakula/kubernetes-goat"&gt;https://github.com/madhuakula/kubernetes-goat&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="web"&gt;Web&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/OWASP/NodeGoat"&gt;https://github.com/OWASP/NodeGoat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://owasp.org/www-project-juice-shop/"&gt;https://owasp.org/www-project-juice-shop/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://portswigger.net/web-security"&gt;https://portswigger.net/web-security&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Mobile</title><link>https://ceso.github.io/resources/labs/mobile/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/labs/mobile/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://mas.owasp.org/crackmes/"&gt;https://mas.owasp.org/crackmes/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/oversecured/ovaa"&gt;https://github.com/oversecured/ovaa&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item></channel></rss>

