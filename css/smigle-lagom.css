@@ -1,0 +1,283 @@
+/*==============================
+  :root Variables
+==============================*/
+:root {
+  --bgcolor: white;
+  --fontcolor: #444;
+  --linkcolor: #00e;
+  --visitedcolor: #551a8b;
+  --precolor: #fff;
+  --prebgcolor: #000;
+  --asciitoc-color: #ffffff;
+}
+
+/*==============================
+  Global Styles
+==============================*/
+html {
+  overflow-y: scroll;
+}
+
+body {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 10px;
+  font: 1rem/1.5 monospace;
+  color: var(--fontcolor);
+  background: var(--bgcolor);
+}
+
+article {
+  padding: 15px 0 0 0;
+}
+
+/* Links */
+a:link {
+  color: var(--linkcolor);
+}
+a:visited,
+a:active {
+  color: var(--visitedcolor);
+}
+
+/* Images */
+img {
+  min-width: 100%;
+  max-width: 100%;
+  margin: 3px 0;
+}
+
+/*==============================
+  Header
+==============================*/
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+  gap: 10px;
+  padding: 16px 0;
+}
+
+#brand {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+}
+
+#brand a {
+  text-decoration: none;
+}
+
+#brand h1,
+#brand h3 {
+  margin: 0;
+  margin-left: -10px;
+}
+
+.site-title {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 0;
+}
+
+#brand h3 {
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+#brand .icon {
+  width: 75px;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+header hr {
+  border: none;
+  border-top: 2px solid #ccc;
+  width: 80%;
+  margin: 12px auto;
+}
+
+/*==============================
+  Footer
+==============================*/
+footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/*==============================
+  Titles & Sections
+==============================*/
+h1.title {
+  margin: 0;
+}
+
+/*==============================
+  Responsive
+==============================*/
+@media (min-width: 768px) {
+  #root {
+    margin-top: 25px;
+  }
+
+  #brand {
+    flex-direction: row;
+    text-align: unset;
+  }
+
+  #brand .text {
+    margin-left: 10px;
+  }
+
+  #brand h1 {
+    font-size: 35px;
+  }
+
+  #brand h3 {
+    font-size: 25px;
+  }
+}
+
+/*==============================
+  Post & Navigation
+==============================*/
+#postsByDate {
+  list-style: none;
+}
+#postsByDate .date {
+  width: 60px;
+}
+#postsByDate div,
+#postsInOneGroup div {
+  display: inline-block;
+}
+
+#terms {
+  list-style: none;
+}
+
+.post-nav {
+  width: 100%;
+  margin: 25px 0 10px 0;
+  display: inline-block;
+}
+
+.post-nav-left {
+  display: inline;
+}
+.post-nav-left a {
+  margin-right: 30px;
+}
+
+.post-nav-right {
+  float: right;
+  text-align: right;
+  display: inline;
+}
+
+/*==============================
+  Preformatted text
+==============================*/
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/*==============================
+  Footnotes
+==============================*/
+.footnotes hr {
+  border-top: 1px dashed;
+  margin: 15px 10%;
+}
+
+.footnote-ref {
+  text-decoration: none;
+}
+.footnote-ref::before {
+  content: '[';
+}
+.footnote-ref::after {
+  content: ']';
+}
+
+.footnotes ol {
+  margin: 0;
+}
+
+.footnotes p {
+  line-height: normal;
+  font: 1rem/1.5 monospace;
+  padding: 0;
+  margin: 0;
+}
+
+/*==============================
+  Table of Contents / ASCII TOC
+==============================*/
+.asciitoc {
+  font-family: inherit;
+  white-space: pre;
+  margin: 0.6em 0;
+  padding: 0.3em;
+  color: var(--asciitoc-color);
+}
+.asciitoc a {
+  color: var(--asciitoc-color);
+  text-decoration: none;
+}
+.asciitoc a:hover {
+  text-decoration: underline;
+}
+
+/*==============================
+  Dark Mode
+==============================*/
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #00ff00;
+    background: #000;
+  }
+
+  article h1,
+  article h2,
+  article h3,
+  article h4,
+  article h5,
+  article h6 {
+    color: #fff;
+    font-weight: bold;
+  }
+
+  a:link {
+    color: #ff0000;
+  }
+  a:visited {
+    color: #5bf;
+  }
+  a:hover {
+    color: #ff7d00;
+  }
+
+  #brand a {
+    color: #fefefe;
+  }
+
+  .asciitoc,
+  .asciitoc a {
+    color: #ffffff;
+  }
+}
+
+/*==============================
+  Future Color Schemes
+==============================*/
+/* Add new color schemes here using media queries or classes */

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Aws on Ceso Adventures</title><link>https://ceso.github.io/tags/aws/</link><description>Recent content in Aws on Ceso Adventures</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Sun, 07 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/tags/aws/index.xml" rel="self" type="application/rss+xml"/><item><title>My Videos</title><link>https://ceso.github.io/videos/</link><pubDate>Sun, 07 Mar 2021 00:00:00 +0000</pubDate><guid>https://ceso.github.io/videos/</guid><description>&lt;p&gt;A compilation of videos from Presentations/Live Streamings given by me.&lt;/p&gt;
+&lt;h2 id="simulation-of-oscp-with-hack-the-box-and-vulnhub-machines"&gt;Simulation of OSCP with Hack The Box and VulnHub machines&lt;/h2&gt;
+&lt;p&gt;Apr 11, 2020&lt;/p&gt;
+&lt;p&gt;Live streaming I did of a simulation of the OSCP Exam with HTB Machines + a Vulnhub machine (BOF), this is video is complemented with my post &lt;a href="https://ceso.github.io/posts/2020/04/a-journey-in-the-dark-an-adventures-tale-towards-oscp/"&gt;A Journey in the Dark - An adventure&amp;rsquo;s tale towards OSCP&lt;/a&gt;&lt;/p&gt;
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
+ &lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/FwZc6JigIcE?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"&gt;&lt;/iframe&gt;
+ &lt;/div&gt;
+
+&lt;h2 id="htb-nl-meetup-03---and-we-start-our-journey"&gt;HTB NL Meetup 03 - And we start our journey&lt;/h2&gt;
+&lt;p&gt;Jun 17, 2020&lt;/p&gt;</description></item></channel></rss>

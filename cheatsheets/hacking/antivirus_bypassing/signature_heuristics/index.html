@@ -1,0 +1,52 @@
+<head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Signature/Heuristics</title><link rel=stylesheet href=https://ceso.github.io/css/wiki.css></head><header><div id=brand><a class=icon-link href=https://ceso.github.io/><img class=icon src=https://ceso.github.io/images/site/logo.svg></a><div class=text><a href=https://ceso.github.io/ class=site-title>Ceso Adventures</a><h3>Blogs, Security CTFs & Tutorials</h3></div></div><nav><a href=https://ceso.github.io/><b>Home</b></a>
+|
+<a href=https://ceso.github.io/whoami/><b>Whoami</b></a>
+|
+<a href=https://ceso.github.io/posts/><b>Posts</b></a>
+|
+<a href=https://ceso.github.io/cheatsheets/><b>Cheatsheets</b></a>
+|
+<a href=https://ceso.github.io/resources><b>Resources</b></a>
+|
+<a href=https://ceso.github.io/videos><b>Videos</b></a>
+|
+<a href=https://ceso.github.io/categories/><b>Categories</b></a>
+|
+<a href=https://ceso.github.io/tags/><b>Tags</b></a>
+|
+<a href=https://ceso.github.io/index.xml><b>RSS</b></a></nav><hr></header><div class=wrap><nav class=sidebar aria-label="Table of contents"><h2>Cheatsheets</h2><details open><summary>Hacking</summary><div class=children><details><summary>Active Directory</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/bloodhound/>BloodHound
+</a><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/exploitation/>Exploitation
+</a><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/permissions/>Permissions: ACE/SDDL - Format
+</a><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/powerview/>PowerView - methods for enumeration</a></div></details><details open><summary>Antivirus Bypassing</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/readme/>README !
+</a><a href=https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/amsi/>AMSI
+</a><a href=https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/signature_heuristics/ class=current>Signature/Heuristics</a></div></details><details><summary>Enumeration</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/login_cifs_winrm_pssesion/>Login through CIFS/WinRM/PSSession
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/networking/>Networking
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/samba/>Samba
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/useful_wordlists/>Useful Wordlists
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/web_directorie_file_scanner/>Web directorie/file scanner
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/windows/>Windows</a></div></details><details><summary>Exfiltration</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/ftp/>FTP
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/http/>HTTP
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/rdp/>RDP
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/samba/>Samba
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/sockets/>Sockets</a></div></details><details><summary>Good to know</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/good_to_know/compiling/>Compiling
+</a><a href=https://ceso.github.io/cheatsheets/hacking/good_to_know/misc/>Misc
+</a><a href=https://ceso.github.io/cheatsheets/hacking/good_to_know/web/>Web</a></div></details><details><summary>Memory Exploitation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/memory_exploitation/simple_buffer_overflow/>(Simple) Buffer Overflow (32 bits, NO ASLR and NO DEP)</a></div></details><details><summary>Pivoting</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/readme/>README !
+</a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/chisel/>Chisel
+</a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/metasploit/>Metasploit
+</a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/sshuttle/>sshuttle</a></div></details><details><summary>Privilege Escalation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/>Linux
+</a><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/>Windows</a></div></details><details><summary>Reverse Shells</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/bash/>Bash
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/metasploit/>Metasploit
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>Signature/Heuristics</h1></header><article><h1 id=signature-bypass>Signature Bypass</h1><p>For example, we can obfuscate the code ciphering and/or encoding (having a decipher/decoding routine in the code), as also leverage tools dedicated for this purpose.
+Another thing is to use NOT common name for functions, variable names, etc; lunfardos, slang, idioisms, weird words from the dictionary, etc.</p><hr><h1 id=heuristics-bypass>Heuristics Bypass</h1><p>As for the heuristics for example AV&rsquo;s tend to execute the malware inside a sandbox, we could have code for detecting if running inside a sandbox and exit if this is true.
+I could use the following techniques:</p><ul><li>Sleep command and comparision of how real time has passed (AV&rsquo;s could NOT wait until the sleep and just fast-forward the time)</li><li>A counter up to 1 billon (Same story than Sleep, could not wait until it finishes and just exits)</li><li>Call Windows API&rsquo;s poor or not even documented (as AV&rsquo;s tend to emulate API&rsquo;s inside the sandboxes, but some of them will not, then at the malware trying to call it and not existing, it will be detected is running inside a Sandbox)</li><li>Verifying the name of the malware (AV&rsquo;s could rename the file, if it has changed it might be running inside a sandbox)</li><li>Veifying if I can allocate TOO MUCH memory</li><li>Checking if a known user in the system exists, if it doesn&rsquo;t exit</li></ul><hr></article></main></div></body><footer><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=https://ceso.github.io/css/wiki.css></footer><footer><hr><p id=social>Find me around the web:<br><a href=https://github.com/ceso target=_blank>GitHub</a>
+|
+<a href=https://youtube.com/c/LeandroLemos target=_blank>YouTube</a>
+|
+<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2025
+<a href=https://ceso.github.io/><strong>Ceso</strong></a>.</p><p class=builtWith>Built with
+<a href=http://www.gohugo.io/>Hugo</a> by ceso,
+using <a href=https://github.com/ceso/smigle-lagom>smigle-lagom</a> a fork of the theme
+<a href=https://github.com/joe-mccarthy/smigle-lite>smigle-lite</a>. Based on the theme
+<a href=https://gitlab.com/ian-s-mcb/smigle-hugo-theme>smigle</a>,
+which was influenced by the theme
+<a href=https://github.com/colorchestra/smol>smol</a>.</p></footer>

