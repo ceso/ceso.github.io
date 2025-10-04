@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Operating Systems on Ceso Adventures</title><link>https://ceso.github.io/resources/operating_systems/</link><description>Recent content in Operating Systems on Ceso Adventures</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/resources/operating_systems/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux</title><link>https://ceso.github.io/resources/operating_systems/linux/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/operating_systems/linux/</guid><description>&lt;h1 id="general"&gt;General&lt;/h1&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.linuxfromscratch.org/"&gt;https://www.linuxfromscratch.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://devo.ps/blog/2013/03/06/troubleshooting-5minutes-on-a-yet-unknown-box.html"&gt;http://devo.ps/blog/2013/03/06/troubleshooting-5minutes-on-a-yet-unknown-box.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dtrace.org/blogs/brendan/2012/03/07/the-use-method-linux-performance-checklist/"&gt;http://dtrace.org/blogs/brendan/2012/03/07/the-use-method-linux-performance-checklist/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dtrace.org/blogs/brendan/2012/12/19/the-use-method-smartos-performance-checklist/"&gt;http://dtrace.org/blogs/brendan/2012/12/19/the-use-method-smartos-performance-checklist/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.pathname.com/fhs/pub/fhs-2.3.html"&gt;http://www.pathname.com/fhs/pub/fhs-2.3.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.linusakesson.net/programming/tty/"&gt;http://www.linusakesson.net/programming/tty/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://pentestmonkey.net/blog/post-exploitation-without-a-tty"&gt;http://pentestmonkey.net/blog/post-exploitation-without-a-tty&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="networking"&gt;Networking&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://linux-ip.net/html/index.html"&gt;http://linux-ip.net/html/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/security_guide/sect-security_guide-iptables"&gt;https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/security_guide/sect-security_guide-iptables&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h1 id="privilege-escalation"&gt;Privilege Escalation&lt;/h1&gt;

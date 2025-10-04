@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ceso Adventures</title><link>https://ceso.github.io/</link><description>Recent content on Ceso Adventures</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>README !</title><link>https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/readme/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/readme/</guid><description>&lt;p&gt;Antivirus tend to flag malware by Signature/Heuristics detection, we could bypass these throughout certain techniques
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ceso Adventures</title><link>https://ceso.github.io/</link><description>Recent content on Ceso Adventures</description><generator>Hugo</generator><language>en-gb</language><lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ceso.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>README !</title><link>https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/readme/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/readme/</guid><description>&lt;p&gt;Antivirus tend to flag malware by Signature/Heuristics detection, we could bypass these throughout certain techniques
 For more details, look up into the [Exploit Development/Reversing/AV|EDR Bypass](&lt;a href="https://ceso.github.io/2020/12/hacking-resources/#exploit-developmentreversingAV"&gt;https://ceso.github.io/2020/12/hacking-resources/#exploit-developmentreversingAV&lt;/a&gt;|EDR Bypass) Section on the resources part of my blog.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h1 id="if-not-av-bypass-and-admin-disable-defender"&gt;If NOT AV Bypass and Admin, DISABLE Defender&lt;/h1&gt;
@@ -13,7 +13,237 @@ For more details, look up into the [Exploit Development/Reversing/AV|EDR Bypass]
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Set-MpPreference -DisableIOAVProtection $true
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Or REMOVE ALL Signature&lt;span style="color:#960050;background-color:#1e0010"&gt;&amp;#39;&lt;/span&gt;s but leave it enabled
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;#34;C:\Program Files\Windows Defender\MpCmdRun.exe&amp;#34; -RemoveDefinitions -All
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>README !</title><link>https://ceso.github.io/cheatsheets/hacking/pivoting/readme/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/pivoting/readme/</guid><description>&lt;p&gt;It&amp;rsquo;s possible to do pivoting by using proxychains, pure nc&amp;rsquo;s or in case of linux just some fifo files (I will write them down this another methods down maybe in a future), I have used during all the OSCP an awesome tool called (sshuttle)[https://github.com/sshuttle/sshuttle] (it&amp;rsquo;s a transparent proxy server that works like &amp;ldquo;a vpn&amp;rdquo;, and doesn&amp;rsquo;t require with super rights, only thing needed is that the bastion server you will use, needs to have installed python) and sometimes some SSH Forwarding. Something worth to mention nmap doesn&amp;rsquo;t work through sshuttle.&lt;/p&gt;</description></item><item><title>(Simple) Buffer Overflow (32 bits, NO ASLR and NO DEP)</title><link>https://ceso.github.io/cheatsheets/hacking/memory_exploitation/simple_buffer_overflow/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/memory_exploitation/simple_buffer_overflow/</guid><description>&lt;ul&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>README !</title><link>https://ceso.github.io/cheatsheets/hacking/pivoting/readme/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/pivoting/readme/</guid><description>&lt;p&gt;It&amp;rsquo;s possible to do pivoting by using proxychains, pure nc&amp;rsquo;s or in case of linux just some fifo files (I will write them down this another methods down maybe in a future), I have used during all the OSCP an awesome tool called (sshuttle)[https://github.com/sshuttle/sshuttle] (it&amp;rsquo;s a transparent proxy server that works like &amp;ldquo;a vpn&amp;rdquo;, and doesn&amp;rsquo;t require with super rights, only thing needed is that the bastion server you will use, needs to have installed python) and sometimes some SSH Forwarding. Something worth to mention nmap doesn&amp;rsquo;t work through sshuttle.&lt;/p&gt;</description></item><item><title>Bash</title><link>https://ceso.github.io/cheatsheets/linux/bash/</link><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/linux/bash/</guid><description>&lt;h1 id="xargs"&gt;xargs&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls | xargs -I {} mv {} 20080815-{}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="string-substitution"&gt;String substitution:&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;STR=/path/to/foo.c
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;echo ${STR%/*} #=&amp;gt; &amp;#34;/path/to&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo ${STR%.c} #=&amp;gt; &amp;#34;/path/to/foo&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo ${STR%.c}.o #=&amp;gt; &amp;#34;/path/to/foo.o&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo ${STR##*.} #=&amp;gt; &amp;#34;c&amp;#34; (extension)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;BASE=${SRC##*/} #=&amp;gt; &amp;#34;foo.c&amp;#34; (basepath)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;DIR=${SRC%$BASE} #=&amp;gt; &amp;#34;/path/to&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo ${STR%/*} #=&amp;gt; &amp;#34;/path/to&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="varible-substitution"&gt;Varible Substitution&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo ${STR/hi/hello} # Replace first match
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo ${STR//hi/hello} # Replace all matches
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo ${STR/#hi/hello} # ^hi
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo ${STR/%hi/hello} # hi$
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;echo &amp;#34;${STR:0:3}&amp;#34; # .substr(0, 3) -- position, length
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo &amp;#34;${STR:-3:3}&amp;#34; # Negative position = from the right
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;echo ${#line} # Length of $line
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;[ -z &amp;#34;$CC&amp;#34; ] &amp;amp;&amp;amp; CC=gcc # CC ||= &amp;#34;gcc&amp;#34; assignment
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$&lt;span style="color:#f92672"&gt;{&lt;/span&gt;CC:&lt;span style="color:#f92672"&gt;=&lt;/span&gt;gcc&lt;span style="color:#f92672"&gt;}&lt;/span&gt; &lt;span style="color:#75715e"&gt;# $CC || &amp;#34;gcc&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;#Substring &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; first &lt;span style="color:#ae81ff"&gt;5&lt;/span&gt; characters:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$&lt;span style="color:#f92672"&gt;{&lt;/span&gt;variable:0:5&lt;span style="color:#f92672"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="regex"&gt;Regex&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;if [[ &amp;#34;A&amp;#34; =~ &amp;#34;.&amp;#34; ]]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="numeric-comparisons"&gt;Numeric comparisons&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;if (( $a &amp;lt; $b ))
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="numeric-calculation"&gt;Numeric calculation&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$&lt;span style="color:#f92672"&gt;((&lt;/span&gt;a + 200&lt;span style="color:#f92672"&gt;))&lt;/span&gt; &lt;span style="color:#75715e"&gt;# $ is optional&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="variable-defaults"&gt;Variable defaults&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$&lt;span style="color:#f92672"&gt;{&lt;/span&gt;FOO:-word&lt;span style="color:#f92672"&gt;}&lt;/span&gt; &lt;span style="color:#75715e"&gt;# Returns word&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$&lt;span style="color:#f92672"&gt;{&lt;/span&gt;FOO:+word&lt;span style="color:#f92672"&gt;}&lt;/span&gt; &lt;span style="color:#75715e"&gt;# Returns empty, or word if set&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$&lt;span style="color:#f92672"&gt;{&lt;/span&gt;FOO:&lt;span style="color:#f92672"&gt;=&lt;/span&gt;word&lt;span style="color:#f92672"&gt;}&lt;/span&gt; &lt;span style="color:#75715e"&gt;# Sets parameter to word, returns word&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$&lt;span style="color:#f92672"&gt;{&lt;/span&gt;FOO:?message&lt;span style="color:#f92672"&gt;}&lt;/span&gt; &lt;span style="color:#75715e"&gt;# Echoes message and exits&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;$&lt;span style="color:#f92672"&gt;{&lt;/span&gt;FOO&lt;span style="color:#f92672"&gt;=&lt;/span&gt;word&lt;span style="color:#f92672"&gt;}&lt;/span&gt; &lt;span style="color:#75715e"&gt;# : is optional in all of the above&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="random-numbers"&gt;Random numbers&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$&lt;span style="color:#f92672"&gt;((&lt;/span&gt;RANDOM%&lt;span style="color:#f92672"&gt;=&lt;/span&gt;200&lt;span style="color:#f92672"&gt;))&lt;/span&gt; &lt;span style="color:#75715e"&gt;# Random number 0..200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;set -o noclobber # Avoid overlay files (echo &amp;#34;hi&amp;#34; &amp;gt; foo)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;set -o errexit # Used to exit upon error, avoiding cascading errors
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;set -o pipefail # Unveils hidden failures
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;set -o nounset # Exposes unset variables
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="references"&gt;References&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://wiki.bash-hackers.org/doku.php"&gt;http://wiki.bash-hackers.org/doku.php&lt;/a&gt;&lt;/p&gt;</description></item><item><title>CoreOS</title><link>https://ceso.github.io/cheatsheets/linux/coreos/</link><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/linux/coreos/</guid><description>&lt;h1 id="delete-all-images-and-all-instances"&gt;Delete all images and all instances:&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker ps -a|awk &amp;#39;{print $1}&amp;#39;|grep -v CONTAINER|while read a;do docker rm -f $a;done
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker images|awk &amp;#39;{print $3}&amp;#39;|grep -v IMAGE|while read a;do docker rmi -f $a;done
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="connect-to-vm"&gt;Connect to VM&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;DOCKER_NAME=ace-app
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;PID=$(docker inspect --format &amp;#39;{{.State.Pid}}&amp;#39; $DOCKER_NAME)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo nsenter --target $PID --mount --uts --ipc --net --pid
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="forward-ports-to-internal"&gt;Forward ports to internal&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iptables -D PREROUTING -t nat -i enp0s8 -p tcp --dport 80 -j DNAT --to 10.1.0.56:80
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="logs"&gt;Logs&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;journalctl --follow
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="systemd"&gt;systemd&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl start &amp;lt;process&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl stop &amp;lt;process&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl reload-daemon
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="q-how-do-i-change-the-current-runlevel"&gt;Q: How do I change the current runlevel?&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl isolate runlevel5.target
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;systemctl isolate graphical.target
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="q-how-do-i-change-the-default-runlevel-to-boot-into"&gt;Q: How do I change the default runlevel to boot into?&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -sf /usr/lib/systemd/system/multi-user.target /etc/systemd/system/default.target
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -sf /usr/lib/systemd/system/graphical.target /etc/systemd/system/default.target
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="docker-functions"&gt;Docker functions&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker_connect () {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; DOCKER_NAME=$1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; PID=$(docker inspect --format &amp;#39;{{.State.Pid}}&amp;#39; $DOCKER_NAME)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sudo nsenter --target $PID --mount --uts --ipc --net --pid
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;docker_nuke() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; docker ps -q | xargs docker stop
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; docker ps -q -a | xargs docker rm
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;docker_rmi_none() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; docker images | grep &amp;#39;&amp;lt;none&amp;gt;&amp;#39; | \
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; awk &amp;#39;{ print $3 }&amp;#39; | \
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; xargs docker rmi
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;docker_go() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; docker run --rm -t -i $@
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;docker_rm_stop() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; (docker ps -q -a;docker ps -q) | \
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sort | \
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; uniq -u | \
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; xargs docker rm
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="etcd"&gt;etcd&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -X GET http://localhost:5000/v1/search?q=postgresql
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -s -X GET http://meerkat.dev.o2.co.uk:8080/v1/search|python -mjson.tool
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -s -X GET http://meerkat.dev.o2.co.uk:8080/v1/repositories/jenkins-slave/tags|python -mjson.tool
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description></item><item><title>General</title><link>https://ceso.github.io/cheatsheets/linux/general/</link><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/linux/general/</guid><description>&lt;h1 id="user-run-command-as-different-user-with-binnologin"&gt;User. Run command as different user with /bin/nologin&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sudo -u user &amp;lt;command&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;su -m user -c &amp;#39;command&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="run-levels---get-current-runlevel"&gt;Run Levels - get current runlevel&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;runlevel
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="crontab"&gt;Crontab&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://crontab.guru/"&gt;https://crontab.guru/&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="filesystem"&gt;Filesystem&lt;/h1&gt;
+&lt;h2 id="filesystem-tuning"&gt;Filesystem tuning&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tune2fs -c 0 /dev/hda1 =&amp;gt; Set number of mounts between checks. 0 is disable
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;blkid /dev/hda1 =&amp;gt; Get the filesystem id:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;findfs UUID=d40acb36-5f32-4832-bf1a-80c67833a618 =&amp;gt; reverse uuid lookup
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#960050;background-color:#1e0010"&gt;&lt;/span&gt;ls -l /dev/disk/by-*/ =&amp;gt; List by different types:
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="list-filesystems-suppported"&gt;List filesystems suppported&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cat /proc/filesystems
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="kernel"&gt;Kernel&lt;/h1&gt;
+&lt;h2 id="check-shared-memory"&gt;Check shared memory&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ipcs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="check-current-max-and-min"&gt;Check current max and min&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/proc/sys/kernel
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sysctl -a
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="change-parameters"&gt;Change parameters&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sysctl -p /etc/sysctl.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="flush-disk-cache"&gt;Flush Disk Cache&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo 3 | sudo tee /proc/sys/vm/drop_caches
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="see-video-in-youtube"&gt;See video in youtube&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mplayer $(youtube-dl -g https://www.youtube.com/watch?v=hqtZnJg9TM0)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="create-a-socks-proxy-with-ssh"&gt;Create a socks proxy with ssh&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ssh -v -D 4545 USER@WTF_DESKTOP
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="local-port-forwarding-allows-you-connect-from-your-local-computer-to-another-server"&gt;Local port forwarding: allows you connect from your local computer to another server&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ssh -L 8080:www.ubuntuforums.org:80 host
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="sssh-without-prompting"&gt;Sssh without prompting&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;alias ssh=&amp;#39;ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -q&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="change-samba-password"&gt;Change samba password&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;smbpasswd -r london.net-a-porter.com -U &amp;lt;username&amp;gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="hexdata-to-binary"&gt;Hexdata to binary&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;xxd bdata | xxd -r &amp;gt;bdata2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="raw-data-recovery"&gt;RAW data recovery&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;foremost
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="find-latest-files-that-changed-in-a-dir-and-subdir"&gt;Find latest files that changed in a dir and subdir&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;find . -type f|xargs ls -alrt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="creating-patches"&gt;Creating patches&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;diff -Naur oldfile newfile &amp;gt; new-patch
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;diff &amp;lt;( ssh -nq lmn-prd-sendmailrelay001 cat /etc/mail/access ) &amp;lt;( ssh -qn prdlmn4912 cat /etc/mail/access )
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Apply patches:&lt;/p&gt;</description></item><item><title>Performance</title><link>https://ceso.github.io/cheatsheets/linux/performance/</link><pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/linux/performance/</guid><description>&lt;h1 id="diagrams"&gt;Diagrams&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://www.slideshare.net/slideshow/embed_code/16739605#"&gt;http://www.slideshare.net/slideshow/embed_code/16739605#&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id="load-average-across-time-load-average-can-be-impacted-by-io"&gt;Load average across time. Load average can be impacted by IO&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;uptime
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="on-top-the-process-list-does-not-show-kernel-threads"&gt;On TOP The process list does not show KERNEL threads&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;top
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;htop
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;atop
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nmon =&amp;gt; press c + m + d + n
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="network-graphical-tools"&gt;Network graphical tools&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iftop
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nload
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="multi-processor-statistics"&gt;Multi processor statistics&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mpstat -P ALL 1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="disk-io-statistics-first-output-is-summary-since-boot"&gt;DISK I/O Statistics, First output is summary since boot&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;iostat -xkdz 1A
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="virtual-memory-statistics-first-line-include-some-summaries-since-boot-values"&gt;Virtual Memory statistics. First line include some summaries since boot values&lt;/h1&gt;
+&lt;h1 id="r-total-number-of-runnable-threads-including-those-running"&gt;r= total number of runnable threads, including those running&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vmstat 1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="memory-usage-summary"&gt;Memory usage summary&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;free
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="simple-network-latency-but-from-kernel-to-kernel-including-stack"&gt;Simple network latency but from kernel to kernel, including stack&lt;/h1&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;ping
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h1 id="network-statistics-tools-check-utilization-and-saturation-columns-last-2"&gt;Network statistics tools. Check Utilization and Saturation columns (last 2)&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget ftp://ftp.pbone.net/mirror/ftp5.gwdg.de/pub/opensuse/repositories/home:/cwx_holle/RedHat_RHEL-6/i686/nicstat-1.92-2.1.i686.rpm
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum install nicstat-1.92-2.1.i686.rpm
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nicstat -z 1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="system-activity-reporter"&gt;System Activity reporter&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sar 1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sar -B 1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="various-network-protocol-statistics"&gt;Various network protocol statistics&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;netstat -s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="who-is-consuming-cpu"&gt;who is consuming CPU&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pidstat 1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="pidstat-to-identify-which-application-is-writing-to-disk-it-includes-kernel-threads-with--d"&gt;Pidstat to identify which application is writing to disk. It includes kernel threads with -d&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pidstat -d 1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h1 id="system-call-tracer"&gt;System call tracer&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;strace -tttT -p PID
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;strace -s 2000 -f -p PID =&amp;gt; With lsof you can tell what are the file descriptors
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Get statistics for each system call excecuted, this is useful to compare a process
+that is working good vs a process that is not working right&lt;/p&gt;</description></item><item><title>(Simple) Buffer Overflow (32 bits, NO ASLR and NO DEP)</title><link>https://ceso.github.io/cheatsheets/hacking/memory_exploitation/simple_buffer_overflow/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/cheatsheets/hacking/memory_exploitation/simple_buffer_overflow/</guid><description>&lt;ul&gt;
 &lt;li&gt;0 - Crash the application&lt;/li&gt;
 &lt;li&gt;1 - Fuzzing (find aprox number of bytes where the crash took place)&lt;/li&gt;
 &lt;li&gt;2 - Find offset&lt;/li&gt;
@@ -186,9 +416,19 @@ The command below will be forwarding the traffic from port 8081 in the machine 1
 &lt;/ul&gt;
 &lt;hr&gt;</description></item><item><title>Linux</title><link>https://ceso.github.io/resources/operating_systems/linux/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>https://ceso.github.io/resources/operating_systems/linux/</guid><description>&lt;h1 id="general"&gt;General&lt;/h1&gt;
 &lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.linuxfromscratch.org/"&gt;https://www.linuxfromscratch.org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://devo.ps/blog/2013/03/06/troubleshooting-5minutes-on-a-yet-unknown-box.html"&gt;http://devo.ps/blog/2013/03/06/troubleshooting-5minutes-on-a-yet-unknown-box.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dtrace.org/blogs/brendan/2012/03/07/the-use-method-linux-performance-checklist/"&gt;http://dtrace.org/blogs/brendan/2012/03/07/the-use-method-linux-performance-checklist/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dtrace.org/blogs/brendan/2012/12/19/the-use-method-smartos-performance-checklist/"&gt;http://dtrace.org/blogs/brendan/2012/12/19/the-use-method-smartos-performance-checklist/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.pathname.com/fhs/pub/fhs-2.3.html"&gt;http://www.pathname.com/fhs/pub/fhs-2.3.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.linusakesson.net/programming/tty/"&gt;http://www.linusakesson.net/programming/tty/&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://pentestmonkey.net/blog/post-exploitation-without-a-tty"&gt;http://pentestmonkey.net/blog/post-exploitation-without-a-tty&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id="networking"&gt;Networking&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://linux-ip.net/html/index.html"&gt;http://linux-ip.net/html/index.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/security_guide/sect-security_guide-iptables"&gt;https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/security_guide/sect-security_guide-iptables&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h1 id="privilege-escalation"&gt;Privilege Escalation&lt;/h1&gt;

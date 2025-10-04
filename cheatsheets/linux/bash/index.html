@@ -1,0 +1,165 @@
+<head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Bash</title><link rel=stylesheet href=https://ceso.github.io/css/wiki.css></head><header><div id=brand><a class=icon-link href=https://ceso.github.io/><img class=icon src=https://ceso.github.io/images/site/logo.svg></a><div class=text><a href=https://ceso.github.io/ class=site-title>Ceso Adventures</a><h3>Blogs, Security CTFs & Tutorials</h3></div></div><nav><a href=https://ceso.github.io/><b>Home</b></a>
+|
+<a href=https://ceso.github.io/whoami/><b>Whoami</b></a>
+|
+<a href=https://ceso.github.io/posts/><b>Posts</b></a>
+|
+<a href=https://ceso.github.io/cheatsheets/><b>Cheatsheets</b></a>
+|
+<a href=https://ceso.github.io/resources><b>Resources</b></a>
+|
+<a href=https://ceso.github.io/videos><b>Videos</b></a>
+|
+<a href=https://ceso.github.io/categories/><b>Categories</b></a>
+|
+<a href=https://ceso.github.io/tags/><b>Tags</b></a>
+|
+<a href=https://ceso.github.io/index.xml><b>RSS</b></a></nav><hr></header><div class=wrap><nav class=sidebar aria-label="Table of contents"><h2>Cheatsheets</h2><details open><summary>Linux</summary><div class=children><a href=https://ceso.github.io/cheatsheets/linux/bash/ class=current>Bash
+</a><a href=https://ceso.github.io/cheatsheets/linux/coreos/>CoreOS
+</a><a href=https://ceso.github.io/cheatsheets/linux/general/>General
+</a><a href=https://ceso.github.io/cheatsheets/linux/performance/>Performance</a></div></details><details><summary>Hacking</summary><div class=children><details><summary>Active Directory</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/bloodhound/>BloodHound
+</a><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/exploitation/>Exploitation
+</a><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/permissions/>Permissions: ACE/SDDL - Format
+</a><a href=https://ceso.github.io/cheatsheets/hacking/active_directory/powerview/>PowerView - methods for enumeration</a></div></details><details><summary>Antivirus Bypassing</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/readme/>README !
+</a><a href=https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/amsi/>AMSI
+</a><a href=https://ceso.github.io/cheatsheets/hacking/antivirus_bypassing/signature_heuristics/>Signature/Heuristics</a></div></details><details><summary>Enumeration</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/login_cifs_winrm_pssesion/>Login through CIFS/WinRM/PSSession
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/networking/>Networking
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/samba/>Samba
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/useful_wordlists/>Useful Wordlists
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/web_directorie_file_scanner/>Web directorie/file scanner
+</a><a href=https://ceso.github.io/cheatsheets/hacking/enumeration/windows/>Windows</a></div></details><details><summary>Exfiltration</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/ftp/>FTP
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/http/>HTTP
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/rdp/>RDP
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/samba/>Samba
+</a><a href=https://ceso.github.io/cheatsheets/hacking/exfiltration/sockets/>Sockets</a></div></details><details><summary>Good to know</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/good_to_know/compiling/>Compiling
+</a><a href=https://ceso.github.io/cheatsheets/hacking/good_to_know/misc/>Misc
+</a><a href=https://ceso.github.io/cheatsheets/hacking/good_to_know/web/>Web</a></div></details><details><summary>Memory Exploitation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/memory_exploitation/simple_buffer_overflow/>(Simple) Buffer Overflow (32 bits, NO ASLR and NO DEP)</a></div></details><details><summary>Pivoting</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/readme/>README !
+</a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/chisel/>Chisel
+</a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/metasploit/>Metasploit
+</a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/sshuttle/>sshuttle</a></div></details><details><summary>Privilege Escalation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/>Linux
+</a><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/>Windows</a></div></details><details><summary>Reverse Shells</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/bash/>Bash
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/metasploit/>Metasploit
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>Bash</h1></header><article><h1 id=xargs>xargs</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>ls | xargs -I {} mv {} 20080815-{}
+</span></span></code></pre></div><hr><h1 id=string-substitution>String substitution:</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>STR=/path/to/foo.c
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>echo ${STR%/*}      #=&gt; &#34;/path/to&#34;
+</span></span><span style=display:flex><span>echo ${STR%.c}      #=&gt; &#34;/path/to/foo&#34;
+</span></span><span style=display:flex><span>echo ${STR%.c}.o    #=&gt; &#34;/path/to/foo.o&#34;
+</span></span><span style=display:flex><span>echo ${STR##*.}     #=&gt; &#34;c&#34; (extension)
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>BASE=${SRC##*/}     #=&gt; &#34;foo.c&#34; (basepath)
+</span></span><span style=display:flex><span>DIR=${SRC%$BASE}    #=&gt; &#34;/path/to&#34;
+</span></span><span style=display:flex><span>echo ${STR%/*}      #=&gt; &#34;/path/to&#34;
+</span></span></code></pre></div><hr><h1 id=varible-substitution>Varible Substitution</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>echo ${STR/hi/hello}          # Replace first match
+</span></span><span style=display:flex><span>echo ${STR//hi/hello}         # Replace all matches
+</span></span><span style=display:flex><span>echo ${STR/#hi/hello}         # ^hi
+</span></span><span style=display:flex><span>echo ${STR/%hi/hello}         # hi$
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>echo &#34;${STR:0:3}&#34;             # .substr(0, 3) -- position, length
+</span></span><span style=display:flex><span>echo &#34;${STR:-3:3}&#34;            # Negative position = from the right
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>echo ${#line}                 # Length of $line
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>[ -z &#34;$CC&#34; ] &amp;&amp; CC=gcc        # CC ||= &#34;gcc&#34;  assignment
+</span></span><span style=display:flex><span>$<span style=color:#f92672>{</span>CC:<span style=color:#f92672>=</span>gcc<span style=color:#f92672>}</span>                    <span style=color:#75715e># $CC || &#34;gcc&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>#Substring <span style=color:#66d9ef>for</span> first <span style=color:#ae81ff>5</span> characters:
+</span></span><span style=display:flex><span>$<span style=color:#f92672>{</span>variable:0:5<span style=color:#f92672>}</span>
+</span></span></code></pre></div><hr><h1 id=regex>Regex</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>if [[ &#34;A&#34; =~ &#34;.&#34; ]]
+</span></span></code></pre></div><hr><h1 id=numeric-comparisons>Numeric comparisons</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>if (( $a &lt; $b ))
+</span></span></code></pre></div><hr><h1 id=numeric-calculation>Numeric calculation</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>$<span style=color:#f92672>((</span>a + 200<span style=color:#f92672>))</span>                <span style=color:#75715e># $ is optional</span>
+</span></span></code></pre></div><hr><h1 id=variable-defaults>Variable defaults</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>$<span style=color:#f92672>{</span>FOO:-word<span style=color:#f92672>}</span>                <span style=color:#75715e># Returns word</span>
+</span></span><span style=display:flex><span>$<span style=color:#f92672>{</span>FOO:+word<span style=color:#f92672>}</span>                <span style=color:#75715e># Returns empty, or word if set</span>
+</span></span><span style=display:flex><span>$<span style=color:#f92672>{</span>FOO:<span style=color:#f92672>=</span>word<span style=color:#f92672>}</span>                <span style=color:#75715e># Sets parameter to word, returns word</span>
+</span></span><span style=display:flex><span>$<span style=color:#f92672>{</span>FOO:?message<span style=color:#f92672>}</span>             <span style=color:#75715e># Echoes message and exits</span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>$<span style=color:#f92672>{</span>FOO<span style=color:#f92672>=</span>word<span style=color:#f92672>}</span>                 <span style=color:#75715e># : is optional in all of the above</span>
+</span></span></code></pre></div><hr><h1 id=random-numbers>Random numbers</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>$<span style=color:#f92672>((</span>RANDOM%<span style=color:#f92672>=</span>200<span style=color:#f92672>))</span>            <span style=color:#75715e># Random number 0..200</span>
+</span></span><span style=display:flex><span>set -o noclobber            # Avoid overlay files (echo &#34;hi&#34; &gt; foo)
+</span></span><span style=display:flex><span>set -o errexit              # Used to exit upon error, avoiding cascading errors
+</span></span><span style=display:flex><span>set -o pipefail             # Unveils hidden failures
+</span></span><span style=display:flex><span>set -o nounset              # Exposes unset variables
+</span></span></code></pre></div><hr><h1 id=references>References</h1><p><a href=http://wiki.bash-hackers.org/doku.php>http://wiki.bash-hackers.org/doku.php</a></p><hr><h1 id=colors>Colors</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>echo $(tput setaf 1) This is just a test
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>bold() {
+</span></span><span style=display:flex><span>  echo -ne &#39;\033[1;37m&#39;$1&#39;\033[0m&#39;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>red() {
+</span></span><span style=display:flex><span>  echo -ne &#39;\033[1;31m&#39;$1&#39;\033[0m&#39;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>green() {
+</span></span><span style=display:flex><span>  echo -ne &#39;\033[1;32m&#39;$1&#39;\033[0m&#39;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>blue () {
+</span></span><span style=display:flex><span>  echo -ne &#39;\033[1;34m&#39;$1&#39;\033[0m&#39;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>yellow() {
+</span></span><span style=display:flex><span>  echo -ne &#39;\033[1;33m&#39;$1&#39;\033[0m&#39;
+</span></span><span style=display:flex><span>  #   tput sgr0
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>pink() {
+</span></span><span style=display:flex><span>  echo -ne &#39;\033[1;35m&#39;$1&#39;\033[0m&#39;
+</span></span><span style=display:flex><span>  #   tput sgr0
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>fgblk=&#34;$(tput setaf 0)&#34; # Black - Regular
+</span></span><span style=display:flex><span>fgred=&#34;$(tput setaf 1)&#34; # Red
+</span></span><span style=display:flex><span>fggrn=&#34;$(tput setaf 2)&#34; # Green
+</span></span><span style=display:flex><span>fgylw=&#34;$(tput setaf 3)&#34; # Yellow
+</span></span><span style=display:flex><span>fgblu=&#34;$(tput setaf 4)&#34; # Blue
+</span></span><span style=display:flex><span>fgpur=&#34;$(tput setaf 5)&#34; # Purple
+</span></span><span style=display:flex><span>fgcyn=&#34;$(tput setaf 6)&#34; # Cyan
+</span></span><span style=display:flex><span>fgwht=&#34;$(tput setaf 7)&#34; # White
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>bfgblk=&#34;$(tput setaf 8)&#34; # Black - Bright
+</span></span><span style=display:flex><span>bfgred=&#34;$(tput setaf 9)&#34; # Red
+</span></span><span style=display:flex><span>bfggrn=&#34;$(tput setaf 10)&#34; # Green
+</span></span><span style=display:flex><span>bfgylw=&#34;$(tput setaf 11)&#34; # Yellow
+</span></span><span style=display:flex><span>bfgblu=&#34;$(tput setaf 12)&#34; # Blue
+</span></span><span style=display:flex><span>bfgpur=&#34;$(tput setaf 13)&#34; # Purple
+</span></span><span style=display:flex><span>bfgcyn=&#34;$(tput setaf 14)&#34; # Cyan
+</span></span><span style=display:flex><span>bfgwht=&#34;$(tput setaf 15)&#34; # White
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>bgblk=&#34;$(tput setab 0)&#34; # Black - Background
+</span></span><span style=display:flex><span>bgred=&#34;$(tput setab 1)&#34; # Red
+</span></span><span style=display:flex><span>bggrn=&#34;$(tput setab 2)&#34; # Green
+</span></span><span style=display:flex><span>bgylw=&#34;$(tput setab 3)&#34; # Yellow
+</span></span><span style=display:flex><span>bgblu=&#34;$(tput setab 4)&#34; # Blue
+</span></span><span style=display:flex><span>bgpur=&#34;$(tput setab 5)&#34; # Purple
+</span></span><span style=display:flex><span>bgcyn=&#34;$(tput setab 6)&#34; # Cyan
+</span></span><span style=display:flex><span>bgwht=&#34;$(tput setab 7)&#34; # White
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>bbgblk=&#34;$(tput setab 8)&#34; # Black - Background - Bright
+</span></span><span style=display:flex><span>bbgred=&#34;$(tput setab 9)&#34; # Red
+</span></span><span style=display:flex><span>bbggrn=&#34;$(tput setab 10)&#34; # Green
+</span></span><span style=display:flex><span>bbgylw=&#34;$(tput setab 11)&#34; # Yellow
+</span></span><span style=display:flex><span>bbgblu=&#34;$(tput setab 12)&#34; # Blue
+</span></span><span style=display:flex><span>bbgpur=&#34;$(tput setab 13)&#34; # Purple
+</span></span><span style=display:flex><span>bbgcyn=&#34;$(tput setab 14)&#34; # Cyan
+</span></span><span style=display:flex><span>bbgwht=&#34;$(tput setab 15)&#34; # White
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
+</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>normal=&#34;$(tput sgr0)&#34; # text reset
+</span></span><span style=display:flex><span>mkbold=&#34;$(tput bold)&#34; # make bold
+</span></span><span style=display:flex><span>undrln=&#34;$(tput smul)&#34; # underline
+</span></span><span style=display:flex><span>noundr=&#34;$(tput rmul)&#34; # remove underline
+</span></span><span style=display:flex><span>mkblnk=&#34;$(tput blink)&#34; # make blink
+</span></span><span style=display:flex><span>revers=&#34;$(tput rev)&#34; # reverse
+</span></span></code></pre></div><hr></article></main></div></body><footer><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=https://ceso.github.io/css/wiki.css></footer><footer><hr><p id=social>Find me around the web:<br><a href=https://github.com/ceso target=_blank>GitHub</a>
+|
+<a href=https://youtube.com/c/LeandroLemos target=_blank>YouTube</a>
+|
+<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2025
+<a href=https://ceso.github.io/><strong>Ceso</strong></a>.</p><p class=builtWith>Built with
+<a href=http://www.gohugo.io/>Hugo</a> by ceso,
+using <a href=https://github.com/ceso/smigle-lagom>smigle-lagom</a> a fork of the theme
+<a href=https://github.com/joe-mccarthy/smigle-lite>smigle-lite</a>. Based on the theme
+<a href=https://gitlab.com/ian-s-mcb/smigle-hugo-theme>smigle</a>,
+which was influenced by the theme
+<a href=https://github.com/colorchestra/smol>smol</a>.</p></footer>
