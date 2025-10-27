@@ -2,7 +2,7 @@
    Root variables & base theme
    ============================== */
 :root {
-  --bg: #0f1724;
+  --bg: #000;
   --card: #0b1220;
   --muted: #9aa4b2;
   --accent: #7dd3fc;
