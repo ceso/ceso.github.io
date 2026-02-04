@@ -25,7 +25,6 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background: linear-gradient(180deg, #071026 0%, #071827 60%);
   color: #e6eef6;
   overflow-x: auto;
 }
@@ -323,6 +322,18 @@ h1.title {
   article h6 {
     color: #ffffff;
     font-weight: bold;
+  }
+
+  a:link {
+    color: #ff0000;
+  }
+
+  a:visited {
+    color: #5bf;
+  }
+
+  a:hover {
+    color: #ff7d00;
   }
 
   #brand a {
