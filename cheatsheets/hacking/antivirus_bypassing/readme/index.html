@@ -40,7 +40,7 @@
 </a><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/>Windows</a></div></details><details><summary>Reverse Shells</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/bash/>Bash
 </a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/metasploit/>Metasploit
 </a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>README !</h1></header><article><p>Antivirus tend to flag malware by Signature/Heuristics detection, we could bypass these throughout certain techniques
-For more details, look up into the [Exploit Development/Reversing/AV|EDR Bypass](<a href=https://ceso.github.io/2020/12/hacking-resources/#exploit-developmentreversingAV>https://ceso.github.io/2020/12/hacking-resources/#exploit-developmentreversingAV</a>|EDR Bypass) Section on the resources part of my blog.</p><hr><h1 id=if-not-av-bypass-and-admin-disable-defender>If NOT AV Bypass and Admin, DISABLE Defender</h1><p>If we have admin creds, we could disable Win Defender, please note THIS IS NEVER a good idea in production environments as this can be monitored!!</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span># Query <span style=color:#66d9ef>if</span> there is already an excluded path
+For more details, look up into the [Exploit Development/Reversing/AV|EDR Bypass](<a href=https://ceso.github.io/2020/12/hacking-resources/#exploit-developmentreversingAV>https://ceso.github.io/2020/12/hacking-resources/#exploit-developmentreversingAV</a>|EDR Bypass) Section on the resources part of my blog.</p><hr><h1 id=if-not-av-bypass-and-admin-disable-defender>If NOT AV Bypass and Admin, DISABLE Defender</h1><p>If we have admin creds, we could disable Win Defender, please note THIS IS NEVER a good idea in production environments as this can be monitored!!</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span># Query <span style=color:#66d9ef>if</span> there is already an excluded path
 </span></span><span style=display:flex><span>  Get-MpPreference | select-object -ExpandProperty ExclusionPath
 </span></span><span style=display:flex><span># Disable real time monitoring
 </span></span><span style=display:flex><span>  Set-MpPreference -DisableRealtimeMonitoring $true
@@ -54,7 +54,7 @@ For more details, look up into the [Exploit Development/Reversing/AV|EDR Bypass]
 |
 <a href=https://youtube.com/c/LeandroLemos target=_blank>YouTube</a>
 |
-<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2025
+<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2026
 <a href=https://ceso.github.io/><strong>Ceso</strong></a>.</p><p class=builtWith>Built with
 <a href=http://www.gohugo.io/>Hugo</a> by ceso,
 using <a href=https://github.com/ceso/smigle-lagom>smigle-lagom</a> a fork of the theme

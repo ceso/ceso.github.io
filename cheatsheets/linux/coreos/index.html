@@ -39,55 +39,55 @@
 </a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/sshuttle/>sshuttle</a></div></details><details><summary>Privilege Escalation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/>Linux
 </a><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/>Windows</a></div></details><details><summary>Reverse Shells</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/bash/>Bash
 </a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/metasploit/>Metasploit
-</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>CoreOS</h1></header><article><h1 id=delete-all-images-and-all-instances>Delete all images and all instances:</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>docker ps -a|awk &#39;{print $1}&#39;|grep -v CONTAINER|while read a;do docker rm -f $a;done
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>CoreOS</h1></header><article><h1 id=delete-all-images-and-all-instances>Delete all images and all instances:</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>docker ps -a|awk &#39;{print $1}&#39;|grep -v CONTAINER|while read a;do docker rm -f $a;done
 </span></span><span style=display:flex><span>docker images|awk &#39;{print $3}&#39;|grep -v IMAGE|while read a;do docker rmi -f $a;done
-</span></span></code></pre></div><hr><h1 id=connect-to-vm>Connect to VM</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>DOCKER_NAME=ace-app
+</span></span></code></pre></div><hr><h1 id=connect-to-vm>Connect to VM</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>DOCKER_NAME=ace-app
 </span></span><span style=display:flex><span>PID=$(docker inspect --format &#39;{{.State.Pid}}&#39; $DOCKER_NAME)
 </span></span><span style=display:flex><span>sudo nsenter --target $PID --mount --uts --ipc --net --pid
-</span></span></code></pre></div><hr><h1 id=forward-ports-to-internal>Forward ports to internal</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>iptables -D PREROUTING -t nat -i enp0s8 -p tcp --dport 80 -j DNAT --to 10.1.0.56:80
-</span></span></code></pre></div><hr><h1 id=logs>Logs</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>journalctl --follow
-</span></span></code></pre></div><hr><h1 id=systemd>systemd</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>systemctl start &lt;process&gt;
+</span></span></code></pre></div><hr><h1 id=forward-ports-to-internal>Forward ports to internal</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>iptables -D PREROUTING -t nat -i enp0s8 -p tcp --dport 80 -j DNAT --to 10.1.0.56:80
+</span></span></code></pre></div><hr><h1 id=logs>Logs</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>journalctl --follow
+</span></span></code></pre></div><hr><h1 id=systemd>systemd</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>systemctl start &lt;process&gt;
 </span></span><span style=display:flex><span>systemctl stop &lt;process&gt;
 </span></span><span style=display:flex><span>systemctl reload-daemon
-</span></span></code></pre></div><hr><h1 id=q-how-do-i-change-the-current-runlevel>Q: How do I change the current runlevel?</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>systemctl isolate runlevel5.target
+</span></span></code></pre></div><hr><h1 id=q-how-do-i-change-the-current-runlevel>Q: How do I change the current runlevel?</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>systemctl isolate runlevel5.target
 </span></span><span style=display:flex><span>systemctl isolate graphical.target
-</span></span></code></pre></div><hr><h1 id=q-how-do-i-change-the-default-runlevel-to-boot-into>Q: How do I change the default runlevel to boot into?</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>ln -sf /usr/lib/systemd/system/multi-user.target /etc/systemd/system/default.target
+</span></span></code></pre></div><hr><h1 id=q-how-do-i-change-the-default-runlevel-to-boot-into>Q: How do I change the default runlevel to boot into?</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>ln -sf /usr/lib/systemd/system/multi-user.target /etc/systemd/system/default.target
 </span></span><span style=display:flex><span>ln -sf /usr/lib/systemd/system/graphical.target /etc/systemd/system/default.target
-</span></span></code></pre></div><hr><h1 id=docker-functions>Docker functions</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>docker_connect () {
+</span></span></code></pre></div><hr><h1 id=docker-functions>Docker functions</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>docker_connect () {
 </span></span><span style=display:flex><span>  DOCKER_NAME=$1
 </span></span><span style=display:flex><span>  PID=$(docker inspect --format &#39;{{.State.Pid}}&#39; $DOCKER_NAME)
 </span></span><span style=display:flex><span>  sudo nsenter --target $PID --mount --uts --ipc --net --pid
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>docker_nuke() {
+</span></span></span><span style=display:flex><span>docker_nuke() {
 </span></span><span style=display:flex><span>    docker ps -q | xargs docker stop
 </span></span><span style=display:flex><span>    docker ps -q -a | xargs docker rm
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>docker_rmi_none() {
+</span></span></span><span style=display:flex><span>docker_rmi_none() {
 </span></span><span style=display:flex><span>    docker images | grep &#39;&lt;none&gt;&#39; | \
 </span></span><span style=display:flex><span>    awk &#39;{ print $3 }&#39; | \
 </span></span><span style=display:flex><span>    xargs docker rmi
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>docker_go() {
+</span></span></span><span style=display:flex><span>docker_go() {
 </span></span><span style=display:flex><span>   docker run --rm -t -i $@
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>docker_rm_stop() {
+</span></span></span><span style=display:flex><span>docker_rm_stop() {
 </span></span><span style=display:flex><span>   (docker ps -q -a;docker ps -q) | \
 </span></span><span style=display:flex><span>   sort | \
 </span></span><span style=display:flex><span>   uniq -u | \
 </span></span><span style=display:flex><span>   xargs docker rm
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div><hr><h1 id=etcd>etcd</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>curl -X GET http://localhost:5000/v1/search?q=postgresql
+</span></span></code></pre></div><hr><h1 id=etcd>etcd</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>curl -X GET http://localhost:5000/v1/search?q=postgresql
 </span></span><span style=display:flex><span>curl -s -X GET http://meerkat.dev.o2.co.uk:8080/v1/search|python -mjson.tool
 </span></span><span style=display:flex><span>curl -s -X GET http://meerkat.dev.o2.co.uk:8080/v1/repositories/jenkins-slave/tags|python -mjson.tool
 </span></span></code></pre></div><hr></article></main></div></body><footer><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=https://ceso.github.io/css/wiki.css></footer><footer><hr><p id=social>Find me around the web:<br><a href=https://github.com/ceso target=_blank>GitHub</a>
 |
 <a href=https://youtube.com/c/LeandroLemos target=_blank>YouTube</a>
 |
-<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2025
+<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2026
 <a href=https://ceso.github.io/><strong>Ceso</strong></a>.</p><p class=builtWith>Built with
 <a href=http://www.gohugo.io/>Hugo</a> by ceso,
 using <a href=https://github.com/ceso/smigle-lagom>smigle-lagom</a> a fork of the theme

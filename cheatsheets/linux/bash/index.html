@@ -39,77 +39,77 @@
 </a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/sshuttle/>sshuttle</a></div></details><details><summary>Privilege Escalation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/>Linux
 </a><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/>Windows</a></div></details><details><summary>Reverse Shells</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/bash/>Bash
 </a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/metasploit/>Metasploit
-</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>Bash</h1></header><article><h1 id=xargs>xargs</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>ls | xargs -I {} mv {} 20080815-{}
-</span></span></code></pre></div><hr><h1 id=string-substitution>String substitution:</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>STR=/path/to/foo.c
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>Bash</h1></header><article><h1 id=xargs>xargs</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>ls | xargs -I {} mv {} 20080815-{}
+</span></span></code></pre></div><hr><h1 id=string-substitution>String substitution:</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>STR=/path/to/foo.c
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>echo ${STR%/*}      #=&gt; &#34;/path/to&#34;
+</span></span></span><span style=display:flex><span>echo ${STR%/*}      #=&gt; &#34;/path/to&#34;
 </span></span><span style=display:flex><span>echo ${STR%.c}      #=&gt; &#34;/path/to/foo&#34;
 </span></span><span style=display:flex><span>echo ${STR%.c}.o    #=&gt; &#34;/path/to/foo.o&#34;
 </span></span><span style=display:flex><span>echo ${STR##*.}     #=&gt; &#34;c&#34; (extension)
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>BASE=${SRC##*/}     #=&gt; &#34;foo.c&#34; (basepath)
+</span></span></span><span style=display:flex><span>BASE=${SRC##*/}     #=&gt; &#34;foo.c&#34; (basepath)
 </span></span><span style=display:flex><span>DIR=${SRC%$BASE}    #=&gt; &#34;/path/to&#34;
 </span></span><span style=display:flex><span>echo ${STR%/*}      #=&gt; &#34;/path/to&#34;
-</span></span></code></pre></div><hr><h1 id=varible-substitution>Varible Substitution</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>echo ${STR/hi/hello}          # Replace first match
+</span></span></code></pre></div><hr><h1 id=varible-substitution>Varible Substitution</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>echo ${STR/hi/hello}          # Replace first match
 </span></span><span style=display:flex><span>echo ${STR//hi/hello}         # Replace all matches
 </span></span><span style=display:flex><span>echo ${STR/#hi/hello}         # ^hi
 </span></span><span style=display:flex><span>echo ${STR/%hi/hello}         # hi$
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>echo &#34;${STR:0:3}&#34;             # .substr(0, 3) -- position, length
+</span></span></span><span style=display:flex><span>echo &#34;${STR:0:3}&#34;             # .substr(0, 3) -- position, length
 </span></span><span style=display:flex><span>echo &#34;${STR:-3:3}&#34;            # Negative position = from the right
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>echo ${#line}                 # Length of $line
+</span></span></span><span style=display:flex><span>echo ${#line}                 # Length of $line
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>[ -z &#34;$CC&#34; ] &amp;&amp; CC=gcc        # CC ||= &#34;gcc&#34;  assignment
+</span></span></span><span style=display:flex><span>[ -z &#34;$CC&#34; ] &amp;&amp; CC=gcc        # CC ||= &#34;gcc&#34;  assignment
 </span></span><span style=display:flex><span>$<span style=color:#f92672>{</span>CC:<span style=color:#f92672>=</span>gcc<span style=color:#f92672>}</span>                    <span style=color:#75715e># $CC || &#34;gcc&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>#Substring <span style=color:#66d9ef>for</span> first <span style=color:#ae81ff>5</span> characters:
+</span></span></span><span style=display:flex><span>#Substring <span style=color:#66d9ef>for</span> first <span style=color:#ae81ff>5</span> characters:
 </span></span><span style=display:flex><span>$<span style=color:#f92672>{</span>variable:0:5<span style=color:#f92672>}</span>
-</span></span></code></pre></div><hr><h1 id=regex>Regex</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>if [[ &#34;A&#34; =~ &#34;.&#34; ]]
-</span></span></code></pre></div><hr><h1 id=numeric-comparisons>Numeric comparisons</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>if (( $a &lt; $b ))
-</span></span></code></pre></div><hr><h1 id=numeric-calculation>Numeric calculation</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>$<span style=color:#f92672>((</span>a + 200<span style=color:#f92672>))</span>                <span style=color:#75715e># $ is optional</span>
-</span></span></code></pre></div><hr><h1 id=variable-defaults>Variable defaults</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>$<span style=color:#f92672>{</span>FOO:-word<span style=color:#f92672>}</span>                <span style=color:#75715e># Returns word</span>
+</span></span></code></pre></div><hr><h1 id=regex>Regex</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>if [[ &#34;A&#34; =~ &#34;.&#34; ]]
+</span></span></code></pre></div><hr><h1 id=numeric-comparisons>Numeric comparisons</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>if (( $a &lt; $b ))
+</span></span></code></pre></div><hr><h1 id=numeric-calculation>Numeric calculation</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>$<span style=color:#f92672>((</span>a + 200<span style=color:#f92672>))</span>                <span style=color:#75715e># $ is optional</span>
+</span></span></code></pre></div><hr><h1 id=variable-defaults>Variable defaults</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>$<span style=color:#f92672>{</span>FOO:-word<span style=color:#f92672>}</span>                <span style=color:#75715e># Returns word</span>
 </span></span><span style=display:flex><span>$<span style=color:#f92672>{</span>FOO:+word<span style=color:#f92672>}</span>                <span style=color:#75715e># Returns empty, or word if set</span>
 </span></span><span style=display:flex><span>$<span style=color:#f92672>{</span>FOO:<span style=color:#f92672>=</span>word<span style=color:#f92672>}</span>                <span style=color:#75715e># Sets parameter to word, returns word</span>
 </span></span><span style=display:flex><span>$<span style=color:#f92672>{</span>FOO:?message<span style=color:#f92672>}</span>             <span style=color:#75715e># Echoes message and exits</span>
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>$<span style=color:#f92672>{</span>FOO<span style=color:#f92672>=</span>word<span style=color:#f92672>}</span>                 <span style=color:#75715e># : is optional in all of the above</span>
-</span></span></code></pre></div><hr><h1 id=random-numbers>Random numbers</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>$<span style=color:#f92672>((</span>RANDOM%<span style=color:#f92672>=</span>200<span style=color:#f92672>))</span>            <span style=color:#75715e># Random number 0..200</span>
+</span></span></span><span style=display:flex><span>$<span style=color:#f92672>{</span>FOO<span style=color:#f92672>=</span>word<span style=color:#f92672>}</span>                 <span style=color:#75715e># : is optional in all of the above</span>
+</span></span></code></pre></div><hr><h1 id=random-numbers>Random numbers</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>$<span style=color:#f92672>((</span>RANDOM%<span style=color:#f92672>=</span>200<span style=color:#f92672>))</span>            <span style=color:#75715e># Random number 0..200</span>
 </span></span><span style=display:flex><span>set -o noclobber            # Avoid overlay files (echo &#34;hi&#34; &gt; foo)
 </span></span><span style=display:flex><span>set -o errexit              # Used to exit upon error, avoiding cascading errors
 </span></span><span style=display:flex><span>set -o pipefail             # Unveils hidden failures
 </span></span><span style=display:flex><span>set -o nounset              # Exposes unset variables
-</span></span></code></pre></div><hr><h1 id=references>References</h1><p><a href=http://wiki.bash-hackers.org/doku.php>http://wiki.bash-hackers.org/doku.php</a></p><hr><h1 id=colors>Colors</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>echo $(tput setaf 1) This is just a test
+</span></span></code></pre></div><hr><h1 id=references>References</h1><p><a href=http://wiki.bash-hackers.org/doku.php>http://wiki.bash-hackers.org/doku.php</a></p><hr><h1 id=colors>Colors</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>echo $(tput setaf 1) This is just a test
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>bold() {
+</span></span></span><span style=display:flex><span>bold() {
 </span></span><span style=display:flex><span>  echo -ne &#39;\033[1;37m&#39;$1&#39;\033[0m&#39;
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>red() {
+</span></span></span><span style=display:flex><span>red() {
 </span></span><span style=display:flex><span>  echo -ne &#39;\033[1;31m&#39;$1&#39;\033[0m&#39;
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>green() {
+</span></span></span><span style=display:flex><span>green() {
 </span></span><span style=display:flex><span>  echo -ne &#39;\033[1;32m&#39;$1&#39;\033[0m&#39;
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>blue () {
+</span></span></span><span style=display:flex><span>blue () {
 </span></span><span style=display:flex><span>  echo -ne &#39;\033[1;34m&#39;$1&#39;\033[0m&#39;
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>yellow() {
+</span></span></span><span style=display:flex><span>yellow() {
 </span></span><span style=display:flex><span>  echo -ne &#39;\033[1;33m&#39;$1&#39;\033[0m&#39;
 </span></span><span style=display:flex><span>  #   tput sgr0
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>pink() {
+</span></span></span><span style=display:flex><span>pink() {
 </span></span><span style=display:flex><span>  echo -ne &#39;\033[1;35m&#39;$1&#39;\033[0m&#39;
 </span></span><span style=display:flex><span>  #   tput sgr0
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
 </span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
 </span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>fgblk=&#34;$(tput setaf 0)&#34; # Black - Regular
+</span></span></span><span style=display:flex><span>fgblk=&#34;$(tput setaf 0)&#34; # Black - Regular
 </span></span><span style=display:flex><span>fgred=&#34;$(tput setaf 1)&#34; # Red
 </span></span><span style=display:flex><span>fggrn=&#34;$(tput setaf 2)&#34; # Green
 </span></span><span style=display:flex><span>fgylw=&#34;$(tput setaf 3)&#34; # Yellow
@@ -118,7 +118,7 @@
 </span></span><span style=display:flex><span>fgcyn=&#34;$(tput setaf 6)&#34; # Cyan
 </span></span><span style=display:flex><span>fgwht=&#34;$(tput setaf 7)&#34; # White
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>bfgblk=&#34;$(tput setaf 8)&#34; # Black - Bright
+</span></span></span><span style=display:flex><span>bfgblk=&#34;$(tput setaf 8)&#34; # Black - Bright
 </span></span><span style=display:flex><span>bfgred=&#34;$(tput setaf 9)&#34; # Red
 </span></span><span style=display:flex><span>bfggrn=&#34;$(tput setaf 10)&#34; # Green
 </span></span><span style=display:flex><span>bfgylw=&#34;$(tput setaf 11)&#34; # Yellow
@@ -127,7 +127,7 @@
 </span></span><span style=display:flex><span>bfgcyn=&#34;$(tput setaf 14)&#34; # Cyan
 </span></span><span style=display:flex><span>bfgwht=&#34;$(tput setaf 15)&#34; # White
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>bgblk=&#34;$(tput setab 0)&#34; # Black - Background
+</span></span></span><span style=display:flex><span>bgblk=&#34;$(tput setab 0)&#34; # Black - Background
 </span></span><span style=display:flex><span>bgred=&#34;$(tput setab 1)&#34; # Red
 </span></span><span style=display:flex><span>bggrn=&#34;$(tput setab 2)&#34; # Green
 </span></span><span style=display:flex><span>bgylw=&#34;$(tput setab 3)&#34; # Yellow
@@ -136,7 +136,7 @@
 </span></span><span style=display:flex><span>bgcyn=&#34;$(tput setab 6)&#34; # Cyan
 </span></span><span style=display:flex><span>bgwht=&#34;$(tput setab 7)&#34; # White
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>bbgblk=&#34;$(tput setab 8)&#34; # Black - Background - Bright
+</span></span></span><span style=display:flex><span>bbgblk=&#34;$(tput setab 8)&#34; # Black - Background - Bright
 </span></span><span style=display:flex><span>bbgred=&#34;$(tput setab 9)&#34; # Red
 </span></span><span style=display:flex><span>bbggrn=&#34;$(tput setab 10)&#34; # Green
 </span></span><span style=display:flex><span>bbgylw=&#34;$(tput setab 11)&#34; # Yellow
@@ -145,7 +145,7 @@
 </span></span><span style=display:flex><span>bbgcyn=&#34;$(tput setab 14)&#34; # Cyan
 </span></span><span style=display:flex><span>bbgwht=&#34;$(tput setab 15)&#34; # White
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>normal=&#34;$(tput sgr0)&#34; # text reset
+</span></span></span><span style=display:flex><span>normal=&#34;$(tput sgr0)&#34; # text reset
 </span></span><span style=display:flex><span>mkbold=&#34;$(tput bold)&#34; # make bold
 </span></span><span style=display:flex><span>undrln=&#34;$(tput smul)&#34; # underline
 </span></span><span style=display:flex><span>noundr=&#34;$(tput rmul)&#34; # remove underline
@@ -155,7 +155,7 @@
 |
 <a href=https://youtube.com/c/LeandroLemos target=_blank>YouTube</a>
 |
-<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2025
+<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2026
 <a href=https://ceso.github.io/><strong>Ceso</strong></a>.</p><p class=builtWith>Built with
 <a href=http://www.gohugo.io/>Hugo</a> by ceso,
 using <a href=https://github.com/ceso/smigle-lagom>smigle-lagom</a> a fork of the theme

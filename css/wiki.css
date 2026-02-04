@@ -325,18 +325,6 @@ h1.title {
     font-weight: bold;
   }
 
-  a:link {
-    color: #ff0000;
-  }
-
-  a:visited {
-    color: #5bf;
-  }
-
-  a:hover {
-    color: #ff7d00;
-  }
-
   #brand a {
     color: #fefefe;
   }

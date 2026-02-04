@@ -3,7 +3,7 @@ For more details, look up into the [Exploit Development/Reversing/AV|EDR Bypass]
 &lt;hr&gt;
 &lt;h1 id="if-not-av-bypass-and-admin-disable-defender"&gt;If NOT AV Bypass and Admin, DISABLE Defender&lt;/h1&gt;
 &lt;p&gt;If we have admin creds, we could disable Win Defender, please note THIS IS NEVER a good idea in production environments as this can be monitored!!&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Query &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; there is already an excluded path
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-console" data-lang="console"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Query &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; there is already an excluded path
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Get-MpPreference | select-object -ExpandProperty ExclusionPath
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;# Disable real time monitoring
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Set-MpPreference -DisableRealtimeMonitoring $true

@@ -39,21 +39,21 @@
 </a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/sshuttle/>sshuttle</a></div></details><details><summary>Privilege Escalation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/>Linux
 </a><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/>Windows</a></div></details><details><summary>Reverse Shells</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/bash/>Bash
 </a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/metasploit/>Metasploit
-</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>Windows</h1></header><article><h1 id=trusted-folders>Trusted Folders</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>accesschk.exe &#34;ceso&#34; C:\ -wus
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>Windows</h1></header><article><h1 id=trusted-folders>Trusted Folders</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>accesschk.exe &#34;ceso&#34; C:\ -wus
 </span></span><span style=display:flex><span>  -&gt; -w is to locate writable directories
 </span></span><span style=display:flex><span>  -&gt; -u supress errors
 </span></span><span style=display:flex><span>  -&gt; -s makes recursion on all subdirectories
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>icacls.exe C:\Windows\Tasks
+</span></span></span><span style=display:flex><span>icacls.exe C:\Windows\Tasks
 </span></span><span style=display:flex><span>  ^-- Verify if Tasks has execution permissions for example (flag is &#34;RX&#34;)
-</span></span></code></pre></div><hr><h1 id=check-os-information>Check OS Information</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>systeminfo
+</span></span></code></pre></div><hr><h1 id=check-os-information>Check OS Information</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>systeminfo
 </span></span><span style=display:flex><span>ver
-</span></span></code></pre></div><hr><h1 id=check-architecture>Check Architecture</h1><h2 id=without-powershell>Without PowerShell</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>wmic os get osarchitecture
+</span></span></code></pre></div><hr><h1 id=check-architecture>Check Architecture</h1><h2 id=without-powershell>Without PowerShell</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>wmic os get osarchitecture
 </span></span><span style=display:flex><span>echo %PROCESSOR_ARCHITECTURE%
-</span></span></code></pre></div><h2 id=with-powershell>With PowerShell</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>[Environment]::Is64BitProcess
-</span></span></code></pre></div><hr><h1 id=check-the-type-of-language-available-with-powershell>Check the Type of Language available with Powershell</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console><span style=display:flex><span>$ExecutionContext.SessionState.LanguageMode
+</span></span></code></pre></div><h2 id=with-powershell>With PowerShell</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>[Environment]::Is64BitProcess
+</span></span></code></pre></div><hr><h1 id=check-the-type-of-language-available-with-powershell>Check the Type of Language available with Powershell</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>$ExecutionContext.SessionState.LanguageMode
 </span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>
-</span></span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010></span>Possible types are:
+</span></span></span><span style=display:flex><span>Possible types are:
 </span></span><span style=display:flex><span>  - Full Language
 </span></span><span style=display:flex><span>  - RestrictedLanguage
 </span></span><span style=display:flex><span>  - No Language
@@ -62,7 +62,7 @@
 |
 <a href=https://youtube.com/c/LeandroLemos target=_blank>YouTube</a>
 |
-<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2025
+<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2026
 <a href=https://ceso.github.io/><strong>Ceso</strong></a>.</p><p class=builtWith>Built with
 <a href=http://www.gohugo.io/>Hugo</a> by ceso,
 using <a href=https://github.com/ceso/smigle-lagom>smigle-lagom</a> a fork of the theme
