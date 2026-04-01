@@ -3,15 +3,17 @@
    ============================== */
 :root {
   --bg: #000;
-  --card: #0b1220;
-  --muted: #9aa4b2;
-  --accent: #7dd3fc;
+  --card: #0a0a0a;
+  --muted: #5bf;
+  --accent: #ff0000;
+  --hovercolor: #ff7d00;
+  --fontcolor: #00ff00;
+  --headingcolor: #fff;
+  --brandcolor: #fefefe;
   --glass: rgba(255, 255, 255, 0.03);
   --radius: 12px;
   --gap: 18px;
   --max-width: 1800px;
-
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
 /* ==============================
@@ -25,13 +27,23 @@ html,
 body {
   height: 100%;
   margin: 0;
-  color: #e6eef6;
+  font: 1rem/1.5 monospace;
+  color: var(--fontcolor);
+  background: var(--bg);
   overflow-x: auto;
 }
 
 a {
   color: var(--accent);
   text-decoration: none;
+}
+
+a:visited {
+  color: var(--muted);
+}
+
+a:hover {
+  color: var(--hovercolor);
 }
 
 a:focus {
@@ -53,11 +65,11 @@ a:focus {
 }
 
 /* ==============================
-   Sidebar 
+   Sidebar
    (sticky Table of Contents)
    ============================== */
 nav.sidebar {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
   border-radius: var(--radius);
   padding: 16px;
   height: calc(100vh - 80px);
@@ -70,7 +82,7 @@ nav.sidebar {
 nav h2 {
   margin: 6px 0 12px 6px;
   font-size: 14px;
-  color: var(--accent);
+  color: var(--headingcolor);
   letter-spacing: 0.06em;
 }
 
@@ -89,6 +101,7 @@ nav summary {
   align-items: center;
   gap: 8px;
   font-weight: 600;
+  color: var(--fontcolor);
 }
 
 nav summary::-webkit-details-marker {
@@ -96,7 +109,7 @@ nav summary::-webkit-details-marker {
 }
 
 nav summary::before {
-  content: '▸';
+  content: '>';
   display: inline-block;
   transform-origin: 50% 50%;
   transition: transform 0.18s ease;
@@ -112,14 +125,14 @@ nav summary:hover {
 }
 
 nav summary:focus {
-  outline: 3px solid rgba(125, 211, 252, 0.15);
+  outline: 3px solid rgba(255, 0, 0, 0.3);
   outline-offset: 3px;
 }
 
 nav .children {
   margin-left: 12px;
   padding-left: 6px;
-  border-left: 1px dashed rgba(255,255,255,0.03);
+  border-left: 1px dashed rgba(0, 255, 0, 0.15);
 }
 
 nav .children a {
@@ -131,21 +144,44 @@ nav .children a {
 }
 
 nav .children a:hover {
-  color: #fff;
-  background: rgba(255,255,255,0.02);
+  color: var(--hovercolor);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+nav .sidebar-divider {
+  border: none;
+  border-top: 1px solid rgba(0, 255, 0, 0.1);
+  margin: 12px 0;
+}
+
+nav .sidebar-footer {
+  padding: 8px;
+  color: var(--fontcolor);
+  font-size: 13px;
+  opacity: 0.6;
 }
 
 /* ==============================
    Main content area
    ============================== */
 main {
-  display: inline-block;
-  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.01));
   padding: 26px;
   border-radius: var(--radius);
   min-height: 60vh;
-  border: 1px solid rgba(255,255,255,0.03);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  overflow-wrap: break-word;
   overflow-wrap: anywhere;
+}
+
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+  color: var(--headingcolor);
+  font-weight: bold;
 }
 
 header.page-title {
@@ -155,14 +191,15 @@ header.page-title {
   margin-bottom: 18px;
 }
 
-header h1 {
+header.page-title h1 {
   margin: 0;
   font-size: 20px;
+  color: var(--headingcolor);
 }
 
-header p {
+header.page-title p {
   margin: 0;
-  color: var(--muted);
+  color: var(--fontcolor);
 }
 
 section {
@@ -174,13 +211,13 @@ section h3 {
 }
 
 pre {
-  background: #051223;
+  background: #0a0a0a;
   padding: 14px;
   border-radius: 10px;
   overflow-x: auto;
   overflow-y: auto;
   white-space: pre-wrap;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 :target {
@@ -194,8 +231,8 @@ pre {
 header {
   display: flex;
   flex-direction: column;
-  align-items: center; /* center elements horizontally */
-  text-align: center;  /* center text */
+  align-items: center;
+  text-align: center;
   gap: 10px;
   padding: 16px 0;
 }
@@ -203,28 +240,13 @@ header {
 #brand {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   text-align: left;
 }
 
-header nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-}
-
-header hr {
-  border: none;
-  border-top: 2px solid #ccc;
-  width: 23%;
-  margin: 12px auto;
-}
-
-.site-title {
-  font-size: 2rem;
-  font-weight: bolder;
-  margin: 0;
+#brand a {
+  color: var(--brandcolor);
+  text-decoration: none;
 }
 
 #brand h1,
@@ -242,6 +264,34 @@ header hr {
   width: 75px;
 }
 
+.site-title {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 0;
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+header nav a {
+  color: var(--accent);
+}
+
+header nav a:hover {
+  color: var(--hovercolor);
+}
+
+header hr {
+  border: none;
+  border-top: 2px solid rgba(0, 255, 0, 0.2);
+  width: 23%;
+  margin: 12px auto;
+}
+
 /* ==============================
    Footer
    ============================== */
@@ -249,22 +299,30 @@ footer {
   display: block;
   margin-top: 30px;
   text-align: center;
+  color: var(--fontcolor);
+}
+
+footer a {
+  color: var(--accent);
+}
+
+footer a:visited {
+  color: var(--muted);
 }
 
 footer hr {
   border: none;
-  border-top: 2px solid #ccc;
+  border-top: 2px solid rgba(0, 255, 0, 0.2);
   width: 45%;
   margin: 12px auto;
 }
 
 /* ==============================
    Titles & Sections
-   ==============================*/
+   ============================== */
 h1.title {
   margin: 0;
 }
-
 
 /* ==============================
    Responsive adjustments
@@ -288,8 +346,8 @@ h1.title {
   }
 
   header #brand {
-    flex-direction: row;      /* icon left, text right */
-    align-items: center;      /* vert center the icon and titles */
+    flex-direction: row;
+    align-items: center;
     text-align: unset;
   }
 
@@ -300,43 +358,17 @@ h1.title {
   header .site-title {
     font-size: 35px;
   }
+
   header #brand h3 {
     font-size: 25px;
   }
 }
 
 /* ==============================
-   Dark Mode
+   Reduced Motion
    ============================== */
-@media (prefers-color-scheme: dark) {
-  body {
-    color: #00ff00;
-    background: #000000;
-  }
-
-  article h1,
-  article h2,
-  article h3,
-  article h4,
-  article h5,
-  article h6 {
-    color: #ffffff;
-    font-weight: bold;
-  }
-
-  a:link {
-    color: #ff0000;
-  }
-
-  a:visited {
-    color: #5bf;
-  }
-
-  a:hover {
-    color: #ff7d00;
-  }
-
-  #brand a {
-    color: #fefefe;
+@media (prefers-reduced-motion: reduce) {
+  nav summary::before {
+    transition: none;
   }
 }

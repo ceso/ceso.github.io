@@ -5,15 +5,20 @@
   --bgcolor: #000;
   --fontcolor: #00ff00;
   --linkcolor: #ff0000;
+  --hovercolor: #ff7d00;
   --visitedcolor: #5bf;
-  --precolor: #fff;
-  --prebgcolor: #000;
+  --headingcolor: #fff;
+  --brandcolor: #fefefe;
   --asciitoc-color: #ffffff;
 }
 
 /*==============================
   Global Styles
 ==============================*/
+* {
+  box-sizing: border-box;
+}
+
 html {
   overflow-y: scroll;
 }
@@ -40,12 +45,23 @@ a:visited,
 a:active {
   color: var(--visitedcolor);
 }
+a:hover {
+  color: var(--hovercolor);
+}
+a:focus {
+  outline: 2px dashed var(--linkcolor);
+  outline-offset: 3px;
+}
 
 /* Images */
 img {
-  min-width: 100%;
   max-width: 100%;
+  height: auto;
   margin: 3px 0;
+}
+
+article img {
+  width: 100%;
 }
 
 /*==============================
@@ -54,7 +70,7 @@ img {
 header {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   text-align: left;
   gap: 10px;
   padding: 16px 0;
@@ -63,7 +79,7 @@ header {
 #brand {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   text-align: left;
 }
 
@@ -101,7 +117,7 @@ header nav {
 
 header hr {
   border: none;
-  border-top: 2px solid #ccc;
+  border-top: 2px solid rgba(0, 255, 0, 0.2);
   width: 80%;
   margin: 12px auto;
 }
@@ -207,20 +223,18 @@ h1.title {
 .post-nav {
   width: 100%;
   margin: 25px 0 10px 0;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .post-nav-left {
-  display: inline;
-}
-.post-nav-left a {
-  margin-right: 30px;
+  display: block;
 }
 
 .post-nav-right {
-  float: right;
+  display: block;
   text-align: right;
-  display: inline;
 }
 
 /*==============================
@@ -279,45 +293,37 @@ pre {
 }
 
 /*==============================
-  Dark Mode
+  404 Error Page
 ==============================*/
-@media (prefers-color-scheme: dark) {
-  body {
-    color: #00ff00;
-    background: #000;
-  }
+.error-page {
+  text-align: center;
+  padding: 40px;
+}
 
-  article h1,
-  article h2,
-  article h3,
-  article h4,
-  article h5,
-  article h6 {
-    color: #fff;
-    font-weight: bold;
-  }
-
-  a:link {
-    color: #ff0000;
-  }
-  a:visited {
-    color: #5bf;
-  }
-  a:hover {
-    color: #ff7d00;
-  }
-
-  #brand a {
-    color: #fefefe;
-  }
-
-  .asciitoc,
-  .asciitoc a {
-    color: #ffffff;
-  }
+.error-image {
+  max-width: 500px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*==============================
-  Future Color Schemes
+  Headings & Brand
 ==============================*/
-/* Add new color schemes here using media queries or classes */
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  color: var(--headingcolor);
+  font-weight: bold;
+}
+
+#brand a {
+  color: var(--brandcolor);
+}
+
